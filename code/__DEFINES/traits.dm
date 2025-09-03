@@ -47,11 +47,12 @@
 //antag bloodsucker specific
 #define TRAIT_BLOOD_REGEN "Passive Regeneration" //used for bloodsuckers
 #define TRAIT_BLOOD_THRALL "Bloodsucker's Thrall" //used for bloodsuckers
+#define TRAIT_EFFICIENT_DRINKER "Efficient Drinker"
 #define TRAIT_FIRSTBITE "Vampire Bitten" //used for bloodsuckers
 #define TRAIT_LOW_METABOLISM "Low Metabolism" //used for bloodsuckers
 #define TRAIT_HIGH_METABOLISM "High Metabolism" //used for bloodsuckers
 #define TRAIT_NO_VEIL "No Veil" //used for bloodsuckers
-#define TRAIT_NO_VEGAN "No Vegan" //used for bloodsuckers
+#define TRAIT_NOVEGAN "No Vegan" //used for bloodsuckers
 #define TRAIT_PERMADUST "Dust on Death" //used for bloodsuckers, can be used on vampires
 #define TRAIT_SECONDLIFE "Second Life" //used for bloodsuckers
 #define TRAIT_SILENTBITE "Stealth Bite" //used for bloodsuckers
