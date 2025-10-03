@@ -143,6 +143,8 @@
 	icon_state = "infernal0"
 	base_state = "infernal"
 	heat_time = 30 SECONDS
+	var/stress_generator = TRUE
+	var/rotation_structure = TRUE
 
 /obj/machinery/light/rogue/forge/arcane/process()
 	if(isopenturf(loc))
@@ -156,6 +158,26 @@
 			if(fueluse == 0)//It's litterally powered by arcane lava. It's not gonna run out of fuel.
 				fueluse = 4000
 		update_icon()
+
+/obj/machinery/light/rogue/forge/arcane/find_rotation_network()
+	setup_rotation(get_turf(src))
+
+/obj/machinery/light/rogue/forge/arcane/proc/setup_rotation(turf/open/water/river/water)
+	var/obj/structure/arcanefurnace = /obj/machinery/light/rogue/forge/arcane
+	var/wheel_rotation_dir = NORTH //hard coding this northward, artificers should need to work around this. 
+	if(!(wheel_rotation_dir & ALL_CARDINALS))
+		return
+	if(dir == wheel_rotation_dir || dir == REVERSE_DIR(wheel_rotation_dir)) //incorrect orientation
+		return
+
+	if(EWCOMPONENT(wheel_rotation_dir))
+		wheel_rotation_dir = EWDIRFLIP(wheel_rotation_dir)
+	else 
+		wheel_rotation_dir = turn(wheel_rotation_dir, -90)
+	arcanefurnace.last_stress_generation = 0
+	arcanefurnace.set_stress_generation(1536) // 1.5 the stress of a waterwheel
+	arcanefurnace.set_rotational_direction_and_speed(wheel_rotation_dir, 4) //always clockwise and half the power of a waterwheel, cause it can be placed anywhere
+	return TRUE
 
 /obj/structure/leyline
 	name = "inactive leyline"

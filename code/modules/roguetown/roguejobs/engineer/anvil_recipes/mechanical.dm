@@ -3,6 +3,15 @@
 	appro_skill = /datum/skill/craft/engineering
 	craftdiff = 1
 
+//--------- TIN RECIPES -----------
+
+/datum/anvil_recipe/engineering/nails
+	name = "3x nails"
+	req_bar = /obj/item/ingot/tin
+	created_item = /obj/item/construction/nail
+	createditem_num = 3
+	craftdiff = 1
+
 // --------- IRON RECIPES -----------
 
 /datum/anvil_recipe/engineering/jingle_bells
