@@ -173,7 +173,7 @@
 		if(do_after(user, planking_time))
 			if(user.is_holding(src))
 				user.dropItemToGround(src)
-			for(var/i=0, i<=woodtotal, ++i)
+			for(var/i=1, i<=woodtotal, ++i)
 				new /obj/item/natural/wood/plank(get_turf(src.loc))
 			
 			user.mind.add_sleep_experience(/datum/skill/craft/carpentry, (user.STAINT*0.5))

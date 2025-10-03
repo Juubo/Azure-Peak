@@ -573,7 +573,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
 		user.visible_message("<span class='info'>[user] chisels the rock into blocks.</span>")
 		if(do_after(user, 10 SECONDS))
-			for(var/i=1, i<stonetotal, ++i)
+			for(var/i=1, i<=stonetotal, ++i)
 				new /obj/item/natural/stoneblock(get_turf(src.loc))
 
 			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
