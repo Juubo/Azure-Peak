@@ -257,6 +257,25 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 /obj/structure/pressure_plate/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	var/obj/item = user.get_active_held_item()
+	var/mob/living/carbon/C = user
+	var/def_zone = "[(C.active_hand_index == 2) ? "r" : "l" ]_arm"
+	var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
+	if(istype(item,/obj/item/natural/cloth))
+		if(alpha<36)
+			to_chat(user, span_warning("I wipe away the dirt concealing the [name]"))
+			if(do_after(user, 10))
+				alpha = 255
+			return
+	if(istype(item,/obj/item/natural/dirtclod))
+		if(alpha>= 36)
+			to_chat(user, span_warning("I begin to conceal the [name]"))
+			if(do_after(user, 10))
+				alpha = 35
+				qdel(item)
+			return
+		else
+			to_chat(user, span_warning("[name] is already concealed"))
+			return
 	if(user.used_intent.type == /datum/intent/chisel )
 		if (user.get_skill_level(/datum/skill/craft/engineering) <= 3)
 			to_chat(user, span_warning("I need more skill to carve a name into this plate."))

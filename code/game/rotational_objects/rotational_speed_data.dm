@@ -338,28 +338,3 @@
 			continue
 		connected |= surrounding.return_connected(deleted, passed, network)
 	return connected
-
-//setting up finding rotation for an arcane forge
-/obj/machinery/light/rogue/forge/arcane/proc/find_rotation_network()
-	var/obj/structure/arcanefurnace = /obj/machinery/light/rogue/forge/arcane
-	for(var/direction in GLOB.cardinals_multiz)
-		if(!(direction & arcanefurnace.dpdir))
-			continue
-		var/turf/step_forward = get_step_multiz(src, direction)
-		for(var/obj/structure/structure in step_forward?.contents)
-			if(!structure.rotation_network || !structure.dpdir)
-				continue
-			if(!(REVERSE_DIR(direction) & structure.dpdir))
-				continue
-			if(arcanefurnace.rotation_network)
-				if(!structure.try_network_merge(src))
-					arcanefurnace.rotation_break()
-			else
-				if(!structure.try_connect(src))
-					arcanefurnace.rotation_break()
-
-	if(!arcanefurnace.rotation_network)
-		arcanefurnace.rotation_network = new
-		arcanefurnace.rotation_network.add_connection(src)
-		arcanefurnace.last_stress_added = 0
-		arcanefurnace.set_stress_use(arcanefurnace.stress_use)

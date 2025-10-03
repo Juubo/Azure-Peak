@@ -165,8 +165,8 @@
 			woodtotal = pick(4,5,6)
 		else
 			woodtotal = 1
-	if(HAS_TRAIT(user, TRAIT_MASTER_CARPENTER)) //double the amount for any in a woodworking role
-		woodtotal += woodtotal
+	if(HAS_TRAIT(user, TRAIT_MASTER_CARPENTER)) //we give extra to those in the role
+		woodtotal += pick(1,2,3)
 	if(I.tool_behaviour == TOOL_SAW)
 		playsound(get_turf(src.loc), 'sound/foley/sawing.ogg', 100)
 		user.visible_message("<span class='notice'>[user] starts sawing planks from [src].</span>")
