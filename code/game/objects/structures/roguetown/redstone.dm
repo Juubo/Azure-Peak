@@ -240,7 +240,7 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		var/mob/living/L = AM
 		to_chat(L, "<span class='info'>I feel something click beneath me.</span>")
 		AM.log_message("has activated a pressure plate", LOG_GAME)
-		playsound(src, 'sound/misc/pressurepad_down.ogg', 65, extrarange = 2)
+		playsound(src, 'sound/misc/pressurepad_down.ogg', 35, extrarange = 2)
 
 /obj/structure/pressure_plate/Uncrossed(atom/movable/AM)
 	. = ..()
@@ -250,16 +250,13 @@ GLOBAL_LIST_EMPTY(redstone_objs)
 		triggerplate()
 
 /obj/structure/pressure_plate/proc/triggerplate()
-	playsound(src, 'sound/misc/pressurepad_up.ogg', 65, extrarange = 2)
+	playsound(src, 'sound/misc/pressurepad_up.ogg', 35, extrarange = 2)
 	for(var/obj/structure/O in redstone_attached)
 		spawn(0) O.redstone_triggered()
 
 /obj/structure/pressure_plate/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	var/obj/item = user.get_active_held_item()
-	var/mob/living/carbon/C = user
-	var/def_zone = "[(C.active_hand_index == 2) ? "r" : "l" ]_arm"
-	var/obj/item/bodypart/BP = C.get_bodypart(def_zone)
 	if(istype(item,/obj/item/natural/cloth))
 		if(alpha<36)
 			to_chat(user, span_warning("I wipe away the dirt concealing the [name]"))

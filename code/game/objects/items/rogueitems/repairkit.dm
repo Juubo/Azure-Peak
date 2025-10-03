@@ -65,7 +65,7 @@
 				playsound(user, 'sound/misc/wood_saw.ogg', 100, TRUE)
 				windowrepair.icon_state = "[windowrepair.base_state]"
 				windowrepair.density = TRUE
-				windowrepair.opacity = TRUE //we're boarding up the window on this, so we lose the ability to see through it
+				//windowrepair.opacity = TRUE //we're boarding up the window on this, but leaving this out for now.
 				windowrepair.brokenstate = FALSE
 				windowrepair.obj_broken = FALSE
 				if(HAS_TRAIT(user,TRAIT_MASTER_CARPENTER)) //carpenter roles can buff the integrity of windows another 500 over max
