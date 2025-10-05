@@ -323,7 +323,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 		user.visible_message("<span class='info'>[user] chisels the stone into a block.</span>")
 		if(do_after(user, work_time))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			if(HAS_TRAIT(user, TRAIT_MASTER_MASONRY)) //double the amount for any in a stone worker role
+			if(HAS_TRAIT(user, TRAIT_MASTER_MASON)) //double the amount for any in a stone worker role
 				new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
 			playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
@@ -448,7 +448,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
 			new /obj/item/natural/stoneblock(get_turf(src.loc))
-			if(HAS_TRAIT(user, TRAIT_MASTER_MASONRY)) //double the amount for any in a stone worker role
+			if(HAS_TRAIT(user, TRAIT_MASTER_MASON)) //double the amount for any in a stone worker role
 				new /obj/item/natural/stoneblock(get_turf(src.loc))
 				new /obj/item/natural/stoneblock(get_turf(src.loc))
 				new /obj/item/natural/stoneblock(get_turf(src.loc))
@@ -567,7 +567,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 /obj/structure/roguerock/attackby(obj/item/W, mob/living/user, params)
 	. = ..()
 	var/stonetotal = 4
-	if(HAS_TRAIT(user, TRAIT_MASTER_MASONRY)) //double the amount for any in a stone worker role
+	if(HAS_TRAIT(user, TRAIT_MASTER_MASON)) //double the amount for any in a stone worker role
 		stonetotal += stonetotal
 	if( user.used_intent.type == /datum/intent/chisel )
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)

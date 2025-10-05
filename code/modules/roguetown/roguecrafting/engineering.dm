@@ -181,7 +181,7 @@
 	category = "Rotational"
 	result = list(/obj/item/rotation_contraption/cog,
 				  /obj/item/rotation_contraption/cog)
-	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/roguegear = 2, /obj/item/rotation_contraption/shaft = 2)
+	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/roguegear = 2, /obj/item/grown/log/tree/stick = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -193,7 +193,7 @@
 	name = "wooden waterwheel"
 	category = "Rotational"
 	result = /obj/item/rotation_contraption/waterwheel
-	reqs = list(/obj/item/natural/wood/plank = 3, /obj/item/rotation_contraption/shaft = 1)
+	reqs = list(/obj/item/natural/wood/plank = 3, /obj/item/grown/log/tree/stick = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -204,7 +204,7 @@
 	name = "large wooden cogwheel"
 	category = "Rotational"
 	result = /obj/item/rotation_contraption/large_cog
-	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/bronze = 1, /obj/item/rotation_contraption/shaft = 1)
+	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/bronze = 1, /obj/item/grown/log/tree/stick = 1)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -215,7 +215,7 @@
 	name = "gearbox"
 	category = "Rotational"
 	result = /obj/item/rotation_contraption/horizontal
-	reqs = list(/obj/item/rotation_contraption/shaft = 2, /obj/item/natural/stoneblock = 2)
+	reqs = list(/obj/item/roguegear = 2, /obj/item/natural/stoneblock = 2,/obj/item/grown/log/tree/stick = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -225,7 +225,7 @@
 	name = "vertical gearbox"
 	category = "Rotational"
 	result = /obj/item/rotation_contraption/vertical
-	reqs = list(/obj/item/rotation_contraption/shaft = 2, /obj/item/natural/stoneblock = 2)
+	reqs = list(/obj/item/roguegear = 2, /obj/item/natural/stoneblock = 2, /obj/item/grown/log/tree/stick = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -268,7 +268,7 @@
 	name = "minecart"
 	category = "Minecarts"
 	result = /obj/structure/closet/crate/miningcar
-	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/iron = 1, /obj/item/rotation_contraption/shaft = 2, /obj/item/roguegear = 2)
+	reqs = list(/obj/item/grown/log/tree/small = 1, /obj/item/ingot/iron = 1, /obj/item/grown/log/tree/stick = 4, /obj/item/roguegear = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering

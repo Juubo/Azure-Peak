@@ -214,7 +214,7 @@
 
 //role related traits
 #define TRAIT_MASTER_CARPENTER "Master Carpenter"
-#define TRAIT_MASTER_MASONRY "Master Masonry"
+#define TRAIT_MASTER_MASON "Master Masonry"
 
 // If you want description to show up you gotta have the trait name defined BEFORE this lol
 
@@ -393,7 +393,7 @@ GLOBAL_LIST_INIT(roguetraits, list(
 	TRAIT_DREAMWALKER = span_warning("I walk the dream and reality at the same time. My mind frays, but my vision shall be reality."),
 	TRAIT_ENGINEERING_GOGGLES = span_warning("I can see structural details others can't"),
 	TRAIT_MASTER_CARPENTER = span_warning("I've been trained to make the most of wood"), 
-	TRAIT_MASTER_MASONRY = span_warning("I've been trained to make the most of stone"), 
+	TRAIT_MASTER_MASON = span_warning("I've been trained to make the most of stone"), 
 ))
 
 // trait accessor defines

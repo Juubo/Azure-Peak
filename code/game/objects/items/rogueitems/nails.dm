@@ -14,7 +14,7 @@
 	possible_item_intents = list(/datum/intent/use)
 	force = 1
 	throwforce = 0
-	dropshrink = 0.2
+	dropshrink = 0.8
 	obj_flags = null
 	resistance_flags = FIRE_PROOF
 	slot_flags = null
@@ -58,6 +58,7 @@
 	drop_sound = 'sound/foley/coinphy (1).ogg'
 	possible_item_intents = list(/datum/intent/use)
 	force = 0
+	dropshrink = 0.8
 	throwforce = 0
 	throw_range = 5
 	resistance_flags = FIRE_PROOF
