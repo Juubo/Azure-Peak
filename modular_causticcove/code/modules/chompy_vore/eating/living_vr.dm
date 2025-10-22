@@ -340,9 +340,9 @@
 //
 // Clearly super important. Obviously.
 //
-/mob/living/proc/lick(mob/living/tasted in living_mobs_in_view(1, TRUE))
+/mob/living/verb/lick(mob/living/tasted in living_mobs_in_view(1, TRUE))
 	set name = "Lick"
-	set category = "IC.Game"
+	set category = "Abilities.Vore"
 	set desc = "Lick someone nearby!"
 	set popup_menu = FALSE // Stop licking by accident!
 
@@ -385,9 +385,9 @@
 
 
 //This is just the above proc but switched about.
-/mob/living/proc/smell(mob/living/smelled in living_mobs(1, TRUE))
+/mob/living/verb/smell(mob/living/smelled in living_mobs(1, TRUE))
 	set name = "Smell"
-	set category = "IC.Game"
+	set category = "Abilities.Vore"
 	set desc = "Smell someone nearby!"
 	set popup_menu = FALSE
 
@@ -578,12 +578,14 @@
 /mob/living/proc/get_digestion_efficiency_modifier()
 	return 1
 
-/*/mob/living/proc/eat_trash()
-	set name = "Eat Trash"
+/mob/living/verb/eat_trash()
+	set name = "Eat object"
 	set category = "Abilities.Vore"
-	set desc = "Consume held garbage."
+	set desc = "Consume held object into currently selected belly."
 
-	if(stat || paralysis || weakened || stunned || world.time < last_special)
+	//on chomp it worked off a whitelist of items you could devour, hope is that here it can be replaced by a long windup before eating something
+
+	if(stat ||  world.time < last_special) //probably needs a look over for CC specific states but probably should be fine ?
 		to_chat(src, span_warning("You can't do that in your current state."))
 		return
 
@@ -592,23 +594,28 @@
 		return
 
 	var/obj/item/I = get_active_held_item()
+
 	if(!I)
 		to_chat(src, span_notice("You are not holding anything."))
 		return
 
-	if(is_type_in_list(I, GLOB.edible_trash) || adminbus_trash || is_type_in_list(I,GLOB.edible_tech) && isSynthetic()) // adds edible tech for synth
-		if(!I.on_trash_eaten(src)) // shows object's rejection message itself
-			return
-		drop_item()
+	if(!(I.grid_height <= world.icon_size || I.grid_height <= world.icon_size))
+		to_chat(src,span_warning("You can't eat such a large thing !"))//yet
+		return
+
+	if(do_after(src, 10 SECONDS)){
 		I.forceMove(vore_selected)
 		updateVRPanel()
 		log_admin("VORE: [src] used Eat Trash to swallow [I].")
-		I.after_trash_eaten(src)
+		
 		visible_message(span_warning(src.vore_selected.belly_format_string(src.vore_selected.trash_eater_in, I, item=I)))
-		return
-	to_chat(src, span_notice("This snack is too powerful to go down that easily."))
+	}else{
+		to_chat(src,span_warning("You need to stay still to eat that!"))
+	}
+
 	return
 
+/*
 /mob/living/proc/toggle_trash_catching() //Ported from chompstation
 	set name = "Toggle Trash Catching"
 	set category = "Abilities.Vore"

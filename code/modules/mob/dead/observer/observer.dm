@@ -379,12 +379,12 @@ Works together with spawning an observer, noted above.
 			if(force_respawn)
 				mind.remove_antag_datum(/datum/antagonist/zombie)
 				return ..()
-			var/datum/antagonist/zombie/Z = mind.has_antag_datum(/datum/antagonist/zombie)
-			if(!Z.revived)
-				//Caustic edit
-				mind.remove_antag_datum(/datum/antagonist/zombie)
-				return ..()
-				//Caustic edit end
+			//var/datum/antagonist/zombie/Z = mind.has_antag_datum(/datum/antagonist/zombie)
+			//Caustic edit
+			//if(!Z.revived)
+			//	mind.remove_antag_datum(/datum/antagonist/zombie)
+			//	return ..()
+			//Caustic edit end
 	return ..()
 
 /mob/proc/scry_ghost()
@@ -1059,10 +1059,6 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		set_light(1, 1, 2)
 	else
 		set_light(0, 0, 0)
-
-// Ghosts have no momentum, being massless ectoplasm
-/mob/dead/observer/Process_Spacemove(movement_dir)
-	return 1
 
 /mob/dead/observer/vv_edit_var(var_name, var_value)
 	. = ..()

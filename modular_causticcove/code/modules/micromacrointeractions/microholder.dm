@@ -86,10 +86,16 @@
 		held.transform *= 0.7
 
 /obj/item/micro/Exited(mob/held, atom/newLoc)
-	if(held == held_mob)
-		held_mob.set_resting(FALSE,FALSE)
-		held_mob.transform = original_transform
-		held_mob.update_transform()
+	var/mob/living/current_held = held_mob
+	. = ..()
+	if(held == current_held)
+		current_held.set_resting(FALSE,FALSE)
+		current_held.transform = original_transform
+		current_held.update_transform()
+		current_held.vis_flags = original_vis_flags
+		vis_contents -= current_held
+		original_transform = null
+		original_vis_flags = NONE
 		held_mob = null
 
 /obj/item/micro/MouseDrop(mob/living/M)

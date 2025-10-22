@@ -1,6 +1,7 @@
 /datum/customizer/organ/tail
 	name = "Tail"
 	abstract_type = /datum/customizer/organ/tail
+	allows_disabling = TRUE
 
 /datum/customizer_choice/organ/tail
 	name = "Tail"
@@ -167,6 +168,7 @@
 		/datum/sprite_accessory/tail/forked_long,
 		/datum/sprite_accessory/tail/haven,
 		/datum/sprite_accessory/tail/swallow,
+		/datum/sprite_accessory/tail/zorzor,
 		//Caustic edit
 		/datum/sprite_accessory/tail/tiefling,
 		/datum/sprite_accessory/tail/tiefling/heart,
@@ -210,6 +212,7 @@
 		/datum/sprite_accessory/tail/large_snake,
 		/datum/sprite_accessory/tail/large_snake_plain,
 		/datum/sprite_accessory/tail/large_tails/large_shark,
+		/datum/sprite_accessory/tail/lizard/kobold,
 		//Caustic edit end
 		/datum/sprite_accessory/tail/murid,
 		/datum/sprite_accessory/tail/orca,
@@ -249,6 +252,7 @@
 		/datum/sprite_accessory/tail/forked_long,
 		/datum/sprite_accessory/tail/haven,
 		/datum/sprite_accessory/tail/swallow,
+		/datum/sprite_accessory/tail/zorzor
 		)
 
 /datum/customizer/organ/tail/dullahan

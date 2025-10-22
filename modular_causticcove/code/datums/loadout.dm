@@ -103,3 +103,8 @@
 /datum/loadout_item/leash_chain
 	name = "chain leash"
 	path = /obj/item/leash/chain
+
+/datum/loadout_item/artificers_cap
+	name = "Artificer's cap"
+	path = /obj/item/clothing/head/roguetown/articap
+

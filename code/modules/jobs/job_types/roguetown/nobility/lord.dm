@@ -187,6 +187,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 	Light on skills, has some combat skills mage normally doesn't have. 18 pts so people don't complain they are better.
 	Stats is better than mage associate and magic heir. +12 total.
 	Mage armor and no armor training.
+
+
+	King's addition: Porting this to Azure after a long time. May adjust later to compromise with other vision for the role. Also gave them a fucking satchel.
 */
 /datum/advclass/lord/mage
 	name = "Mage Lord"
@@ -215,8 +218,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 
 /datum/outfit/job/roguetown/lord/mage/pre_equip(mob/living/carbon/human/H)
 	..()
-	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/roguegem/amethyst = 1, /obj/item/spellbook_unfinished/pre_arcyne = 1)
+	backr = /obj/item/storage/backpack/rogue/satchel
 
+	backpack_contents = list(/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1, /obj/item/roguegem/amethyst = 1, /obj/item/spellbook_unfinished/pre_arcyne = 1)
 
 /** 
 	Inbred Lord subclass. A joke class, evolution of the Inbred Wastrel.

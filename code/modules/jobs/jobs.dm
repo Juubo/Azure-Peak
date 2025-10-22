@@ -134,6 +134,7 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Prisoner",
 	"Beggar",
 	"Adventurer",
+	"Trader",
 	"Pilgrim",
 	"Bandit",
 	"Wild Soul", //caustic edit, also i have no fucking idea how it actually gets the right class from this. but it works! somehow

@@ -1,4 +1,4 @@
-//gambeson family
+// GAMBESON ARMOUR
 
 /obj/item/clothing/suit/roguetown/armor/gambeson
 	slot_flags = ITEM_SLOT_ARMOR|ITEM_SLOT_SHIRT

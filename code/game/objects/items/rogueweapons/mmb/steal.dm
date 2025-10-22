@@ -21,6 +21,8 @@
 		var/list/mobsbehind = list()
 		var/exp_to_gain = user_human.STAINT
 		to_chat(user, span_notice("I try to steal from [target_human]..."))	
+		message_admins("[user_human.real_name]([key_name(user_human)]) is attempting to pickpocket [target_human.name]([key_name(target_human)]). [ADMIN_JMP(target_human)]!")
+		log_admin("[user_human.real_name]([key_name(user_human)]) is attempting to pickpocket [target_human.name]([key_name(target_human)]).")
 		if(do_after(user, 5, target = target_human, progress = 0))
 			if(stealroll > targetperception)
 				//TODO add exp here

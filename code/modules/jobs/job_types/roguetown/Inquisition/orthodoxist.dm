@@ -3,11 +3,11 @@
 	flag = ORTHODOXIST
 	department_flag = INQUISITION
 	faction = "Station"
-	total_positions = 3 // THREE GOONS!!
+	total_positions = 3
 	spawn_positions = 3
 	allowed_races = RACES_ALL_KINDS
-	allowed_patrons = list(/datum/patron/old_god) //You MUST have a Psydonite character to start. Just so people don't get japed into Oops Suddenly Psydon!
-	tutorial = "Whether hand-picked by the Sovereignty of Otava or taken along through mere circumstance, you now serve as a loyal adherent to the Inquisitor's retinue. Descend into the darkness and - be it with a clenched fist or an opened palm - bring the inhumen towards the light: gift them salvation or damnation."
+	allowed_patrons = list(/datum/patron/old_god) //Requires your character's patron to be Psydon. This role is explicitly designed to be played by Psydonites, only, and almost everything they have - down to the equipment and statblock - is rooted in Psydonism. Do NOT make this accessable to other faiths, unless you go through the efforts of redesigning it from the ground up.
+	tutorial = "Praise. Atone. Mourn. A hundred different paths across a hundred different lyves, all ending the same; with you swearing fealty to Psydon, and your admittance into the Inquisitor's retinue. Root the abberants out from wherever they dwell, and - whether with a clenched fist or open palm - bring them back to the light."
 	selection_color = JCOLOR_INQUISITION
 	outfit = null
 	outfit_female = null

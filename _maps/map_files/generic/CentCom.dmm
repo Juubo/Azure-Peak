@@ -1499,7 +1499,7 @@
 	endTurfY = 128
 	},
 /turf/closed/mineral/rogue/bedrock,
-/area/rogue/outdoors/woods)
+/area/rogue/indoors/town/church/chapel)
 "Ch" = (
 /obj/structure/table/wood{
 	dir = 10;

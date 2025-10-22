@@ -151,6 +151,7 @@ GLOBAL_LIST_INIT(traits_by_type, list(
 		TRAIT_NECRAS_ABATEMENT,
 		//Caustic edit end
 		TRAIT_ENGINEERING_GOGGLES,
+		TRAIT_EQUESTRIAN
 	),
 	/obj/item/bodypart = list(
 		"TRAIT_PARALYSIS" = TRAIT_PARALYSIS
