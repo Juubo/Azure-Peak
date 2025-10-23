@@ -1163,7 +1163,7 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 
 	var/animate_color = C.color
 	C.color = flash_color
-	if(!check_epilepsy())
+	if(!mob_or_client.check_epilepsy())
 		animate(C, color = animate_color, time = flash_time)
 
 #define RANDOM_COLOUR (rgb(rand(0,255),rand(0,255),rand(0,255)))
