@@ -45,7 +45,8 @@
 	backpack_contents = list(
 		/obj/item/flashlight/flare/torch/lantern,
 		/obj/item/needle,
-		/obj/item/reagent_containers/glass/bottle/rogue/healthpot
+		/obj/item/reagent_containers/glass/bottle/rogue/healthpot,
+		/obj/item/roguekey/mercenary
 		)
 	H.set_blindness(0)
 	beltl = /obj/item/rogueweapon/sword/sabre/mulyeog
