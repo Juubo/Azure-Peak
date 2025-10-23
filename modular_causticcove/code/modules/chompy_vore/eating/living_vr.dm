@@ -909,7 +909,7 @@
 		return
 
 	//Removing an internal organ
-	if(!isnull(T_int) && T_int.damage >= 20) //Internal organ and it's been severely damaged
+	if(!isnull(T_int) && T_int.damage >= 3) //Internal organ and it's been severely damaged
 		T.apply_damage(50, BRUTE, T_ext) //Damage the external organ they're going through.
 		if(B)
 			T_int.forceMove(B) //Move to pred's gut
@@ -956,7 +956,7 @@
 	//Not targeting an internal organ w/ > 50 damage , and the limb doesn't have < 50 damage.
 	else
 		if(T_int)
-			T_int.damage = 25 //Internal organs can only take damage, not brute damage.
+			T_int.damage = 6 //Internal organs can only take damage, not brute damage.
 		T.apply_damage(50, BRUTE, T_ext)
 		visible_message(span_danger("[src] severely damages [T]'s [T_ext.name]!"))
 
