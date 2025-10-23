@@ -25,6 +25,9 @@
 		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE
 	)
 
+/datum/outfit/job/roguetown/mercenary/shrine_priest
+	allowed_patrons = list(/datum/patron/divine/astrata)
+
 /datum/outfit/job/roguetown/mercenary/shrine_priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("Your a priest or Priestess from the eastern lands of Kazengun. Trained in the arts of hunting unnatural or supernatural creatures that interrupt the balance of nature. Using your blade for the sake of others along with the miracles and rituals at your disposal to heal others or burn your foes in holy flame."))
