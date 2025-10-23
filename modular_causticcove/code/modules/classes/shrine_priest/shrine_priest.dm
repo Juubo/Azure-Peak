@@ -7,7 +7,7 @@
 	subclass_languages = list(/datum/language/kazengunese)
 	class_select_category = CLASS_CAT_KAZENGUN
 	category_tags = list(CTAG_MERCENARY)
-	traits_applied = list(TRAIT_STEELHEARTED)
+	traits_applied = list(TRAIT_STEELHEARTED, TRAIT_CRITICAL_RESISTANCE, TRAIT_HARDDISMEMBER, TRAIT_NOPAINSTUN)
 	cmode_music = 'sound/music/combat_kazengite.ogg'
 	subclass_stats = list(
 		STATKEY_INT = 2,
@@ -31,7 +31,6 @@
 /datum/outfit/job/roguetown/mercenary/shrine_priest/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("Your a priest or Priestess from the eastern lands of Kazengun. Trained in the arts of hunting unnatural or supernatural creatures that interrupt the balance of nature. Using your blade for the sake of others along with the miracles and rituals at your disposal to heal others or burn your foes in holy flame."))
-	H.mind?.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/divineblast)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2)
 	head = /obj/item/clothing/head/roguetown/mentorhat
