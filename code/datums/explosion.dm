@@ -5,6 +5,8 @@ GLOBAL_LIST_EMPTY(explosions)
 //If I see any GC errors for it I will find you
 //and I will gib you
 /proc/explosion(atom/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = TRUE, ignorecap = FALSE, flame_range = 0, silent = FALSE, smoke = FALSE, soundin)
+	if(check_epilepsy())
+		flash_range = 0
 	return new /datum/explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog, ignorecap, flame_range, silent, smoke, soundin)
 
 //This datum creates 3 async tasks
