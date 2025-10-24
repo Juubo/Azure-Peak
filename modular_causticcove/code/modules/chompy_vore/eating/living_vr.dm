@@ -896,10 +896,10 @@
 		return
 
 	//Any internal organ, if there are any
-	var/obj/item/organ/internal/T_int = tgui_input_list(src,"Do you wish to severely damage an internal organ, as well? don't forget if you damage something vital they might die. If not, click 'cancel'", "Organ Choice", T.getorganszone(T_ext.body_zone, subzones = TRUE))
+	var/obj/item/organ/internal/T_int = tgui_input_list(src,"Do you wish to severely damage an internal organ, as well? If not, click 'I Rescind', don't forget if you damage something vital they might die.", "Organ Choice", T.getorganszone(T_ext.body_zone, subzones = TRUE))
 
 	//And a belly, if they want
-	var/obj/belly/B = tgui_input_list(src,"To where do you wish to swallow the organ if you tear if out? If not at all, click 'cancel'", "Organ Choice", vore_organs)
+	var/obj/belly/B = tgui_input_list(src,"To where do you wish to swallow the organ if you tear if out? If you want it to fall to the floor click 'I Rescind'", "Organ Choice", vore_organs)
 
 	last_special = world.time + 15 SECONDS
 	visible_message(span_danger("[src] appears to be preparing to do something to [T]!")) //Let everyone know that bad times are ahead
@@ -937,7 +937,7 @@
 			visible_message(span_danger("[src] severely damages [T_ext.name] of [T], resulting in their [T_int.name] coming out!"),span_warning("You tear out [T]'s [T_int.name]!"))
 
 	//Removing an external organ
-	else if(!T_int &&  T_ext.brute_dam >= 50)
+	else if(!T_int &&  T_ext.brute_dam >= 40)
 
 		//Is it groin/chest? You can't remove those.
 		if(istype(T_ext, /obj/item/bodypart/chest))
@@ -953,10 +953,10 @@
 			visible_message(span_warning("[src] tears off [T]'s [T_ext.name]!"),span_warning("You tear off [T]'s [T_ext.name]!"))
 
 
-	//Not targeting an internal organ w/ > 50 damage , and the limb doesn't have < 50 damage.
+	//Not targeting an internal organ w/ > 3 damage , and the limb doesn't have < 30 damage.
 	else
 		if(T_int)
-			T_int.damage = 6 //Internal organs can only take damage, not brute damage.
+			T_int.damage = 10 //Internal organs can only take damage, not brute damage.
 		T.apply_damage(50, BRUTE, T_ext)
 		visible_message(span_danger("[src] severely damages [T]'s [T_ext.name]!"))
 
