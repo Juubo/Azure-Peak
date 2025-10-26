@@ -22,7 +22,7 @@
 		/datum/skill/misc/athletics = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/misc/reading = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/combat/shields = SKILL_LEVEL_JOURNEYMAN,
-		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE
+		/datum/skill/craft/alchemy = SKILL_LEVEL_EXPERT
 	)
 
 /datum/outfit/job/roguetown/mercenary/shrine_priest
