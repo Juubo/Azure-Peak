@@ -899,7 +899,7 @@
 	var/obj/item/organ/internal/T_int = tgui_input_list(src,"Do you wish to severely damage an internal organ, as well? If not, click 'I Rescind', don't forget if you damage something vital they might die.", "Organ Choice", T.getorganszone(T_ext.body_zone, subzones = TRUE))
 
 	//And a belly, if they want
-	var/obj/belly/B = tgui_input_list(src,"To where do you wish to swallow the organ if you tear if out? If you want it to fall to the floor click 'I Rescind'", "Organ Choice", vore_organs)
+	var/obj/belly/B = tgui_input_list(src,"To where do you wish to swallow the organ if you tear if out? If you want it to fall to the floor click 'I Rescind', be WARNED that if you digest/destory the brain (or the head with it) your prey will be effectively ROUND REMOVED and reformation gems will not save them, removing the head/brain means you have to put it back on before the prey uses reformation gem, make sure you have medicine skill if you want to do that", "Organ Choice", vore_organs)
 
 	last_special = world.time + 15 SECONDS
 	visible_message(span_danger("[src] appears to be preparing to do something to [T]!")) //Let everyone know that bad times are ahead
