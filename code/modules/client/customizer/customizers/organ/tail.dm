@@ -174,7 +174,7 @@
 		/datum/sprite_accessory/tail/haven,
 		/datum/sprite_accessory/tail/swallow,
 		/datum/sprite_accessory/tail/zorzor,
-		/datum/sprite_accessory/tail/large_snake_plain
+		/datum/sprite_accessory/tail/large_snake_plain,
 		//Caustic edit
 		/datum/sprite_accessory/tail/tiefling,
 		/datum/sprite_accessory/tail/tiefling/heart,
