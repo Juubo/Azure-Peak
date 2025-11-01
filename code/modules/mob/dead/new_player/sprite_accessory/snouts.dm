@@ -300,6 +300,10 @@
 	color_keys = 2
 	color_key_names = list("Snout", "Inner")
 
+/datum/sprite_accessory/snout/extra_magus
+	name = "Magus"
+	icon_state = "extra_magus"
+
 /******************************************
 **************** Snouts *******************
 *************but higher up*****************/
