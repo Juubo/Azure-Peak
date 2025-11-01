@@ -221,7 +221,6 @@
 		/datum/sprite_accessory/snout/shortnosed,
 		/datum/sprite_accessory/snout/stubby,
 		/datum/sprite_accessory/snout/stubbyalt,
-		/datum/sprite_accessory/snout/extra_magus,
 		)
 
 /datum/customizer_choice/organ/snout/anthro/dullahan
@@ -312,7 +311,6 @@
 		/datum/sprite_accessory/snout/shortnosed,
 		/datum/sprite_accessory/snout/stubby,
 		/datum/sprite_accessory/snout/stubbyalt,
-		/datum/sprite_accessory/snout/extra_magus,
 		)
 
 /datum/customizer/organ/snout/akula
