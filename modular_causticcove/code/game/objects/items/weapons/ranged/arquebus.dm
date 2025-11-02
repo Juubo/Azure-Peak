@@ -504,8 +504,8 @@
 	grid_width = 32
 
 /obj/item/quiver/bulletpouch
-	name = "iron bullet pouch"
-	desc = "A pouch carrying iron bullets."
+	name = "arquebus bullet pouch"
+	desc = "A pouch carrying bullets for firearms."
 	icon = 'icons/roguetown/weapons/ammo.dmi'
 	icon_state = "slingpouch"
 	item_state = "slingpouch"
