@@ -2832,6 +2832,7 @@
 #include "modular_causticcove\code\game\objects\items\clothes\stockings.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\leash.dm"
 #include "modular_causticcove\code\game\objects\items\rogueitems\util.dm"
+#include "modular_causticcove\code\game\objects\items\weapons\ranged\ammo.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\arquebus.dm"
 #include "modular_causticcove\code\modules\baycode_port_helpers\baycode_port_helpers.dm"
 #include "modular_causticcove\code\modules\baycode_port_helpers\chemcolour.dm"
