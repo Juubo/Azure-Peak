@@ -2911,6 +2911,7 @@
 #include "modular_causticcove\code\modules\micromacrointeractions\scoop.dm"
 #include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\ears.dm"
 #include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\horns.dm"
+#include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\snout.dm"
 #include "modular_causticcove\code\modules\nat_armor\nat_armor.dm"
 #include "modular_causticcove\code\modules\nat_armor\virtue.dm"
 #include "modular_causticcove\code\modules\persistance\serialize.dm"
