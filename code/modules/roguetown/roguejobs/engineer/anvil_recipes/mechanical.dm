@@ -269,7 +269,7 @@
 	craftdiff = 5
 
 /datum/anvil_recipe/engineering/powderbag
-	name = "Powder Flask (+1 Cured Hide, +1 Internal ash, +1 Coal)"
+	name = "Powder Flask (+1 Cured Hide, +1 Infernal ash, +1 Coal)"
 	req_bar = /obj/item/ingot/bronze
 	additional_items = list(/obj/item/natural/hide/cured, /obj/item/magic/infernal/ash, /obj/item/rogueore/coal) //Expensive bag to not blow up
 	created_item = /obj/item/powderflask
