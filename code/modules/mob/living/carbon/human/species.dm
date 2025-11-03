@@ -641,7 +641,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(SLOT_BACK)
 			if(H.back)
 				return FALSE
-			if( !(I.slot_flags & ITEM_SLOT_BACK) )
+			if(!(I.slot_flags & ITEM_SLOT_BACK))
 				return FALSE
 			return equip_delay_self_check(I, H, bypass_equip_delay_self)
 		if(SLOT_BACK_R)
