@@ -243,9 +243,11 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 	/// Angle of the icon while wielded, these are used for attack animations. Generally it's flat, but not always.
 	var/icon_angle_wielded = 0
 
+	///Caustic edit begin
 	//RATWOOD COLLAR/LEASH IMPORT
 	var/leashable = FALSE
-
+	///Caustic edit end
+	var/no_use_cd = FALSE //if true, no cooldown when interacting with it
 
 /obj/item/Initialize()
 	. = ..()
@@ -825,7 +827,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 		if(altgripped || wielded)
 			ungrip(user, FALSE)
 	if(twohands_required)
-		if(slot == SLOT_HANDS)
+		if(slot == ITEM_SLOT_HANDS)
 			wield(user)
 		else
 			ungrip(user)
@@ -936,8 +938,6 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 
 	else
 		M.take_bodypart_damage(7)
-
-	SEND_SIGNAL(M, COMSIG_ADD_MOOD_EVENT, "eye_stab", /datum/mood_event/eye_stab)
 
 	log_combat(user, M, "attacked", "[src.name]", "(INTENT: [uppertext(user.used_intent)])")
 

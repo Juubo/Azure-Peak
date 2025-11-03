@@ -60,7 +60,8 @@
 				r_hand = /obj/item/rogueweapon/sword/short/falchion
 				backr = /obj/item/rogueweapon/shield/atgervi
 				beltl = /obj/item/rogueweapon/scabbard/sword
-				// END CC EDIT
+	// END CC EDIT
+	H.mind.current.faction += "[H.name]_faction"
 	head = /obj/item/clothing/head/roguetown/helmet/bascinet/atgervi
 	gloves = /obj/item/clothing/gloves/roguetown/angle/atgervi
 	shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/atgervi
@@ -116,6 +117,7 @@
 	..()
 	H.set_blindness(0)
 	to_chat(H, span_warning("You are a Shaman of the Fjall, The Northern Empty. Savage combatants who commune with the Ecclesical Beast gods through ritualistic violence, rather than idle prayer."))
+	H.mind.current.faction += "[H.name]_faction"
 	H.dna.species.soundpack_m = new /datum/voicepack/male/warrior()
 
 	head = /obj/item/clothing/head/roguetown/helmet/leather/shaman_hood

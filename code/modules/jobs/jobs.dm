@@ -93,6 +93,7 @@ GLOBAL_LIST_INIT(church_positions, list(
 	"Confessor",
 	"Acolyte",
 	"Mortician",
+	"Keeper",
 	"Templar",
 	"Druid",
 	"Martyr",
@@ -126,14 +127,11 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 	"Fisher",
 	"Lumberjack",
 	"Towner",
-	"Grabber",
 	"Nightmaster",
 	"Tapster",
 	"Bathhouse Attendant",
-	"Docker",
 	"Prisoner",
 	"Beggar",
-	"Adventurer",
 	"Trader",
 	"Pilgrim",
 	"Bandit",
@@ -143,10 +141,8 @@ GLOBAL_LIST_INIT(peasant_positions, list(
 ))
 
 GLOBAL_LIST_INIT(mercenary_positions, list(
-	"Mercenary",
 	"Grenzelhoft Mercenary",
 	"Desert Rider Mercenary",
-	"Veteran",
 ))
 
 GLOBAL_LIST_INIT(youngfolk_positions, list(
@@ -160,9 +156,13 @@ GLOBAL_LIST_INIT(youngfolk_positions, list(
 	"Vagabond",
 ))
 
-GLOBAL_LIST_INIT(allmig_positions, list(
+GLOBAL_LIST_INIT(wanderer_positions, list(
+	"Veteran",
 	"Adventurer",
-	"Pilgrim",
+	"Mercenary",
+	"Bandit",
+	"Court Agent",
+	"Wretch",
 ))
 
 GLOBAL_LIST_INIT(roguewar_positions, list(

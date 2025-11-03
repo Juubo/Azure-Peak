@@ -11,7 +11,7 @@
 //0 test
 //12 minutes norma
 //#define ROUNDTIMERBOAT (300 MINUTES)
-#define INITIAL_ROUND_TIMER (165 MINUTES)
+#define INITIAL_ROUND_TIMER (240 MINUTES)
 #define ROUND_EXTENSION_TIME (30 MINUTES)
 #define ROUND_END_TIME (15 MINUTES)
 #define ROUND_END_TIME_VERBAL "15 minutes"
@@ -48,6 +48,8 @@
 #ifdef LOWMEMORYMODE
 #define FORCE_MAP "_maps/roguetest.json"
 #endif
+
+// #define NO_DUNGEON //comment this to load dungeons.
 
 //Update this whenever you need to take advantage of more recent byond features
 #define MIN_COMPILER_VERSION 514

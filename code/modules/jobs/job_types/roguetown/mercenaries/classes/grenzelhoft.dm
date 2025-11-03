@@ -372,7 +372,7 @@
 /datum/outfit/job/roguetown/mercenary/grenzelhoft_arquebusier/pre_equip(mob/living/carbon/human/H)
 	..()
 	to_chat(H, span_warning("You are a former veteran arbalest, outfitted with the latest technologies known to man. Your weapons remain as deadly to the enemy as to you, but your training should overcome it. Run them down, with fire and sword."))
-	beltr = /obj/item/powderflask
+	beltr = /obj/item/rogueweapon/stoneaxe/woodcut/steel
 	beltl = /obj/item/quiver/bulletpouch/iron
 	r_hand = /obj/item/gun/ballistic/arquebus
 	if(H.mind)
@@ -398,6 +398,7 @@
 		/obj/item/storage/belt/rogue/pouch/coins/poor = 1,
 		/obj/item/flashlight/flare/torch = 1,
 		/obj/item/rogueweapon/huntingknife = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1
+		/obj/item/rogueweapon/scabbard/sheath = 1,
+		/obj/item/powderflask = 1
 		)
 	H.merctype = 7
