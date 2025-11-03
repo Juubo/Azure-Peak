@@ -1,8 +1,8 @@
 //Caustic Edit
 GLOBAL_LIST_INIT(named_penis_sizes, list(
-	"Small" = 1,
-	"Average" = 2,
-	"Large" = 3,
+	"small" = 1,
+	"average" = 2,
+	"large" = 3,
 	"massive" = 4,
 	"enormous" = 5,
 ))
@@ -16,14 +16,14 @@ GLOBAL_LIST_INIT(named_ball_sizes, list(
 ))
 
 GLOBAL_LIST_INIT(named_breast_sizes, list(
-	"Flat" = 0,
-	"Very small" = 1,
+	"flat" = 0,
+	"very small" = 1,
 	"small" = 2,
 	"normal" = 3,
 	"large" = 4,
 	"enormous" = 5,
 	"towering" = 6,
-	"gigantic" = 7,
+	"huge" = 7,
 	"gargantuan" = 8,
 	"colossal" = 9,
 	"ungodly big" = 10,
@@ -32,7 +32,7 @@ GLOBAL_LIST_INIT(named_breast_sizes, list(
 	"obscenely large" = 13,
 	"over-endowed" = 14,
 	"unholy" = 15,
-	"baothan-sized" = 16,
+	"baothan" = 16,
 ))
 //Caustic End
 GLOBAL_LIST_INIT(customizer_choices, build_customizer_choices())
