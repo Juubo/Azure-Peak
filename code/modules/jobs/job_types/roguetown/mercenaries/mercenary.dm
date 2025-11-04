@@ -40,6 +40,9 @@
 		/datum/advclass/mercenary/rumaclan,
 		/datum/advclass/mercenary/rumaclan/sasu,
 		/datum/advclass/mercenary/seonjang,
+		///Caustic edit
+		/datum/advclass/mercenary/shrine_priest,
+		///Caustic edit end
 		/datum/advclass/mercenary/steppesman,
 		/datum/advclass/mercenary/warscholar,
 		/datum/advclass/mercenary/warscholar/pontifex,
