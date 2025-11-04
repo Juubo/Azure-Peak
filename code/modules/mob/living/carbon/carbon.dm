@@ -182,8 +182,7 @@
 			if(voremode)
 				nomprob = ((get_stat(STATKEY_LCK - 10) * 10) + ((get_stat(STATKEY_STR) - 10) * 10) + (get_stat(STATKEY_SPD)))
 				if(prob(nomprob))
-				spontaneous_vore_attackby(victim, src)
-				return
+					spontaneous_vore_attackby(victim, src)
 
 
 //Throwing stuff
