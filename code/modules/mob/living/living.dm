@@ -74,7 +74,7 @@
 //Generic Bump(). Override MobBump() and ObjBump() instead of this.
 /mob/living/Bump(atom/A)
 	if(..()) //we are thrown onto something
-		spontaneous_vore_attackby(A, src)
+		//spontaneous_vore_attackby(A, src) ^^^ read 3 lines above
 		return
 	if (buckled || now_pushing)
 		return
