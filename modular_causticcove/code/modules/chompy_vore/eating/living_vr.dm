@@ -125,6 +125,20 @@
 	*/
 	return FALSE
 
+//A variant of vore_attackby for insta noms, primarily to check prefs
+/mob/living/proc/spontaneous_vore_attackby(mob/living/target, mob/user)
+	//Has to be aggressive grab, has to be living click-er and non-silicon grabbed
+	if(isliving(user))
+		var/mob/living/attacker = user  // Typecast to living
+		// src is the mob clicked on and attempted predator
+		///// If user clicked on themselves
+		if(target.can_be_drop_prey)
+			feed_grabbed_to_self_falling_nom(attacker, target)
+			return
+		if(target.can_be_drop_pred)
+			feed_grabbed_to_self_falling_nom(target, attacker)
+	return FALSE
+
 //
 // Our custom resist catches for /mob/living
 //
@@ -567,6 +581,9 @@
 	. = ..()
 	gas = list(
 		GAS_CH4 = 100)*/
+
+
+
 
 /mob/living/proc/feed_grabbed_to_self_falling_nom(var/mob/living/user, var/mob/living/prey)
 	var/belly = user.vore_selected
