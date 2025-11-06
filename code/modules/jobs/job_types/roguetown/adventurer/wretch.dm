@@ -4,8 +4,8 @@
 	flag = WRETCH
 	department_flag = PEASANTS
 	faction = "Station"
-	total_positions = 4
-	spawn_positions = 4
+	total_positions = 5
+	spawn_positions = 5
 	allowed_races = RACES_ALL_KINDS
 	tutorial = "Somewhere in your lyfe, you fell to the wrong side of civilization. Hounded by the consequences of your actions, you spend your daes prowling the roads for easy marks and loose purses, scraping to get by."
 	outfit = null
@@ -93,12 +93,11 @@
 	var/player_count = length(GLOB.joined_player_list)
 	var/slots = 8 //Caustic edit, static 8 slots
 	
-	//Add 1 slot for every 10 players over 30. Less than 40 players, 4 slots. 40 or more players, 5 slots. 50 or more players, 6 slots - etc.
-	if(player_count > 30)
-		var/extra = floor((player_count - 30) / 10)
+	//Add 1 slot for every 10 players over 30. Less than 40 players, 5 slots. 40 or more players, 6 slots. 50 or more players, 7 slots - etc.
+	if(player_count > 40)
+		var/extra = floor((player_count - 40) / 10)
 		slots += extra
 
-	//4 slots minimum, 10 maximum.
 	slots = min(slots, 8) //Caustic edit, static 8 slots
 
 	wretch_job.total_positions = slots
