@@ -709,34 +709,35 @@
 			admin_ticket_log("[key_name_admin(usr)] has modified the bodyparts of [src] to [result]")
 			set_species(newtype)
 
-/mob/living/carbon/human/MouseDrop_T(mob/living/target, mob/living/user)
-	if(pulling == target && stat == CONSCIOUS)
-		if(user.grab_state && user.voremode)
-			if(ismob(user.pulling))
-				vore_attackby(target, user)
-				user.vore_attackby(user, target, src) // User, Pulled, Predator target (which can be user, pulling, or src)
+/mob/living/carbon/human/MouseDrop_T(atom/dragged, mob/living/user)
+	if(pulling == dragged && stat == CONSCIOUS)
+		if(isliving(dragged))
+			if(user.grab_state && user.voremode)
+				if(ismob(user.pulling))
+					vore_attackby(dragged, user)
+					user.vore_attackby(user, dragged, src) // User, Pulled, Predator target (which can be user, pulling, or src)
+					return TRUE
+			//Pick them up. Pick. Them. Up.
+			if(ishuman(dragged) && ishuman(user))
+				var/mob/living/carbon/human/userhuman = user
+				var/mob/living/carbon/human/targethuman = dragged
+				if(targethuman.small_enough(userhuman) && user.grab_state)
+					if(targethuman.attempt_scoop(userhuman))
+						return TRUE
+			//If they dragged themselves and we're currently aggressively grabbing them try to piggyback (not on cmode)
+			if(user == dragged && can_piggyback(target))
+				if(cmode)
+					to_chat(dragged, span_warning("[src] won't let you on!"))
+					return FALSE
+				piggyback(dragged)
 				return TRUE
-		//Pick them up. Pick. Them. Up.
-		if(ishuman(target) && ishuman(user))
-			var/mob/living/carbon/human/userhuman = user
-			var/mob/living/carbon/human/targethuman = target
-			if(targethuman.small_enough(userhuman) && user.grab_state)
-				if(targethuman.attempt_scoop(userhuman))
-					return TRUE
-		//If they dragged themselves and we're currently aggressively grabbing them try to piggyback (not on cmode)
-		if(user == target && can_piggyback(target))
-			if(cmode)
-				to_chat(target, span_warning("[src] won't let you on!"))
-				return FALSE
-			piggyback(target)
-			return TRUE
-		//If you dragged them to you and you're aggressively grabbing try to carry them
-		else if(user != target && can_be_firemanned(target))
-			var/obj/G = get_active_held_item()
-			if(G)
-				if(istype(G, /obj/item/grabbing))
-					fireman_carry(target)
-					return TRUE
+			//If you dragged them to you and you're aggressively grabbing try to carry them
+			else if(user != dragged && can_be_firemanned(dragged))
+				var/obj/G = get_active_held_item()
+				if(G)
+					if(istype(G, /obj/item/grabbing))
+						fireman_carry(dragged)
+						return TRUE
 		else if(istype(dragged, /obj/item/bodypart/head/dullahan/))
 			var/obj/item/bodypart/head/dullahan/item_head = dragged
 			item_head.show_inv(user)
