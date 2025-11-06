@@ -16,6 +16,10 @@
 	. = ..()
 	src.add_filter(reform_outline, 2, list("type" = "outline", "color" = "#ff0080", "alpha" = 100, "size" = 1.5))
 
+/obj/item/reformation_gem/examine(mob/user)
+	. = ..()
+	. += span_notice("A gem used to reform a person's body after it has been digested. To use, activate in hand, preferably somewhere out of the way. This item is NOT to be used in normal revivals and is purely a scene tool. Using this item for anything else is an abuse of mechanics.")
+
 /obj/item/reformation_gem/attack_self(mob/living/user)
 	..()
 	var/confirm = alert(user,"Are you sure you wish to use your gem of reformation here?","Confirmation","Yes","Cancel")

@@ -6,7 +6,7 @@
 
 /datum/supply_pack/rogue/gems/amethyst
 	name = "Amythortz"
-	cost = 25
+	cost = 15
 	contains = list(/obj/item/roguegem/amethyst)
 
 /datum/supply_pack/rogue/gems/toper
@@ -47,6 +47,6 @@
 // Caustic edit
 /datum/supply_pack/rogue/gems/reform
 	name = "Gem of Reformation"
-	cost = 80
+	cost = 70
 	contains = list(/obj/item/reformation_gem)
 
