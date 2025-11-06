@@ -6,7 +6,7 @@
 <!--
 Hey you, yes you, read this section carefully and check the boxes if they are true, or go back and change things until the checkboxes can be truthfully clicked!
 -->
-- [ ] I have modularized whatever change I could. <!--  Do this by putting stuff in the modular caustic folder, and modifying Azure code by calling your code from the places where you could put the code, for an example-->
+- [ ] I have modularized whatever changes I could. <!--  Do this by putting stuff in the modular caustic folder, and modifying Azure code by calling your code from the places where you could put the code, for an example-->
 - [ ] I have marked the start and end of my edits outside the caustic modular folder (if applicable) for changes that I couldn't modularize.
 <!--
 Do this one like so
