@@ -98,8 +98,7 @@
 			preremovespatials[location] = list()
 			switch(channel)
 				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					if(!length(recursive_contents[channel]))
-						preremovespatials[location][channel] = TRUE
+					preremovespatials[location][channel] = TRUE
 
 	//We do the holder removal thing as per usual
 	if(held == current_held) //<-- not sure what is the purpose of this single line and the indent that it makes but Lira probably knows??? Not touching it.
