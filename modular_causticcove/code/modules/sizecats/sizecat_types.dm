@@ -36,7 +36,7 @@
 
 /datum/sizecat/small/apply_to_human(mob/living/carbon/human/recipient)
 	recipient.transform = recipient.transform.Scale(0.75, 0.75)
-	recipient.transform = recipient.transform.Translate(0, (0.5 * 8))
+	recipient.transform = recipient.transform.Translate(0, (0.5 * -5))
 	recipient.update_transform()
 	// recipient.change_stat(STATKEY_STR, -5)
 	// recipient.change_stat(STATKEY_WIL, -2)
