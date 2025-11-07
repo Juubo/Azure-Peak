@@ -91,14 +91,14 @@
 	//I cannot do anything about spatials getting removed because that would be touching azure code in inappropriate places, so here is the shitcode we are doing
 
 	//First we save the spatials that are about to be removed
-	var/list/nested_locs = get_nested_locs(src) + src
+	var/list/nested_locs = get_nested_locs(src)
 	var/list/preremovespatials = list()
-	for(var/channel in held.important_recursive_contents)
+	for(var/channel in important_recursive_contents)
 		for(var/atom/movable/location as anything in nested_locs)
 			preremovespatials[location] = list()
 			switch(channel)
 				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					preremovespatials[location][channel] = TRUE
+					preremovespatials[location] += channel
 
 	//We do the holder removal thing as per usual
 	if(held == current_held) //<-- not sure what is the purpose of this single line and the indent that it makes but Lira probably knows??? Not touching it.
