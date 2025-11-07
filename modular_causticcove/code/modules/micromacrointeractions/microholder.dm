@@ -44,7 +44,7 @@
 		dump_mob()
 	if(ismob(loc))
 		var/mob/M = loc
-		M.dropItemToGround(src, get_turf(src))
+		M.forceMove(get_turf(src))
 	return ..()
 
 /obj/item/micro/container_resist(mob/living/held)
@@ -64,7 +64,7 @@
 			to_chat(M, span_warning("[held] uselessly wiggles against my grip!"))
 			to_chat(held, span_warning("You struggle against [M]'s grip!"))
 		else
-			M.dropItemToGround(src)
+			forceMove(src)
 			to_chat(M, span_warning("\The [held] wriggles out of your grip!"))
 			to_chat(held, span_warning("You wiggle out of [M]'s grip!"))
 	else if(isitem(loc))
@@ -87,7 +87,9 @@
 
 /obj/item/micro/Exited(mob/held, atom/newLoc)
 	var/mob/living/current_held = held_mob
-	. = ..()
+	var/clientmobschannel
+	if(current_held.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
+		clientmobschannel = TRUE
 	if(held == current_held)
 		current_held.set_resting(FALSE,FALSE)
 		current_held.transform = original_transform
@@ -97,6 +99,11 @@
 		original_transform = null
 		original_vis_flags = NONE
 		held_mob = null
+	. = ..()
+	SSspatial_grid.add_grid_awareness(current_held,RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+	if(clientmobschannel)
+		SSspatial_grid.add_grid_awareness(current_held,RECURSIVE_CONTENTS_CLIENT_MOBS)
+
 
 /obj/item/micro/MouseDrop(mob/living/M)
 	..()
