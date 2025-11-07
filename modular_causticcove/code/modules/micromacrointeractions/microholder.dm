@@ -87,10 +87,22 @@
 
 /obj/item/micro/Exited(mob/held, atom/newLoc)
 	var/mob/living/current_held = held_mob
-	var/clientmobschannel
-	if(current_held.important_recursive_contents[RECURSIVE_CONTENTS_CLIENT_MOBS])
-		clientmobschannel = TRUE
-	if(held == current_held)
+
+	//I cannot do anything about spatials getting removed because that would be touching azure code in inappropriate places, so here is the shitcode we are doing
+
+	//First we save the spatials that are about to be removed
+	var/list/nested_locs = get_nested_locs(src) + src
+	var/list/preremovespatials = list()
+	for(var/channel in held.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			preremovespatials[location] = list()
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						preremovespatials[location][channel] = TRUE
+
+	//We do the holder removal thing as per usual
+	if(held == current_held) //<-- not sure what is the purpose of this single line and the indent that it makes but Lira probably knows??? Not touching it.
 		current_held.set_resting(FALSE,FALSE)
 		current_held.transform = original_transform
 		current_held.update_transform()
@@ -100,9 +112,11 @@
 		original_vis_flags = NONE
 		held_mob = null
 	. = ..()
-	SSspatial_grid.add_grid_awareness(current_held,RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-	if(clientmobschannel)
-		SSspatial_grid.add_grid_awareness(current_held,RECURSIVE_CONTENTS_CLIENT_MOBS)
+	
+	//Then we reapply it
+	for(var/reapplylocation in preremovespatials)
+		for(var/channeltoreapply in reapplylocation)
+			add_grid_awareness.add_grid_awareness(reapplylocation,channeltoreapply)
 
 
 /obj/item/micro/MouseDrop(mob/living/M)
