@@ -124,7 +124,7 @@
 
 	// Scan for items in radius
 	for(var/obj/item/I in range(item_radius, center))
-		if(I.type in required_items)
+		if(I.type in current_required_items)
 			available_items[I.type] += 1
 
 	// Check quantities and compile missing list
