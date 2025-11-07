@@ -116,7 +116,7 @@
 	//Then we reapply it
 	for(var/reapplylocation in preremovespatials)
 		for(var/channeltoreapply in reapplylocation)
-			add_grid_awareness.add_grid_awareness(reapplylocation,channeltoreapply)
+			SSspatial_grid.add_grid_awareness(reapplylocation,channeltoreapply)
 
 
 /obj/item/micro/MouseDrop(mob/living/M)
