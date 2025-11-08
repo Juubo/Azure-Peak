@@ -88,7 +88,8 @@
 	)
 	expert_name = "Crossbower"
 
-/datum/skill/combat/firearms // Caustic Cove Edits: Making guns actually have a niche.
+// Caustic Edit start Making guns actually have a niche.
+/datum/skill/combat/firearms
 	name = "Firearms"
 	desc = "Alongside perception (probably), increases the speed you ready a firearm and have it ready to shoot. Does not influence damage or chance to hit."
 	dreams = list(
@@ -99,6 +100,7 @@
 		"...the swordsman before you twirls their blades in a menacing show of their skill before they cut you to pieces. You simply draw your pistol and shoot them on the spot. The crowd gasps in shock as the swordsman drops dead..." // hehehehehee
 	)
 	expert_name = "Arquebesier"
+// Caustic Edit end
 
 /datum/skill/combat/wrestling
 	name = "Wrestling"
