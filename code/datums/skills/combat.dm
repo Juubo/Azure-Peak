@@ -88,10 +88,15 @@
 	)
 	expert_name = "Crossbower"
 
-/datum/skill/combat/firearms
+/datum/skill/combat/firearms // Caustic Cove Edits: Making guns actually have a niche.
 	name = "Firearms"
+	desc = "Alongside perception (probably), increases the speed you ready a firearm and have it ready to shoot. Does not influence damage or chance to hit."
 	dreams = list(
-		"..."
+		"...a flash of light, a blast of hot air, and through the smoke you see the evil knight clad in blacksteel now crumpled to the ground. A hole is punched clean through the face of his helmet...",
+		"...firearms shall be the future of warfare. The age of knights, of bowmen, and even of mages will come to and end. When you pull the trigger, the old world vanishes behind a hot blast of white smoke and gunfire...",
+		"...like the crackle of thunder, Grenzelhoftian arquebusiers open fire from atop city walls. The enemy soldiers attempting to scale the walls tumble down from their ropes and ladders. They are dead before they hit the ground...",
+		"...frantically, you ram the bullet ball into the barrel of your arquebus as the direbear runs you down. It raises its claws, but before you are killed, you manage to aim and fire your last round point blank into its heart...",
+		"...the swordsman before you twirls their blades in a menacing show of their skill before they cut you to pieces. You simply draw your pistol and shoot them on the spot. The crowd gasps in shock as the swordsman drops dead..." // hehehehehee
 	)
 	expert_name = "Arquebesier"
 
