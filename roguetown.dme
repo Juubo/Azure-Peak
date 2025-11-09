@@ -2896,6 +2896,7 @@
 #include "modular_causticcove\code\modules\chompy_vore\eating\panel_databackend\vorepanel_set_liqattribute.dm"
 #include "modular_causticcove\code\modules\chompy_vore\eating\panel_databackend\vorepanel_vore_data.dm"
 #include "modular_causticcove\code\modules\chompy_vore\eating\panel_databackend\vorepanel_vore_subdata.dm"
+#include "modular_causticcove\code\modules\classes\domesticated_wildsoul.dm"
 #include "modular_causticcove\code\modules\classes\mage.dm"
 #include "modular_causticcove\code\modules\classes\shophand.dm"
 #include "modular_causticcove\code\modules\classes\wildsoul.dm"
