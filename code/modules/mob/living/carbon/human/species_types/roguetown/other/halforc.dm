@@ -123,8 +123,10 @@
 		"Murkwalker" = SKIN_COLOR_MURKWALKER,
 		"Shatterhorn" = SKIN_COLOR_SHATTERHORN,
 		"Spirit Crusher" = SKIN_COLOR_SPIRITCRUSHER,
+		//Caustic edit
 		"Avalanche" = SKIN_COLOR_AVALANCHE,
 		"Grove-Ward" = SKIN_COLUR_GROVE_WARD
+		//Caustic edit end
 	)
 
 /datum/species/halforc/get_hairc_list()
