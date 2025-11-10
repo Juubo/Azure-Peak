@@ -91,7 +91,7 @@
 // Caustic Edit start Making guns actually have a niche.
 /datum/skill/combat/firearms
 	name = "Firearms"
-	desc = "Alongside perception (probably), increases the speed you ready a firearm and have it ready to shoot. Does not influence damage or chance to hit."
+	desc = "Alongside perception, increases the speed you ready a firearm and have it ready to shoot. Does not influence damage or chance to hit."
 	dreams = list(
 		"...a flash of light, a blast of hot air, and through the smoke you see the evil knight clad in blacksteel now crumpled to the ground. A hole is punched clean through the face of his helmet...",
 		"...firearms shall be the future of warfare. The age of knights, of bowmen, and even of mages will come to and end. When you pull the trigger, the old world vanishes behind a hot blast of white smoke and gunfire...",
