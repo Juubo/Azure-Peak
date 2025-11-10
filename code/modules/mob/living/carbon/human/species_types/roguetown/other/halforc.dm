@@ -122,7 +122,9 @@
 		"Crescent Fang" = SKIN_COLOR_CRESCENT_FANG,
 		"Murkwalker" = SKIN_COLOR_MURKWALKER,
 		"Shatterhorn" = SKIN_COLOR_SHATTERHORN,
-		"Spirit Crusher" = SKIN_COLOR_SPIRITCRUSHER
+		"Spirit Crusher" = SKIN_COLOR_SPIRITCRUSHER,
+		"Avalanche" = SKIN_COLOR_AVALANCHE,
+		"Grove-Ward" = SKIN_COLUR_GROVE_WARD
 	)
 
 /datum/species/halforc/get_hairc_list()
