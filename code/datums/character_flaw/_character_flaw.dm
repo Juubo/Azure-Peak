@@ -158,7 +158,6 @@ GLOBAL_LIST_INIT(character_flaws, list(
 	else
 		new /obj/item/clothing/mask/rogue/spectacles(get_turf(H))
 	
-
 	// we don't seem to have a mind when on_mob_creation fires, so set up a timer to check when we probably will
 	addtimer(CALLBACK(src, PROC_REF(apply_reading_skill), H), 5 SECONDS)
 
