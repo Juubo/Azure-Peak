@@ -1019,7 +1019,9 @@
 				severity = 6
 				if(!check_epilepsy())
 					overlay_fullscreen("painflash", /atom/movable/screen/fullscreen/painflash)
-		overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
+		
+		if(!check_epilepsy())
+			overlay_fullscreen("brute", /atom/movable/screen/fullscreen/brute, severity)
 	else
 		clear_fullscreen("brute")
 		clear_fullscreen("painflash")
