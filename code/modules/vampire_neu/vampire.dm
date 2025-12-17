@@ -78,6 +78,18 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		vampdude.hud_used?.initialize_bloodpool()
 		vampdude.hud_used?.bloodpool.set_fill_color("#510000")
 
+		switch(generation) 
+			if(GENERATION_METHUSELAH)
+				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 6, TRUE)
+			if(GENERATION_ANCILLAE)
+				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 5, TRUE)
+			if(GENERATION_NEONATE)
+				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 4, TRUE) // Licker Wretch
+			if(GENERATION_THINBLOOD)
+				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 3, TRUE) // You are not even an antagonist
+			else
+				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 2, TRUE) // Default weight if generation not set
+
 		if(!forced)
 			// Show clan selection interface
 			if(!clan_selected)
@@ -199,6 +211,7 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /obj/effect/landmark/start/vampirespawn/Initialize()
 	. = ..()
 	GLOB.vspawn_starts += loc
+	GLOB.secondlife_respawns += loc
 
 /obj/effect/landmark/start/vampireknight
 	name = "Death Knight"
