@@ -43,6 +43,8 @@
 		else
 			wretch_select_bounty(H)*/
 
+		if(HAS_TRAIT(H, TRAIT_DNR))
+			ADD_TRAIT(H, TRAIT_DUSTABLE, TRAIT_GENERIC)//give DNR vampires the option to turn to dust
 
 /datum/reagent/vampsolution
 	metabolization_rate = 0.5
