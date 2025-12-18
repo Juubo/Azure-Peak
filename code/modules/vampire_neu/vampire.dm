@@ -89,7 +89,9 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 3, TRUE) // You are not even an antagonist
 			else
 				vampdude?.adjust_skillrank_up_to(/datum/skill/magic/blood, 2, TRUE) // Default weight if generation not set
-
+		
+		if(HAS_TRAIT(vampdude, TRAIT_DNR)) //if you have DNR, we add dustable
+			ADD_TRAIT(vampdude, TRAIT_DUSTABLE, TRAIT_GENERIC)
 		if(!forced)
 			// Show clan selection interface
 			if(!clan_selected)
@@ -167,6 +169,8 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 		var/mob/living/carbon/human/vampdude = owner.current
 		// Remove the clan when losing antagonist status
 		vampdude.set_clan(null)
+		if(HAS_TRAIT(vampdude, TRAIT_DUSTABLE)) //if you have DNR, we add dustable
+			REMOVE_TRAIT(vampdude, TRAIT_DUSTABLE, TRAIT_GENERIC)
 	owner.current?.hud_used?.shutdown_bloodpool()
 	if(!silent && owner.current)
 		to_chat(owner.current, span_danger("I am no longer a [job_rank]!"))
