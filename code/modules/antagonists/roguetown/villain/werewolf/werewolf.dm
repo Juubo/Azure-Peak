@@ -48,6 +48,7 @@
 	var/resisting_transformation = FALSE // Caustic Edit
 	var/ignore_transformation_resist = FALSE // Caustic Edit
 	var/wolfname = "Verewolf"
+	has_tempo = TRUE
 
 /datum/antagonist/werewolf/lesser
 	name = "Lesser Verewolf"
