@@ -14,15 +14,15 @@
 	//They'll try and use special attacks but more than likely fail in using them. These are peasants, after all. Unlike Highwaymen, which are more organized and can at least try smart attacks.
 	special_attacker = TRUE
 
-/* /mob/living/carbon/human/species/human/northern/militia/retaliate(mob/living/L)
+/mob/living/carbon/human/species/human/northern/militia/retaliate(mob/living/L)
 	var/newtarg = target
 	.=..()
 	if(target)
 		aggressive=1
 		wander = TRUE
 		if(!is_silent && target != newtarg)
-			say(pick(GLOB.militia_aggro))
-			pointed(target) */
+			say(pick(GLOB.highwayman_aggro), npc_speech = TRUE)
+			pointed(target)
 
 /mob/living/carbon/human/species/human/northern/militia/should_target(mob/living/L)
 	if(L.stat != CONSCIOUS)
@@ -67,11 +67,14 @@
 	if(!wander && prob(10))
 		face_atom(get_step(src,pick(GLOB.cardinals)))
 
-/* /mob/living/carbon/human/species/human/northern/militia/handle_combat()
+/mob/living/carbon/human/species/human/northern/militia/handle_combat()
 	if(mode == NPC_AI_HUNT)
-		if(prob(5)) // do not make this big or else they NEVER SHUT UP
-			emote("laugh")
-	. = ..() */
+		if(prob(5))
+			if(prob(60))
+				say(pick(GLOB.highwayman_aggro), npc_speech = TRUE)
+			else
+				emote(pick("laugh", "warcry", "rage"))
+	. = ..()
 
 /datum/outfit/job/roguetown/human/species/human/northern/militia/pre_equip(mob/living/carbon/human/H)
 	if(H.faction && ("viking" in H.faction))
