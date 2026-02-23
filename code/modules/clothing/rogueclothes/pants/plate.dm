@@ -82,7 +82,7 @@
 /obj/item/clothing/under/roguetown/platelegs/matthios/Initialize()
 	. = ..()
 	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT) //Casutic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
-	AddComponent(/datum/component/cursed_item, TRAIT_COMMIE, "ARMOR")
+	AddComponent(/datum/component/cursed_item, TRAIT_FREEMAN, "ARMOR")
 
 /obj/item/clothing/under/roguetown/platelegs/matthios/dropped(mob/living/carbon/human/user)
 	. = ..()
