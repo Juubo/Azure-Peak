@@ -74,6 +74,20 @@
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/aaslag
 
+/obj/item/clothing/shoes/roguetown/boots/paalloy
+	name = "ancient boots"
+	desc = "Polished gilbranze sabatons, curved around to loosely mimic the calves of another. </br>It looks chivalry is dead, after all.. and walking, no less!"
+	icon_state = "ancientboots"
+	color = null
+	blocksound = PLATEHIT
+	resistance_flags = FIRE_PROOF
+	max_integrity = ARMOR_INT_SIDE_STEEL
+	armor = ARMOR_PLATE
+	pickup_sound = 'sound/foley/equip/equip_armor_plate.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/aaslag
+
 /obj/item/clothing/shoes/roguetown/boots/psydonboots
 	name = "psydonic leather boots"
 	desc = "Blacksteel-heeled boots. The leather refuses to be worn down, no matter how far you march through these lands."
