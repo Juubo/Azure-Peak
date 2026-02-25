@@ -1166,6 +1166,19 @@
 	swingsound = BLADEWOOSH_HUGE
 	smeltresult = /obj/item/ingot/iron
 
+/obj/item/rogueweapon/sword/short/broken
+	name = "aged shortsword"
+	desc = "The arming sword's shorter and much older brother. Despite being centuries older than the swords of todae, it remains in use as a cheap sidearm for shieldbearers and archers. This ancient variant was there since the beginning, and - through one way or another - has found itself a wielder, once more. Imperfections hardly command censure, especially when the edge remains sharp enough to gouge; a fitting throwback for the final daes of Psydonia's latest era."
+	icon_state = "iswordshort_d"
+	sheathe_icon = "iswordshort_d"
+	wdefense = 3
+	smeltresult = /obj/item/ingot/iron
+	max_integrity = 90
+	max_blade_int = 150
+	force = 21
+	swingsound = BLADEWOOSH_HUGE
+	smeltresult = /obj/item/ingot/iron
+
 /obj/item/rogueweapon/sword/short/falchion
 	name = "falchion"
 	desc = "A single-edged sword that is similar to a messer in appearance, its origins trace back to Otava. An implement of commoners and knights alike. It's good for cutting and thrusting."

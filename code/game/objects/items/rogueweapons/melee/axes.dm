@@ -312,7 +312,6 @@
 	grid_width = 32
 	throw_speed = 3 
 	armor_penetration = 25
-	
 	sellprice = 18
 
 /obj/item/rogueweapon/stoneaxe/woodcut/bronze
