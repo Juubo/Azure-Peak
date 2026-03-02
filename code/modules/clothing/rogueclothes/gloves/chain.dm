@@ -13,7 +13,7 @@
 	equip_sound = 'sound/foley/equip/equip_armor_chain.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
 	smeltresult = /obj/item/ingot/steel
-	unarmed_bonus = 1.15
+	unarmed_bonus = 3
 	sellprice = 15 
 
 /obj/item/clothing/gloves/roguetown/chain/ComponentInitialize()
