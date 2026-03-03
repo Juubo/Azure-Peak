@@ -3,7 +3,7 @@
 	name = "Arcyne Potential"
 	//Caustic edit
 	desc = "I am talented in the Arcyne arts, expanding my capacity for magic. I have become more intelligent from its studies."
-	custom_text = "Gives +3 spellpoints, and T1 Arcyne Potential if you don't have any Arcyne."
+	custom_text = "Gives +3 spellpoints (or +3 utility spellpoints if pool-based), and T1 Arcyne Potential if you don't have any Arcyne."
 	//Caustic edit end
 	added_skills = list(list(/datum/skill/magic/arcane, 1, 6))
 
@@ -11,13 +11,19 @@
 	if (!recipient.get_skill_level(/datum/skill/magic/arcane)) // we can do this because apply_to is always called first
 		if (!recipient.mind?.has_spell(/obj/effect/proc_holder/spell/targeted/touch/prestidigitation))
 			recipient.mind?.AddSpell(new /obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
-			//Caustic edit
 		//if (!HAS_TRAIT(recipient, TRAIT_MEDIUMARMOR) && !HAS_TRAIT(recipient, TRAIT_HEAVYARMOR) && !HAS_TRAIT(recipient, TRAIT_DODGEEXPERT) && !HAS_TRAIT(recipient, TRAIT_CRITICAL_RESISTANCE))
-			//Caustic edit
-			ADD_TRAIT(recipient, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
-			recipient.mind?.adjust_spellpoints(3)
+		ADD_TRAIT(recipient, TRAIT_ARCYNE_T1, TRAIT_GENERIC)
+		add_arcyne_potential_spellpoints(recipient, 3)
 	else
-		recipient.mind?.adjust_spellpoints(3) // 3 extra spellpoints since you don't get any spell point from the skill anymore
+		add_arcyne_potential_spellpoints(recipient, 3)
+
+/// Helper: adds spellpoints to utility pool if available, otherwise flat spellpoints
+/datum/virtue/combat/magical_potential/proc/add_arcyne_potential_spellpoints(mob/living/carbon/human/recipient, amount)
+	if(recipient.mind?.spell_point_pools?["utility"])
+		recipient.mind.spell_point_pools["utility"] += amount
+		recipient.mind.check_learnspell()
+	else
+		recipient.mind?.adjust_spellpoints(amount)
 	
 /datum/virtue/combat/devotee
 	name = "Devotee"
