@@ -174,6 +174,15 @@
 		M.adjustFireLoss(-2, 0)
 		M.adjustOxyLoss(-1, 0)
 		M.adjustToxLoss(-1, 0)
+		//this should clear up wounds, copied from pysdonites ENDURE
+		for(var/datum/wound/wound as anything in M.get_wounds())
+			//wound.heal_wound(0.4)
+			wound.remove_from_bodypart()
+			//wound.cauterize_wound
+			//wound.sew_wound
+			//wound.set_bleed_rate(0)
+			//wound.Destroy
+		
 		M.emote("cough")
 		return 1
 

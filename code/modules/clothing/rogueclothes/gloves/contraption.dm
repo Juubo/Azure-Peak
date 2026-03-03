@@ -22,7 +22,8 @@
 /obj/item/clothing/gloves/roguetown/contraption/proc/misfire_result(obj/O, mob/living/user)
 	misfiring = TRUE
 	explosion(src, light_impact_range = 2, flame_range = 2, smoke = TRUE)
-	qdel(src)
+	//qdel(src)
+	take_damage(400, BRUTE, "blunt", 1)
 
 /obj/item/clothing/gloves/roguetown/contraption/proc/charge_deduction(obj/O, mob/living/user, deduction)
 	current_charge -= deduction
@@ -35,6 +36,18 @@
 	desc = "A pair of bronze-plated gauntlets, fitted with whirring machinery. Runic enigmas have been meticulously etched onto its joints - a voltic incantation, humming with electrical power. </br>‎  </br>By right-clicking these gauntlets, I can unleash bursts of paralyzing lightning.. so long as the mechanisms are powered, at least."
 	icon_state = "volticgauntlets"
 	slot_flags = ITEM_SLOT_GLOVES
+	armor = ARMOR_MAILLE
+	resistance_flags = FIRE_PROOF
+	blocksound = CHAINHIT
+	max_integrity = ARMOR_INT_SIDE_BRONZE
+	blade_dulling = DULLING_BASHCHOP
+	break_sound = 'sound/foley/breaksound.ogg'
+	drop_sound = 'sound/foley/dropsound/chain_drop.ogg'
+	pickup_sound = 'sound/foley/equip/equip_armor_chain.ogg'
+	equip_sound = 'sound/foley/equip/equip_armor_chain.ogg'
+	anvilrepair = /datum/skill/craft/armorsmithing
+	smeltresult = /obj/item/ingot/bronze
+	unarmed_bonus = 1
 	var/activate_sound = 'sound/items/stunmace_gen (2).ogg'
 	var/cdtime = 1.5 MINUTES
 	var/activetime = 5 SECONDS
@@ -87,6 +100,9 @@
     // === VOLTIC ZAP ===
 /obj/item/clothing/gloves/roguetown/contraption/voltic/proc/activate(mob/living/user)
 	if (!user)
+		return
+	if (obj_broken)
+		to_chat(user, span_warning("The gauntlets spark. they are too damaged to work!"))
 		return
 	if (!current_charge)
 		to_chat(user, span_warning("The gauntlets sputter. It needs a [initial(accepted_power_source.name)]!"))

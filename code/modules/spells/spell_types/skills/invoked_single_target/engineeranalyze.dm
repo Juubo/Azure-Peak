@@ -1,14 +1,15 @@
 /obj/effect/proc_holder/spell/invoked/engineeranalyze
 	name = "Analyze"
 	desc = "Examine a structure's details"
-	overlay_state = "analyze"
-	releasedrain = 10
+	overlay_state = "goggles"
+	releasedrain = 1
 	chargedrain = 0
 	chargetime = 0
 	range = 2
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/diagnose.ogg'
+	action_icon = 'icons/mob/actions/engineer_skills.dmi'
 	invocation_type = "none"
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = TRUE

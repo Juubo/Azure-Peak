@@ -144,10 +144,6 @@
 	else
 		return
 
-				
-		
-		
-
 /obj/item/clothing/mask/rogue/spectacles/golden/dropped(mob/user, slot)
 	..()
 	if(active_item)

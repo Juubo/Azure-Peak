@@ -95,6 +95,7 @@
 	var/list/static/bonk_animation_types = list(
 		BCLASS_BLUNT,
 		BCLASS_SMASH,
+		BCLASS_DRILL,
 	)
 	var/list/static/swipe_animation_types = list(
 		BCLASS_CUT,
@@ -384,6 +385,20 @@
 	chargetime = 0
 	clickcd = 14 // Just like knife pick!
 	swingdelay = 12
+
+/datum/intent/drill
+	name = "drill"
+	icon_state = "inpick"
+	attack_verb = list("drills","augers")
+	hitsound = list('sound/combat/hits/pick/genpick (1).ogg', 'sound/combat/hits/pick/genpick (2).ogg')
+	penfactor = 100
+	animname = "strike"
+	item_d_type = "stab"
+	blade_class = BCLASS_DRILL
+	chargetime = 0.3
+	clickcd = 4 // Just like knife pick!
+	swingdelay = 1
+	releasedrain = 0 //no stamina loss, as charges are lost as it drills
 
 /datum/intent/pick/bad	//One-handed intents
 	name = "sluggish pick"

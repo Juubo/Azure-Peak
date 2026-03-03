@@ -368,6 +368,9 @@
 				if(BCLASS_SMASH)
 					dullfactor = 1.5
 					cont = TRUE
+				if(BCLASS_DRILL)
+					dullfactor = 10
+					cont = TRUE
 				if(BCLASS_PICK)
 					dullfactor = 1.5
 					cont = TRUE
@@ -390,6 +393,9 @@
 					cont = TRUE
 				if(BCLASS_BLUNT)
 					cont = TRUE
+				if(BCLASS_DRILL)
+					dullfactor = 10
+					cont = TRUE
 				if(BCLASS_PICK)
 					var/mob/living/miner = user
 					var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)
@@ -401,7 +407,7 @@
 			if(!(user.mobility_flags & MOBILITY_STAND))
 				to_chat(user, span_warning("I need to stand up to get a proper swing."))
 				return 0
-			if(user.used_intent.blade_class != BCLASS_PICK)
+			if(user.used_intent.blade_class != BCLASS_PICK && user.used_intent.blade_class != BCLASS_DRILL)
 				return 0
 			var/mob/living/miner = user
 			var/mineskill = miner.get_skill_level(/datum/skill/labor/mining)

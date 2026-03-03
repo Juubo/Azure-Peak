@@ -146,6 +146,7 @@
 	heat_time = 30 SECONDS
 
 /obj/machinery/light/rogue/forge/arcane/process()
+	AddComponent(/datum/component/storage/concrete/grid/anvil_bin)
 	if(isopenturf(loc))
 		var/turf/open/O = loc
 		if(IS_WET_OPEN_TURF(O))
