@@ -318,7 +318,7 @@
 /obj/item/reagent_containers/food/snacks/roastseeds/pumpkin
 	name = "roasted pumpkin seeds"
 	tastes = list("toasted pumpkin seeds" = 1)
-	mill_result = /obj/item/reagent_containers/powder/pumpkin
+	mill_result = /obj/item/reagent_containers/food/snacks/pumpkinspice
 	//CC Edit Begin
 	diet_types = list("Grains")
 	diet_change_amount = FOOD_DIETARY_VALUE_GOOD //Ooo pumpkin seeds?
