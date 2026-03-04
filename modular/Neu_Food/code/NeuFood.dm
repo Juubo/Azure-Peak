@@ -326,7 +326,7 @@
 	else ..()
 
 /* -------------- PUMPKIN SPICE ----------------- */
-/obj/item/reagent_containers/powder/pumpkin
+/obj/item/reagent_containers/food/snacks/pumpkinspice
 	name = "pumpkin spice"
 	desc = "Rich flavors from a humble origin."
 	gender = PLURAL
