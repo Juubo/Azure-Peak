@@ -11,7 +11,7 @@
 	sound = 'sound/magic/diagnose.ogg'
 	action_icon = 'icons/mob/actions/engineer_skills.dmi'
 	invocation_type = "none"
-	associated_skill = /datum/skill/magic/holy
+	associated_skill = /datum/skill/magic/arcane
 	antimagic_allowed = TRUE
 	recharge_time = 2 SECONDS //very stupidly simple spell
 	miracle = FALSE
