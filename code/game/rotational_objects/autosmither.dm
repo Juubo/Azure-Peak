@@ -70,13 +70,16 @@
 	else
 		next_step = post_start_list[length(step_list) + 1]
 		. += span_notice("[src] is currently ON.")
-	switch(next_step)
-		if(STEP_FIDDLE)
-			. += span_notice("To toggle the machine, fiddle with the dials")
-		if(STEP_BUTTON)
-			. += span_notice("To toggle the machine, push the buttons")
-		if(STEP_LEVER)
-			. += span_notice("To toggle the machine, pull the lever")
+
+	if (user.get_skill_level(/datum/skill/craft/engineering) > 3) //you have enough knowledge to know the sequence
+		switch(next_step)
+			if(STEP_FIDDLE)
+				. += span_notice("To toggle the machine, fiddle with the dials")
+			if(STEP_BUTTON)
+				. += span_notice("To toggle the machine, push the buttons")
+			if(STEP_LEVER)
+				. += span_notice("To toggle the machine, pull the lever")
+	
 	. += span_notice("It is Set to Craft")
 	if(anvil_recipes_to_craft.len > 0)
 		for(var/i in 1 to anvil_recipes_to_craft.len)
@@ -158,7 +161,7 @@
 		if(. == 2) //SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 			return
 		try_step(STEP_FIDDLE, user)
-		return 2 //SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return TRUE //SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 
 
@@ -299,31 +302,35 @@
 
 	var/step_on = step_list[length(step_list)]
 
+	//
 	switch(step_on)
 		if(STEP_FIDDLE)
-			user.apply_damage(5 * (rotations_per_minute / 8), BRUTE, body_zone)
-			playsound(src, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-			user.visible_message(span_danger("[user] get their hand caught in [src]'s cogs!"), span_danger("You get your hand caught in [src]'s cogs!"))
+			return TRUE
+			//user.apply_damage(5 * (rotations_per_minute / 8), BRUTE, body_zone)
+			//playsound(src, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
+			//user.visible_message(span_danger("[user] get their hand caught in [src]'s cogs!"), span_danger("You get your hand caught in [src]'s cogs!"))
 		if(STEP_LEVER)
-			return
+			return TRUE
 		if(STEP_BUTTON)
-			user.apply_damage(8 * (rotations_per_minute / 8), BRUTE, body_zone)
-			playsound(src, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-			user.visible_message(span_danger("[user] gets their hand flattened by [src]!"), span_danger("You get your hand flattened by[src]!"))
+			return TRUE
+			//user.apply_damage(8 * (rotations_per_minute / 8), BRUTE, body_zone)
+			//playsound(src, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
+			//user.visible_message(span_danger("[user] gets their hand flattened by [src]!"), span_danger("You get your hand flattened by[src]!"))
 
 /obj/structure/autosmither/proc/try_step(step_type, mob/living/user)
 
 	var/next_step
+	var/engineering_skill = user.get_skill_level(/datum/skill/craft/engineering)
+	var/body_zone = BODY_ZONE_R_ARM
 	if(!working)
 		next_step = pre_start_list[length(step_list) + 1]
 	else
 		next_step = post_start_list[length(step_list) + 1]
 
-	if (user.get_skill_level(/datum/skill/craft/engineering) < 3)
+	if (engineering_skill < 3)
 		var/fiftyfifty = pick(TRUE,FALSE) // 50/50 Chance you smash your hand if you're not experienced enough
 		if(fiftyfifty)
 			user.visible_message(span_danger("[user] gets their arm caught in [src]!"), span_danger("You get your arm caught in [src]!"))
-			var/body_zone = BODY_ZONE_R_ARM
 			if(user.active_hand_index == 1)
 				body_zone = BODY_ZONE_L_ARM
 			user.apply_damage(4 * max(1, (rotations_per_minute / 8)), BRUTE, body_zone)
@@ -331,8 +338,17 @@
 			return
 
 	if(next_step != step_type)
-		user.visible_message(span_danger("[user] messes with [src]!"), span_danger("You mess with [src]!"))
+		user.visible_message(span_danger("[user] messes with [src]! The sequence is reset!"), span_danger("You mess with [src]! The sequence is reset!"))
+		user.visible_message(span_danger("[user] gets their arm caught in [src]!"), span_danger("You get your arm caught in [src]!"))
+		if(user.active_hand_index == 1)
+			body_zone = BODY_ZONE_L_ARM
+		if(engineering_skill > 1) //damage is reduced by how much engineering skill you have
+			user.apply_damage(4 * max(1, ((rotations_per_minute / 8) / engineering_skill)), BRUTE, body_zone)
+		else
+			user.apply_damage(4 * max(1, (rotations_per_minute / 8)), BRUTE, body_zone)
+		playsound(src, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
 		step_list = list()
+		return
 
 	if(!do_after(user, 1.2 SECONDS, src))
 		return

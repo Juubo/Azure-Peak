@@ -1,7 +1,7 @@
 /obj/structure/infernalengine
 	icon = 'icons/roguetown/misc/forge.dmi'
 	name = "infernal engine"
-	desc = "This engine uses cycling magma from an internal core to heat things."
+	desc = "This engine uses cycling magma from an internal core to rotate large machinery"
 	icon_state = "infernal0"
 	var/base_state = "infernal"
 	var/on = FALSE

@@ -11,7 +11,7 @@
 	var/in_stack = 1
 	var/can_stack = TRUE
 	var/place_behavior
-	var/resize_factor
+	var/resize_factor = 0.95
 
 /obj/item/rotation_contraption/Initialize()
 	. = ..()
@@ -127,49 +127,45 @@
 
 /obj/item/rotation_contraption/cog
 	placed_type = /obj/structure/rotation_piece/cog
-	resize_factor = 0.5
 
 /obj/item/rotation_contraption/shaft
 	placed_type = /obj/structure/rotation_piece
-	resize_factor = 0.5
 
 /obj/item/rotation_contraption/large_cog
 	placed_type = /obj/structure/rotation_piece/cog/large
-	resize_factor = 0.5
 
 /obj/item/rotation_contraption/horizontal
 	placed_type = /obj/structure/gearbox
-	resize_factor = 0.5
 
 /obj/item/rotation_contraption/vertical
 	placed_type = /obj/structure/vertical_gearbox
-	resize_factor = 0.5
+
 
 /obj/item/rotation_contraption/waterwheel
 	placed_type = /obj/structure/waterwheel
 	grid_height = 96
 	grid_width = 96
-	resize_factor = 0.5
+
 
 /obj/item/rotation_contraption/minecart_rail
 	placed_type = /obj/structure/minecart_rail
 	grid_height = 64
 	grid_width = 32
-	resize_factor = 0.5
+
 
 /obj/item/rotation_contraption/minecart_rail/railbreak
 	placed_type = /obj/structure/minecart_rail/railbreak
 
 	grid_height = 64
 	grid_width = 32
-	resize_factor = 0.5
+
 
 /obj/item/rotation_contraption/roller
 	placed_type = /obj/structure/roller
 
 	grid_height = 32
 	grid_width = 32
-	resize_factor = 0.5
+
 /*
 /obj/item/rotation_contraption/roller_sorter
 	placed_type = /obj/structure/roller_sorter

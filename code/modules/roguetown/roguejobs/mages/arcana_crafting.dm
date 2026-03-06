@@ -145,14 +145,6 @@
 	reqs = list(/obj/item/magic/infernal/core = 1,
 				/obj/item/natural/stone = 4)
 	craftdiff = 3
-
-/datum/crafting_recipe/roguetown/arcana/engine
-	name = "infernal engine"
-	req_table = FALSE
-	result = /obj/structure/infernalengine
-	reqs = list(/obj/item/magic/infernal/core = 1,
-				/obj/item/ingot/steel = 1)
-	craftdiff = 3
 		
 /datum/crafting_recipe/roguetown/arcana/nullring
 	name = "ring of null magic"

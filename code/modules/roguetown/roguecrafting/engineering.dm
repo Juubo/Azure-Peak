@@ -165,7 +165,7 @@
 /datum/crafting_recipe/roguetown/engineering/polishbrush
 	name = "Polish Brush"
 	category = "Improvers"
-	result = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	result = /obj/item/armor_brush
 	reqs = list(/obj/item/natural/fur = 1, /obj/item/natural/fibers = 1, /obj/item/natural/wood/plank = 1)
 	structurecraft = /obj/machinery/artificer_table
 	skillcraft = /datum/skill/craft/engineering
@@ -174,7 +174,7 @@
 /datum/crafting_recipe/roguetown/engineering/polishcream
 	name = "Polish Cream"
 	category = "Improvers"
-	result = /obj/item/gun/ballistic/revolver/grenadelauncher/crossbow
+	result = /obj/item/polishing_cream
 	reqs = list(/obj/item/alch/irondust = 1, /obj/item/reagent_containers/powder/mineral = 1, /obj/item/reagent_containers/food/snacks/tallow = 1)
 	structurecraft = /obj/machinery/artificer_table
 	skillcraft = /datum/skill/craft/engineering
@@ -663,7 +663,7 @@
 	category = "Minecarts"
 	result = list(/obj/item/rotation_contraption/roller,
 				  /obj/item/rotation_contraption/roller)
-	reqs = list(/obj/item/natural/cured = 2, /obj/item/grown/log/tree/stick = 4, /obj/item/roguegear = 2)
+	reqs = list(/obj/item/natural/hide/cured = 2, /obj/item/grown/log/tree/stick = 4, /obj/item/roguegear = 2)
 	verbage_simple = "engineer"
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
@@ -673,7 +673,7 @@ _____qdel_list_wrapper(list/L)
 	. = ..()
 */	
 
-/datum/crafting_recipe/roguetown/engineering/roller
+/datum/crafting_recipe/roguetown/engineering/smither
 	name = "Autosmither"
 	category = "Machines"
 	result = /obj/structure/autosmither
@@ -682,6 +682,15 @@ _____qdel_list_wrapper(list/L)
 	verbage = "engineers"
 	skillcraft = /datum/skill/craft/engineering
 	craftdiff = 5 
+
+/datum/crafting_recipe/roguetown/engineering/infernalengine
+	name = "infernal engine"
+	req_table = FALSE
+	result = /obj/structure/infernalengine
+	reqs = list(/obj/item/magic/infernal/core = 1,
+				/obj/item/ingot/steel = 1)
+	skillcraft = /datum/skill/craft/engineering
+	craftdiff = 4
 
 // ------------ Explosives expansion----------
 /datum/crafting_recipe/roguetown/engineering/tntbomb
