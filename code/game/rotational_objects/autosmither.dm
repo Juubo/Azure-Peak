@@ -143,7 +143,8 @@
 
 /obj/structure/autosmither/attack_right(mob/user, list/modifiers)
 	. = ..()
-	var/option = input(user, "What Do you want to do?", src) as null|anything in list("Pull the lever", "Push the Buttons", "Fiddle with the Dials")
+	var/option = tgui_input_list(user, "What Do you want to do?", "Autosmither", list("Pull the lever", "Push the Buttons", "Fiddle with the Dials"))
+	//var/option = input(user, "What Do you want to do?", src) as null|anything in list("Pull the lever", "Push the Buttons", "Fiddle with the Dials")
 	if(!option)
 		return
 	if(option == "Pull the lever")
@@ -173,8 +174,8 @@
 		to_chat(user, span_notice("You can't changes the recipe queue while the machine is running, turn it off first."))
 		return
 
-
-	var/option = input(user, "Remove or Add a recipe?", src) as null|anything in list("Add", "Remove")
+	var/option = tgui_input_list(user, "Remove or Add a recipe?", "Autosmither", list("Add", "Remove"))
+	//var/option = input(user, "Remove or Add a recipe?", src) as null|anything in list("Add", "Remove")
 	if(!option)
 		return
 
@@ -186,12 +187,14 @@
 		if(!length(options))
 			return
 
-		var/datum/anvil_recipe/choice = input(user, "Choose a recipe to add to the queue", src) as null|anything in options
+		var/datum/anvil_recipe/choice = tgui_input_list(user, "Choose a recipe to add to the queue", "Autosmither", options)
+		//var/datum/anvil_recipe/choice = input(user, "Choose a recipe to add to the queue", src) as null|anything in options
 		if(!choice)
 			return
 		anvil_recipes_to_craft |= choice
 	else
-		var/datum/anvil_recipe/choice = input(user, "Choose a recipe to remove from the queue", src) as null|anything in anvil_recipes_to_craft
+		var/datum/anvil_recipe/choice = tgui_input_list(user, "Choose a recipe to remove from the queue", "Autosmither", anvil_recipes_to_craft)
+		//var/datum/anvil_recipe/choice = input(user, "Choose a recipe to remove from the queue", src) as null|anything in anvil_recipes_to_craft
 		if(!choice)
 			return
 		if(choice == current)
