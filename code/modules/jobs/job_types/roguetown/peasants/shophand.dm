@@ -41,7 +41,9 @@
 		H.advsetup = 1
 		H.invisibility = INVISIBILITY_MAXIMUM
 		H.become_blind("advsetup")
-
+	backpack_contents = list(
+		/obj/item/mini_flagpole/merchant = 1,
+	)
 
 ///Caustic edit, we have our own version
 /*/datum/advclass/shophand

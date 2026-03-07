@@ -99,7 +99,8 @@ GLOBAL_LIST_EMPTY(heretical_players)
 		/obj/item/ritechalk = 1,
 		/obj/item/rogueweapon/huntingknife/idagger/steel/holysee = 1,	//Unique knife from the Holy See
 		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/clothing/neck/roguetown/psicross/undivided = 1
+		/obj/item/clothing/neck/roguetown/psicross/undivided = 1,
+		/obj/item/mini_flagpole/church,
 	)
 	H.AddComponent(/datum/component/wise_tree_alert)
 	if(H.age == AGE_OLD)
