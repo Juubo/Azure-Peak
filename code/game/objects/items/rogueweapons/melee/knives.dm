@@ -13,7 +13,7 @@
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 // Training dagger-exclusive(?) slash. Could potentially be reused for other blunt-edged handweapons.
@@ -53,7 +53,7 @@
 	damfactor = 0.8
 	penfactor = 45 // Slightly more pen, to compensate in penetration for the lower damage.
 	// You're still doing less damage than with a stabbier dagger, but your AP isn't penalised.
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 
 /datum/intent/dagger/thrust/pick
 	name = "icepick stab"
@@ -100,7 +100,7 @@
 	penfactor = 10
 	damfactor = 1.5
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /datum/intent/dagger/chop/cleaver
@@ -255,7 +255,7 @@
 	penfactor = 15
 	damfactor = 1.3
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /obj/item/rogueweapon/huntingknife/wood
@@ -280,7 +280,7 @@
 	penfactor = 0
 	chargetime = 0
 	swingdelay = 0
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 /datum/intent/dagger/thrust/wood
@@ -304,7 +304,7 @@
 	penfactor = 15
 	damfactor = 1.3
 	swingdelay = 5
-	clickcd = 10
+	clickcd = CLICK_CD_QUICK
 	item_d_type = "slash"
 
 //
