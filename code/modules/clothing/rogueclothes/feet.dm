@@ -334,7 +334,7 @@
 	item_state = "goldgreaves"
 	body_parts_covered = FEET | LEGS
 	armor_class = ARMOR_CLASS_HEAVY //Ceremonial. Heavy is the head that bares the burden.
-	armor = ARMOR_GOLD //Renders its wearer completely invulnerable to damage. The caveat is, however..
+	armor = ARMOR_INDESTRUCTIBLE //Renders its wearer completely invulnerable to damage. The caveat is, however..
 	max_integrity = ARMOR_INT_SIDE_GOLD // ..is that it's extraordinarily fragile. To note, this is lower than even Decrepit-tier armor.
 	anvilrepair = null
 	smeltresult = /obj/item/ingot/gold
@@ -364,7 +364,7 @@
 	name = "vicious boots"
 	desc = "Fluted sabatons, dusted with the bonedust of a thousand crushed skulls. Spit this final act, thine embodiment of sin - why would you ever want for something else, when you are God?"
 	max_integrity = ARMOR_INT_SIDE_ANTAG
-	armor = ARMOR_ASCENDANT
+	armor = ARMOR_PLATE_BSTEEL
 	icon_state = "graggarplateboots"
 	sellprice = 35 //Heretic...
 
@@ -378,8 +378,9 @@
 	name = "gilded boots"
 	desc = "Gilded tombs do worm enfold."
 	icon_state = "matthiosboots"
-	armor = ARMOR_ASCENDANT
+	armor = ARMOR_PLATE_BSTEEL
 	sellprice = 35 //Heretic...
+
 /*caustic edit start
 /obj/item/clothing/shoes/roguetown/boots/armor/matthios/Initialize()
 	. = ..()
@@ -398,8 +399,9 @@
 	icon_state = "zizoboots"
 	chunkcolor = "#363030"
 	material_category = ARMOR_MAT_PLATE
-	armor = ARMOR_ASCENDANT
+	armor = ARMOR_PLATE_BSTEEL
 	sellprice = 35 //Heretic...
+
 /*caustic edit start
 /obj/item/clothing/shoes/roguetown/boots/armor/zizo/Initialize()
 	. = ..()
