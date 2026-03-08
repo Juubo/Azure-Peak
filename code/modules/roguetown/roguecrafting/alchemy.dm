@@ -113,7 +113,7 @@
 	name = "sui dust"
 	category = "Table"
 	result = list(/obj/item/alch/transisdust)
-	reqs = list(/obj/item/alch/taraxacum = 1, /obj/item/alch/euphrasia = 1, /obj/item/alch/hypericum = 1, /obj/item/alch/salvia = 1) // Caustic Edit - Change from seeds to Herbs
+	reqs = list(/obj/item/alch/taraxacum = 1, /obj/item/alch/hypericum = 1, /obj/item/alch/salvia = 1) // Caustic Edit - Change from seeds to Herbs, also snag the AP cost reduction cause why not?
 	craftdiff = 0 // Caustic Edit - Change from 3 skill rquired to 0
 
 //Hard to craft but feasable, will give ONE vial but that has 10 units so, enough to cure 2 people if they ration it.
