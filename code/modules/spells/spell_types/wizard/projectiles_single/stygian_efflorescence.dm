@@ -36,8 +36,8 @@
 	icon_state = "stygian"
 	damage = 35
 	woundclass = BCLASS_STAB
-	armor_penetration = 20
-	npc_simple_damage_mult = 1.5
+	armor_penetration = PEN_LIGHT
+	npc_simple_damage_mult = 1.4
 	speed = 2
 	ricochets_max = 4
 	ricochet_chance = 50
