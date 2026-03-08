@@ -94,7 +94,7 @@
 	icon_state = "psydonboots"
 	item_state = "psydonboots"
 	sewrepair = TRUE
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sellprice = 15 //Blessed boots...
@@ -124,7 +124,7 @@
 /obj/item/clothing/shoes/roguetown/boots/nobleboot/steppesman
 	name = "aavnic riding boots"
 	desc = "A pair of sturdy riding boots with an iron heel and brass spurs."
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
 
 /obj/item/clothing/shoes/roguetown/shortboots
@@ -213,7 +213,7 @@
 	icon_state = "ancientsandals"
 	color = null
 	max_integrity = 100			//Half that of iron boots
-	armor = ARMOR_LEATHER_GOOD			//Better than regular leather.
+	armor = ARMOR_LEATHER			//Better than regular leather.
 
 /obj/item/clothing/shoes/roguetown/shalal
 	name = "babouche"
@@ -245,7 +245,7 @@
 	icon_state = "alboots"
 	item_state = "alboots"
 	max_integrity = 100			//Half that of iron boots
-	armor = ARMOR_LEATHER_GOOD			//Better than regular leather.
+	armor = ARMOR_LEATHER			//Better than regular leather.
 	color = null
 	sellprice = 10 //Nice boots!
 
@@ -263,7 +263,7 @@
 	item_state = "fencerboots"
 	blocksound = SOFTHIT
 	max_integrity = ARMOR_INT_SIDE_HARDLEATHER
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
@@ -279,7 +279,7 @@
 	icon_state = "grenzelboots"
 	item_state = "grenzelboots"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	allowed_race = NON_DWARVEN_RACE_TYPES
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
@@ -356,7 +356,7 @@
 	icon_state = "bronzegreaves"
 	body_parts_covered = FEET | LEGS
 	smeltresult = /obj/item/ingot/bronze
-	armor = ARMOR_PLATE_BRONZE
+	armor = ARMOR_PLATE
 	max_integrity = ARMOR_INT_SIDE_BRONZE
 	prevent_crits = PREVENT_CRITS_ALL
 
@@ -579,7 +579,7 @@
 	icon_state = "eastsandals"
 	item_state = "eastsandals"
 	sleeved = 'icons/roguetown/clothing/onmob/helpers/stonekeep_merc.dmi'
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	sewrepair = TRUE
 
 /obj/item/clothing/shoes/roguetown/armor/rumaclan/shitty
@@ -643,7 +643,7 @@
 	item_state = "gold_horseshoes"
 	max_integrity = ARMOR_INT_LEG_LEATHER
 	sewrepair = FALSE
-	armor = ARMOR_PLATE_BAD // these are awful!
+	armor = ARMOR_PLATE // these are awful!
 	smeltresult = /obj/item/ingot/gold
 	sellprice = 40
 

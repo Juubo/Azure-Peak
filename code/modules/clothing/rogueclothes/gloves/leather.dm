@@ -59,7 +59,7 @@
 	desc = "A pair of protective gloves favored by lockshimmers, laborers, and smokers for maintaining \
 	manual dexterity over regular gloves."
 	icon_state = "roguegloves"
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
 	max_integrity = ARMOR_INT_SIDE_CLOTH
@@ -99,7 +99,7 @@
 /obj/item/clothing/gloves/roguetown/otavan/psygloves
 	name = "psydonic leather gloves"
 	desc = "Thick leather mittens, stitched and cuffed to guard His children's palms from perforation."
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	icon_state = "psydongloves"
 	item_state = "psydongloves"
 	salvage_result = /obj/item/natural/hide/cured	
