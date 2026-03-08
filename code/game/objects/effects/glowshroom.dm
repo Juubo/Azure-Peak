@@ -139,8 +139,6 @@ var/dendordam = 30 //FUCK YOOOOU DENDOR
 			var/mob/living/L = user
 			if(world.time < (L.mob_timers["kneestinger"] + 30 SECONDS))
 				dmg = dmg/2
-			if(!istype(src, /obj/structure/glowshroom/dendorite))
-				L.consider_ambush(always = TRUE)
 			L.Immobilize(d/2 SECONDS)
 			L.apply_status_effect(/datum/status_effect/debuff/clickcd, d SECONDS)
 			L.apply_status_effect(/datum/status_effect/buff/lightningstruck, d SECONDS)
