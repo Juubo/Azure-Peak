@@ -54,7 +54,6 @@
 	name = "decrepit boots"
 	desc = "Frayed bronze greaves, shingled atop boots of rotted leather. The toebones of its former legionnaire remain within, rattling about with every step taken."
 	max_integrity = 40
-	prevent_crits = PREVENT_CRITS_NONE
 	icon_state = "ancientboots"
 	smeltresult = /obj/item/ingot/aaslag
 	color = "#bb9696"
@@ -205,7 +204,6 @@
 	desc = "Frayed bronze platforms, curled about to cradle the feet. The beaches that these sandals once treaded are no more; pearly sands, long since turnt to glass from the Comet Syon's impact."
 	icon_state = "ancientsandals"
 	color = "#bb9696"
-	prevent_crits = PREVENT_CRITS_NONE
 
 /obj/item/clothing/shoes/roguetown/sandals/paalloy
 	name = "ancient sandals"
@@ -290,7 +288,6 @@
 	name = "woad elven boots"
 	desc = "The living trunks still blossom in the spring. They let water through, but it is never cold."
 	armor = ARMOR_BLACKOAK //Resistant to blunt and stab, but very weak to slash.
-	prevent_crits = PREVENT_CRITS_ALL
 	max_integrity = ARMOR_INT_SIDE_IRON
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
@@ -358,7 +355,6 @@
 	smeltresult = /obj/item/ingot/bronze
 	armor = ARMOR_PLATE
 	max_integrity = ARMOR_INT_SIDE_BRONZE
-	prevent_crits = PREVENT_CRITS_ALL
 
 /obj/item/clothing/shoes/roguetown/boots/armor/graggar
 	name = "vicious boots"

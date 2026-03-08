@@ -41,7 +41,6 @@
 	material_category = ARMOR_MAT_PLATE
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 5
 
 /obj/item/clothing/gloves/roguetown/plate/paalloy

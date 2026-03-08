@@ -348,7 +348,6 @@
 	body_parts_covered = NECK | HEAD | HAIR
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
-	prevent_crits = PREVENT_CRITS_NONE
 	armor = ARMOR_LEATHER
 	dynamic_hair_suffix = ""
 	edelay_type = 1
@@ -368,7 +367,6 @@
 	body_parts_covered = NECK | HEAD | HAIR
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	flags_inv = HIDEEARS|HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
-	prevent_crits = PREVENT_CRITS_MOST
 	armor = ARMOR_LEATHER
 	dynamic_hair_suffix = ""
 	edelay_type = 1
@@ -382,7 +380,6 @@
 	name = "hierophant's pashmina"
 	desc = "A thick hood that covers one's entire head, should they desire, or merely acts as a scarf otherwise. Made with spell-laced fabric to provide some protection against daemons and mortals alike."
 	max_integrity = 100
-	prevent_crits = PREVENT_CRITS_NONE
 	armor = ARMOR_LEATHER
 	icon_state = "hijab"
 	item_state = "hijab"
@@ -394,7 +391,6 @@
 	name = "pontifex's pashmina"
 	desc = "A slim hood with thin, yet dense fabric. Stretchy and malleable, allowing for full flexibility and mobility. Made with spell-laced fabric to provide some protection against daemons and mortals alike."
 	max_integrity = 100
-	prevent_crits = PREVENT_CRITS_NONE
 	armor = ARMOR_LEATHER
 	icon_state = "monkhood"
 	item_state = "monkhood"
@@ -412,7 +408,6 @@
 	flags_inv = HIDEEARS|HIDEHAIR
 	blocksound = SOFTHIT
 	armor = ARMOR_LEATHER
-	prevent_crits = PREVENT_CRITS_MOST
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER
 	dynamic_hair_suffix = ""
 	edelay_type = 1

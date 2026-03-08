@@ -33,7 +33,6 @@
 	blocksound = SOFTHIT
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 	armor = ARMOR_PADDED_BAD
-	prevent_crits = PREVENT_CRITS_NONE
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	sewrepair = TRUE
@@ -54,7 +53,6 @@
 	blocksound = SOFTHIT
 	body_parts_covered = NECK|HAIR|EARS|HEAD
 	armor = ARMOR_PADDED //gambeson for head
-	prevent_crits = PREVENT_CRITS_NONE
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	sewrepair = TRUE
@@ -72,7 +70,6 @@
 	body_parts_covered = NECK|MOUTH|NOSE|HAIR|EARS|HEAD
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MASTER //padded gambeson durability
 	armor = ARMOR_PADDED //full padded gambeson basically
-	prevent_crits = PREVENT_CRITS_MOST
 	adjustable = CAN_CADJUST
 	toggle_icon_state = TRUE
 	sewrepair = TRUE
@@ -176,7 +173,6 @@
 	material_category = ARMOR_MAT_CHAINMAIL
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 10
 
 /obj/item/clothing/neck/roguetown/chaincoif/chainmantle
@@ -285,7 +281,6 @@
 	desc = "A series of iron plates designed to protect the neck, traditionally atop a jacket or cuirass. While it lacks a coif's coverage, it is more-than-capable of thwarting a dagger's viscous bite."
 	icon_state = "gorget"
 	armor = ARMOR_PLATE
-	prevent_crits = PREVENT_CRITS_ALL
 	smeltresult = /obj/item/ingot/iron
 	anvilrepair = /datum/skill/craft/armorsmithing
 	equip_sound = 'sound/foley/equip/equip_armor.ogg'
@@ -303,7 +298,6 @@
 	desc = "An interlinked veil of bronze plates, shielding the throat from terrible wounds since the dawn of tyme. Piercing blows may sunder the plate, but - as long as the alloy persists - so shall you."
 	icon_state = "bronzegorget"
 	armor = ARMOR_PLATE
-	prevent_crits = PREVENT_CRITS_ALL
 	smeltresult = /obj/item/ingot/bronze
 	max_integrity = ARMOR_INT_SIDE_BRONZE
 
@@ -317,7 +311,6 @@
 	material_category = ARMOR_MAT_PLATE
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 15
 
 /obj/item/clothing/neck/roguetown/gorget/copper
@@ -449,7 +442,6 @@
 	resistance_flags = FIRE_PROOF
 	slot_flags = ITEM_SLOT_NECK
 	body_parts_covered = NECK
-	prevent_crits = PREVENT_CRITS_NONE
 	blocksound = PLATEHIT
 	leashable = TRUE
 

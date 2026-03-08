@@ -240,7 +240,6 @@
 	armor = ARMOR_LEATHER
 	max_integrity = ARMOR_INT_HELMET_LEATHER
 	body_parts_covered = HEAD|HAIR|EARS
-	prevent_crits = PREVENT_CRITS_MOST
 	sewrepair = TRUE
 	//dropshrink = 0.75
 	dynamic_hair_suffix = null
@@ -302,7 +301,6 @@
 	max_integrity = 200
 	armor = ARMOR_LEATHER
 	body_parts_covered = HEAD|HAIR|EARS
-	prevent_crits = list(BCLASS_CUT, BCLASS_BLUNT, BCLASS_TWIST)
 	sewrepair = TRUE
 	resistance_flags = FIRE_PROOF
 
@@ -485,7 +483,6 @@
 	icon_state = "tricorn"
 	armor = ARMOR_CLOTHING
 	max_integrity = 100
-	prevent_crits = list(BCLASS_BLUNT, BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
 	sewrepair = TRUE
@@ -511,7 +508,6 @@
 	body_parts_covered = HEAD|HAIR|EARS|NOSE
 	icon_state = "bandana"
 	armor = ARMOR_CLOTHING
-	prevent_crits = list(BCLASS_TWIST)
 	anvilrepair = null
 	smeltresult = null
 	sewrepair = TRUE

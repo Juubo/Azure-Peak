@@ -738,7 +738,6 @@
 	max_integrity = ARMOR_INT_HELMET_HEAVY_BRONZE - 100
 	armor_class = ARMOR_CLASS_LIGHT
 	material_category = ARMOR_MAT_PLATE
-	prevent_crits = PREVENT_CRITS_ALL
 	body_parts_covered = FULL_HEAD
 	icon_state = "bronzemurmillo"
 	item_state = "bronzemurmillo"
@@ -879,7 +878,6 @@
 	smeltresult = /obj/item/ingot/bronze
 	armor = ARMOR_PLATE
 	max_integrity = ARMOR_INT_SIDE_BRONZE
-	prevent_crits = PREVENT_CRITS_ALL
 	anvilrepair = /datum/skill/craft/armorsmithing
 
 /obj/item/clothing/suit/roguetown/armor/plate/bronze/light
@@ -903,7 +901,6 @@
 	max_integrity = ARMOR_INT_CHEST_PLATE_BRONZE + 150 //Translates into 700 INT. Bronze armor is penetrated by any attack that deals a combined FORCE/AP value of +50, which translates into virtually any non-STR modified attack in the game; swords, daggers, axes.
 	armor_class = ARMOR_CLASS_HEAVY
 	smeltresult = /obj/item/ingot/bronze
-	prevent_crits = PREVENT_CRITS_ALL //Bronze-specific trait. While this sounds scary, all it mechanically does is add resistances to Pick-induced critical hits. Bleed and suffer, but do not go quietly into the darkness.
 	smelt_bar_num = 3
 	var/bronzeplatecumbersome = FALSE
 
@@ -944,7 +941,6 @@
 	icon_state = "bronzemask"
 	item_state = "bronzemask"
 	max_integrity = 150
-	prevent_crits = PREVENT_CRITS_ALL
 	smeltresult = /obj/item/ingot/bronze
 
 /obj/item/clothing/mask/rogue/facemask/bronze/classic
@@ -987,7 +983,6 @@
 	armor = ARMOR_PLATE
 	max_integrity = ARMOR_INT_HELMET_HEAVY_BRONZE - 25 //Close, but no cigar.
 	material_category = ARMOR_MAT_PLATE
-	prevent_crits = PREVENT_CRITS_ALL
 	body_parts_covered = HEAD|HAIR|EARS
 	icon_state = "bronzehelmet"
 	item_state = "bronzehelmet"

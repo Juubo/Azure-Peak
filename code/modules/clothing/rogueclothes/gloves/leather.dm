@@ -4,7 +4,6 @@
 	desc = "A pair of gloves, stitched together from cured leather."
 	icon_state = "leather_gloves"
 	armor = ARMOR_LEATHER
-	prevent_crits = PREVENT_CRITS_NONE
 	max_integrity = ARMOR_INT_SIDE_LEATHER
 	resistance_flags = FIRE_PROOF
 	blocksound = SOFTHIT
@@ -113,7 +112,6 @@
 	icon_state = "eastgloves1"
 	item_state = "eastgloves1"
 	armor = ARMOR_LEATHER
-	prevent_crits = PREVENT_CRITS_NONE
 	resistance_flags = null
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
@@ -129,7 +127,6 @@
 	icon_state = "eastgloves2"
 	item_state = "eastgloves2"
 	armor = ARMOR_LEATHER
-	prevent_crits = PREVENT_CRITS_NONE
 	resistance_flags = null
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP
@@ -150,7 +147,6 @@
 	detail_tag = "_detail"
 	detail_color = CLOTHING_RED
 	armor = ARMOR_LEATHER
-	prevent_crits = PREVENT_CRITS_NONE
 	resistance_flags = null
 	blocksound = SOFTHIT
 	blade_dulling = DULLING_BASHCHOP

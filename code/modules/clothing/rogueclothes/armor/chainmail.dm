@@ -42,7 +42,6 @@
 	material_category = ARMOR_MAT_CHAINMAIL
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 10 //Ew. AAslag...
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/paalloy
@@ -99,7 +98,6 @@
 	material_category = ARMOR_MAT_CHAINMAIL
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	prevent_crits = PREVENT_CRITS_NONE
 	sellprice = 15 //Still ew. AAslag.
 
 /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/paalloy
