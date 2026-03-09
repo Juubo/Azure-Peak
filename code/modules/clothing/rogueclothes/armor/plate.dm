@@ -378,7 +378,6 @@
 	desc = "Often, you have heard that told,"
 	icon_state = "matthiosarmor"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG
-	peel_threshold = 5	//-Any- weapon will require 5 peel hits to peel coverage off of this armor.
 	sellprice = 150 //Heretical armor!!!
 
 /* //Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
@@ -398,7 +397,6 @@
 	desc = "Impossible angularities, molded into a form more comprehensible to the layman's eyes. It has been called forth from the edge of what should be known, in Her name."
 	icon_state = "zizoplate"
 	max_integrity = ARMOR_INT_CHEST_PLATE_ANTAG
-	peel_threshold = 5	//-Any- weapon will require 5 peel hits to peel coverage off of this armor.
 	chunkcolor = "#363030"
 	sellprice = 150 //CC Edit | Heretical armor!!!
 	material_category = ARMOR_MAT_PLATE

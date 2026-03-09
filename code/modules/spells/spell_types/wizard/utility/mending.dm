@@ -41,8 +41,7 @@
 		to_chat(user, span_warning("Not even magic can mend this item!"))
 		revert_cast()
 		return
-
-	if(I.obj_integrity >= I.max_integrity && I.body_parts_covered_dynamic == I.body_parts_covered && !I.peel_count)
+	if(I.obj_integrity >= I.max_integrity && I.body_parts_covered_dynamic == I.body_parts_covered)
 		to_chat(user, span_info("[I] appears to be in perfect condition."))
 		revert_cast()
 		return
@@ -64,20 +63,12 @@
 			user.visible_message(span_info("[I] glows in a faint mending light."))
 			playsound(I, 'sound/magic/mending.ogg', 35, TRUE, -2)
 
-			if(I.obj_integrity >= I.max_integrity)
-				if(I.obj_broken)
-					I.obj_fix()
-				if(I.peel_count)
-					I.peel_count--
-					to_chat(user, span_info("[I]'s shorn layers mend together. ([I.peel_count])."))
-				else
-					if(I.body_parts_covered_dynamic != I.body_parts_covered)
-						I.repair_coverage()
-						to_chat(user, span_info("[I]'s shorn layers mend together, completely."))
-				break //We finished repairs!
-		else //We gotta stand still, same with the item!
-			return
-	return //Finished the mending; Lets stop trying to repair.
+	if(I.obj_integrity >= I.max_integrity)
+		if(I.obj_broken)
+			I.obj_fix()
+		if(I.body_parts_covered_dynamic != I.body_parts_covered)
+			I.repair_coverage()
+			to_chat(user, span_info("[I]'s shorn layers mend together, completely."))
 
 	deactivate(user)
 
