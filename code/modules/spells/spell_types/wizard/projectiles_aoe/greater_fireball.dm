@@ -1,4 +1,4 @@
-/* Greater Fireball — just fireball tuned up to 11, court-mage exclusive. Wider AOE radius,
+/* Greater Fireball � just fireball tuned up to 11, court-mage exclusive. Wider AOE radius,
 more raw damage. */
 
 /obj/effect/proc_holder/spell/invoked/projectile/fireball/greater
@@ -36,7 +36,7 @@ more raw damage. */
 	exp_fire = 0
 	damage = 90
 	npc_simple_damage_mult = 2
-	flag = "magic"
+	flag = "fire"
 	arcyne_aoe_radius = 2
 	structural_damage = 150
 
