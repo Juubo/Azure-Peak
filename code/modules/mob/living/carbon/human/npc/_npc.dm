@@ -69,7 +69,48 @@
 
 /mob/living/carbon/human/Destroy()
 	our_cells = null
+	set_npc_target(null)
+	set_pathfinding_target(null)
+	enemies.Cut()
 	return ..()
+
+/mob/living/carbon/human/proc/set_npc_target(mob/living/new_target)
+	if(target == new_target)
+		return
+	var/old_target = target
+	target = new_target
+	update_target_signal(old_target)
+
+/mob/living/carbon/human/proc/set_pathfinding_target(atom/new_target)
+	if(pathfinding_target == new_target)
+		return
+	var/old_target = pathfinding_target
+	pathfinding_target = new_target
+	update_target_signal(old_target)
+
+/// Maintains a single COMSIG_PARENT_QDELETING registration per tracked datum.
+/// Called after target or pathfinding_target changes to update signal registrations.
+/mob/living/carbon/human/proc/update_target_signal(atom/old_target)
+	// Unregister from old target if neither var still references it
+	if(old_target && old_target != target && old_target != pathfinding_target)
+		UnregisterSignal(old_target, COMSIG_PARENT_QDELETING)
+	// Register on target if needed (covers both vars pointing at same datum)
+	if(target)
+		RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(handle_tracked_target_del), override = TRUE)
+	if(pathfinding_target && pathfinding_target != target)
+		RegisterSignal(pathfinding_target, COMSIG_PARENT_QDELETING, PROC_REF(handle_tracked_target_del), override = TRUE)
+
+/// Single handler for both target and pathfinding_target deletion.
+/mob/living/carbon/human/proc/handle_tracked_target_del(datum/source)
+	SIGNAL_HANDLER
+	if(target == source)
+		target = null
+	if(pathfinding_target == source)
+		pathfinding_target = null
+		clear_path()
+	UnregisterSignal(source, COMSIG_PARENT_QDELETING)
+	if(!target)
+		back_to_idle()
 
 /mob/living/carbon/human/proc/IsStandingStill()
 	return doing || resisting || pickpocketing
