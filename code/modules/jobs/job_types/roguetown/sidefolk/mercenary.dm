@@ -44,6 +44,8 @@
 		/datum/advclass/mercenary/routier,
 		/datum/advclass/mercenary/rumaclan,
 		/datum/advclass/mercenary/rumaclan/sasu,
+		/datum/advclass/mercenary/hangyaku,
+		/datum/advclass/mercenary/chonin,
 		/datum/advclass/mercenary/seonjang,
 		///Caustic edit
 		/datum/advclass/mercenary/shrine_priest,
