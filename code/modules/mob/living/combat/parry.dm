@@ -319,6 +319,8 @@
 				playsound(get_turf(src), pick(W.parrysound), 100, FALSE)
 			if(src.client)
 				record_round_statistic(STATS_PARRIES)
+				log_combat(src, user, "parried")
+				
 
 			var/def_verb = "parries"
 			var/att_verb = ""
@@ -363,6 +365,7 @@
 			src.visible_message(span_warning("<b>[src]</b> parries [user]!"))
 			if(src.client)
 				record_round_statistic(STATS_PARRIES)
+				log_combat(src, user, "parried")
 			return TRUE
 		else
 			to_chat(src, span_boldwarning("I'm too tired to parry!"))
@@ -370,6 +373,7 @@
 	else
 		if(src.client)
 			record_round_statistic(STATS_PARRIES)
+			log_combat(src, user, "parried")
 		playsound(get_turf(src), pick(parry_sound), 100, FALSE)
 		return TRUE
 
