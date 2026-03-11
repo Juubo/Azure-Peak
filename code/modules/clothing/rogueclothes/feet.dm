@@ -317,6 +317,7 @@
 	pickup_sound = 'sound/foley/equip/equip_armor_plate.ogg'
 	equip_sound = 'sound/foley/equip/equip_armor_plate.ogg'
 	anvilrepair = /datum/skill/craft/armorsmithing
+	sewrepair = FALSE
 	smeltresult = /obj/item/ingot/steel
 	sellprice = 15
 
