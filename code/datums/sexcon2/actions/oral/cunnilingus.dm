@@ -53,5 +53,4 @@
 	user.visible_message(span_warning("[user] stops sucking [target]'s clit ..."))
 
 /datum/sex_action/cunnilingus/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	sex_locks |= new /datum/sex_session_lock(target, ORGAN_SLOT_VAGINA)
 	sex_locks |= new /datum/sex_session_lock(user, BODY_ZONE_PRECISE_MOUTH)

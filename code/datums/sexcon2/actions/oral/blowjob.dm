@@ -52,7 +52,6 @@
 	user.visible_message(span_warning("[user] stops sucking [target]'s cock ..."))
 
 /datum/sex_action/blowjob/lock_sex_object(mob/living/carbon/human/user, mob/living/carbon/human/target)
-	sex_locks |= new /datum/sex_session_lock(target, ORGAN_SLOT_PENIS)
 	sex_locks |= new /datum/sex_session_lock(user, BODY_ZONE_PRECISE_MOUTH)
 
 /datum/sex_action/blowjob/handle_climax_message(mob/living/carbon/human/user, mob/living/carbon/human/target)
