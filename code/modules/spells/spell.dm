@@ -2,6 +2,8 @@
 #define TARGET_RANDOM 2
 #define MAGIC_XP_MULTIPLIER 0.3 //used to miltuply the amount of xp gained from spells
 #define FATIGUE_REDUCTION_PER_SKILL 0.05 // The amount of fatigue reduction per skill level.
+#define MEDIUM_ARMOR_STAM_PENALTY 0.15 // Multiplier on base stamina cost for wearing medium armor
+#define HEAVY_ARMOR_STAM_PENALTY 0.3 // Multiplier on base stamina cost for wearing heavy armor
 
 /obj/effect/proc_holder
 	var/panel = "Debug"//What panel the proc holder needs to go on.
@@ -221,13 +223,29 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(!user || !releasedrain)
 		return releasedrain
 	var/newdrain = releasedrain
+	//skill block
+	newdrain = newdrain - (releasedrain * (user.get_skill_level(associated_skill) * FATIGUE_REDUCTION_PER_SKILL))
+	//int block
 	if(user.STAINT > SPELL_SCALING_THRESHOLD)
 		var/diff = min(user.STAINT, SPELL_POSITIVE_SCALING_THRESHOLD) - SPELL_SCALING_THRESHOLD
-		newdrain -= releasedrain * diff * FATIGUE_REDUCTION_PER_INT
-	else if(user.STAINT < SPELL_SCALING_THRESHOLD)
-		var/diff = SPELL_SCALING_THRESHOLD - user.STAINT
-		newdrain += releasedrain * diff * FATIGUE_REDUCTION_PER_INT
-	return max(newdrain, 0.1)
+		newdrain = newdrain - (releasedrain * diff * FATIGUE_REDUCTION_PER_INT)
+	else if(user.STAINT < 10)
+		var/diffy = SPELL_SCALING_THRESHOLD - user.STAINT
+		newdrain = newdrain + (releasedrain * (diffy * FATIGUE_REDUCTION_PER_INT))
+	if(!user.check_armor_skill())
+		newdrain += 80
+	// Armor weight penalty. Trained wearers
+	// still get a bit of a soft penalty 
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/ac = H.highest_ac_worn()
+		if(ac == ARMOR_CLASS_HEAVY)
+			newdrain += releasedrain * HEAVY_ARMOR_STAM_PENALTY
+		else if(ac == ARMOR_CLASS_MEDIUM)
+			newdrain += releasedrain * MEDIUM_ARMOR_STAM_PENALTY
+	if(newdrain > 0)
+		return newdrain
+	return 0.1
 
 /obj/effect/proc_holder/spell/proc/calculate_chargetime(mob/living/user)
 	if(!user || !chargetime)
@@ -1026,3 +1044,5 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 #undef TARGET_RANDOM
 #undef MAGIC_XP_MULTIPLIER
 #undef FATIGUE_REDUCTION_PER_SKILL
+#undef MEDIUM_ARMOR_STAM_PENALTY
+#undef HEAVY_ARMOR_STAM_PENALTY
