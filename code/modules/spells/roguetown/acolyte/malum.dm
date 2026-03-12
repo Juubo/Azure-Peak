@@ -618,7 +618,7 @@ var/global/list/anvil_recipe_prices[][]
 		if(!do_after(user, 50))
 			repair_points = 0
 			return FALSE
-		I.obj_integrity += one_fix_points
+		I.obj_integrity = min(I.obj_integrity + one_fix_points, I.max_integrity)
 		I.visible_message(span_info("[I] glows in a faint mending light."))
 		user.devotion?.update_devotion(-cost)
 		if(cost != 0)
@@ -633,7 +633,7 @@ var/global/list/anvil_recipe_prices[][]
 			return FALSE
 		cast(user)
 	revert_cast()
-	return FALSE
+	return TRUE
 
 /obj/effect/proc_holder/spell/invoked/restoration
 	name = "Order: Restoration"
