@@ -93,6 +93,13 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
+/datum/reagent/consumable/soup/stew/parmesan
+	name = "agedcheese soup"
+	description = "A thick aged cheese soup. Creamy and comforting."
+	color = "#A8AA70"
+	taste_description = "creamy aged cheese"
+	metabolization_rate = 0.5
+
 /datum/reagent/consumable/soup/stew/chicken
 	name = "chicken stew"
 	color = "#baa21c"
@@ -110,6 +117,12 @@
 	diet_types = list("Meats")
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/viscera_broth
+	name = "offal stew"
+	color = "#B65571"
+	taste_description = "overpoweringly strange-tasting, with a mildly savory aftertaste"
+	nutriment_factor = 15
 
 /datum/reagent/consumable/soup/stew/fish
 	name = "fish stew"
@@ -139,9 +152,9 @@
 	//CC Edit End
 
 /datum/reagent/consumable/soup/stew/yucky
-	name = "yucky stew"
+	name = "strange stew"
 	color = "#9e559c"
-	taste_description = "something rancid"
+	taste_description = "overpoweringly strange-tasting, with a mildly tangy aftertaste"
 
 /datum/reagent/consumable/soup/stew/berry
 	name = "berry stew"
@@ -225,12 +238,88 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
+/datum/reagent/consumable/soup/stew/squash_soup
+	name = "squash soup"
+	color = "#C98C42"
+	taste_description = "autumn's loving embrace"
+	metabolization_rate = 0.8
+	//CC Edit Begin
+	diet_types = list("Vegetables")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
 /datum/reagent/consumable/soup/stew/tangerine_marmalade
-	name = "tangerine marmalade"
+	name = "juice of tangerine"
 	color = "#f0935d"
 	taste_description = "extremely sweet tangerine"
+	hydration = 8
+	nutriment_factor = 8
 	//CC Edit Begin
 	diet_types = list("Fruits")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/lemon
+	name = "juice of lemon"
+	color = "#FFE88F"
+	taste_description = "puckeringly bright lemoniness"
+	hydration = 8
+	nutriment_factor = 8
+	//CC Edit Begin
+	diet_types = list("Fruits")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/lime
+	name = "juice of lime"
+	color = "#BAE88F"
+	taste_description = "puckeringly bright limeyness"
+	hydration = 8
+	nutriment_factor = 8
+	//CC Edit Begin
+	diet_types = list("Fruits")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/pear
+	name = "juice of pear"
+	color = "#BAAE8F"
+	taste_description = "pleasantly crisp peariness"
+	hydration = 8
+	nutriment_factor = 8
+	//CC Edit Begin
+	diet_types = list("Fruits")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/apple
+	name = "juice of apple"
+	color = "#E0BE6D"
+	taste_description = "pleasantly crisp appleness"
+	hydration = 8
+	nutriment_factor = 8
+	//CC Edit Begin
+	diet_types = list("Fruits")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/bone_broth
+	name = "bone broth"
+	color = "#7F6556"
+	taste_description = "savory warmth"
+	nutriment_factor = 10
+	//CC Edit Begin
+	diet_types = list("Meats")
+	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
+	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/survival_broth
+	name = "briquebroth"
+	color = "#693346"
+	taste_description = "heartwarmingly thick, with little bursts of sweetness"
+	nutriment_factor = 25
+	//CC Edit Begin
+	diet_types = list("Meats")
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
