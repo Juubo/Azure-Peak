@@ -749,7 +749,7 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_POOR
 	//CC Edit End
 
-..................   Skysugar   ...................
+///////////  Skysugar   //////////////
 // Stored here, as it uses deepfrying to make. Let's cook, yo!
 
 /obj/item/reagent_containers/food/snacks/grown/fruit/blackberry/skysugarbase
