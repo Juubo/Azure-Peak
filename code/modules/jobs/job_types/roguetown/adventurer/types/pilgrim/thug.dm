@@ -166,9 +166,7 @@
 		STATKEY_SPD = -4,
 		STATKEY_INT = -6,
 		STATKEY_PER = -3,
-		//CC edit
-		STATKEY_LCK = -1
-		//CC edit end
+		STATKEY_LCK = -1,
 	)
 	subclass_skills = list(
 		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
