@@ -686,7 +686,7 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
-/datum/reagent/consumable/soup/stew/roastcarrot_stew
+/datum/reagent/consumable/soup/stew/thickcarrot_stew
 	name = "roasted carrot stew"
 	color = "#f26818"
 	taste_description = "savory and caramelized carrots"
