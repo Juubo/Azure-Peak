@@ -55,6 +55,17 @@
 	alpha = 222
 	quality = DRINK_VERYGOOD
 
+/datum/reagent/consumable/soup/allspice
+	name = "allspice"
+	color = "#CE8C33"
+	taste_description = "fragrant spiciness" //Technically improper way to phrase it, but it works for what it's worth.
+	nutriment_factor = 1
+	hydration = 1 //Adds virtually nothing to satiate thirst and hunger.
+	alpha = 10
+	taste_mult = 10 //One handful should be enough for a whole pot.
+	metabolization_rate = 0.5
+	quality = DRINK_FANTASTIC //Main appeal; makes even the dullest meals quite palettable. Futurecoders should probably find a way to make this dynamically add +1 to drink qualities, instead of the flat increase.
+
 /datum/reagent/consumable/soup/porridge/congee
 	name = "congee"
 	description = "Rice boiled in water until it is softened. Eaten by the poor and sick in the east. Here, it is considered a medicinal food."
@@ -355,7 +366,7 @@
 	taste_description = "sumptuously tender chicken with flakes of crispy skin, buttery richness, and a hint of tongue-tickling spice"
 	nutriment_factor = 40
 	metabolization_rate = 0.6
-	quality = DRINK_FANTASTIC
+	quality = DRINK_VERYGOOD
 	alpha = 200
 
 /datum/reagent/consumable/soup/stew/meat
@@ -399,7 +410,7 @@
 	taste_description = "sumptuously tender meat, a rich and savory broth, and a hint of tongue-tickling spice"
 	nutriment_factor = 40
 	metabolization_rate = 0.6
-	quality = DRINK_FANTASTIC
+	quality = DRINK_VERYGOOD
 	alpha = 200
 
 /datum/reagent/consumable/soup/stew/pork
@@ -482,7 +493,7 @@
 	taste_description = "sumptuously flaky fish in a rich, creamy broth with subtle notes of sweetness"
 	nutriment_factor = 40
 	metabolization_rate = 0.8
-	quality = DRINK_FANTASTIC
+	quality = DRINK_VERYGOOD
 	alpha = 200
 
 /datum/reagent/consumable/soup/stew/evilfryfish
@@ -814,13 +825,21 @@
 /datum/reagent/consumable/soup/stew/survival_broth
 	name = "briquebroth"
 	color = "#693346"
-	taste_description = "heartwarmingly thick, with little bursts of sweetness"
+	taste_description = "heartwarmingly thick and salty, with little bursts of sweetness"
 	nutriment_factor = 25
+	metabolization_rate = 0.8
 	alpha = 222
 	//CC Edit Begin
 	diet_types = list("Meats")
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/saltmeat_stew
+	name = "salted meat stew"
+	color = "#693346"
+	taste_description = "overwhelmingly salty, with hints of savoriness and meatiness"
+	nutriment_factor = 20
+	alpha = 250
 
 // Copy pasted from berry poison, but stew metabolizes much faster so it is less deadly. You CAN use it as a source of hydration / nutrition if you are desperate enough???
 /datum/reagent/consumable/soup/stew/berry_poisoned/on_mob_life(mob/living/carbon/M)
