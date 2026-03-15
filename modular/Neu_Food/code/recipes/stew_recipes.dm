@@ -20,11 +20,6 @@
 	cooktime = STEW_COOKING_TIME
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/thickporridge
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/bread)
-	output = /datum/reagent/consumable/soup/porridge/thick
-	cooktime = STEW_COOKING_TIME
-
 /datum/stew_recipe/allspice
 	inputs = list(/obj/item/reagent_containers/food/snacks/allspice)
 	output = /datum/reagent/consumable/soup/allspice
@@ -104,7 +99,7 @@
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/thickcabbage
-	inputs = list(/obj/item/reagent_containers/food/snacks/grown/cabbage/rogue, )
+	inputs = list(/obj/item/reagent_containers/food/snacks/grown/cabbage/rogue)
 	output = /datum/reagent/consumable/soup/veggie/thickcabbage
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
@@ -115,25 +110,15 @@
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/turnip
-	inputs = list(/obj/item/reagent_containers/food/snacks/veg/turnip_sliced)
-	output = /datum/reagent/consumable/soup/veggie/turnip
-	req_liquid = /datum/reagent/water
-
 /datum/stew_recipe/thickturnip
 	inputs = list(/obj/item/reagent_containers/food/snacks/grown/vegetable/turnip)
 	output = /datum/reagent/consumable/soup/veggie/thickturnip
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/fish
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish, /obj/item/reagent_containers/food/snacks/rogue/meat/fish)
-	output = /datum/reagent/consumable/soup/stew/fish
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/fryfish
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/fryfish, /obj/item/reagent_containers/food/snacks/rogue/meat/fish/fried)
-	output = /datum/reagent/consumable/soup/stew/fryfish
+/datum/stew_recipe/turnip
+	inputs = list(/obj/item/reagent_containers/food/snacks/veg/turnip_sliced)
+	output = /datum/reagent/consumable/soup/veggie/turnip
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/veggiefryfish
@@ -156,14 +141,14 @@
 	output = /datum/reagent/consumable/soup/stew/lavishfryfish
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/rabbit
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit)
-	output = /datum/reagent/consumable/soup/stew/rabbit
+/datum/stew_recipe/fryfish
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/fryfish, /obj/item/reagent_containers/food/snacks/rogue/meat/fish/fried)
+	output = /datum/reagent/consumable/soup/stew/fryfish
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/fryrabbit
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit/fried)
-	output = /datum/reagent/consumable/soup/stew/fryrabbit
+/datum/stew_recipe/fish
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/fish, /obj/item/reagent_containers/food/snacks/rogue/meat/fish)
+	output = /datum/reagent/consumable/soup/stew/fish
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/veggiefryrabbit
@@ -171,19 +156,14 @@
 	output = /datum/reagent/consumable/soup/stew/veggiefryrabbit
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/volf
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf)
-	output = /datum/reagent/consumable/soup/stew/volf
+/datum/stew_recipe/fryrabbit
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit/fried)
+	output = /datum/reagent/consumable/soup/stew/fryrabbit
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/fryvolf
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried)
-	output = /datum/reagent/consumable/soup/stew/fryvolf
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/veggiefryvolf
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried/garlick)
-	output = /datum/reagent/consumable/soup/stew/veggiefryvolf
+/datum/stew_recipe/rabbit
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/rabbit, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/rabbit)
+	output = /datum/reagent/consumable/soup/stew/rabbit
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/kingvolf
@@ -191,9 +171,19 @@
 	output = /datum/reagent/consumable/soup/stew/kingvolf
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/spider
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider)
-	output = /datum/reagent/consumable/soup/stew/yucky
+/datum/stew_recipe/veggiefryvolf
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried/garlick)
+	output = /datum/reagent/consumable/soup/stew/veggiefryvolf
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/fryvolf
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf/fried)
+	output = /datum/reagent/consumable/soup/stew/fryvolf
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/volf
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/steak/wolf)
+	output = /datum/reagent/consumable/soup/stew/volf
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/fryspider
@@ -201,36 +191,26 @@
 	output = /datum/reagent/consumable/soup/stew/fryyucky
 	req_liquid = /datum/reagent/water
 
+/datum/stew_recipe/spider
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/spider)
+	output = /datum/reagent/consumable/soup/stew/yucky
+	req_liquid = /datum/reagent/water
+
 /datum/stew_recipe/slop
 	inputs = list(/obj/item/reagent_containers/food/snacks/badrecipe)
 	output = /datum/reagent/consumable/soup/stew/slop
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/chicken
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet)
-	output = /datum/reagent/consumable/soup/stew/chicken
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/thickchicken
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry)
-	output = /datum/reagent/consumable/soup/stew/thickchicken
-	cooktime = STEW_COOKING_TIME * 2
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/frybird
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried)
-	output = /datum/reagent/consumable/soup/stew/bakedchicken
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/thickfrybird
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked, /obj/item/reagent_containers/food/snacks/rogue/meat/chickentender)
-	output = /datum/reagent/consumable/soup/stew/bakedthickchicken
-	cooktime = STEW_COOKING_TIME * 2
-	req_liquid = /datum/reagent/water
-
 /datum/stew_recipe/veggiefrybird
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/frybirdtato)
 	output = /datum/reagent/consumable/soup/stew/veggiethickchicken
+	cooktime = STEW_COOKING_TIME * 2
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/lavishfrybird
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/spiced/ducal, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/doublestacked, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/butter)
+	output = /datum/reagent/consumable/soup/stew/lavishchicken
+	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/pepperfrybird
@@ -239,9 +219,20 @@
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/lavishfrybird
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/spiced/ducal, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/doublestacked, /obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked/butter)
-	output = /datum/reagent/consumable/soup/stew/lavishchicken
+/datum/stew_recipe/thickfrybird
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/baked, /obj/item/reagent_containers/food/snacks/rogue/meat/chickentender)
+	output = /datum/reagent/consumable/soup/stew/bakedthickchicken
+	cooktime = STEW_COOKING_TIME * 2
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/frybird
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet/fried)
+	output = /datum/reagent/consumable/soup/stew/bakedchicken
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/chicken
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/poultry/cutlet, /obj/item/reagent_containers/food/snacks/rogue/meat/mince/poultry)
+	output = /datum/reagent/consumable/soup/stew/chicken
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
@@ -260,11 +251,6 @@
 	output = /datum/reagent/consumable/soup/stew/pepperfrymeat
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/pork
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/bacon, /obj/item/reagent_containers/food/snacks/fat/salo/slice)
-	output = /datum/reagent/consumable/soup/stew/pork
-	req_liquid = /datum/reagent/water
-
 /datum/stew_recipe/thickpork
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/fatty)
 	output = /datum/reagent/consumable/soup/stew/thickpork
@@ -276,15 +262,15 @@
 	output = /datum/reagent/consumable/soup/stew/frypork
 	req_liquid = /datum/reagent/water
 
+/datum/stew_recipe/pork
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/bacon, /obj/item/reagent_containers/food/snacks/fat/salo/slice)
+	output = /datum/reagent/consumable/soup/stew/pork
+	req_liquid = /datum/reagent/water
+
 /datum/stew_recipe/thickfrypork
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/fatty/roast, /obj/item/reagent_containers/food/snacks/rogue/meat/nitzel, /obj/item/reagent_containers/food/snacks/rogue/meat/nitzel/schnitzel, /obj/item/reagent_containers/food/snacks/rogue/meat/nitzel/wiener)
 	output = /datum/reagent/consumable/soup/stew/thickfrypork
 	cooktime = STEW_COOKING_TIME * 2
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/bisque
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/crab, /obj/item/reagent_containers/food/snacks/fish/lobster, /obj/item/reagent_containers/food/snacks/fish/crab, /obj/item/reagent_containers/food/snacks/rogue/foodbase/crabcakeraw)
-	output = /datum/reagent/consumable/soup/stew/bisque
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/frybisque
@@ -310,6 +296,11 @@
 /datum/stew_recipe/lavishfryseafoodbroil
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/milkclam)
 	output = /datum/reagent/consumable/soup/stew/lavishfryseafoodbroil
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/bisque
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/crab, /obj/item/reagent_containers/food/snacks/fish/lobster, /obj/item/reagent_containers/food/snacks/fish/crab, /obj/item/reagent_containers/food/snacks/rogue/foodbase/crabcakeraw)
+	output = /datum/reagent/consumable/soup/stew/bisque
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/meatrice
@@ -404,17 +395,6 @@
 	output = /datum/reagent/consumable/soup/apple
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/cheese
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge, /obj/item/reagent_containers/food/snacks/rogue/cheddarslice)
-	output = /datum/reagent/consumable/soup/stew/cheese
-	req_liquid = /datum/reagent/water
-
-/datum/stew_recipe/thickcheese
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/cheese)
-	output = /datum/reagent/consumable/soup/stew/thickcheese
-	cooktime = STEW_COOKING_TIME * 2
-	req_liquid = /datum/reagent/water
-
 /datum/stew_recipe/parmesan
 	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge/aged, /obj/item/reagent_containers/food/snacks/rogue/cheddarslice/aged)
 	output = /datum/reagent/consumable/soup/stew/parmesan
@@ -426,14 +406,20 @@
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/egg
-	inputs = list(/obj/item/reagent_containers/food/snacks/egg, /obj/item/reagent_containers/food/snacks/rogue/stuffedegg)
-	output = /datum/reagent/consumable/soup/stew/egg
+/datum/stew_recipe/cheese
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/cheddarwedge, /obj/item/reagent_containers/food/snacks/rogue/cheddarslice)
+	output = /datum/reagent/consumable/soup/stew/cheese
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/fryegg
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/friedegg/fried, /obj/item/reagent_containers/food/snacks/rogue/friedegg/two, /obj/item/reagent_containers/food/snacks/rogue/stuffedegg/cooked)
-	output = /datum/reagent/consumable/soup/stew/fryegg
+/datum/stew_recipe/thickcheese
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/cheese)
+	output = /datum/reagent/consumable/soup/stew/thickcheese
+	cooktime = STEW_COOKING_TIME * 2
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/lavishfryegg
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian, /obj/item/reagent_containers/food/snacks/rogue/friedegg/hammerhold)
+	output = /datum/reagent/consumable/soup/stew/lavishfryegg
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/thickfryegg
@@ -442,9 +428,14 @@
 	cooktime = STEW_COOKING_TIME * 2
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/lavishfryegg
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/friedegg/tiberian, /obj/item/reagent_containers/food/snacks/rogue/friedegg/hammerhold)
-	output = /datum/reagent/consumable/soup/stew/lavishfryegg
+/datum/stew_recipe/fryegg
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/friedegg/fried, /obj/item/reagent_containers/food/snacks/rogue/friedegg/two, /obj/item/reagent_containers/food/snacks/rogue/stuffedegg/cooked)
+	output = /datum/reagent/consumable/soup/stew/fryegg
+	req_liquid = /datum/reagent/water
+
+/datum/stew_recipe/egg
+	inputs = list(/obj/item/reagent_containers/food/snacks/egg, /obj/item/reagent_containers/food/snacks/rogue/stuffedegg)
+	output = /datum/reagent/consumable/soup/stew/egg
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/garlick_soup
