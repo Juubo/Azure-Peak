@@ -64,8 +64,11 @@ GLOBAL_LIST_INIT(learnable_spells, (list(/obj/effect/proc_holder/spell/invoked/p
 		/obj/effect/proc_holder/spell/invoked/bonechill,
 		/obj/effect/proc_holder/spell/invoked/silence,
 		/obj/effect/proc_holder/spell/self/findfamiliar,
+		/obj/effect/proc_holder/spell/invoked/projectile/stygian,
+		// V2 spell system (AB testing)
+		/datum/action/cooldown/spell/projectile/arcynebolt,
+		/datum/action/cooldown/spell/projectile/fireball
 		/obj/effect/proc_holder/spell/invoked/conjure_tool/mage, // Caustic Edit
-		/obj/effect/proc_holder/spell/invoked/projectile/stygian
 		)
 ))
 
