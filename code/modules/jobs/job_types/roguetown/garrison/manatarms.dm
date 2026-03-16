@@ -382,7 +382,7 @@
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	mask = /obj/item/clothing/head/roguetown/roguehood/black
 	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light/retinue // CC Edit Start
-	shirt = /obj/item/clothing/suit/roguetown/armor/regenerating/skin/disciple/bailiff //CC edit end
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson //CC edit end
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
