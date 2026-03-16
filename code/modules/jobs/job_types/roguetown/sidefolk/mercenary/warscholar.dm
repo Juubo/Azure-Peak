@@ -119,7 +119,7 @@
 		/datum/skill/misc/stealing = SKILL_LEVEL_JOURNEYMAN,
 		/datum/skill/misc/lockpicking = SKILL_LEVEL_JOURNEYMAN,
 	)
-	subclass_spellpoints = 0 // Override inheritance — spells are granted directly
+	subclass_spellpoints = 0 // Override inheritance � spells are granted directly
 	subclass_spell_point_pools = list("utility" = 4)
 
 /datum/outfit/job/roguetown/mercenary/warscholar_pontifex
@@ -282,7 +282,7 @@
 	if(H.mind)
 		detailcolor = input("Choose a color.", "NALEDIAN COLORPLEX") as anything in naledicolors
 		detailcolor = naledicolors[detailcolor]
-		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt)
+		H.mind.AddSpell(new /datum/action/cooldown/spell/projectile/arcynebolt)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/blink/shadowstep)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diminish)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/vizier_restoration)
