@@ -1826,8 +1826,8 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 	if(higher_intfactor > 1)	//Make sure to keep your weapon and intent intfactors consistent to avoid problems here!
 		used_intfactor = higher_intfactor
 
-	if(ishuman(user) && user.mind && user != H)
-		var/text = "[bodyzone2readablezone(selzone)]..."
+	if(ishuman(user) && user != H)
+		var/text = "[bodyzone2readablezone(selzone_real)]..."
 		if(HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))
 			if(prob(10))
 				text = "<i>I can't tell...</i>"
