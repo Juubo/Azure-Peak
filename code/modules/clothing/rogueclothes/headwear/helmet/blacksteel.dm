@@ -5,6 +5,7 @@
 	icon_state = "bplatehelm"
 	item_state = "bplatehelm"
 	adjustable = CAN_CADJUST
+	flags_inv = HIDEEARS|HIDEFACE|HIDESNOUT|HIDEHAIR
 	sellprice = 150 //Smelt it down silly...
 
 /obj/item/clothing/head/roguetown/helmet/blacksteel/modern/ComponentInitialize()
@@ -104,6 +105,7 @@
 	slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_MASK
 	sellprice = 250 //CC Edit | Rare!!!
 	armor_class = ARMOR_CLASS_NONE
+	block2add = FOV_DEFAULT
 
 /obj/item/clothing/head/roguetown/helmet/blacksteel/psythorns/attack_self(mob/living/user)
 	. = ..()
