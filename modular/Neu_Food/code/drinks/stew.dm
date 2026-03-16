@@ -46,6 +46,10 @@
 	alpha = 222
 	quality = DRINK_GOOD
 
+/datum/reagent/consumable/soup/porridge/pudding/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/porridge/thickpudding
 	name = "thick berried porridge-pudding"
 	description = "Fitting for a king."
@@ -54,6 +58,10 @@
 	metabolization_rate = 0.6
 	alpha = 222
 	quality = DRINK_VERYGOOD
+
+/datum/reagent/consumable/soup/porridge/thickpudding/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/allspice
 	name = "allspice"
@@ -65,6 +73,10 @@
 	taste_mult = 10 //One handful should be enough for a whole pot.
 	metabolization_rate = 0.5
 	quality = DRINK_FANTASTIC //Main appeal; makes even the dullest meals quite palettable. Futurecoders should probably find a way to make this dynamically add +1 to drink qualities, instead of the flat increase.
+
+/datum/reagent/consumable/soup/allspice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/allspiced)
+	..()
 
 /datum/reagent/consumable/soup/porridge/congee
 	name = "congee"
@@ -81,6 +93,10 @@
 	color = "#F7E2C0"
 	nutriment_factor = 20
 	alpha = 200
+
+/datum/reagent/consumable/soup/porridge/frycongee/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/veggie
 	name = "vegetable soup"
@@ -116,6 +132,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/veggie/thickfrypotato/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/veggie/onion
 	name = "onion soup"
 	color = "#a6b457"
@@ -137,6 +157,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_NICE
 	alpha = 200
+
+/datum/reagent/consumable/soup/veggie/thickfryonion/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/veggie/cabbage
 	name = "cabbage soup"
@@ -160,6 +184,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/veggie/thickfrycabbage/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/veggie/turnip
 	name = "turnip soup"
 	color = "#becf9d"
@@ -182,6 +210,10 @@
 	metabolization_rate = 4
 	alpha = 222
 
+/datum/reagent/consumable/soup/purebutter/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/shitstew)
+	..()
+
 /datum/reagent/consumable/soup/lemon
 	name = "juice of lemon"
 	color = "#FFE88F"
@@ -190,6 +222,10 @@
 	nutriment_factor = 8
 	metabolization_rate = 1.2
 	quality = DRINK_NICE
+
+/datum/reagent/consumable/soup/lemon/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/juicedrink)
+	..()
 
 /datum/reagent/consumable/soup/lime
 	name = "juice of lime"
@@ -200,6 +236,10 @@
 	metabolization_rate = 1.2
 	quality = DRINK_NICE
 
+/datum/reagent/consumable/soup/lime/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/juicedrink)
+	..()
+
 /datum/reagent/consumable/soup/pear
 	name = "juice of pear"
 	color = "#BAAE8F"
@@ -208,6 +248,10 @@
 	nutriment_factor = 8
 	metabolization_rate = 1.2
 	quality = DRINK_NICE
+
+/datum/reagent/consumable/soup/pear/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/juicedrink)
+	..()
 
 /datum/reagent/consumable/soup/apple
 	name = "juice of apple"
@@ -218,6 +262,10 @@
 	metabolization_rate = 1.2
 	quality = DRINK_NICE
 
+/datum/reagent/consumable/soup/apple/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/juicedrink)
+	..()
+
 /datum/reagent/consumable/soup/tangerine_marmalade
 	name = "juice of tangerine"
 	color = "#f0935d"
@@ -226,6 +274,10 @@
 	nutriment_factor = 8
 	metabolization_rate = 1.2
 	quality = DRINK_NICE
+
+/datum/reagent/consumable/soup/tangerine_marmalade/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/juicedrink)
+	..()
 
 /datum/reagent/consumable/soup/bone_broth
 	name = "bone broth"
@@ -256,6 +308,10 @@
 	nutriment_factor = 30
 	metabolization_rate = 1.2 //A little quicker, for breakfast!
 
+/datum/reagent/consumable/soup/stew/fryegg/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/thickfryegg
 	name = "scrambled cacklehash stew"
 	color = "#B78F71"
@@ -265,6 +321,10 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/thickfryegg/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishfryegg
 	name = "lavish cacklehash stew"
 	color = "#B5934A"
@@ -273,6 +333,10 @@
 	metabolization_rate = 1.2 //A little quicker, for breakfast!
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/lavishfryegg/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/cheese
 	name = "cheese soup"
@@ -284,6 +348,10 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
+/datum/reagent/consumable/soup/stew/cheese/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/thickcheese
 	name = "fondue"
 	description = "A ridiculously thick cheese soup. Creamy, comforting, and decadant."
@@ -294,12 +362,20 @@
 	quality = DRINK_GOOD
 	alpha = 222
 
+/datum/reagent/consumable/soup/stew/thickcheese/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/parmesan
 	name = "aged cheese soup"
 	description = "A thick aged cheese soup. Creamy and comforting."
 	color = "#A8AA70"
 	taste_description = "creamy aged cheese"
 	metabolization_rate = 0.8
+
+/datum/reagent/consumable/soup/stew/parmesan/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/thickparmesan
 	name = "aged fondue"
@@ -310,6 +386,10 @@
 	nutriment_factor = 40
 	quality = DRINK_VERYGOOD
 	alpha = 222
+
+/datum/reagent/consumable/soup/stew/thickparmesan/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/chicken
 	name = "chicken stew"
@@ -333,6 +413,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_NICE
 
+/datum/reagent/consumable/soup/stew/bakedchicken/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/bakedthickchicken
 	name = "thick frybird stew"
 	color = "#8F6119"
@@ -341,6 +425,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_GOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/bakedthickchicken/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/veggiethickchicken
 	name = "frybird stew with vegetables"
@@ -351,6 +439,10 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/veggiethickchicken/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/pepperchicken
 	name = "pepper-spiced frybird stew"
 	color = "#A0421C"
@@ -360,6 +452,10 @@
 	quality = DRINK_VERYGOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/pepperchicken/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishchicken
 	name = "lavish frybird stew"
 	color = "#A0421C"
@@ -368,6 +464,10 @@
 	metabolization_rate = 0.6
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/lavishchicken/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/lavishstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/meat
 	name = "meat stew"
@@ -386,6 +486,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/frymeat/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/veggiefrymeat
 	name = "brisket stew with vegetables"
 	color = "#633012"
@@ -394,6 +498,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_GOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/veggiefrymeat/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/pepperfrymeat
 	name = "pepper-spiced brisket stew"
@@ -404,6 +512,10 @@
 	quality = DRINK_VERYGOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/pepperfrymeat/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishfrymeat
 	name = "lavish brisket stew"
 	color = "#722616"
@@ -412,6 +524,10 @@
 	metabolization_rate = 0.6
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/lavishfrymeat/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/lavishstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/pork
 	name = "fatty meat stew"
@@ -433,6 +549,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/frypork/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/thickfrypork
 	name = "crispy and fatty brisket stew"
 	color = "#892214"
@@ -442,17 +562,29 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/thickfrypork/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/viscera_broth
 	name = "offal stew"
 	color = "#B65571"
 	taste_description = "overpoweringly strange-tasting, with a mildly savory aftertaste"
 	nutriment_factor = 15
 
+/datum/reagent/consumable/soup/stew/viscera_broth/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/mehstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/slop
 	name = "slop"
 	color = "#18130E"
 	taste_description = "charred giblets with a gravely aftertaste, and just a pinch of regret"
 	nutriment_factor = 10
+
+/datum/reagent/consumable/soup/stew/slop/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/shitstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/fish
 	name = "fish stew"
@@ -471,6 +603,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/fryfishon_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/veggiefryfish
 	name = "roasted fish stew with vegetables"
 	color = "#C67C78"
@@ -479,6 +615,10 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/veggiefryfish/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/pepperfryfish
 	name = "pepper-spiced fish stew"
 	color = "#C65D5D"
@@ -486,6 +626,10 @@
 	nutriment_factor = 35
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/pepperfryfish/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/lavishfryfish
 	name = "lavish fish stew"
@@ -496,12 +640,20 @@
 	quality = DRINK_VERYGOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/lavishfryfish/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/lavishstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/evilfryfish
 	name = "evil fish stew"
 	color = "#FF3200"
 	taste_description = "an overwhelming sense of dread, whispers of progress, and a surprisingly rich aftertaste"
 	nutriment_factor = 66
 	metabolization_rate = 6
+
+/datum/reagent/consumable/soup/stew/evilfryfish/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/something_stirs)
+	..()
 
 /datum/reagent/consumable/soup/stew/rabbit
 	name = "cabbit stew"
@@ -520,6 +672,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/fryrabbit/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/veggiefryrabbit
 	name = "roasted cabbit stew with vegetables"
 	color = "#A35D46"
@@ -528,6 +684,10 @@
 	nutriment_factor = 30
 	quality = DRINK_GOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/veggiefryrabbit/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/volf
 	name = "volf stew"
@@ -542,6 +702,10 @@
 	quality = DRINK_NICE
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/fryvolf/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/veggiefryvolf
 	name = "vriskette stew with vegetables"
 	color = "#633012"
@@ -551,6 +715,10 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/veggiefryvolf/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/kingvolf
 	name = "king's stew"
 	color = "#892214"
@@ -559,6 +727,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/kingvolf/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/bisque
 	name = "bisque"
@@ -578,6 +750,10 @@
 	quality = DRINK_GOOD
 	alpha = 200
 
+/datum/reagent/consumable/soup/stew/frybisque/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishfrybisque
 	name = "lavish bisque"
 	color = "#FFC688"
@@ -586,6 +762,10 @@
 	metabolization_rate = 0.6
 	quality = DRINK_VERYGOOD
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/lavishfrybisque/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/seafoodbroil
 	name = "seabroil chowder"
@@ -603,6 +783,10 @@
 	quality = DRINK_GOOD
 	alpha = 222
 
+/datum/reagent/consumable/soup/stew/fryseafoodbroil/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishfryseafoodbroil
 	name = "lavish seabroil chowder"
 	color = "#FFE3D9"
@@ -611,6 +795,10 @@
 	metabolization_rate = 0.6
 	quality = DRINK_VERYGOOD
 	alpha = 222
+
+/datum/reagent/consumable/soup/stew/lavishfryseafoodbroil/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/meatrice
 	name = "fried congee with roasted meat"
@@ -621,6 +809,10 @@
 	quality = DRINK_GOOD
 	alpha = 250
 
+/datum/reagent/consumable/soup/stew/meatrice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/eggrice
 	name = "fried congee with cackleberries"
 	color = "#F7C997"
@@ -629,6 +821,10 @@
 	metabolization_rate = 0.8
 	quality = DRINK_GOOD
 	alpha = 250
+
+/datum/reagent/consumable/soup/stew/eggrice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/shrimprice
 	name = "fried congee with roasted shrimp"
@@ -639,6 +835,10 @@
 	quality = DRINK_GOOD
 	alpha = 250
 
+/datum/reagent/consumable/soup/stew/shrimprice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/cheeserice
 	name = "fried congee with melted cheese"
 	color = "#F7E297"
@@ -647,6 +847,10 @@
 	metabolization_rate = 0.6
 	quality = DRINK_NICE
 	alpha = 250
+
+/datum/reagent/consumable/soup/stew/cheeserice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/lavishfryrice
 	name = "lavish brisket-congee"
@@ -657,10 +861,18 @@
 	quality = DRINK_VERYGOOD
 	alpha = 250
 
+/datum/reagent/consumable/soup/stew/lavishfryrice/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
+
 /datum/reagent/consumable/soup/stew/yucky
 	name = "strange stew"
 	color = "#9e559c"
 	taste_description = "overpoweringly strange-tasting, with a mildly tangy aftertaste"
+
+/datum/reagent/consumable/soup/stew/yucky/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/shitstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/fryyucky
 	name = "strange brisket stew"
@@ -669,6 +881,10 @@
 	nutriment_factor = 30
 	quality = DRINK_NICE
 	alpha = 200
+
+/datum/reagent/consumable/soup/stew/fryyucky/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/mehstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/berry
 	name = "berry stew"
@@ -738,6 +954,10 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
+/datum/reagent/consumable/soup/stew/aubergine_soup/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/lavishaubergine_soup
 	name = "lavish aubergine stew"
 	color = "#D9C6E3"
@@ -750,6 +970,10 @@
 	diet_types = list("Vegetables")
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/lavishaubergine_soup/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/greatstew)
+	..()
 
 /datum/reagent/consumable/soup/stew/carrot_stew
 	name = "carrot stew"
@@ -770,6 +994,10 @@
 	diet_types = list("Vegetables")
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
+
+/datum/reagent/consumable/soup/stew/thickcarrot_stew/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
 
 /datum/reagent/consumable/soup/stew/nutty_stew
 	name = "nutty stew"
@@ -822,6 +1050,10 @@
 	diet_change_amount = FOOD_DIETARY_REAGENT_VALUE_POOR
 	//CC Edit End
 
+/datum/reagent/consumable/soup/stew/frysquash_soup/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/survival_broth
 	name = "briquebroth"
 	color = "#693346"
@@ -840,12 +1072,20 @@
 	nutriment_factor = 45
 	alpha = 250
 
+/datum/reagent/consumable/soup/stew/thicksurvival_broth/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/finestew)
+	..()
+
 /datum/reagent/consumable/soup/stew/saltmeat_stew
 	name = "salted meat stew"
 	color = "#693346"
 	taste_description = "overwhelmingly salty, with hints of savoriness and meatiness"
 	nutriment_factor = 20
 	alpha = 250
+
+/datum/reagent/consumable/soup/stew/saltmeat_stew/on_mob_life(mob/living/carbon/M)
+	M.add_stress(/datum/stressevent/mehstew)
+	..()
 
 // Copy pasted from berry poison, but stew metabolizes much faster so it is less deadly. You CAN use it as a source of hydration / nutrition if you are desperate enough???
 /datum/reagent/consumable/soup/stew/berry_poisoned/on_mob_life(mob/living/carbon/M)
