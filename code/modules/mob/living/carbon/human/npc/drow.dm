@@ -16,6 +16,8 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	special_attacker = TRUE
 
 /mob/living/carbon/human/species/elf/dark/drowraider/ambush
+	threat_point = THREAT_TOUGH
+	ambush_faction = "underdark"
 	aggressive=1
 	wander = TRUE
 
