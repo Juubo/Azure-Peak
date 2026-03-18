@@ -391,11 +391,17 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_POOR
 	//CC Edit End
 
-/obj/item/reagent_containers/food/snacks/grown/nut/sugared
+/obj/item/reagent_containers/food/snacks/grown/nut_dragee
 	name = "smothered rocknut"
 	desc = "Sugary rocknuts, smothered in herbal sweetness and awaiting a baptism in boiling fat."
 	icon_state = "rocknutssugar"
 	faretype = FARE_FINE
+	seed = /obj/item/seeds/nut
+	icon_state = "rocknuts"
+	tastes = list("nutty" = 1)
+	filling_color = "#6b4d18"
+	bitesize = 1
+	grind_results = list(/datum/reagent/consumable/acorn_powder = 4)
 	tastes = list("overpoweringly sweet and nutty" = 1)
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_NUTRITIOUS)
 	cooked_type = /obj/item/reagent_containers/food/snacks/dragee
