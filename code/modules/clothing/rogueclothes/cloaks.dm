@@ -86,6 +86,7 @@
 
 /obj/item/clothing/cloak/tabard/attack_right(mob/user)
 	if(custom_design)
+		..()
 		return
 	var/the_time = world.time
 	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("None", "Symbol", "Split", "Quadrants", "Boxes", "Diamonds")
@@ -399,6 +400,7 @@
 
 /obj/item/clothing/cloak/tabard/crusader/attack_right(mob/user)
 	if(custom_design)
+		..()
 		return
 	var/the_time = world.time
 	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("Default", "Gold Cross", "Jeruah", "BlackGold", "BlackWhite")
@@ -437,6 +439,7 @@
 
 /obj/item/clothing/cloak/tabard/crusader/tief/attack_right(mob/user)
 	if(custom_design)
+		..()
 		return
 	var/the_time = world.time
 	var/design = input(user, "Select a design.","Tabard Design") as null|anything in list("Default", "RedBlack", "BlackRed")
@@ -570,6 +573,7 @@
 	color = CLOTHING_BLACK
 
 /obj/item/clothing/cloak/tabard/stabard/dungeon/attack_right(mob/user)
+	..()
 	return
 
 /obj/item/clothing/cloak/tabard/stabard/mercenary
@@ -1376,6 +1380,7 @@
 
 /obj/item/clothing/cloak/tabard/stabard/guardhood/attack_right(mob/user)
 	if(custom_design)
+		..()
 		return
 	var/the_time = world.time
 	var/chosen = input(user, "Select a design.","Tabard Design") as null|anything in list("Split")
