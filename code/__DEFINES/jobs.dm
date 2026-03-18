@@ -55,10 +55,9 @@
 #define BISHOP		(1<<0)
 #define MARTYR		(1<<1)
 #define TEMPLAR		(1<<2)
-#define KEEPER		(1<<3)
-#define DRUID		(1<<4)
-#define ACOLYTE		(1<<5)
-#define SEXTON		(1<<6)
+#define DRUID		(1<<3)
+#define ACOLYTE		(1<<4)
+#define SEXTON		(1<<5)
 
 #define BURGHERS			(1<<5)
 
@@ -91,6 +90,7 @@
 #define PILGRIM		(1<<3)
 #define MERCENARY	(1<<4)
 #define VETERAN		(1<<5)
+#define KEEPER		(1<<6) // Here now that they aren't attached to the church anymore.
 
 #define WANDERERS			(1<<8)
 
