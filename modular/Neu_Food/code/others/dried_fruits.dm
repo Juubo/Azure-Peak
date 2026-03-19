@@ -12,10 +12,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	tastes = list("dried jackberries" = 1, "shriveled bursts of sweetness" = 1)
 	faretype = FARE_POOR
-	foodtype = GRAIN
 	eat_effect = null
 	rotprocess = null
 	process_step = 1
+	foodtype = FRUIT
 	//CC Edit Begin
 	diet_types = list("Fruits")
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD - 1 //Good snack... Still a common item.
@@ -309,6 +309,7 @@
 	faretype = FARE_LAVISH
 	color = "#A060FF" //Placeholder until someone wants to twiddle it for themselves. Should be fine, otherwise.
 	eat_effect = /datum/status_effect/buff/sweet
+	foodtype = FRUIT
 
 /obj/item/reagent_containers/food/snacks/rogue/raisins/sweetglass/On_Consume(mob/living/eater)
 	..()
