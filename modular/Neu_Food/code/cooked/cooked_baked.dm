@@ -825,7 +825,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "pizza_slice"
 	faretype = FARE_NEUTRAL
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_DECENT)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "a hint of herbiness" = 1)
 	bitesize = 3
@@ -862,7 +862,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "meat_pizza_slice"
 	faretype = FARE_NEUTRAL
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "crispy sausages" = 1)
 	bitesize = 3
@@ -899,7 +899,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "fish_pizza_slice"
 	faretype = FARE_NEUTRAL
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "oily fish" = 1)
 	bitesize = 3
@@ -936,7 +936,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_NEUTRAL
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "snappy, crunchy onions" = 1)
 	bitesize = 3
@@ -973,7 +973,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_FINE
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "savory and decadant truffles" = 1)
 	bitesize = 3
@@ -1010,7 +1010,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "onion_pizza_slice"
 	faretype = FARE_FINE
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY, /datum/reagent/berrypoison = 5)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "rubbery and bitter truffles" = 1)
 	bitesize = 3
@@ -1047,7 +1047,7 @@
 	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
 	icon_state = "pear_pizza_slice"
 	faretype = FARE_FINE
-	w_class = WEIGHT_CLASS_NEUTRAL
+	w_class = WEIGHT_CLASS_NORMAL
 	list_reagents = list(/datum/reagent/consumable/nutriment = SNACK_CHUNKY)
 	tastes = list("richly smooth and salty tomatoes" = 1, "hot and gooey cheese" = 1, "savory and tangy pears" = 1)
 	bitesize = 3
