@@ -360,13 +360,13 @@
 	cooktime = STEW_COOKING_TIME * 2 //Ditto. No hearts or brains, in order to avoid potentially permakilling someone. Could find a way to handle this, otherwise.
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/pemmican
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/pemmican/slice)
+/datum/stew_recipe/brothbrique
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/brothbrique/slice)
 	output = /datum/reagent/consumable/soup/stew/survival_broth
 	req_liquid = /datum/reagent/water
 
-/datum/stew_recipe/thickpemmican
-	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/pemmican)
+/datum/stew_recipe/thickbrothbrique
+	inputs = list(/obj/item/reagent_containers/food/snacks/rogue/meat/brothbrique)
 	output = /datum/reagent/consumable/soup/stew/thicksurvival_broth
 
 /datum/stew_recipe/saltmeat
@@ -502,7 +502,7 @@
 	req_liquid = /datum/reagent/water
 
 /datum/stew_recipe/tomato_soup
-	inputs = list(/obj/item/reagent_containers/food/snacks/grown/fruit/tomato)
+	inputs = list(/obj/item/reagent_containers/food/snacks/grown/fruit/tomato, /obj/item/reagent_containers/food/snacks/grown/fruit/tomato_sliced)
 	output = /datum/reagent/consumable/soup/stew/tomato_soup
 	req_liquid = /datum/reagent/water
 
