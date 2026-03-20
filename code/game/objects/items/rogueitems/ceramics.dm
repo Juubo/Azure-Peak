@@ -10,7 +10,7 @@
 	name = "unglazed clay bottle"
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "claybottleraw"
-	desc = "A bottle fashioned from clay. Still needs to be baked to be useful."
+	desc = "A bottle fashioned from clay. Still needs to be baked to be useful." // Caustic edit
 	cooked_type = /obj/item/reagent_containers/glass/bottle/claybottle
 
 /obj/item/reagent_containers/glass/bottle/claybottle
@@ -21,17 +21,19 @@
 	volume = 75 // Larger than glass bottle
 	sellprice = 6
 	reagent_flags = OPENCONTAINER	//So it doesn't appear through
-	glazeable = TRUE
+	glazeable = TRUE  // Caustic edit
 
 //Vase - bigger bottle
 /obj/item/natural/clay/clayvase
 	name = "unglazed clay vase"
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "clayvaseraw"
+	 // Caustic edit start
 	desc = "A vase fashioned from clay. Still needs to be baked to be useful."
 	cooked_type = /obj/item/reagent_containers/glass/bottle/claybottle/vase
+	 // Caustic edit end
 
-/obj/item/reagent_containers/glass/bottle/claybottle/vase
+/obj/item/reagent_containers/glass/bottle/claybottle/vase  // Caustic edit. Now a subtype of claybottle
 	name = "ceramic vase"
 	desc = "A large sized ceramic vase."
 	icon = 'icons/roguetown/items/cooking.dmi'
@@ -45,10 +47,10 @@
 	name = "unglazed fancy clay vase"
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "clayfancyvaseraw"
-	desc = "A fancy vase fashioned from clay. Still needs to be baked to be useful."
+	desc = "A fancy vase fashioned from clay. Still needs to be baked to be useful."  // Caustic edit
 	cooked_type = /obj/item/reagent_containers/glass/bottle/claybottle/vase/fancy
 
-/obj/item/reagent_containers/glass/bottle/claybottle/vase/fancy
+/obj/item/reagent_containers/glass/bottle/claybottle/vase/fancy  // Caustic edit. Subtype of /vase, so extra lines removed
 	name = "fancy ceramic vase"
 	desc = "A large sized fancy ceramic vase."
 	icon_state = "clayfancyvasecook"
@@ -59,7 +61,7 @@
 	name = "unglazed clay flask"
 	icon = 'icons/roguetown/items/cooking.dmi'
 	icon_state = "claycupraw"
-	desc = "A small flask fashioned from clay. Still needs to be baked to be useful."
+	desc = "A small flask fashioned from clay. Still needs to be baked to be useful."  // Caustic edit
 	cooked_type = /obj/item/reagent_containers/glass/cup/claycup
 
 /obj/item/reagent_containers/glass/cup/claycup
@@ -69,7 +71,7 @@
 	icon_state = "claycupcook"
 	sellprice = 3
 	reagent_flags = OPENCONTAINER	//So it doesn't appear through
-	glazeable = TRUE
+	glazeable = TRUE  // Caustic edit
 
 // Raw teapot
 /obj/item/natural/clay/rawteapot

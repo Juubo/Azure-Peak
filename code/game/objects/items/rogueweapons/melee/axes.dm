@@ -1,4 +1,4 @@
-x//intent datums ฅ^•ﻌ•^ฅ
+//intent datums ฅ^•ﻌ•^ฅ
 
 /datum/intent/axe/cut
 	name = "cut"

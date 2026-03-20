@@ -105,6 +105,7 @@
 	verbage = "re-strings"
 	craftdiff = 2
 
+// Caustic edit start
 /*
 /datum/crafting_recipe/roguetown/survival/stonearrow
 	name = "stone arrow"
@@ -116,6 +117,7 @@
 		)
 	req_table = TRUE
 */
+// Caustic edit end
 
 /datum/crafting_recipe/roguetown/survival/stonearrow_five
 	name = "stone arrow (x5)"
@@ -128,11 +130,14 @@
 		/obj/item/ammo_casing/caseless/rogue/arrow/stone
 		)
 	reqs = list(
+	// Caustic edit start. Made cheaper
 		/obj/item/grown/log/tree/stick = 2,
 		/obj/item/natural/stone = 1,
+	// Caustic edit end
 		)
 	req_table = TRUE
 
+// Caustic edit start
 /*
 /datum/crafting_recipe/roguetown/survival/bluntarrow
 	name = "blunt arrow"
@@ -143,7 +148,8 @@
 		/obj/item/natural/stone = 1,
 	)
 	req_table = TRUE
-*/ 
+*/
+// Caustic edit end
 
 /datum/crafting_recipe/roguetown/survival/bluntarrow_five
 	name = "blunt arrow (x5)"
@@ -156,8 +162,10 @@
 		/obj/item/ammo_casing/caseless/rogue/arrow/blunt,
 	)
 	reqs = list(
+	// Caustic edit start. Made cheaper
 		/obj/item/grown/log/tree/stick = 2,
 		/obj/item/natural/stone = 1,
+	// Caustic edit end
 		)
 	req_table = TRUE
 
@@ -361,7 +369,7 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/stonebullets
-	name = "sling bullets - stone (x4)"
+	name = "sling bullets - stone (x4)" // Caustic edit
 	category = "Ranged"
 	result = list( // Caustic edit
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
@@ -375,7 +383,7 @@
 	craftdiff = 0
 	
 /datum/crafting_recipe/roguetown/survival/stonebullets10x
-	name = "sling bullets - stone (x20)"
+	name = "sling bullets - stone (x20)"  // Caustic edit
 	category = "Ranged"
 	result = list( // Caustic edit
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,

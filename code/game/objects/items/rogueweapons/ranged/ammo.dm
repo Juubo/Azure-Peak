@@ -314,7 +314,7 @@
 	name = "stone arrow"
 	desc = "A simple dowel sports lashed stone knapped and honed to a razor edge. Folk \
 	wisdom holds that these cut finer than iron heads, but they tend to shatter \
-	on impact with armor."
+	on impact with armor."  // Caustic edit
 	max_integrity = 5
 	projectile_type = /obj/projectile/bullet/reusable/arrow/stone
 
