@@ -22,6 +22,44 @@
 	reqs = list(/obj/item/natural/clay = 3)
 	craftdiff = 0
 
+// Caustic Edit start
+/datum/crafting_recipe/roguetown/ceramics/clay/claymug
+	name = "clay mug"
+	result = list(/obj/item/natural/clay/claymug)
+	reqs = list(/obj/item/natural/clay = 1)
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/ceramics/clay/claymug3
+	name = "clay mug 3x"
+	result = list(/obj/item/natural/clay/claymug, /obj/item/natural/clay/claymug, /obj/item/natural/clay/claymug)
+	reqs = list(/obj/item/natural/clay = 3)
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/ceramics/clay/clayplatter
+	name = "clay platter"
+	result = list(/obj/item/natural/clay/clayplatter)
+	reqs = list(/obj/item/natural/clay = 1)
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/ceramics/clay/clayplatter3
+	name = "clay platter 3x"
+	result = list(/obj/item/natural/clay/clayplatter, /obj/item/natural/clay/clayplatter, /obj/item/natural/clay/clayplatter)
+	reqs = list(/obj/item/natural/clay = 3)
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/ceramics/clay/claybowl
+	name = "clay bowl"
+	result = list(/obj/item/natural/clay/claybowl)
+	reqs = list(/obj/item/natural/clay = 1)
+	craftdiff = 0
+
+/datum/crafting_recipe/roguetown/ceramics/clay/claybowl3
+	name = "clay bowl 3x"
+	result = list(/obj/item/natural/clay/claybowl, /obj/item/natural/clay/claybowl, /obj/item/natural/clay/claybowl)
+	reqs = list(/obj/item/natural/clay = 3)
+	craftdiff = 0
+// Caustic Edit end
+
 /datum/crafting_recipe/roguetown/ceramics/clay/claybrick
 	name = "clay brick"
 	result = list(/obj/item/natural/clay/claybrick)
@@ -48,6 +86,14 @@
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 2
 
+// Caustic Edit start
+/datum/crafting_recipe/roguetown/ceramics/clay/claypot
+	name = "clay pot"
+	result = list(/obj/item/natural/clay/claypot)
+	reqs = list(/obj/item/natural/clay = 3)
+	craftdiff = 2
+// Caustic Edit end
+
 /* 3 diff */
 /datum/crafting_recipe/roguetown/ceramics/clay/clayfancyvase
 	name = "fancy clay vase"
@@ -56,16 +102,38 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/ceramics/clay/teapot
-	name = "teapot"
+	name = "teapot (old)" // Caustic edit
 	result = list(/obj/item/natural/clay/rawteapot)
 	reqs = list(/obj/item/natural/clay = 2)
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/ceramics/clay/teacup
-	name = "teacup"
+	name = "teacup (old)" // Caustic edit
 	result = list(/obj/item/natural/clay/rawteacup)
 	reqs = list(/obj/item/natural/clay = 1)
 	craftdiff = 3
+
+// Caustic Edit start
+
+/datum/crafting_recipe/roguetown/ceramics/clay/teapot
+	name = "clay teapot"
+	result = list(/obj/item/natural/clay/clayteapot)
+	reqs = list(/obj/item/natural/clay = 2)
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/ceramics/clay/teacup
+	name = "clay teacup"
+	result = list(/obj/item/natural/clay/clayteacup)
+	reqs = list(/obj/item/natural/clay = 1)
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/ceramics/clay/teacup3
+	name = "clay teacup x3"
+	result = list(/obj/item/natural/clay/clayteacup, /obj/item/natural/clay/clayteacup, /obj/item/natural/clay/clayteacup)
+	reqs = list(/obj/item/natural/clay = 3)
+	craftdiff = 3
+
+// Caustic Edit end
 
 /* 4 diff */
 

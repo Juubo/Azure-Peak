@@ -52,6 +52,7 @@
 /obj/item/reagent_containers/glass/bucket/pot/stone
 	name = "stone pot"
 	desc = "A pot made out of stone. It can hold less than a metal pot."
+	icon_state = "pote_stone" // Caustic Edit
 	volume = 120 // 99 is the max volume for a stone pot
 
 /obj/item/reagent_containers/glass/bucket/pot/kettle

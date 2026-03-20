@@ -319,6 +319,14 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 			var/turf/front = get_step(user,user.dir)
 			S.set_up(1, 1, front)
 			S.start()
+// Caustic edit start
+		if(prob(10) && magic_power > 0) // Only magical rocks gives you the funny sharp rock
+			user.visible_message(span_info("The [src] cracks apart to reveal a shard of obsidian!"))
+			new /obj/item/magic/obsidian(get_turf(src.loc))
+			new /obj/effect/decal/cleanable/debris/stony(get_turf(src))
+			qdel(src)
+// Caustic edit end
+
 	if( user.used_intent.type == /datum/intent/chisel )
 		playsound(src.loc, pick('sound/combat/hits/onrock/onrock (1).ogg', 'sound/combat/hits/onrock/onrock (2).ogg', 'sound/combat/hits/onrock/onrock (3).ogg', 'sound/combat/hits/onrock/onrock (4).ogg'), 100)
 		user.visible_message("<span class='info'>[user] chisels the stone into a block.</span>")

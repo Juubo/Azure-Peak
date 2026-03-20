@@ -1,4 +1,4 @@
-//intent datums ฅ^•ﻌ•^ฅ
+x//intent datums ฅ^•ﻌ•^ฅ
 
 /datum/intent/axe/cut
 	name = "cut"
@@ -86,7 +86,7 @@
 	force_wielded = 20
 	possible_item_intents = list(/datum/intent/axe/chop/stone)
 	name = "stone axe"
-	desc = "A rough stone axe, fashioned from a wooden staff and a sharpened hunk of flint. It feels poorly balanced in your hands."
+	desc = "A rough stone axe, fashioned from a wooden staff and a sharpened hunk of stone. It feels poorly balanced in your hands." // CC edit
 	icon_state = "stoneaxe"
 	icon = 'icons/roguetown/weapons/axes32.dmi'
 	item_state = "axe"
@@ -424,6 +424,41 @@
 	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop)
 	resistance_flags = FLAMMABLE
 	sellprice = 12 //It's made of WHAT!? CC Change
+
+// Caustic edit start
+
+// Obsidian axe/macuahuitl. Entire gimmick is that it deals a lot of damage with absolutely no AP
+
+/obj/item/rogueweapon/stoneaxe/obsidian
+	force = 36
+	force_wielded = 43
+	armor_penetration = -100
+	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/axe/bash)
+	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/axe/bash, /datum/intent/mace/smash/wood)
+	name = "obsidian paddle-axe"
+	desc = "A wide wooden paddle, fitted with obsidian razors at the edges. It is said that with it, a powerful warrior can chop a saiga's head off in a single blow."
+	icon_state = "obsidianaxe"
+	max_blade_int = 10
+	max_integrity = 100
+	minstr = 10
+	wdefense = 2
+	demolition_mod = 0.33 // Good luck trying to cut down a tree with what's essentially a shard of glass on a stick
+	wlength = WLENGTH_NORMAL
+	sellprice = 10 //Made of pretty glass
+
+/obj/item/rogueweapon/stoneaxe/flint
+	force = 20
+	force_wielded = 24
+	possible_item_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/axe/bash)
+	gripped_intents = list(/datum/intent/axe/cut,/datum/intent/axe/chop, /datum/intent/axe/bash)
+	name = "flint axe"
+	desc = "Sharpened and finely worked stone fitted atop a stout haft."
+	icon_state = "flintaxe"
+	max_blade_int = 125
+	wdefense = 2
+	sellprice = 10
+
+// Caustic edit end
 
 /obj/item/rogueweapon/stoneaxe/woodcut/silver
 	name = "silver war axe"

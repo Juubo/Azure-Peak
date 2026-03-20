@@ -11,8 +11,17 @@
 	resistance_flags = ACID_PROOF
 	var/is_infinite = FALSE
 
+	// Caustic Edit start
+	var/glazeable // For things that can be glazed or painted. Currently only clay containers
+	var/glazed
+	// Caustic Edit end
+
 /obj/item/reagent_containers/glass/examine(mob/user)
 	. = ..()
+	// Caustic Edit
+	if(glazeable)
+		. += span_notice("It can be brushed with a dye brush to glaze it.")
+	// Caustic Edit end
 	if(user.mind && ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(!H.patron || !istype(H.patron, /datum/patron/inhumen/baotha))
@@ -233,6 +242,47 @@
 		reagents.remove_reagent(removereg, 5)
 		user.visible_message(span_info("[user] soaks [T] in [src]."), span_info("I soak [T] in [src]."))
 		return
+	// Caustic Edit start
+	if(glazeable)
+		if(istype(I, /obj/item/dye_brush))
+			var/obj/item/dye_brush/brush = I
+			if(reagents.total_volume)
+				to_chat(user, span_notice("I can't glaze the [name] while it has liquid in it."))
+				return
+			if(do_after(user, 3 SECONDS, target = src))
+				if(!glazed)
+					var/list/designlist = list("brown", "porcelain", "shattergold", "bluegold") // Might need some changes in the future if people want to add glazeable/paintable things with different patterns
+					var/design = tgui_input_list(user, "Select a design.","Ceramics Design", designlist)
+					if(!design && brush.dye) // For custom colors with no patterns.
+						color = brush.dye
+						to_chat(user, span_notice("I paint the [name] with the dye brush.")) // You can paint, then glaze, but after glazing, you're done
+						update_icon()
+						return
+					if(!design && !brush.dye) // If no design and no paint so it doesn't go invisible
+						return
+					glazed = TRUE
+					glazeable = FALSE
+					switch(design) // Literally just copied over from the spellbook variants
+						if ("brown")
+							desc += " Glazed and marked to mimic unfired clay."
+						if ("porcelain")
+							desc += " Gilded and coated in white glaze. This is fit for nobility."
+						if ("shattergold")
+							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
+						if ("bluegold")
+							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
+					icon_state = "[icon_state]_[design]"
+					update_icon()
+					name = "\improper [design] [name]"
+					if(sellprice)
+						sellprice += 5
+					to_chat(user, span_notice("I glaze the [name] with the dye brush."))
+					return
+			return
+	if(glazed && istype(I, /obj/item/dye_brush))
+		to_chat(user, span_notice("The [name] is already glazed!"))
+		return
+// Caustic Edit end ^^
 	..()
 
 // Called whenever this container is successfully filled via the target.
