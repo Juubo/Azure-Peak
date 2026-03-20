@@ -274,15 +274,18 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	var/skill_level = user.get_skill_level(associated_skill)
 	if(skill_level > 0)
 		var/skill_mod = chargetime * skill_level * CHARGE_REDUCTION_PER_SKILL
-		breakdown += span_smallgreen("  Skill: -[DisplayTimeText(skill_mod)]")
+		if(skill_mod > 0)
+			breakdown += span_smallgreen("  Skill: -[DisplayTimeText(skill_mod)]")
 	var/obj/item/book/spellbook/sbook = user.is_holding_item_of_type(/obj/item/book/spellbook)
 	if(sbook && sbook?.open)
 		var/book_mod = chargetime * sbook.get_castred()
-		breakdown += span_smallgreen("  Spellbook: -[DisplayTimeText(book_mod)]")
+		if(book_mod > 0)
+			breakdown += span_smallgreen("  Spellbook: -[DisplayTimeText(book_mod)]")
 	var/obj/item/rogueweapon/staff = user.is_holding_item_of_type(/obj/item/rogueweapon/)
 	if(staff && staff.cast_time_reduction)
 		var/staff_mod = chargetime * staff.cast_time_reduction
-		breakdown += span_smallgreen("  Staff: -[DisplayTimeText(staff_mod)]")
+		if(staff_mod > 0)
+			breakdown += span_smallgreen("  Staff: -[DisplayTimeText(staff_mod)]")
 	return breakdown
 
 /obj/effect/proc_holder/spell/proc/get_cooldown_breakdown(mob/living/user)
