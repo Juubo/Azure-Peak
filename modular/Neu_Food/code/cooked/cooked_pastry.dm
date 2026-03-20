@@ -1419,7 +1419,7 @@
 //
 
 /obj/item/reagent_containers/food/snacks/rogue/jackberrybookbread
-	name = "jackberried bookbread"
+	name = "jacksberried bookbread"
 	desc = "As Nocsmas gained broader appeal, more and more commonfolk with poor access to books instead chose to simply forego their exchanging, focusing instead on the preparation of food."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread5"
@@ -1438,9 +1438,9 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/jackberrybookbread/update_icon()
 	if(slices_num)
-		icon_state = "jackberry_bookbread[slices_num]"
+		icon_state = "jacksberry_bookbread[slices_num]"
 	else
-		icon_state = "jackberry_bookbread_slice"
+		icon_state = "jacksberry_bookbread_slice"
 
 /obj/item/reagent_containers/food/snacks/rogue/jackberrybookbread/On_Consume(mob/living/eater)
 	..()
@@ -1457,7 +1457,7 @@
 			changefood(slice_path, eater)
 
 /obj/item/reagent_containers/food/snacks/rogue/jackberrybookbread_slice
-	name = "sliced jackberried bookbread"
+	name = "sliced jacksberried bookbread"
 	desc = "Has an earthy taste that reminds the eater of growth cycles and rainfall percentages. Like a delicious almanac."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread_slice"
@@ -1474,7 +1474,7 @@
 //
 
 /obj/item/reagent_containers/food/snacks/rogue/poisonberrybookbread
-	name = "jackberried bookbread"
+	name = "jacksberried bookbread"
 	desc = "As Nocsmas gained broader appeal, more and more commonfolk with poor access to books instead chose to simply forego their exchanging, focusing instead on the preparation of food."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread5"
@@ -1493,9 +1493,9 @@
 
 /obj/item/reagent_containers/food/snacks/rogue/poisonberrybookbread/update_icon()
 	if(slices_num)
-		icon_state = "jackberry_bookbread[slices_num]"
+		icon_state = "jacksberry_bookbread[slices_num]"
 	else
-		icon_state = "jackberry_bookbread_slice"
+		icon_state = "jacksberry_bookbread_slice"
 
 /obj/item/reagent_containers/food/snacks/rogue/poisonberrybookbread/On_Consume(mob/living/eater)
 	..()
@@ -1512,7 +1512,7 @@
 			changefood(slice_path, eater)
 
 /obj/item/reagent_containers/food/snacks/rogue/poisonberrybookbread_slice
-	name = "sliced jackberried bookbread"
+	name = "sliced jacksberried bookbread"
 	desc = "Has an earthy taste that reminds the eater of growth cycles and rainfall percentages. Like a delicious almanac."
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread_slice"
