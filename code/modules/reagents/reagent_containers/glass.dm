@@ -249,20 +249,23 @@
 			if(reagents.total_volume)
 				to_chat(user, span_notice("I can't glaze the [name] while it has liquid in it."))
 				return
+			user.visible_message(span_notice("[user] starts to brush the [name] with [brush]."))
 			if(do_after(user, 3 SECONDS, target = src))
 				if(!glazed)
-					var/list/designlist = list("brown", "porcelain", "shattergold", "bluegold") // Might need some changes in the future if people want to add glazeable/paintable things with different patterns
+					var/list/designlist = list("painted", "brown", "porcelain", "shattergold", "bluegold") // Might need some changes in the future if people want to add glazeable/paintable things with different patterns
 					var/design = tgui_input_list(user, "Select a design.","Ceramics Design", designlist)
-					if(!design && brush.dye) // For custom colors with no patterns.
-						color = brush.dye
-						to_chat(user, span_notice("I paint the [name] with the dye brush.")) // You can paint, then glaze, but after glazing, you're done
-						update_icon()
+					if(!design) // If no design and no paint so it doesn't go invisible
+						to_chat(user, span_notice("You change your mind on how to glaze the [name]."))
 						return
-					if(!design && !brush.dye) // If no design and no paint so it doesn't go invisible
-						return
-					glazed = TRUE
-					glazeable = FALSE
 					switch(design) // Literally just copied over from the spellbook variants
+						if ("painted") // For custom colors with no patterns.
+							if(!brush.dye)
+								to_chat(user, span_notice("How are you to paint with a dry brush?"))
+								return
+							color = brush.dye
+							to_chat(user, span_notice("I paint the [name] with the dye brush. Perhaps it is time for a detailed glaze?")) // You can paint, then glaze, but after glazing, you're done
+							update_icon()
+							return
 						if ("brown")
 							desc += " Glazed and marked to mimic unfired clay."
 						if ("porcelain")
@@ -271,6 +274,8 @@
 							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
 						if ("bluegold")
 							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
+					glazed = TRUE
+					glazeable = FALSE
 					icon_state = "[icon_state]_[design]"
 					update_icon()
 					name = "\improper [design] [name]"
