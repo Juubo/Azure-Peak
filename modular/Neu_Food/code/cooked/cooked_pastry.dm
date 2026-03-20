@@ -17,19 +17,6 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD
 	//CC Edit End
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw
-	name = "uncooked raisin biscuit"
-	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
-	icon_state = "biscuit_raw"
-	color = null
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
-	w_class = WEIGHT_CLASS_NORMAL
-	eat_effect = null
-	//CC Edit Begin
-	diet_types = list("Grains")
-	diet_change_amount = FOOD_DIETARY_VALUE_BAD
-	//CC Edit End
-
 /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	name = "raisin biscuit"
 	desc = "A crispy buttery pastry with chewy raisins inside."
@@ -48,16 +35,16 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD
 	//CC Edit End
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/chocolatebiscuit_raw
-	name = "uncooked chocolate biscuit"
+/obj/item/reagent_containers/food/snacks/rogue/foodbase/biscuit_raw
+	name = "uncooked raisin biscuit"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
-	icon_state = "chocolatebiscuit_raw"
+	icon_state = "biscuit_raw"
 	color = null
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 	//CC Edit Begin
-	diet_types = list("Grains", "Dairy")
+	diet_types = list("Grains")
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD
 	//CC Edit End
 
@@ -79,12 +66,12 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD
 	//CC Edit End
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/plumbiscuit_raw
-	name = "uncooked plum biscuit"
+/obj/item/reagent_containers/food/snacks/rogue/foodbase/chocolatebiscuit_raw
+	name = "uncooked chocolate biscuit"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
-	icon_state = "plumbiscuit_raw"
+	icon_state = "chocolatebiscuit_raw"
 	color = null
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/chocolatebiscuit
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 	//CC Edit Begin
@@ -110,12 +97,12 @@
 	diet_change_amount = FOOD_DIETARY_VALUE_GOOD
 	//CC Edit End
 
-/obj/item/reagent_containers/food/snacks/rogue/foodbase/tangerinebiscuit_raw
-	name = "uncooked tangerine biscuit"
+/obj/item/reagent_containers/food/snacks/rogue/foodbase/plumbiscuit_raw
+	name = "uncooked plum biscuit"
 	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
-	icon_state = "tangerinebiscuit_raw"
+	icon_state = "plumbiscuit_raw"
 	color = null
-	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/biscuit
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/foodbase/plumbiscuit_raw
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
 	//CC Edit Begin
@@ -138,6 +125,19 @@
 	foodtype = GRAIN | FRUIT | DAIRY
 	//CC Edit Begin
 	diet_types = list("Grains", "Dairy", "Fruits")
+	diet_change_amount = FOOD_DIETARY_VALUE_BAD
+	//CC Edit End
+
+/obj/item/reagent_containers/food/snacks/rogue/foodbase/tangerinebiscuit_raw
+	name = "uncooked tangerine biscuit"
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
+	icon_state = "tangerinebiscuit_raw"
+	color = null
+	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/tangerinebiscuit
+	w_class = WEIGHT_CLASS_NORMAL
+	eat_effect = null
+	//CC Edit Begin
+	diet_types = list("Grains", "Fruits")
 	diet_change_amount = FOOD_DIETARY_VALUE_BAD
 	//CC Edit End
 
@@ -1027,7 +1027,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/bookbread_slice
 	name = "sliced bookbread"
 	desc = "About the same size and taste as an encyclopedia."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "bookbread_slice"
 	faretype = FARE_NEUTRAL
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1059,7 +1059,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/bookbread_slice_jamtallowed
 	name = "slice of jamtallowed bookbread"
 	desc = "'Don't think that I'd forget, or I'd regret, the special love I had for you - my baby blue!'"
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "bookbread_slice_jamtallow"
 	faretype = FARE_LAVISH
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1074,7 +1074,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/bookbread_slice_marmaladed
 	name = "slice of marmaladed bookbread"
 	desc = "'I always keep a marmalade sandwich under my sallet, just in case!'"
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "bookbread_slice_marmalade"
 	faretype = FARE_LAVISH
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1129,7 +1129,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/pearbookbread_slice
 	name = "sliced pear bookbread"
 	desc = "Evokes the sweetness of younger, simpler times, and simpler books."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "pear_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1184,7 +1184,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/plumbookbread_slice
 	name = "sliced plum bookbread"
 	desc = "A subtle flavor, best for enjoying subtler books. Mysteries prefered."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "plum_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1239,7 +1239,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/lemonbookbread_slice
 	name = "sliced lemon bookbread"
 	desc = "Sweet but a little sour, like a good Xylixian comedy."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "lemon_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1294,7 +1294,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/tangerinebookbread_slice
 	name = "sliced tangerine bookbread"
 	desc = "Fills one with heroic vigor and hopeful enthusiasm, similar to historic-fantasies of old."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "tangerine_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1349,7 +1349,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/blackberrybookbread_slice
 	name = "sliced blackberry bookbread"
 	desc = "It evokes a feeling of contrasting fascination and dread, not unlike novels that may foretell a doom similar to what befell this very berry."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "blackberry_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1404,7 +1404,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/raspberrybookbread_slice
 	name = "sliced raspberry bookbread"
 	desc = "Has a taste that puts one in the mood for a good romance novel. For obvious reasons, this flavor isnt very popular with mages."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "raspberry_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1459,7 +1459,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/jackberrybookbread_slice
 	name = "sliced jackberried bookbread"
 	desc = "Has an earthy taste that reminds the eater of growth cycles and rainfall percentages. Like a delicious almanac."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1514,7 +1514,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/poisonberrybookbread_slice
 	name = "sliced jackberried bookbread"
 	desc = "Has an earthy taste that reminds the eater of growth cycles and rainfall percentages. Like a delicious almanac."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "jacksberry_bookbread_slice"
 	faretype = FARE_FINE
 	w_class = WEIGHT_CLASS_NORMAL
@@ -1569,7 +1569,7 @@
 /obj/item/reagent_containers/food/snacks/rogue/chocolatebookbread_slice
 	name = "sliced chocolate bookbread"
 	desc = "As thick and rich as a child's bedtyme story."
-	icon = 'modular/Neu_Food/icons/cooked/cooked_baked.dmi'
+	icon = 'modular/Neu_Food/icons/cooked/cooked_pastry.dmi'
 	icon_state = "chocolate_bookbread_slice"
 	faretype = FARE_LAVISH
 	w_class = WEIGHT_CLASS_NORMAL
