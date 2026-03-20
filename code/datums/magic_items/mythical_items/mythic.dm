@@ -105,7 +105,7 @@
 
 /datum/magic_item/mythic/rewind
 	name = "Temporal Rewind"
-	description = "Its seems both old and new at the same time."
+	description = "It seems both old and new at the same time."
 	glow_color = "#C9B037"
 	var/last_used
 	var/active_item = FALSE
@@ -140,7 +140,7 @@
 
 /datum/magic_item/mythic/chaos_storm
 	name = "chaos storm"
-	description = "Its crackles with unpredictable chaotic energy."
+	description = "It crackles with unpredictable chaotic energy."
 	glow_color = "#9400D3"
 	var/last_used
 
