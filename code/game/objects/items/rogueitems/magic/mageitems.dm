@@ -470,7 +470,7 @@
 				binding = FALSE
 			//no candidates, raise as npc
 			else
-				to_chat(user, span_notice("The [captive] stares at you with mindless hate. The binding attempt failed to draw out it's intelligence!"))
+				to_chat(user, span_notice("The [captive] stares at you with mindless hate. The binding attempt failed to draw out its intelligence!"))
 				binding = FALSE
 		else
 			target.visible_message(span_notice("This summon is already bound to this plane."))

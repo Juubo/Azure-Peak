@@ -104,7 +104,7 @@
 
 /datum/magic_item/mundane/revealing
 	name = "revealing"
-	description = "It's light is painfully bright."
+	description = "Its light is painfully bright."
 	glow_color = "#FFB347"
 	var/active = FALSE
 
