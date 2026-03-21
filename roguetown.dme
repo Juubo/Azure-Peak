@@ -3062,6 +3062,7 @@
 #include "virtues\size.dm"
 #include "virtues\thief.dm"
 #include "virtues\utility.dm"
+#include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\skeleton_barracks_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\skeleton_tavern_variants.dm"
 #include "modular_causticcove\code\datums\combat_music.dm"
 #include "modular_causticcove\code\datums\loadout.dm"

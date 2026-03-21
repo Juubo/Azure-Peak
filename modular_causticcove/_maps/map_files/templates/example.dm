@@ -7,9 +7,10 @@
 //	You will have the appropriate space to do so.
 //	Maps will not generate with their associated generators, I.E. Random Plants or Trees. It's highly suggested to add your own tree's and foliage if the location calls for it.
 
-//When creating a new location on the map that is missing template variants, make sure to include the associated areas as well by hitting CTR+3, if you do NOT see the areas, 
+//When creating a new location on the map that is missing template variants, make sure to include the associated areas as well by hitting CTR+1, if you do NOT see the areas, 
 // you will NOT copy them. They must be visible to copy them.
 // When making a new variant, you will not need to do this. Simply copy the default map file, rename it, and work from there.
+// Maps also respect the Z-levels. If you have a map that shouldn't edit the lowest Z-level on your map file, only use the Z-levels you need to utilize for your changes.
 
 //This datum path simply holds information to be used with the map_load_mark object. You must defin the width, and height. You will only need to change the name. 
 //	Keep the names simple and easy to copy. Example provided below. Treat the names as if they are also ID's for the map templates.
