@@ -675,7 +675,7 @@
 	sellprice = 35
 
 /obj/item/clothing/suit/roguetown/shirt/silkbra
-	name = "Giltsilk bra"
+	name = "giltsilk bra"
 	desc = "An exquisite bra crafted from the finest silk and adorned with gold rings. It leaves little to the imagination."
 	icon_state = "silkbra"
 	item_state = "silkbra"
