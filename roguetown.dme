@@ -3064,6 +3064,7 @@
 #include "virtues\utility.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\abandoned_barracks_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\abandoned_tavern_variants.dm"
+#include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\riverside_cliff_building_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_SW\mana_fountain_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_SE\abandoned_houses_variants.dm"
 #include "modular_causticcove\code\datums\combat_music.dm"
