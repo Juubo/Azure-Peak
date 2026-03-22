@@ -3,14 +3,14 @@
 //IT IS HIGHLY SUGGESTED TO VIEW abandoned_buildings.dm AFTER READING THROUGH THIS EXAMPLE FILE.
 //IF YOU HAVE EXPERIENCE WITH SDMM AND MAP TEMPLATES, PLEASE JUST VIEW abandoned_buildings.dm FOR THE UNEDITED VERSION.
 
-//Rule of thumb for mapping is to ensure that you have 1 extra turf of space around your designated area so that if you want to add things on the side, borders, foliage, etc.
-//	You will have the appropriate space to do so.
-//	Maps will not generate with their associated generators, I.E. Random Plants or Trees. It's highly suggested to add your own tree's and foliage if the location calls for it.
+//Maps will not generate with their associated generators, I.E. Random Plants or Trees. It's highly suggested to add your own tree's and foliage if the location calls for it.
+// Make sure to also try and reduce the usage of extra space/border tiles, not only for the first issue above listed but also for making it easier for mapping.
 
 //When creating a new location on the map that is missing template variants, make sure to include the associated areas as well by hitting CTR+1, if you do NOT see the areas, 
 // you will NOT copy them. They must be visible to copy them.
 // When making a new variant, you will not need to do this. Simply copy the default map file, rename it, and work from there.
-// Maps also respect the Z-levels. If you have a map that shouldn't edit the lowest Z-level on your map file, only use the Z-levels you need to utilize for your changes.
+// Maps also respect the Z-levels. If you have a map that shouldn't edit the lowest Z-level on your map file, only use the Z-levels you need to utilize for your changes to avoid overlapping
+// 	with any dungeons that may be below, or above, the location that you're adding variants for.
 
 //This datum path simply holds information to be used with the map_load_mark object. You must defin the width, and height. You will only need to change the name. 
 //	Keep the names simple and easy to copy. Example provided below. Treat the names as if they are also ID's for the map templates.
@@ -42,9 +42,7 @@
 	name = "tavern_inn_drunken_brawl"
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_S/variants/skeleton_tavern/skeleton_tavern_default.dmm"
 
-//This is what is placed on the map itself. If you update, or move the location of these map_templates, for sake of tracking for mappers and yourself alike please provide the
-//	X, Y, and Z coordinates and update them when possible.
-//LOCATION ON MAP[X: 131 Y:262 Z:2]
+//This is what is placed on the map itself to load the map in.
 /obj/effect/landmark/map_load_mark/variant/forest_grove_S/skeleton_tavern_inn
 	name = "Skeleton Tavern / Inn"
 
