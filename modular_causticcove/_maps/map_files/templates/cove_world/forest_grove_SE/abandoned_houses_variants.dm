@@ -2,7 +2,7 @@
 /// 4X4 ABANDONED HOUSES ///
 /obj/effect/landmark/map_load_mark/variant/forest_grove_SE/abandoned_houses_4x4
 	name = "Abandoned Houses 4x4"
-	templates = list("abandoned_house_4x4_default", "abandoned_house_4x4_2")
+	templates = list("abandoned_house_4x4_default", "abandoned_house_4x4_2", "abandoned_house_4x4_burnt", "abandoned_house_4x4_not_abandoned")
 	
 /datum/map_template/abandoned_house/size_4x4_1
 	name = "abandoned_house_4x4_default"
@@ -14,11 +14,18 @@
 	name = "abandoned_house_4x4_2"
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_4x4/abandoned_house_default2.dmm"
 
+/datum/map_template/abandoned_house/size_4x4_burnt
+	name = "abandoned_house_4x4_burnt"
+	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_4x4/abandoned_house_burnt.dmm"
+
+/datum/map_template/abandoned_house/size_4x4_not_abandoned
+	name = "abandoned_house_4x4_not_abandoned"
+	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_4x4/abandoned_house_not_abandoned.dmm"
 
 /// 4X5 ABANDONED HOUSES ///
 /obj/effect/landmark/map_load_mark/variant/forest_grove_SE/abandoned_houses_4x5
 	name = "Abandoned Houses 4x5"
-	templates = list("abandoned_house_4x5_default")
+	templates = list("abandoned_house_4x5_default", "abandoned_house_4x5_not_abandoned")
 	
 /datum/map_template/abandoned_house/size_4x5_1
 	name = "abandoned_house_4x5_default"
@@ -26,11 +33,14 @@
 	height = 5
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_4x5/abandoned_house_4x5_default.dmm"
 
+/datum/map_template/abandoned_house/size_4x5_not_abandoned
+	name = "abandoned_house_4x5_not_abandoned"
+	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_4x5/abandoned_house_4x5_not_abandoned.dmm"
 
 /// 5X4 ABANDONED HOUSES ///
 /obj/effect/landmark/map_load_mark/variant/forest_grove_SE/abandoned_houses_5x4
 	name = "Abandoned Houses 5x4"
-	templates = list("abandoned_house_5x4_default")
+	templates = list("abandoned_house_5x4_default", "abandoned_house_5x4_missing")
 	
 /datum/map_template/abandoned_housesize_/size_5x4_1
 	name = "abandoned_house_5x4_default"
@@ -38,6 +48,10 @@
 	height = 4
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_5x4/abandoned_house_5x4_default.dmm"
 
+//Intentionally somewhat empty and replaced with something else for shits and giggles. Where'd the house go???
+/datum/map_template/abandoned_housesize_/size_5x4_missing
+	name = "abandoned_house_5x4_missing"
+	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/abandoned_houses_5x4/abandoned_house_5x4_default.dmm"
 
 /// 11X7 ABANDONED HOUSES ///
 /obj/effect/landmark/map_load_mark/variant/forest_grove_SE/abandoned_houses_11x7
