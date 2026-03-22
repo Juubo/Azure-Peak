@@ -206,7 +206,7 @@
 	)
 	///Caustic edit end
 
-	restricted_virtues = list(/datum/virtue/utility/deathless)
+	restricted_virtues = list(/datum/virtue/utility/hollow)
 
 	stress_examine = TRUE
 	stress_desc = span_red("Accursed. I should keep my distance...")

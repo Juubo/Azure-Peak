@@ -176,7 +176,7 @@
 		//Caustic edit end
 	)
 
-	restricted_virtues = list(/datum/virtue/utility/noble, /datum/virtue/utility/deathless)
+	restricted_virtues = list(/datum/virtue/utility/noble, /datum/virtue/utility/hollow)
 
 /datum/species/construct/metal/check_roundstart_eligible()
 	return TRUE
