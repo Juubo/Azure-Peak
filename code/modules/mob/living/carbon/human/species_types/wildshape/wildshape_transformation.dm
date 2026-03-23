@@ -24,8 +24,8 @@
 	W.regenerate_icons()
 	W.stored_mob = src
 	W.cmode_music = 'sound/music/cmode/garrison/combat_warden.ogg'
-	playsound(W.loc, pick('sound/combat/gib (1).ogg','sound/combat/gib (2).ogg'), 200, FALSE, 3)
-	//W.spawn_gibs(FALSE) //Caustic Edit - Turned off the gibs on Wildshaping
+	playsound(W.loc, 'sound/body/shapeshift-start.ogg', 75, FALSE, 3) //CC Edit, changed gib sounds to the appropriate shapeshift sounds for less strain on hearing.
+	//W.spawn_gibs(FALSE) //Caustic Edit - Turned off the gibs on Wildshaping, do not uncomment unless you want gibs to spawn.
 	src.forceMove(W)
 
 	W.after_creation()
