@@ -81,32 +81,34 @@
 	verbs += list(/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_up,
 	/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_down) 
 
-/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_up(mob/user)
+/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_up()
 	set category = "Winged Form"
 	set name = "Fly Up"
 
-	if(pulledby != null)
-		to_chat(span_notice("I can't fly away while being grabbed!"))
+	if(src.pulledby != null)
+		to_chat(src, span_notice("I can't fly away while being grabbed!"))
 		return
-	visible_message(span_notice("[real_name] begins to ascend!"), span_notice("You take flight..."))
-	if(move_after(user, delay = fly_time, target = src))
-		if(pulledby == null)
-			zMove(UP, TRUE)
-			to_chat(span_notice("I fly up."))
-		else
-			to_chat(span_notice("I can't fly away while being grabbed!"))
+	src.visible_message(span_notice("[src] begins to ascend!"), span_notice("You take flight..."))
 
-/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_down(mob/user)
+	if(do_after(src, fly_time, target))
+		if(src.pulledby == null)
+			src.zMove(UP, TRUE)
+			to_chat(src, span_notice("I fly up."))
+		else
+			to_chat(src, span_notice("I can't fly away while being grabbed!"))
+
+/mob/living/carbon/human/species/wildshape/witch/zad/proc/fly_down()
 	set category = "Winged Form"
 	set name = "Fly Down"
 
-	if(pulledby != null)
-		to_chat(span_notice("I can't fly away while being grabbed!"))
+	if(src.pulledby != null)
+		to_chat(src, span_notice("I can't fly away while being grabbed!"))
 		return
-	visible_message(span_notice("[real_name] begins to descend!"), span_notice("You take flight..."))
-	if(move_after(user, delay = fly_time, target = src))
-		if(pulledby == null)
-			zMove(DOWN, TRUE)
-			to_chat(span_notice("I fly down."))
+	src.visible_message(span_notice("[src] begins to descend!"), span_notice("You take flight..."))
+
+	if(do_after(src, fly_time, target))
+		if(src.pulledby == null)
+			src.zMove(DOWN, TRUE)
+			to_chat(src, span_notice("I fly down."))
 		else
-			to_chat(span_notice("I can't fly away while being grabbed!"))
+			to_chat(src, span_notice("I can't fly away while being grabbed!"))

@@ -120,7 +120,7 @@
 /obj/effect/proc_holder/spell/self/wildshape/witch
 	name = "Shapechange"
 	desc = "Take on the form of another creature. Cast to select your shape."
-	overlay_state = "tamebeast"
+	overlay_state = null
 	clothes_req = FALSE
 	human_req = FALSE
 	chargedrain = 0
@@ -141,14 +141,14 @@
 	var/picked_form = FALSE
 
 /obj/effect/proc_holder/spell/self/wildshape/witch/cast(list/targets, mob/living/carbon/human/user)
-	. = ..()
 	//Cast once to pick a form.
 	if(!picked_form)
 		pick_form(user)
 		return
+	. = ..()
 
 /obj/effect/proc_holder/spell/self/wildshape/witch/proc/pick_form(mob/living/carbon/human/user)
-	var/shapeshifts = list("Zad", "Bat", "Cabbit", "Volf", "Venard", "Cat", "Cat (Black)", "Rat", "Refund My Choice")
+	var/shapeshifts = list("ALL - SHOWCASE ONLY", "Zad", "Bat", "Cabbit", "Volf", "Venard", "Cat", "Rat", "Refund My Choice")
 	var/shapeshiftchoice = input(user, "What form does your second skin take?", "THE OLD WAYS") as anything in shapeshifts
 	switch (shapeshiftchoice)
 		if("Cabbit")
@@ -159,8 +159,8 @@
 			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/zad)
 			action_icon_state = "zad"
 			desc = "Take on the form of a Zad."
-		if("Cat") //Contains 2 shapes for skin variants, default cat, and black cat.
-			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/cat, /mob/living/carbon/human/species/wildshape/witch/cat/black)
+		if("Cat") //If someone can figure out how to get skins to work and make 2 possible_shapes for a normal and black cat without a new species entirely plz do so ty ily
+			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/cat)
 			action_icon_state = "cat_transform"
 			desc = "Take on the form of a Cat."
 		if("Bat")
@@ -179,6 +179,9 @@
 			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/small_rous)
 			action_icon_state = "familiar"
 			desc = "Take on the form of a Venard."
+		if("ALL - SHOWCASE ONLY")
+			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/small_rous,/mob/living/carbon/human/species/wildshape/witch/cabbit,/mob/living/carbon/human/species/wildshape/witch/zad,/mob/living/carbon/human/species/wildshape/witch/cat,/mob/living/carbon/human/species/wildshape/witch/bat,/mob/living/carbon/human/species/wildshape/witch/volf,/mob/living/carbon/human/species/wildshape/witch/venard)
+			action_icon_state = "familiar"
 			desc = "Take on the form of a Venard."
 		if("Refund My Choice") //Simply refunds the choice.
 			desc = "You: 'Hey! Dendor! Get me an animal form with nothing!' Camera pans to the right: 'Nothiiiiinnnn!?'"
