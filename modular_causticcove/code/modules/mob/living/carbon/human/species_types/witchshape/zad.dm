@@ -9,6 +9,7 @@
 	wildshape_icon_state = "crow_flying"
 	movement_type = FLYING
 	var/fly_time = 0.5 SECONDS //On par with bats for QoL sake
+	hand_examine = "other talons"
 
 /mob/living/carbon/human/species/wildshape/witch/zad/gain_inherent_skills()
 	. = ..()

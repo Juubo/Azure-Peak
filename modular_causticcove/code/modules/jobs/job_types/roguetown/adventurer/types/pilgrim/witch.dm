@@ -185,11 +185,15 @@
 	if(length(possible_shapes))
 		picked_form = TRUE
 
+/mob/living/carbon/human/species/wildshape/witch
+	var/hand_examine = "other paw"
+
 /mob/living/carbon/human/species/wildshape/witch/Initialize()
 	. = ..()
 	//Place it in any inactive hand slot on transform.
 	var/obj/item/unusable_hand/H = new(src)
 	put_in_inactive_hand(H)
+	H.name = hand_examine
 
 /mob/living/carbon/human/species/wildshape/witch/gain_inherent_skills()
 	ADD_TRAIT(src, TRAIT_DEATHSIGHT, ADVENTURER_TRAIT)
