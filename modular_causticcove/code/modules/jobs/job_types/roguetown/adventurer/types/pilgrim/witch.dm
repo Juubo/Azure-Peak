@@ -186,7 +186,7 @@
 		picked_form = TRUE
 
 /mob/living/carbon/human/species/wildshape/witch
-	var/hand_examine = "other paw"
+	var/hand_examine = "paws"
 
 /mob/living/carbon/human/species/wildshape/witch/Initialize()
 	. = ..()

@@ -9,7 +9,7 @@
 	wildshape_icon_state = "bat"
 	movement_type = FLYING
 	var/fly_time = 0.5 SECONDS
-	hand_examine = "other claws"
+	hand_examine = "claws"
 
 
 /mob/living/carbon/human/species/wildshape/witch/bat/gain_inherent_skills()
