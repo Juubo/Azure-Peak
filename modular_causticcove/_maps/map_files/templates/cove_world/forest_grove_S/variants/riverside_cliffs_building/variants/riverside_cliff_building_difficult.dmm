@@ -28,7 +28,9 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
 "cx" = (
-/mob/living/carbon/human/species/skeleton/npc/no_equipment,
+/mob/living/carbon/human/species/skeleton/npc/no_equipment{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
 "cE" = (
@@ -61,7 +63,9 @@
 	pixel_y = 32
 	},
 /obj/effect/spawner/lootdrop/valuable_candle_spawner,
-/mob/living/carbon/human/species/skeleton/npc/dungeon/lich,
+/mob/living/carbon/human/species/skeleton/npc/dungeon/lich{
+	real_name = "Undead Sentinel"
+	},
 /obj/item/rogueore/gold,
 /turf/open/floor/rogue/church,
 /area/rogue/indoors)
@@ -108,7 +112,9 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
 	},
-/mob/living/carbon/human/species/skeleton/npc/hardspread,
+/mob/living/carbon/human/species/skeleton/npc/hardspread{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors)
 "gJ" = (
@@ -137,7 +143,9 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/indoors)
 "iS" = (
-/mob/living/carbon/human/species/skeleton/npc/mediumspread,
+/mob/living/carbon/human/species/skeleton/npc/mediumspread{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
 "iW" = (
@@ -324,7 +332,9 @@
 /obj/structure/fluff/walldeco/church/line{
 	dir = 4
 	},
-/mob/living/carbon/human/species/skeleton/npc/hardspread,
+/mob/living/carbon/human/species/skeleton/npc/hardspread{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors)
 "tg" = (
@@ -390,11 +400,15 @@
 /turf/open/floor/rogue/cobble,
 /area/rogue/indoors)
 "ye" = (
-/mob/living/carbon/human/species/skeleton/npc/hardspread,
+/mob/living/carbon/human/species/skeleton/npc/hardspread{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors)
 "zc" = (
-/mob/living/carbon/human/species/skeleton/npc/hardspread,
+/mob/living/carbon/human/species/skeleton/npc/hardspread{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/indoors)
 "zf" = (
@@ -815,7 +829,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
 "ZS" = (
-/mob/living/carbon/human/species/skeleton/npc/easy,
+/mob/living/carbon/human/species/skeleton/npc/easy{
+	faction = list("lich")
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 
