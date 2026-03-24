@@ -3062,6 +3062,8 @@
 #include "virtues\size.dm"
 #include "virtues\thief.dm"
 #include "virtues\utility.dm"
+#include "modular_causticcove\_maps\map_files\templates\cove_world\coast_S\ancient_church_variants.dm"
+#include "modular_causticcove\_maps\map_files\templates\cove_world\coast_S\destroyed_building_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_N\bandit_house_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_N\major_grove_variants.dm"
 #include "modular_causticcove\_maps\map_files\templates\cove_world\forest_grove_S\abandoned_barracks_variants.dm"
