@@ -5,6 +5,10 @@
 "b" = (
 /turf/open/floor/rogue/rooftop/green/north,
 /area/rogue/outdoors/town/roofs)
+"c" = (
+/obj/machinery/light/rogue/firebowl/stump,
+/turf/open/floor/rogue/twig,
+/area/rogue/outdoors/town/roofs)
 "h" = (
 /turf/open/transparent/openspace,
 /area/rogue/indoors/shelter/woods)
@@ -29,10 +33,6 @@
 /obj/effect/spawner/lootdrop/general_loot_hi,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
-"q" = (
-/obj/machinery/light/rogue/firebowl/stump,
-/turf/open/floor/rogue/twig,
-/area/rogue/outdoors/town/roofs)
 "s" = (
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/twig,
@@ -54,6 +54,10 @@
 "B" = (
 /turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors/shelter/woods)
+"D" = (
+/mob/living/carbon/human/species/hobgoblin/npc,
+/turf/open/floor/rogue/ruinedwood,
+/area/rogue/indoors/shelter/woods)
 "E" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/twig,
@@ -70,10 +74,6 @@
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/shelter/woods)
 "N" = (
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/shelter/woods)
-"P" = (
-/mob/living/carbon/human/species/hobgoblin/npc,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)
 "Q" = (
@@ -174,7 +174,7 @@ a
 (8,1,1) = {"
 a
 N
-P
+D
 N
 N
 m
@@ -213,7 +213,7 @@ w
 w
 w
 X
-q
+c
 X
 b
 "}
