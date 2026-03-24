@@ -188,12 +188,27 @@
 //All Witch Mobs lose their arm upon creation. Sorry. 
 /mob/living/carbon/human/species/wildshape/witch/Initialize()
 	. = ..()
-	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_L_ARM)
-	if(O)
-		O.drop_limb()
-		qdel(O)
+	//Place it in any inactive hand slot on transform.
+	var/obj/item/unusable_hand/H = new(src)
+	put_in_inactive_hand(H)
 
 /mob/living/carbon/human/species/wildshape/witch/gain_inherent_skills()
 	ADD_TRAIT(src, TRAIT_DEATHSIGHT, ADVENTURER_TRAIT)
 	ADD_TRAIT(src, TRAIT_ALCHEMY_EXPERT, ADVENTURER_TRAIT)
 	return //Do not let this call into wildshape inherent skill gain, or else they'll get miracles and devotions
+
+//Unique witch blocker.
+/obj/item/unusable_hand
+	name = "other hand"
+	desc = "This is your other hand, however you cannot use it whilst shapeshifted. You CAN use your beak, claws, paws, maws, and back to carry other items however. (You can only use 1 hand when shapeshifted.)"
+	icon = 'icons/mob/roguehudgrabs.dmi'
+	icon_state = "grabbing_greyscale"
+	w_class = WEIGHT_CLASS_BULKY
+	item_flags = ABSTRACT
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	no_effect = TRUE
+	experimental_inhand = FALSE
+
+/obj/item/unusable_hand/New(loc, ...)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_GENERIC)
