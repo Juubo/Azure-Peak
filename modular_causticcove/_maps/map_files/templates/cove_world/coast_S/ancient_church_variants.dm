@@ -1,6 +1,6 @@
 /obj/effect/landmark/map_load_mark/variant/coast_S/ancient_church
 	name = "Ancient Church"
- 	templates = list("ancient_church_default", "ancient_church_extended")
+	templates = list("ancient_church_default", "ancient_church_extended")
 	
 /datum/map_template/ancient_church
 	name = "ancient_church_default"

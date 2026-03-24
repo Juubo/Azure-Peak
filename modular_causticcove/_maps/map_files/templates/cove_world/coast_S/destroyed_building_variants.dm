@@ -1,6 +1,6 @@
 /obj/effect/landmark/map_load_mark/variant/coast_S/destroyed_building
 	name = "Destroyed Building"
- 	templates = list("destroyed_building_default", "destroyed_building_hoblin_takeover")
+	templates = list("destroyed_building_default", "destroyed_building_hoblin_takeover")
 	
 /datum/map_template/destroyed_building
 	name = "destroyed_building_default"
