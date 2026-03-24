@@ -8,7 +8,7 @@
 	wildshape_icon = 'icons/roguetown/mob/monster/crow.dmi'
 	wildshape_icon_state = "crow_flying"
 	movement_type = FLYING
-	var/fly_time = 2 SECONDS //You can now move and fly up/down at the same time. 
+	var/fly_time = 0.5 SECONDS //On par with bats for QoL sake
 
 /mob/living/carbon/human/species/wildshape/witch/zad/gain_inherent_skills()
 	if(mind)
