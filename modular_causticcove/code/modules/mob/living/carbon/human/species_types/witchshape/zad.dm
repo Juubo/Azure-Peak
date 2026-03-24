@@ -11,6 +11,7 @@
 	var/fly_time = 0.5 SECONDS //On par with bats for QoL sake
 
 /mob/living/carbon/human/species/wildshape/witch/zad/gain_inherent_skills()
+	. = ..()
 	if(mind)
 		adjust_skillrank(/datum/skill/combat/wrestling, SKILL_LEVEL_NOVICE, TRUE)
 		adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_NOVICE, TRUE)

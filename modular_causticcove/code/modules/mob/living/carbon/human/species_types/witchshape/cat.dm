@@ -15,6 +15,7 @@
 	icon_state = "cat"
 
 /mob/living/carbon/human/species/wildshape/witch/cat/gain_inherent_skills()
+	. = ..()
 	if(mind)
 		adjust_skillrank(/datum/skill/combat/wrestling, SKILL_LEVEL_NOVICE, TRUE)
 		adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_NOVICE, TRUE)

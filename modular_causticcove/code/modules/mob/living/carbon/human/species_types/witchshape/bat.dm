@@ -12,6 +12,7 @@
 
 
 /mob/living/carbon/human/species/wildshape/witch/bat/gain_inherent_skills()
+	. = ..()
 	if(mind)
 		adjust_skillrank(/datum/skill/combat/wrestling, SKILL_LEVEL_NOVICE, TRUE)
 		adjust_skillrank(/datum/skill/combat/unarmed, SKILL_LEVEL_NOVICE, TRUE)
@@ -27,6 +28,7 @@
 
 		real_name = "Bat"
 		faction += "bats"
+
 
 /datum/species/witch/bat
 	name = "bat"

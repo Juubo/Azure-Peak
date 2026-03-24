@@ -185,9 +185,15 @@
 	if(length(possible_shapes))
 		picked_form = TRUE
 
+//All Witch Mobs lose their arm upon creation. Sorry. 
 /mob/living/carbon/human/species/wildshape/witch/Initialize()
 	. = ..()
 	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_L_ARM)
 	if(O)
 		O.drop_limb()
 		qdel(O)
+
+/mob/living/carbon/human/species/wildshape/witch/gain_inherent_skills()
+	ADD_TRAIT(src, TRAIT_DEATHSIGHT, ADVENTURER_TRAIT)
+	ADD_TRAIT(src, TRAIT_ALCHEMY_EXPERT, ADVENTURER_TRAIT)
+	return //Do not let this call into wildshape inherent skill gain, or else they'll get miracles and devotions
