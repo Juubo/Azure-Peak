@@ -3079,6 +3079,7 @@
 #include "modular_causticcove\code\game\objects\items\rogueitems\util.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\ammo.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\arquebus.dm"
+#include "modular_causticcove\code\game\objects\structures\staircase_helper.dm"
 #include "modular_causticcove\code\modules\accessability\epilepsy.dm"
 #include "modular_causticcove\code\modules\accessability\epilepsy_prefs.dm"
 #include "modular_causticcove\code\modules\baycode_port_helpers\baycode_port_helpers.dm"

@@ -41,11 +41,21 @@
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods/southwest)
+"n" = (
+/obj/structure/stairs/helper{
+	dir = 8
+	},
+/turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods/southwest)
 "p" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/open/transparent/openspace,
+/area/rogue/outdoors/woods/southwest)
+"q" = (
+/obj/structure/stairs/helper,
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/outdoors/woods/southwest)
 "r" = (
 /turf/open/floor/rogue/grasscold,
@@ -113,6 +123,12 @@
 /area/rogue/outdoors/woods/southwest)
 "G" = (
 /turf/open/floor/rogue/greenstone,
+/area/rogue/outdoors/woods/southwest)
+"I" = (
+/obj/structure/stairs/helper{
+	dir = 1
+	},
+/turf/open/floor/rogue/greenstone/runed,
 /area/rogue/outdoors/woods/southwest)
 "K" = (
 /obj/structure/fluff/railing/wood{
@@ -186,6 +202,12 @@
 /obj/structure/well/fountain/mana,
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid,
 /turf/open/floor/rogue/greenstone/runed,
+/area/rogue/outdoors/woods/southwest)
+"X" = (
+/obj/structure/stairs/helper{
+	dir = 4
+	},
+/turf/open/floor/rogue/greenstone,
 /area/rogue/outdoors/woods/southwest)
 "Y" = (
 /obj/structure/fluff/railing/border{
@@ -285,13 +307,13 @@ G
 g
 "}
 (3,1,2) = {"
-G
+X
 d
 c
 w
 c
 B
-G
+X
 "}
 (4,1,2) = {"
 b
@@ -303,13 +325,13 @@ Z
 b
 "}
 (5,1,2) = {"
-G
+n
 d
 c
 w
 c
 B
-G
+n
 "}
 (6,1,2) = {"
 U
@@ -351,9 +373,9 @@ w
 (3,1,3) = {"
 w
 w
+q
 b
-b
-b
+I
 w
 w
 "}
@@ -369,9 +391,9 @@ w
 (5,1,3) = {"
 w
 w
+q
 b
-b
-b
+I
 w
 w
 "}
