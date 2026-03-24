@@ -1,6 +1,6 @@
 /obj/effect/landmark/map_load_mark/variant/forest_grove_SW/mana_fountain
 	name = "Mana Fountain"
-	templates = list("mana_fountain_default", "skeleton_barracks_stone_fort")
+	templates = list("mana_fountain_default", "mana_fountain_raised")
 	
 /datum/map_template/mana_fountain
 	name = "mana_fountain_default"
