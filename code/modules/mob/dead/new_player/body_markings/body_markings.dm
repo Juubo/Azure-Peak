@@ -394,6 +394,13 @@
 	affected_bodyparts = LEG_LEFT | LEG_RIGHT
 	default_color = DEFAULT_SECONDARY
 
+/datum/body_marking/harpytalon
+	icon = 'icons/mob/body_markings/other_markings.dmi'
+	name = "Harpy Legs (Talons)"
+	icon_state = "harpy_talons"
+	affected_bodyparts = LEG_LEFT | LEG_RIGHT
+	default_color = DEFAULT_SECONDARY
+
 /datum/body_marking/harpythigh
 	icon = 'icons/mob/body_markings/other_markings.dmi'
 	name = "Harpy Thighs"
