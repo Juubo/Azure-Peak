@@ -24,7 +24,9 @@
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "h" = (
-/obj/structure/mineral_door/wood/deadbolt,
+/obj/structure/mineral_door/wood/deadbolt{
+	dir = 1
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "i" = (
@@ -38,7 +40,8 @@
 /obj/structure/floordoor{
 	redstone_id = "castle_sally_gate"
 	},
-/obj/structure/wallladder{
+/obj/structure/ladder{
+	icon_state = "ladderwall";
 	dir = 1;
 	pixel_y = 20
 	},
@@ -48,12 +51,13 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors)
 "l" = (
-/obj/structure/wallladder{
-	dir = 1;
-	pixel_y = 20
-	},
 /obj/structure/fluff/railing/border{
 	dir = 6
+	},
+/obj/structure/ladder{
+	icon_state = "ladderwall";
+	dir = 1;
+	pixel_y = 20
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)

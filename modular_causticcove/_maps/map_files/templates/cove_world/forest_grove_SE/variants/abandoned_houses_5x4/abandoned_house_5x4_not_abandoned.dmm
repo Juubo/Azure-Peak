@@ -29,7 +29,7 @@
 /area/rogue/indoors/shelter/woods)
 "A" = (
 /obj/structure/mineral_door/wood/deadbolt{
-	dir = 4
+	dir = 8
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/shelter/woods)

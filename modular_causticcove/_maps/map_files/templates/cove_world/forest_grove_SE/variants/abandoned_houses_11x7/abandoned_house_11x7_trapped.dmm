@@ -85,10 +85,10 @@
 /turf/closed/wall/mineral/rogue/decowood,
 /area/rogue/indoors)
 "A" = (
-/obj/structure/mineral_door/wood/towner,
 /obj/structure/barricade/crude{
 	layer = 4.2
 	},
+/obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/indoors)
 "B" = (
@@ -109,9 +109,7 @@
 /turf/closed/wall/mineral/rogue/wooddark/vertical,
 /area/rogue/indoors)
 "H" = (
-/obj/structure/mineral_door/wood/towner{
-	locked = 0
-	},
+/obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "I" = (
