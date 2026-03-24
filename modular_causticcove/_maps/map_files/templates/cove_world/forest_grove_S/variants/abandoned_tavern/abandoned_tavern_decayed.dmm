@@ -161,7 +161,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "ro" = (
 /obj/structure/table/wood/poor,
@@ -225,7 +225,7 @@
 /area/rogue/indoors)
 "xq" = (
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/mountains)
 "xI" = (
 /obj/structure/fluff/railing/border,
@@ -506,7 +506,7 @@
 	dir = 8
 	},
 /obj/structure/fluff/walldeco/vinez,
-/turf/open/floor/rogue/ruinedwood,
+/turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors)
 "Yk" = (
 /obj/structure/chair/wood/rogue/chair3{
@@ -528,6 +528,9 @@
 /obj/item/natural/wood/plank,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods/south)
+"ZP" = (
+/turf/open/floor/rogue/dirt/road,
+/area/rogue/outdoors/mountains)
 
 (1,1,1) = {"
 Vf
@@ -975,8 +978,8 @@ Tx
 Tx
 cA
 kx
-kx
-kx
+xq
+xq
 jP
 Tx
 "}
@@ -1109,7 +1112,7 @@ Tx
 Tx
 Tx
 ux
-yE
+xq
 uG
 uG
 uG
@@ -1118,22 +1121,22 @@ Tx
 "}
 (6,1,3) = {"
 Tx
-yE
-yE
-uG
-uG
-uG
-yE
+xq
 yE
 uG
 uG
+uG
+xq
+xq
+uG
+uG
 yE
-yE
+xq
 Tx
 "}
 (7,1,3) = {"
 Tx
-yE
+xq
 uG
 uG
 uG
@@ -1143,12 +1146,12 @@ uG
 uG
 uG
 uG
-yE
+xq
 Tx
 "}
 (8,1,3) = {"
 Tx
-yE
+xq
 ux
 Tx
 Tx
@@ -1163,7 +1166,7 @@ Tx
 "}
 (9,1,3) = {"
 Tx
-yE
+xq
 ux
 Tx
 Tx
@@ -1188,7 +1191,7 @@ uG
 uG
 uG
 uG
-uG
+ZP
 Tx
 "}
 (11,1,3) = {"
@@ -1201,9 +1204,9 @@ Tx
 Tx
 Tx
 uG
-uG
-uG
-yE
+ZP
+ZP
+xq
 Tx
 "}
 (12,1,3) = {"
@@ -1215,10 +1218,10 @@ Tx
 Tx
 Tx
 ux
-yE
-yE
-yE
-yE
+xq
+xq
+xq
+xq
 Tx
 "}
 (13,1,3) = {"
