@@ -10,6 +10,7 @@
 	movement_type = FLYING
 	var/fly_time = 0.5 SECONDS
 
+
 /mob/living/carbon/human/species/wildshape/witch/bat/gain_inherent_skills()
 	if(mind)
 		adjust_skillrank(/datum/skill/combat/wrestling, SKILL_LEVEL_NOVICE, TRUE)
@@ -79,7 +80,7 @@
 /mob/living/carbon/human/species/wildshape/witch/bat/Initialize()
 	. = ..()
 	verbs += list(/mob/living/carbon/human/species/wildshape/witch/bat/proc/fly_up,
-	/mob/living/carbon/human/species/wildshape/witch/bat/proc/fly_down) 
+	/mob/living/carbon/human/species/wildshape/witch/bat/proc/fly_down)
 
 /mob/living/carbon/human/species/wildshape/witch/bat/proc/fly_up()
 	set category = "Winged Form"

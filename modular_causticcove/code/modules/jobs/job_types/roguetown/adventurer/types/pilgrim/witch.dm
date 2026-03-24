@@ -148,7 +148,7 @@
 	. = ..()
 
 /obj/effect/proc_holder/spell/self/wildshape/witch/proc/pick_form(mob/living/carbon/human/user)
-	var/shapeshifts = list("ALL - SHOWCASE ONLY", "Zad", "Bat", "Cabbit", "Volf", "Venard", "Cat", "Rat", "Refund My Choice")
+	var/shapeshifts = list("Zad", "Bat", "Cabbit", "Volf", "Venard", "Cat", "Rat", "Refund My Choice")
 	var/shapeshiftchoice = input(user, "What form does your second skin take?", "THE OLD WAYS") as anything in shapeshifts
 	switch (shapeshiftchoice)
 		if("Cabbit")
@@ -179,12 +179,15 @@
 			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/small_rous)
 			action_icon_state = "familiar"
 			desc = "Take on the form of a Venard."
-		if("ALL - SHOWCASE ONLY")
-			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/small_rous,/mob/living/carbon/human/species/wildshape/witch/cabbit,/mob/living/carbon/human/species/wildshape/witch/zad,/mob/living/carbon/human/species/wildshape/witch/cat,/mob/living/carbon/human/species/wildshape/witch/bat,/mob/living/carbon/human/species/wildshape/witch/volf,/mob/living/carbon/human/species/wildshape/witch/venard)
-			action_icon_state = "familiar"
-			desc = "Take on the form of a Venard."
 		if("Refund My Choice") //Simply refunds the choice.
 			desc = "You: 'Hey! Dendor! Get me an animal form with nothing!' Camera pans to the right: 'Nothiiiiinnnn!?'"
 			return
 	if(length(possible_shapes))
 		picked_form = TRUE
+
+/mob/living/carbon/human/species/wildshape/witch/Initialize()
+	. = ..()
+	var/obj/item/bodypart/O = get_bodypart(BODY_ZONE_L_ARM)
+	if(O)
+		O.drop_limb()
+		qdel(O)
