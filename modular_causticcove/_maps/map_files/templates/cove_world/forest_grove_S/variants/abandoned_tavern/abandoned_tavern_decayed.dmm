@@ -528,10 +528,6 @@
 /obj/item/natural/wood/plank,
 /turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods/south)
-"ZP" = (
-/obj/machinery/light/rogue/chand,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/mountains)
 
 (1,1,1) = {"
 Vf
@@ -960,7 +956,7 @@ JO
 vy
 vy
 Tx
-ZP
+Tx
 Tx
 eU
 QQ
