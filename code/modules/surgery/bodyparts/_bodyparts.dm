@@ -748,11 +748,13 @@
 			aux = image(limb.icon, "[prosthetic_prefix]_[aux_zone]", -aux_layer, image_dir)
 			. += aux
 
-	// Color
-	var/override_color = rotted ? SKIN_COLOR_ROT : null
-	if(is_organic && should_draw_greyscale && !skeletonized)
-		var/draw_color = mutation_color || species_color || skin_tone
-		if(rotted || (owner && HAS_TRAIT(owner, TRAIT_ROTMAN)))
+
+	var/override_color = null
+	if(rotted)
+		override_color = SKIN_COLOR_ROT
+	if(is_organic_limb && should_draw_greyscale && !skeletonized)
+		var/draw_color =  mutation_color || species_color || skin_tone
+		if(rotted || (owner && HAS_TRAIT(owner, TRAIT_ROTMAN) && !owner.mind))
 			draw_color = SKIN_COLOR_ROT
 		if(draw_color)
 			limb.color = "#[draw_color]"
