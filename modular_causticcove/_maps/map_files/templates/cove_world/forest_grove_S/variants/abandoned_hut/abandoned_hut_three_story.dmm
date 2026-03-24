@@ -15,11 +15,10 @@
 /area/rogue/outdoors/mountains)
 "g" = (
 /obj/structure/stairs{
-	dir = 1;
-	pixel_y = 2
+	dir = 1
 	},
 /obj/structure/fluff/railing/border{
-	dir = 8;
+	dir = 10;
 	pixel_x = 32
 	},
 /turf/open/floor/rogue/ruinedwood,
@@ -63,13 +62,6 @@
 	dir = 4
 	},
 /turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors)
-"n" = (
-/obj/structure/fluff/railing/border{
-	dir = 10;
-	pixel_x = 32
-	},
-/turf/closed/wall/mineral/rogue/wooddark,
 /area/rogue/indoors)
 "p" = (
 /obj/structure/fluff/railing/border{
@@ -184,6 +176,10 @@
 	dir = 10;
 	pixel_x = 32
 	},
+/obj/structure/stairs{
+	dir = 1;
+	pixel_y = -7
+	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors)
 "X" = (
@@ -220,7 +216,7 @@ a
 "}
 (5,1,1) = {"
 O
-n
+t
 g
 H
 O

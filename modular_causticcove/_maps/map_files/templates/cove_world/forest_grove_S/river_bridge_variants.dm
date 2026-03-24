@@ -12,4 +12,4 @@
 //Also change of scenery! How nice!
 /datum/map_template/river_bridge/tall
 	name = "river_bridge_tall"
-	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_SE/variants/goblin_home/river_bridge_tall.dmm"
+	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_S/variants/river_bridge/river_bridge_tall.dmm"
