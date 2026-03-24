@@ -185,7 +185,6 @@
 	if(length(possible_shapes))
 		picked_form = TRUE
 
-//All Witch Mobs lose their arm upon creation. Sorry. 
 /mob/living/carbon/human/species/wildshape/witch/Initialize()
 	. = ..()
 	//Place it in any inactive hand slot on transform.
