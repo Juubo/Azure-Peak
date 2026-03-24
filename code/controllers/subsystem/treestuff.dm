@@ -1,8 +1,7 @@
 SUBSYSTEM_DEF(treesetup)
 	name = "treesetup"
 	//CC Edit Begin
-	//Edited the init_order to respect map_templates, previously this value was [ INIT_ORDER_ATOMS-10 ]
-	init_order = INIT_ORDER_MINOR_MAPPING-1
+	init_order = INIT_ORDER_TREESETUP
 	flags = SS_NO_FIRE
 	//CC Edit End
 
