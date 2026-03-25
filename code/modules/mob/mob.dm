@@ -753,7 +753,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 
 	var/datum/controller/subsystem/statpanel/SS = SSstatpanel
 
-	if(statpanel("RoundInfo"))
+	if(statpanel("Info"))
 		for(var/line in SS.base_roundinfo_text)
 			stat(null, line)
 
