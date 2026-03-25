@@ -111,9 +111,9 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!held_item)
 		to_chat(user, span_info("I need something of value to make a transaction..."))
-		revert_cast()/cc edit
+		revert_cast()//cc edit
 		return
-	var/helditemvalue = held_item.get_real_price()/
+	var/helditemvalue = held_item.get_real_price()
 	if(ispath(held_item.type, /obj/item/rogueweapon) || ispath(held_item.type, /obj/item/gun))
 		to_chat(user, span_info("I cannot transact a weapon!"))
 		revert_cast()
