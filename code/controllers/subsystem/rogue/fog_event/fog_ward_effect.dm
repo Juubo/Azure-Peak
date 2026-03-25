@@ -16,7 +16,7 @@
 /datum/status_effect/buff/fog_ward/on_apply()
 	ADD_TRAIT(owner, TRAIT_FOG_WARDED, TRAIT_MIRACLE)
 	SEND_SIGNAL(owner, COMSIG_WARDED_TRAIT_CHANGE)
-	owner.add_filter(FOG_WARD_OUTLINE, 1, list("type" = "bloom", "color" = "#ffffffb3", "size" = 0.4)) //CC Edit, tweaked size
+	owner.add_filter(FOG_WARD_OUTLINE, 1, list("type" = "outline", "color" = "#ffffffb3", "size" = 0.4)) //CC Edit, tweaked size
 	return TRUE
 
 /datum/status_effect/buff/fog_ward/process()
@@ -68,7 +68,7 @@
 /datum/status_effect/buff/fog_ward_caster/on_apply()
 	ADD_TRAIT(owner, TRAIT_FOG_WARDED, TRAIT_MIRACLE)
 	SEND_SIGNAL(owner, COMSIG_WARDED_TRAIT_CHANGE)
-	owner.add_filter(FOG_WARD_OUTLINE, 1, list("type" = "bloom", "color" = "#ffffff", "size" = 1))
+	owner.add_filter(FOG_WARD_OUTLINE, 1, list("type" = "outline", "color" = "#ffffff", "size" = 0.85))  //CC Edit, tweaked size
 	return TRUE
 
 /datum/status_effect/buff/fog_ward_caster/on_remove()
