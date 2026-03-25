@@ -106,6 +106,7 @@
 	sellprice = 250 //CC Edit | Rare!!!
 	armor_class = ARMOR_CLASS_NONE
 	block2add = FOV_DEFAULT
+	flags_cover = null
 
 /obj/item/clothing/head/roguetown/helmet/blacksteel/psythorns/attack_self(mob/living/user)
 	. = ..()
