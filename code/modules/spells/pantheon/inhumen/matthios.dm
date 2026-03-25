@@ -111,13 +111,20 @@
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!held_item)
 		to_chat(user, span_info("I need something of value to make a transaction..."))
+		revert_cast()
 		return
 	var/helditemvalue = held_item.get_real_price()
+	if(ispath(held_item.type, /obj/item/rogueweapon) || ispath(held_item.type, /obj/item/gun))
+		to_chat(user, span_info("I cannot transact a weapon!"))
+		revert_cast()
+		return
 	if(!helditemvalue)
 		to_chat(user, span_info("This has no value, It will be of no use In such a transaction."))
+		revert_cast()
 		return
 	if(helditemvalue<10)
 		to_chat(user, span_info("This has little value, It will be of no use In such a transaction."))
+		revert_cast()
 		return
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
