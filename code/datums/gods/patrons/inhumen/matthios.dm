@@ -1,7 +1,7 @@
 /datum/patron/inhumen/matthios
 	name = "Matthios"
-	domain = "God of Theft, excess Luxury, and Greed"
-	desc = "The Man who stole fire from the sun and used it in his pursuit of immortality. He guides those who live in the dark, away from the flame of civilization; and those who believe in his cause bring the wealth of the undeserving in the light to the deserving in the dark."
+	domain = "God of Theft, excess Luxury, and Greed" //CC edit
+	desc = "The Man who stole fire from the sun and used it in his pursuit of immortality. He guides those who live in the dark, away from the flame of civilization; and those who believe in his cause bring the wealth of the undeserving in the light to the deserving in the dark."//cc edit end
 	worshippers = "Highwaymen, Downtrodden Peasants, and Merchants"
 	crafting_recipes = list(/datum/crafting_recipe/roguetown/sewing/bandithood)
 	mob_traits = list(TRAIT_COMMIE, TRAIT_MATTHIOS_EYES, TRAIT_SEEPRICES_SHITTY)

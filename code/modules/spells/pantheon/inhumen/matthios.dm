@@ -113,11 +113,11 @@
 		to_chat(user, span_info("I need something of value to make a transaction..."))
 		revert_cast()
 		return
-	var/helditemvalue = held_item.get_real_price()
+	var/helditemvalue = held_item.get_real_price()//cc edit
 	if(ispath(held_item.type, /obj/item/rogueweapon) || ispath(held_item.type, /obj/item/gun))
 		to_chat(user, span_info("I cannot transact a weapon!"))
 		revert_cast()
-		return
+		return//cc edit end
 	if(!helditemvalue)
 		to_chat(user, span_info("This has no value, It will be of no use In such a transaction."))
 		revert_cast()
