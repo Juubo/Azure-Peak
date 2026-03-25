@@ -612,7 +612,7 @@ class ChatRenderer {
             // Because getAttribute returns "", not null. Hate IE
             let parsed_value: any;
             if (working_value === '$true') {
-              parsed_value = true;
+              working_value = true;
             } else if (working_value === '$false') {
               parsed_value = false;
             } else if (!Number.isNaN(working_value)) {
