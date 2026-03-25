@@ -5,8 +5,8 @@
  */
 
 const DARK = {
-    BG_BASE: '#202020',
-    BG_SECOND: '#151515',
+    BG_BASE: '#000000',
+    BG_SECOND: '#000000',
     BUTTON: '#404040',
     TEXT: '#A6A6A6',
   }

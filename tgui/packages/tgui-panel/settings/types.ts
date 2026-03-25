@@ -29,7 +29,7 @@ export const settingsSchema = z.object({
   statLinked: z.boolean(),
   statTabsStyle: z.string(),
   storedTypes: z.record(z.string(), z.boolean()),
-  theme: z.enum(['light', 'dark', 'vchatlight', 'vchatdark']),
+  theme: z.enum(['dark', 'light']),
   ttsCategories: z.record(z.string(), z.boolean()),
   ttsVoice: z.string(),
   version: z.number(),
