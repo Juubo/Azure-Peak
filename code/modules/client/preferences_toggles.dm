@@ -649,7 +649,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 //Admin Preferences
 /client/proc/toggleadminhelpsound()
 	set name = "Hear/Silence Adminhelps"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	set hidden = 1
 	if(!holder)
@@ -661,7 +661,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggleannouncelogin()
 	set name = "Do/Don't Announce Login"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	if(!holder)
 		return
@@ -672,7 +672,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggle_hear_radio()
 	set name = "Show/Hide Radio Chatter"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	set hidden = 1
 	if(!holder)
@@ -684,7 +684,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggleprayers()
 	set name = "Show/Hide Prayers"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	if(!holder)
 		return
@@ -695,7 +695,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/toggle_prayer_sound()
 	set name = "Toggle Prayer Sounds"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	if(!holder)
 		return
@@ -706,7 +706,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 
 /client/proc/colorasay()
 	set name = "Set Asay Color"
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set desc = ""
 	if(!holder)
 		return
@@ -723,7 +723,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 /client/proc/resetasaycolor()
 	set name = "Reset your Admin Say Color"
 	set desc = ""
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	if(!holder)
 		return
 	if(!CONFIG_GET(flag/allow_admin_asaycolor))
@@ -733,7 +733,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 	prefs.save_preferences()
 
 /client/proc/hearallasghost()
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set name = "HearAllAsAdmin"
 	if(!holder)
 		return
@@ -749,7 +749,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		to_chat(src, span_info("I will hear like a mortal."))
 
 /client/proc/hearglobalLOOC()
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set name = "Show/Hide Global LOOC"
 	if(!holder)
 		return
@@ -763,7 +763,7 @@ GLOBAL_LIST_INIT(ghost_orbits, list(GHOST_ORBIT_CIRCLE,GHOST_ORBIT_TRIANGLE,GHOS
 		to_chat(src, span_info("I will now only hear LOOC chatter around me."))
 
 /client/proc/togglespawnmessages()
-	set category = "Prefs - Admin"
+	set category ="Prefs - ADMIN"
 	set name = "Show/Hide Spawn Logs"
 	if(!holder)
 		return

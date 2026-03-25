@@ -52,7 +52,7 @@
 /mob/living/verb/shred_limb()
 	set name = "Damage/Remove Prey's Organ"
 	set desc = "Severely damages prey's organ. If the limb is already severely damaged, it will be torn off."
-	set category = "Abilities.Vore"
+	set category = "Vore"
 
 	//can_shred() will return a mob we can shred, if we can shred any.
 	var/mob/living/carbon/human/T = can_shred()
@@ -128,7 +128,7 @@
 /mob/living/proc/shred_limb_temp()
 	set name = "Damage/Remove Prey's Organ (beartrap)"
 	set desc = "Severely damages prey's organ. If the limb is already severely damaged, it will be torn off."
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	shred_limb()
 
 /mob/verb/toggle_vore_health_bars()

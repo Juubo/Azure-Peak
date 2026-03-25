@@ -437,7 +437,7 @@
 //
 /mob/living/verb/lick_taste(mob/living/tasted in living_mobs_in_view(1, TRUE))
 	set name = "Lick someone"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Lick someone nearby!"
 	set popup_menu = FALSE // Stop licking by accident!
 
@@ -490,7 +490,7 @@
 //This is just the above proc but switched about.
 /mob/living/verb/smell(mob/living/smelled in living_mobs(1, TRUE))
 	set name = "Smell someone"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Smell someone nearby!"
 	set popup_menu = FALSE
 
@@ -801,7 +801,7 @@
 
 /mob/living/verb/eat_trash()
 	set name = "Eat object"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Consume held object into currently selected belly."
 
 	//on chomp it worked off a whitelist of items you could devour, hope is that here it can be replaced by a long windup before eating something
@@ -842,7 +842,7 @@
 
 /mob/living/verb/toggle_trash_catching() //Ported from chompstation
 	set name = "Toggle Trash Catching"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Toggle Trash Eater throw vore abilities."
 	trash_catching = !trash_catching
 	to_chat(src, span_warning("Trash catching [trash_catching ? "enabled" : "disabled"]."))
@@ -850,7 +850,7 @@
 /*
 /mob/living/proc/eat_minerals() //Actual eating abstracted so the user isn't given a prompt due to an argument in this verb.
 	set name = "Eat Minerals"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Consume held raw ore, gems and refined minerals. Snack time!"
 
 	handle_eat_minerals()
@@ -980,7 +980,7 @@
 
 /*/mob/living/verb/toggle_stuffing_mode() <-- Pains me so fucking much to comment this out but this is for later //Caustic - Enable this as well sometime?
 	set name = "Toggle feeding mode"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Switch whether you will try to feed other people food whole or normally, bite by bite."
 
 	stuffing_feeder = !stuffing_feeder
@@ -1303,7 +1303,7 @@
 
 /mob/living/verb/vore_check_reagents()
 	set name = "Check Belly Liquid (Vore)"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Check the amount of liquid in your belly."
 
 	var/obj/belly/RTB = tgui_input_list(src, "Choose which vore belly to check", "Select Belly", vore_organs)
@@ -1319,7 +1319,7 @@
 
 /mob/living/verb/vore_transfer_reagents()
 	set name = "Transfer Liquid (Vore)"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Transfer liquid from an organ to another or stomach, or into another person or container."
 	set popup_menu = FALSE
 
@@ -1525,7 +1525,7 @@
 
 /mob/living/proc/restrict_trasheater() //Caustic - This looks like it's intended for Admins to get, and only admins
 	set name = "Restrict Trash Eater"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Toggle Trash Eater restriction level."
 	adminbus_trash = !adminbus_trash
 	to_chat(src, span_warning("Trash Eater restriction level set to [adminbus_trash ? "everything not blacklisted" : "only whitelisted items"]."))
@@ -1554,7 +1554,7 @@
 
 /mob/living/verb/vore_check_nutrition()
 	set name = "Check Nutrition"
-	set category = "Abilities.Vore"
+	set category = "Vore"
 	set desc = "Check your current nutrition level."
 	to_chat(src, span_notice("Current nutrition level: [nutrition]."))
 

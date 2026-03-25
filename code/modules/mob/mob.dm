@@ -572,7 +572,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/verb/memory()
 	set name = "Notes"
-	set category = "Memory"
+	set category = "IC"
 	set desc = ""
 	if(mind)
 		mind.show_memory(src)
@@ -584,7 +584,7 @@ GLOBAL_VAR_INIT(mobids, 1)
  */
 /mob/verb/add_memory(msg as message)
 	set name = "AddNote"
-	set category = "Memory"
+	set category = "IC"
 	if(mind)
 		if (world.time < memory_throttle_time)
 			return
