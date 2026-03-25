@@ -3079,6 +3079,7 @@
 #include "modular_causticcove\code\datums\combat_music.dm"
 #include "modular_causticcove\code\datums\loadout.dm"
 #include "modular_causticcove\code\datums\spontaneous_vore.dm"
+#include "modular_causticcove\code\game\area\generic_hostile.dm"
 #include "modular_causticcove\code\game\area\generic_peaceful.dm"
 #include "modular_causticcove\code\datums\wounds\types\mangled_jaw.dm"
 #include "modular_causticcove\code\game\objects\effects\landmarks.dm"
