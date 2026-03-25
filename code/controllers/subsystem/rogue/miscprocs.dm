@@ -173,6 +173,12 @@
 
 	if(!devotion)
 		return FALSE
+	//CC Edit Begin
+	//Witch's all have a god complex. Their patron still loves them however.
+	if(HAS_TRAIT(src, TRAIT_WITCH))
+		to_chat(src, span_warning("My patron has blessed me enough as is, I can do things on my own."))
+		return FALSE
+	//CC Edit End
 
 	var/prayersesh = 0
 	visible_message("[src] kneels their head in prayer to the Gods.", "I kneel my head in prayer to [devotion.patron.name].")

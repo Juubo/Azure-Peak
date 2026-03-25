@@ -51,7 +51,7 @@
 	var/classes = list("Old Magick", "Godsblood", "Mystagogue")
 	var/classchoice = input("How do your powers manifest?", "THE OLD WAYS") as anything in classes
 
-	//Shapeshifting choices are handled in the shapeshift spell itself.
+	//Shapeshifting choices are handled in the shapeshift spell itself further down the file.
 
 	switch (classchoice)
 		if("Old Magick")
@@ -64,7 +64,8 @@
 				H.adjust_skillrank(/datum/skill/magic/arcane, SKILL_LEVEL_APPRENTICE, TRUE)
 				H.mind?.adjust_spellpoints(3)
 		if("Godsblood")
-			//miracle witch: capped at t2 miracles. cannot pray to regain devo, but has high innate regen because of it (2 instead of 1 from major). Cannot use miracles when shapeshifted.
+			//miracle witch: capped at t2 miracles. cannot pray to regain devo, but has high innate regen because of it (1.7 instead of 0.8 from major).
+			//Cannot use miracles or gain devotion when shapeshifted.
 			var/datum/devotion/D = new /datum/devotion/(H, H.patron)
 			H.adjust_skillrank(/datum/skill/magic/holy, SKILL_LEVEL_APPRENTICE, TRUE)
 			D.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WITCH, devotion_limit = CLERIC_REQ_2)
@@ -73,7 +74,8 @@
 			if (H.age == AGE_OLD)
 				H.adjust_skillrank(/datum/skill/magic/holy, SKILL_LEVEL_NOVICE, TRUE)
 		if("Mystagogue")
-			// hybrid arcane/holy witch with t1 arcane and t1 miracles, but less spellpoints, lower max devotion and less regen (0.5). Still can't pray. Also can't use miracles when shapeshifted.
+			// hybrid arcane/holy witch with t1 arcane and t1 miracles, but less spellpoints, lower max devotion and less regen (0.5). Still can't pray.
+			//Also cannot use miracles or gain devotion when shapeshifted.
 			var/datum/devotion/D = new /datum/devotion/(H, H.patron)
 			H.adjust_skillrank(/datum/skill/magic/holy, SKILL_LEVEL_NOVICE, TRUE)
 			D.grant_miracles(H, cleric_tier = CLERIC_T1, passive_gain = CLERIC_REGEN_MINOR, devotion_limit = CLERIC_REQ_1)
@@ -178,7 +180,7 @@
 		if("Rat")
 			possible_shapes += list(/mob/living/carbon/human/species/wildshape/witch/small_rous)
 			action_icon_state = "familiar"
-			desc = "Take on the form of a Venard."
+			desc = "Take on the form of a Rat."
 		if("Refund My Choice") //Simply refunds the choice.
 			desc = "You: 'Hey! Dendor! Get me an animal form with nothing!' Camera pans to the right: 'Nothiiiiinnnn!?'"
 			return
