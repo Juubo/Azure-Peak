@@ -4,8 +4,8 @@
 	
 /datum/map_template/ancient_church
 	name = "ancient_church_default"
-	width = 13
-	height = 13
+	width = 14
+	height = 12
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/coast_S/variants/ancient_church/ancient_church_default.dmm"
 
 //Extended a little further to allow ladder travel down, far far down.
