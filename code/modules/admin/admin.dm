@@ -659,7 +659,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Spawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/podspawn_atom(object as text)
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc = ""
 	set name = "Podspawn"
 
@@ -683,7 +683,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Podspawn Atom") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/spawn_cargo(object as text)
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc = ""
 	set name = "Spawn Cargo"
 
@@ -718,7 +718,7 @@
 
 
 /datum/admins/proc/toggletintedweldhelmets()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc="Reduces view range when wearing welding helmets"
 	set name="Toggle tinted welding helmes"
 	GLOB.tinted_weldhelh = !( GLOB.tinted_weldhelh )
@@ -784,7 +784,7 @@
 	browser.open()
 
 /datum/admins/proc/create_or_modify_area()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Create/Modify area"
 	create_area(usr)
 
@@ -861,7 +861,7 @@
 
 
 /client/proc/returntolobby()
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Back to Lobby"
 
 	var/mob/living/carbon/human/H = mob

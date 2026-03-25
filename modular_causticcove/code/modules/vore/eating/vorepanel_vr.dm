@@ -13,7 +13,7 @@
 
 /mob/verb/insidePanel()
 	set name = "Vore Panel"
-	set category = "Vore"
+	set category = "VORE"
 
 	if(SSticker.current_state == GAME_STATE_STARTUP)
 		return

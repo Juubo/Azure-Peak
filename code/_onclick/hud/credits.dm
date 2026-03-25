@@ -25,7 +25,7 @@
 
 /client/proc/ClearCredits()
 	set name = "Hide Credits"
-	set category = "Options"
+	set category = "OPTIONS"
 	verbs -= /client/proc/ClearCredits
 	QDEL_LIST(credits)
 	credits = null

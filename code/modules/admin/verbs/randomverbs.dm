@@ -20,7 +20,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Drop Everything") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_subtle_message(mob/M in GLOB.mob_list)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Subtle Message"
 
 	if(!ismob(M))
@@ -46,7 +46,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Subtle Message") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_mod_antag_rep(client/C in GLOB.clients, operation)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Modify Antagonist Reputation"
 
 	if(!check_rights(R_ADMIN))
@@ -92,7 +92,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Antagonist Reputation") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_mod_triumphs(mob/M in GLOB.mob_list, operation)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Adjust Triumphs..."
 
 	if(!check_rights(R_ADMIN))
@@ -117,7 +117,7 @@
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Modify Triumphs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_mod_pq(mob/M in GLOB.mob_list, operation)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Adjust PQ"
 	set hidden = 1
 
@@ -305,7 +305,7 @@ Works kind of like entering the game with a new character. Character receives a 
 Traitors and the like can also be revived with the previous role mostly intact.
 /N */
 /client/proc/respawn_character()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Respawn Character"
 	set desc = ""
 	if(!check_rights(R_ADMIN))
@@ -404,7 +404,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	return new_character
 
 /client/proc/cmd_admin_rejuvenate(mob/living/M in GLOB.mob_list)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Rejuvenate"
 
 	if(!check_rights(R_ADMIN))
@@ -446,7 +446,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Create Command Report") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_change_command_name()
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Change Command Name"
 	set hidden = 1 // May have uses?
 
@@ -479,7 +479,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Manage Job Slots") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/cmd_admin_explosion(atom/O as obj|mob|turf in world)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Explosion"
 
 	if(!check_rights(R_ADMIN))
@@ -515,7 +515,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 /client/proc/cmd_admin_emp(atom/O as obj|mob|turf in world)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "EM Pulse"
 
 	if(!check_rights(R_ADMIN))
@@ -540,7 +540,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		return
 
 /client/proc/cmd_admin_gib(mob/M in GLOB.mob_list)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Gib..."
 
 	if(!check_rights(R_ADMIN))
@@ -577,7 +577,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		mob.gib(1, 1, 1)
 
 /client/proc/cmd_admin_check_contents(mob/living/M in GLOB.mob_list)
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Check Contents"
 
 	var/list/L = M.get_contents()
@@ -586,7 +586,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Check Contents") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/toggle_view_range()
-	set category = "✦ Special Verbs"
+	set category = "✦ SPECIAL"
 	set name = "Change View Range"
 	set desc = ""
 

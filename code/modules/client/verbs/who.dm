@@ -1,7 +1,7 @@
 
 /client/verb/who()
 	set name = "Whom"
-	set category = "Options"
+	set category = "OPTIONS"
 
 	var/msg = ""
 

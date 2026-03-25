@@ -500,7 +500,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/stresstest_chat()
 	set name = "Stress Chat"
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set hidden = TRUE
 
 	if(!holder)
@@ -670,7 +670,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		SSblackbox.record_feedback("tally", "admin_verb", 1, "Drop Dynamic Bomb") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/get_dynex_range()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Get DynEx Range"
 	set desc = ""
 
@@ -681,7 +681,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Range: (Devastation: [round(range*0.25)], Heavy: [round(range*0.5)], Light: [round(range)])")
 
 /client/proc/get_dynex_power()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Get DynEx Power"
 	set desc = ""
 
@@ -692,7 +692,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(usr, "Estimated Explosive Power: [power]")
 
 /client/proc/set_dynex_scale()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Set DynEx Scale"
 	set desc = ""
 
@@ -870,7 +870,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/delete_player_book()
 	set name = "Database Delete Player Book"
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc = ""
 	if(!holder)
 		return
@@ -883,7 +883,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/pull_book_file_names()
 	set name = "Database Book File Names"
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc = ""
 	if(!holder)
 		return
@@ -897,7 +897,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 /client/proc/amend_player_book()
 	set name = "Database Amend Player Book"
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set desc = ""
 	if(!holder)
 		return
@@ -938,7 +938,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	to_chat(src, "Error. Bounty no longer active.") 
 
 /client/proc/enable_browser_debug()
-	set category = "🛠 Debug"
+	set category = "🛠 DEBUG"
 	set name = "Enable Browser Debug"
 	if(!holder)
 		return
