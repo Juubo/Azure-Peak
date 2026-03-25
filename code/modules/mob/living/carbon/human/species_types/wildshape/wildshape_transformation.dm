@@ -178,6 +178,10 @@
 
 	W.regenerate_icons()
 	to_chat(W, span_userdanger("I return to my old form."))
+	//CC Edit Begin makes wildshapers stand up immediately after reforming to make transformation more seamless and snappy.
+	if(W.resting)
+		W.set_resting(FALSE, TRUE)
+	//CC Edit End
 
 	qdel(src)
 
