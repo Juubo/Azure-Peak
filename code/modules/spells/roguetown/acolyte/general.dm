@@ -1,4 +1,4 @@
-// Lesser miracle
+// Lesser miracle 
 /obj/effect/proc_holder/spell/invoked/lesser_heal
 	name = "Miracle"
 	desc = "Heals target over time, causes damage if something is embedded in target. Burns undead instead of healing them if you worship the Ten.<br>Does not work on those worshipping the dead god."
@@ -33,9 +33,9 @@
 		return FALSE
 
 	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
-		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))
+		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))//cc Edit
 		target.adjustFireLoss(10)
-		target.fire_act(1, 10)
+		target.fire_act(1, 10)//cc edit end
 		return TRUE
 
 	if(target.has_status_effect(/datum/status_effect/buff/healing))
@@ -80,11 +80,11 @@
 		playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
 		human.emote("agony")
 		return FALSE
-
+	//cc edit
 	target.apply_status_effect(/datum/status_effect/buff/healing, healing)
 	target.visible_message(message_out, message_self)
 
-	return TRUE
+	return TRUE//cc edit end
 
 // Miracle
 /obj/effect/proc_holder/spell/invoked/heal

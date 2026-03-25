@@ -207,9 +207,9 @@
 			playsound(target, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			user.playsound_local(user, 'sound/magic/PSY.ogg', 100, FALSE, -1)
 			return FALSE
-		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
+		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))//CC edit
 			target.visible_message(span_danger("[target] is crushed by divine pressure!"), span_userdanger("I'm crushed by divine pressure!"))
-			target.adjustBruteLoss(30)
+			target.adjustBruteLoss(30)//cc edit end
 			return TRUE
 
 		var/conditional_buff = FALSE
