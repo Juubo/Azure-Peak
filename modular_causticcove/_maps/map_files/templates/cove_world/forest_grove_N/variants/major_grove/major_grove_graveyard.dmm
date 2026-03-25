@@ -51,7 +51,6 @@
 /area/rogue/outdoors/woods/north)
 "dp" = (
 /obj/structure/closet/dirthole/grave,
-/obj/item/roguegem/random,
 /turf/open/floor/rogue/dirt,
 /area/rogue/underworld/graveyard)
 "ds" = (
@@ -196,6 +195,7 @@
 /area/rogue/underworld/graveyard)
 "pu" = (
 /obj/structure/closet/dirthole/grave,
+/obj/item/roguegem/random,
 /turf/open/floor/rogue/dirt,
 /area/rogue/underworld/graveyard)
 "pN" = (
@@ -276,6 +276,12 @@
 "tK" = (
 /turf/open/floor/rogue/grassred,
 /area/rogue/outdoors/woods/north)
+"tW" = (
+/obj/structure/fluff/railing/corner,
+/turf/open/floor/rogue/underworld/road{
+	dir = 1
+	},
+/area/rogue/underworld/graveyard)
 "tY" = (
 /turf/closed/mineral/random/rogue/high,
 /area/rogue/outdoors/mountains)
@@ -527,7 +533,6 @@
 /turf/open/floor/rogue/dirt,
 /area/rogue/underworld/graveyard)
 "Jp" = (
-/mob/living/carbon/human/species/skeleton/npc/hard,
 /turf/open/floor/rogue/blocks,
 /area/rogue/underworld/graveyard)
 "JX" = (
@@ -649,9 +654,6 @@
 "Rd" = (
 /turf/open/floor/rogue/church,
 /area/rogue/outdoors/mountains)
-"RY" = (
-/turf/open/floor/rogue/blocks,
-/area/rogue/underworld/graveyard)
 "Su" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8;
@@ -680,10 +682,8 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/underworld/graveyard)
 "Uq" = (
-/obj/structure/fluff/railing/corner,
-/turf/open/floor/rogue/underworld/road{
-	dir = 1
-	},
+/mob/living/carbon/human/species/skeleton/npc/hard,
+/turf/open/floor/rogue/blocks,
 /area/rogue/underworld/graveyard)
 "Ur" = (
 /obj/structure/fluff/railing/corner/south_west,
@@ -758,9 +758,9 @@ de
 Gp
 Kj
 pR
-pN
-Kj
-hy
+gy
+dQ
+ma
 "}
 (2,1,1) = {"
 gy
@@ -783,7 +783,7 @@ El
 qF
 AT
 VX
-hy
+ma
 "}
 (3,1,1) = {"
 pN
@@ -806,7 +806,7 @@ GH
 GH
 Wm
 Sw
-hy
+ma
 "}
 (4,1,1) = {"
 pN
@@ -847,7 +847,7 @@ ea
 Wm
 QY
 Uf
-RY
+Jp
 fP
 QY
 Wm
@@ -870,7 +870,7 @@ zi
 Wm
 QY
 LU
-Jp
+Uq
 Wp
 QY
 uF
@@ -886,14 +886,14 @@ jJ
 wY
 YU
 LN
-pu
+dp
 kN
 wY
 bO
 DY
 QY
 zg
-RY
+Jp
 Ai
 QY
 Wm
@@ -1027,7 +1027,7 @@ XB
 XZ
 lx
 yj
-Uq
+tW
 OV
 In
 Wm
@@ -1052,11 +1052,11 @@ zk
 LY
 cP
 NY
-Uq
+tW
 Wm
 wq
 YU
-dp
+pu
 yM
 qF
 CW
