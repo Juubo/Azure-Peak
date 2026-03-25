@@ -211,6 +211,16 @@
 			r_hand = /obj/item/rogueweapon/greataxe // not steel
 			gloves = /obj/item/clothing/gloves/roguetown/fingerless
 
+	var/prefixs = list(
+		"Skinny" = "Skinny", // Why
+		"Big" = "Big", // Yes, There is two cases where if someone calls themselves "Boss", we need to explode them.
+		"Wide" = "Wide",
+		"Thick" = "Thick",
+		"Long" = "Long",
+		"Quick" = "Quick"
+		)
+	var/prefixchoice = input(H, "What did people start calling you.", "YOU BIG FELLA") as anything in prefixs
+
 	var/techniques = list("Dropkick - Pushback + Extra Damage", "Chokeslam - Stamina Damage", "Stunner - Dazed Debuff", "Headbutt - Vulnerable Debuff") // cool wrestling moves
 	var/technique_choice = input(H,"Choose your TECHNIQUE.", "TOSS THEM.") as anything in techniques
 	switch(technique_choice)
@@ -225,6 +235,6 @@
 
 	var/prev_real_name = H.real_name
 	var/prev_name = H.name
-	var/prefix = "Skinny" // if i see someone named "Boss" pick big man for this bit i will kill them
+	var/prefix = prefixs[prefixchoice]
 	H.real_name = "[prefix] [prev_real_name]"
-	H.name = "[prefix] [prev_name]"	
+	H.name = "[prefix] [prev_name]"
