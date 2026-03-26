@@ -180,6 +180,10 @@
 	intent_intdamage_factor = 0.05
 	demolition_mod = 0.05
 
+/datum/intent/rend/apophis
+	damfactor = 2.2
+	intent_intdamage_factor = 0.2
+
 /datum/intent/rend/reach
 	name = "long rend"
 	penfactor = PEN_NONE
