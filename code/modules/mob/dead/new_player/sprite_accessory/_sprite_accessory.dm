@@ -188,6 +188,8 @@
 			return "FRONT"
 		if(CROTCH_LAYER) //aAaaAAAaaa I hate the layering system
 			return "FRONT"
+		if(GLASSES_LAYER)
+			return "ADJ"
 		//Caustic End
 		if(BODY_FRONT_FRONT_LAYER)
 			return "FFRONT"
