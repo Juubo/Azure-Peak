@@ -405,6 +405,7 @@ Medical defines
 #define VISMSG_ARMOR_INT_STAGETHREE "<span class='armoralert'><b> Crumbling!</b></span>"
 
 //Cast time reduction
+#define CRYSTMANA_CAST_TIME_REDUCTION 0.05 // Caustic edit
 #define TOPER_CAST_TIME_REDUCTION 0.1
 #define EMERALD_CAST_TIME_REDUCTION 0.15
 #define SAPPHIRE_CAST_TIME_REDUCTION 0.2

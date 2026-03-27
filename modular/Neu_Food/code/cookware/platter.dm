@@ -12,10 +12,19 @@
 	grid_height = 32
 	obj_flags = UNIQUE_RENAME
 
+	// Caustic Edit start
+	var/glazeable // For things that can be glazed or painted. Currently only clay containers
+	var/glazed
+	// Caustic Edit end
+
 
 /obj/item/cooking/platter/examine()
 	. = ..()
 	. += span_info("Can be renamed with a feather. Name will be overridden by plating or finishing food.")
+	// Caustic Edit
+	if(glazeable)
+		. += span_notice("It can be brushed with a dye brush to glaze it.")
+	// Caustic Edit end
 
 /*
 NEW SYSTEM
@@ -29,6 +38,50 @@ What it does:
 */
 /*	..................   Food platter   ................... */
 /obj/item/cooking/platter/attackby(obj/item/I, mob/user, params)
+
+	// Caustic Edit start
+	if(glazeable)
+		if(istype(I, /obj/item/dye_brush))
+			var/obj/item/dye_brush/brush = I
+			user.visible_message(span_notice("[user] starts to brush the [name] with [brush]."))
+			if(do_after(user, 3 SECONDS, target = src))
+				if(!glazed)
+					var/list/designlist = list("painted", "brown", "porcelain", "shattergold", "bluegold") // Might need some changes in the future if people want to add glazeable/paintable things with different patterns
+					var/design = tgui_input_list(user, "Select a design.","Ceramics Design", designlist)
+					if(!design) // If no design and no paint so it doesn't go invisible
+						to_chat(user, span_notice("You change your mind on how to glaze the [name]."))
+						return
+					switch(design) // Literally just copied over from the spellbook variants
+						if ("painted") // For custom colors with no patterns.
+							if(!brush.dye)
+								to_chat(user, span_notice("How are you to paint with a dry brush?"))
+								return
+							color = brush.dye
+							to_chat(user, span_notice("I paint the [name] with the dye brush. Perhaps it is time for a detailed glaze?")) // You can paint, then glaze, but after glazing, you're done
+							update_icon()
+							return
+						if ("brown")
+							desc += " Glazed and marked to mimic unfired clay."
+						if ("porcelain")
+							desc += " Gilded and coated in white glaze. This is fit for nobility."
+						if ("shattergold")
+							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
+						if ("bluegold")
+							desc += " Known as kintsugi to the Kazengunese. This method mends cracked and broken pottery with molten gold."
+					glazed = TRUE
+					glazeable = FALSE
+					icon_state = "[icon_state]_[design]"
+					update_icon()
+					name = "\improper [design] [name]"
+					if(sellprice)
+						sellprice += 5
+					to_chat(user, span_notice("I glaze the [name] with the dye brush."))
+					return
+			return
+	if(glazed && istype(I, /obj/item/dye_brush))
+		to_chat(user, span_notice("The [name] is already glazed!"))
+		return
+// Caustic Edit end ^^
 
 	if(istype(I, /obj/item/kitchen/fork))
 		if(do_after(user, 0.5 SECONDS))

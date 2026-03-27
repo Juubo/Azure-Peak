@@ -1,4 +1,4 @@
-// Lesser miracle
+// Lesser miracle 
 /obj/effect/proc_holder/spell/invoked/lesser_heal
 	name = "Miracle"
 	desc = "Heals target over time, causes damage if something is embedded in target. Burns undead instead of healing them if you worship the Ten.<br>Does not work on those worshipping the dead god."
@@ -33,10 +33,9 @@
 		return FALSE
 
 	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
-		// We simply do nothing to avoid healing being used to vamp/skelly check!
-		var/message_out_undead = span_info("Healing energies envelop [target]!")
-		var/message_self_undead = span_notice("I am bathed in healing choral hymns!")
-		target.visible_message(message_out_undead, message_self_undead)
+		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))//cc Edit
+		target.adjustFireLoss(10)
+		target.fire_act(1, 10)//cc edit end
 		return TRUE
 
 	if(target.has_status_effect(/datum/status_effect/buff/healing))
@@ -81,15 +80,11 @@
 		playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
 		human.emote("agony")
 		return FALSE
-
+	//cc edit
 	target.apply_status_effect(/datum/status_effect/buff/healing, healing)
-
-	// Edit - Overwriting the outgoing message here to prevent metagaming faith via message.
-	// Not getting rid of the messages in the code, we might want them for something else later.
-	message_out = span_info("Healing energies envelop [target]!")
 	target.visible_message(message_out, message_self)
 
-	return TRUE
+	return TRUE//cc edit end
 
 // Miracle
 /obj/effect/proc_holder/spell/invoked/heal

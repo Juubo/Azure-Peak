@@ -557,3 +557,149 @@
 				/obj/item/natural/stoneblock = 3)
 	skillcraft = /datum/skill/craft/carpentry
 	craftdiff = 5
+
+// Caustic edit start
+
+// Spears
+
+/datum/crafting_recipe/roguetown/survival/obsidianspear
+	name = "obsidian spear"
+	category = "Tools"
+	result = /obj/item/rogueweapon/spear/obsidian
+	reqs = list(
+		/obj/item/rogueweapon/woodstaff = 1,
+		/obj/item/magic/obsidian = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 3
+
+
+/datum/crafting_recipe/roguetown/survival/flintspear
+	name = "flint spear"
+	category = "Tools"
+	result = /obj/item/rogueweapon/spear/flint
+	reqs = list(
+		/obj/item/rogueweapon/woodstaff = 1,
+		/obj/item/natural/stone = 1,
+		/obj/item/natural/cloth = 1,
+		)
+	req_table = TRUE
+	tools = list(/obj/item/natural/whetstone = 1, /obj/item/needle = 1) // Bit of fluff for knapping tools. Incentivizes making a homebase.
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 3
+
+
+/datum/crafting_recipe/roguetown/survival/manaspear
+	name = "manastone spear"
+	category = "Tools"
+	result = /obj/item/rogueweapon/spear/stone/manacrystal
+	reqs = list(
+		/obj/item/rogueweapon/woodstaff = 1,
+		/obj/item/magic/manacrystal = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	verbage_simple = "assemble"
+	verbage = "assembles"
+	craftdiff = 3
+
+// Knives
+
+/datum/crafting_recipe/roguetown/survival/obsidianknife
+	name = "obsidian knife"
+	category = "Tools"
+	result = /obj/item/rogueweapon/huntingknife/stoneknife/obsidian
+	reqs = list(
+		/obj/item/grown/log/tree/stick = 1,
+		/obj/item/magic/obsidian = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/survival/flintknife
+	name = "flint knife"
+	category = "Tools"
+	result = /obj/item/rogueweapon/huntingknife/stoneknife/flint
+	reqs = list(
+		/obj/item/grown/log/tree/stick = 1,
+		/obj/item/natural/stone = 1,
+		/obj/item/natural/cloth = 1,
+		)
+	req_table = TRUE
+	tools = list(/obj/item/natural/whetstone = 1, /obj/item/needle = 1) // Bit of fluff for knapping tools. Incentivizes making a homebase.
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/survival/manaknife
+	name = "manastone knife"
+	category = "Tools"
+	result = /obj/item/rogueweapon/huntingknife/stoneknife/manacrystal
+	reqs = list(
+		/obj/item/grown/log/tree/stick = 1,
+		/obj/item/magic/manacrystal = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	verbage_simple = "assemble"
+	verbage = "assembles"
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/survival/boneskewer
+	name = "bone skewer"
+	category = "Tools"
+	result = /obj/item/rogueweapon/huntingknife/stoneknife/bone
+	reqs = list(
+		/obj/item/natural/bone = 2,
+		/obj/item/natural/fibers = 1,
+		)
+	craftdiff = 2
+
+// Axes
+
+/datum/crafting_recipe/roguetown/survival/woodpaddleclub
+	name = "paddle-club"
+	category = "Tools"
+	subtype_reqs = TRUE // So it can use the crafted club
+	result = /obj/item/rogueweapon/mace/woodclub/paddle
+	reqs = list(
+		/obj/item/rogueweapon/mace/woodclub = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	tools = list(/obj/item/rogueweapon/huntingknife = 1)
+	verbage_simple = "carve"
+	verbage = "carves"
+	craftdiff = 2
+
+/datum/crafting_recipe/roguetown/survival/obsidianaxe
+	name = "obsidian axe"
+	category = "Tools"
+	result = /obj/item/rogueweapon/stoneaxe/obsidian
+	reqs = list(
+		/obj/item/rogueweapon/mace/woodclub/paddle = 1,
+		/obj/item/magic/obsidian = 1,
+		)
+	verbage_simple = "assemble"
+	verbage = "assembles"
+	craftdiff = 3
+
+/datum/crafting_recipe/roguetown/survival/flintaxe
+	name = "flint axe"
+	category = "Tools"
+	subtype_reqs = TRUE // So it can use the crafted club
+	result = /obj/item/rogueweapon/stoneaxe/flint
+	reqs = list(
+		/obj/item/rogueweapon/mace/woodclub = 1,
+		/obj/item/natural/stone = 1,
+		/obj/item/natural/cloth = 1,
+		)
+	req_table = TRUE
+	tools = list(/obj/item/natural/whetstone = 1, /obj/item/needle = 1) // Bit of fluff for knapping tools. Incentivizes making a homebase.
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 3
+
+// Caustic Edit end

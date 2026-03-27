@@ -1319,7 +1319,9 @@
 	name = "potter's wheel"
 	category = "Misc"
 	result = /obj/structure/fluff/ceramicswheel
-	reqs = list(/obj/item/natural/stone = 2, /obj/item/grown/log/tree/small = 2, /obj/item/roguegear = 1)
+	// Caustic Edit start
+	reqs = list(/obj/item/natural/stone = 2, /obj/item/grown/log/tree/small = 2, /obj/item/natural/fibers = 6) // A gear is stupidly expensive for something that no one ever uses. Maybe now it'll be used.
+	// Caustic Edit end
 	verbage_simple = "construct"
 	craftdiff = 2
 	verbage = "constructs"
@@ -1449,3 +1451,18 @@
 	verbage_simple = "weave"
 	verbage = "weaves"
 	craftdiff = 0
+
+
+// Caustic Edit Start
+
+/datum/crafting_recipe/roguetown/structure/polishstone
+	name = "polishing stone"
+	category = "Misc"
+	result = /obj/structure/fluff/grindwheel/polishstone
+	reqs = list(/obj/item/natural/rock = 1)
+	tools = list(/obj/item/natural/whetstone = 1)
+	verbage_simple = "grind"
+	verbage = "grinds"
+	craftsound = null
+
+// Caustic Edit End

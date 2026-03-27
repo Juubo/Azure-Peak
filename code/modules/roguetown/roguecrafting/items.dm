@@ -65,6 +65,17 @@
 		)
 	craftdiff = 0
 
+// Caustic edit start
+/datum/crafting_recipe/roguetown/survival/bneedle
+	name = "bone needle"
+	result = /obj/item/needle/bone
+	reqs = list(
+		/obj/item/natural/bone = 1,
+		/obj/item/natural/fibers = 1,
+		)
+	craftdiff = 1
+// Caustic edit end
+
 /datum/crafting_recipe/roguetown/survival/cloth
 	name = "cloth"
 	result = /obj/item/natural/cloth
