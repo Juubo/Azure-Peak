@@ -351,6 +351,24 @@
 /datum/intent/mace/smash/wood/ranged
 	reach = 2
 
+// Caustic edit start
+
+// Wooden paddle. Just a precursor to the macuahuitl, but you can bash someone's brains out with it as well.
+/obj/item/rogueweapon/mace/woodclub/paddle
+	force = 18
+	force_wielded = 20
+	name = "wooden paddle"
+	desc = "A wooden paddle, carved and smoothed. More comfortable than a simple club."
+	icon_state = "paddle"
+	wdefense = 2
+	sellprice = 4
+
+/obj/item/rogueweapon/mace/woodclub/paddle/New()
+	..()
+	icon_state = "paddle"
+
+// Caustic edit end
+
 /obj/item/rogueweapon/mace/cudgel
 	name = "cudgel"
 	desc = "A stubby little club for used by guards, brigands, and various criminals. Perfect to cripple someone on a budget."

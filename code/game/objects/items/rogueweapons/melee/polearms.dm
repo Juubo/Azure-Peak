@@ -1728,3 +1728,49 @@
 				return list("shrink" = 0.6,"sx" = -6,"sy" = 2,"nx" = 8,"ny" = 2,"wx" = -4,"wy" = 2,"ex" = 1,"ey" = 2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -38,"sturn" = 300,"wturn" = 32,"eturn" = -23,"nflip" = 0,"sflip" = 100,"wflip" = 8,"eflip" = 0)
 			if("wielded")
 				return list("shrink" = 0.6,"sx" = 4,"sy" = -2,"nx" = -3,"ny" = -2,"wx" = -5,"wy" = -1,"ex" = 3,"ey" = -2,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = 7,"sturn" = -7,"wturn" = 16,"eturn" = -22,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
+
+// Caustic edit start
+
+// Obsidian spear. Entire gimmick is that it deals a lot of damage with absolutely no AP
+
+/obj/item/rogueweapon/spear/obsidian
+	force = 27
+	force_wielded = 38
+	possible_item_intents = list(/datum/intent/spear/thrust/oneh, /datum/intent/spear/cut/oneh)
+	gripped_intents = list(/datum/intent/spear/thrust, /datum/intent/spear/cut, /datum/intent/spear/bash) //bash is for nonlethal takedowns, only targets limbs
+	name = "obsidian spear"
+	desc = "A hand-knapped edge of obsidian lashed to a stout pole. Before iron and bronze, this is what ruled the world."
+	icon_state = "obsidianspear"
+	max_blade_int = 20 // Brittle blade. If it's armored, you're a bit SOL.
+	armor_penetration = -100
+	smeltresult = null
+	wdefense = 4
+	sellprice = 12 // Though pretty, it's still a rock on a stick
+
+/obj/item/rogueweapon/spear/flint
+	force = 17
+	force_wielded = 25 // Not a good as an iron spear, but definitely better than a stone one
+	name = "flint spear"
+	desc = "Carefully knapped flintstone lashed and tied onto a stout wooden pole with a crimson sash. More elegant than a simple stone on a stick."
+	icon_state = "flintspear"
+	max_integrity = 250
+	max_blade_int = 120
+	wdefense = 5
+	sellprice = 12
+	smeltresult = null
+
+/obj/item/rogueweapon/spear/stone/manacrystal
+	force = 16
+	force_wielded = 20
+	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H, /datum/intent/special/magicarc)
+	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, /datum/intent/special/magicarc, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	name = "manastone spear"
+	desc = "A spear made from a shard of crystallized mana fixed atop a staff. This either the creation of a genius, a madman, or someone who heard the term 'magic spear' and went from there."
+	icon_state = "magicstonespear"
+	cast_time_reduction = CRYSTMANA_CAST_TIME_REDUCTION // 5% reduction
+	max_blade_int = 20
+	associated_skill = /datum/skill/combat/polearms
+	max_integrity = 50
+	sellprice = 15 // It's a very pretty rock on a stick.
+
+// Caustic edit end

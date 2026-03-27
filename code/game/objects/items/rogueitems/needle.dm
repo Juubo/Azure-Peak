@@ -278,3 +278,14 @@
 	desc = "This decrepit old needle doesn't seem helpful for much."
 	stringamt = 5
 	maxstring = 5
+
+// Caustic Edit start
+
+/obj/item/needle/bone
+	name = "bone needle"
+	icon_state = "boneneedle"
+	desc = "A sharp piece of worked bone. Perfect for stitching hide and skin alike."
+	stringamt = 10
+	maxstring = 10
+
+// Caustic Edit end

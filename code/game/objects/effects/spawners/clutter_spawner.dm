@@ -13,7 +13,7 @@
 		/obj/item/bouquet/calendula = 1,
 		/obj/item/flowercrown/rosa = 1,
 		/obj/item/reagent_containers/glass/bottle/claybottle = 1,
-		/obj/item/reagent_containers/glass/bottle/clayvase = 1,
+		/obj/item/reagent_containers/glass/bottle/claybottle/vase = 1, // Caustic Edit
 		/obj/item/roguestatue/clay = 1,
 		/obj/item/flint = 1,
 		/obj/item/rogue/instrument/lute = 1,
@@ -34,7 +34,7 @@
 	icon_state = "hiclutter"
 	lootcount = 1
 	loot = list(
-		/obj/item/reagent_containers/glass/bottle/clayfancyvase = 1,
+		/obj/item/reagent_containers/glass/bottle/claybottle/vase/fancy = 1, // Caustic edit
 		/obj/item/roguestatue/glass = 1,
 		/obj/item/needle = 1,
 		/obj/item/roguestatue/gold/loot = 1,

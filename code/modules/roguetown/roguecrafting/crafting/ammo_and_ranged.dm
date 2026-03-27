@@ -105,6 +105,8 @@
 	verbage = "re-strings"
 	craftdiff = 2
 
+// Caustic edit start
+/*
 /datum/crafting_recipe/roguetown/survival/stonearrow
 	name = "stone arrow"
 	category = "Ranged"
@@ -114,6 +116,8 @@
 		/obj/item/natural/stone = 1,
 		)
 	req_table = TRUE
+*/
+// Caustic edit end
 
 /datum/crafting_recipe/roguetown/survival/stonearrow_five
 	name = "stone arrow (x5)"
@@ -126,11 +130,15 @@
 		/obj/item/ammo_casing/caseless/rogue/arrow/stone
 		)
 	reqs = list(
-		/obj/item/grown/log/tree/stick = 5,
-		/obj/item/natural/stone = 5,
+	// Caustic edit start. Made cheaper
+		/obj/item/grown/log/tree/stick = 2,
+		/obj/item/natural/stone = 1,
+	// Caustic edit end
 		)
 	req_table = TRUE
 
+// Caustic edit start
+/*
 /datum/crafting_recipe/roguetown/survival/bluntarrow
 	name = "blunt arrow"
 	category = "Ranged"
@@ -140,6 +148,8 @@
 		/obj/item/natural/stone = 1,
 	)
 	req_table = TRUE
+*/
+// Caustic edit end
 
 /datum/crafting_recipe/roguetown/survival/bluntarrow_five
 	name = "blunt arrow (x5)"
@@ -152,8 +162,10 @@
 		/obj/item/ammo_casing/caseless/rogue/arrow/blunt,
 	)
 	reqs = list(
-		/obj/item/grown/log/tree/stick = 5,
-		/obj/item/natural/stone = 5,
+	// Caustic edit start. Made cheaper
+		/obj/item/grown/log/tree/stick = 2,
+		/obj/item/natural/stone = 1,
+	// Caustic edit end
 		)
 	req_table = TRUE
 
@@ -357,9 +369,11 @@
 	craftdiff = 0
 
 /datum/crafting_recipe/roguetown/survival/stonebullets
-	name = "sling bullets - stone (x2)"
+	name = "sling bullets - stone (x4)" // Caustic edit
 	category = "Ranged"
-	result = list(
+	result = list( // Caustic edit
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		)
@@ -369,9 +383,19 @@
 	craftdiff = 0
 	
 /datum/crafting_recipe/roguetown/survival/stonebullets10x
-	name = "sling bullets - stone (x10)"
+	name = "sling bullets - stone (x20)"  // Caustic edit
 	category = "Ranged"
-	result = list(
+	result = list( // Caustic edit
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
+		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
 		/obj/item/ammo_casing/caseless/rogue/sling_bullet/stone,
@@ -387,3 +411,50 @@
 	verbage_simple = "smooth"
 	verbage = "smooths"
 	craftdiff = 0
+
+// Caustic Edit start
+
+// Obsidian Arrows
+
+/datum/crafting_recipe/roguetown/survival/obsidianarrow
+	name = "obsidian arrow (5x)"
+	category = "Ranged"
+	result = list(
+		/obj/item/ammo_casing/caseless/rogue/arrow/obsidian,
+		/obj/item/ammo_casing/caseless/rogue/arrow/obsidian,
+		/obj/item/ammo_casing/caseless/rogue/arrow/obsidian,
+		/obj/item/ammo_casing/caseless/rogue/arrow/obsidian,
+		/obj/item/ammo_casing/caseless/rogue/arrow/obsidian
+	)
+	reqs = list(
+		/obj/item/grown/log/tree/stick = 2,
+		/obj/item/magic/obsidian = 1,
+	)
+	req_table = TRUE
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 2
+
+// Flint arrows
+
+/datum/crafting_recipe/roguetown/survival/flintarrow
+	name = "flint arrow (5x)"
+	category = "Ranged"
+	result = list(
+		/obj/item/ammo_casing/caseless/rogue/arrow/flint,
+		/obj/item/ammo_casing/caseless/rogue/arrow/flint,
+		/obj/item/ammo_casing/caseless/rogue/arrow/flint,
+		/obj/item/ammo_casing/caseless/rogue/arrow/flint,
+		/obj/item/ammo_casing/caseless/rogue/arrow/flint
+	)
+	reqs = list(
+		/obj/item/grown/log/tree/stick = 2,
+		/obj/item/natural/stone = 1,
+	)
+	req_table = TRUE
+	tools = list(/obj/item/natural/whetstone = 1, /obj/item/needle = 1) // Bit of fluff for knapping tools. Incentivizes making a homebase.
+	verbage_simple = "knap"
+	verbage = "knaps"
+	craftdiff = 2
+
+// Caustic Edit end
