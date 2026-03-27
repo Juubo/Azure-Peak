@@ -346,10 +346,10 @@
 	name = "Bailiff"
 	tutorial = "Once, you held the tasking of an executioner; yet the dungeons have grown quiet, and the nooses limply sway in the breeze. Now, you serve a lesser office in the Lord's name - as a master of the fist-and-flail."
 	outfit = /datum/outfit/job/roguetown/manorguard/bailiff
-	maximum_possible_slots = 1 //Had one dungeoneer before, this is how many we get to keep still.
+	//maximum_possible_slots = 1 //Had one dungeoneer before, this is how many we get to keep still. // CC Edit - Why.
 
 	category_tags = list(CTAG_MENATARMS)
-	traits_applied = list(TRAIT_JAILOR, TRAIT_CIVILIZEDBARBARIAN)//This is surely going to be funny
+	traits_applied = list(TRAIT_CIVILIZEDBARBARIAN)//This is surely going to be funny //CC Edit - Removes TRAIT_JAILOR.  There's no reason this class should be prohibited from head armor.
 	subclass_stats = list(
 		STATKEY_STR = 3,
 		STATKEY_CON = 2,
@@ -381,7 +381,8 @@
 	head = /obj/item/clothing/head/roguetown/menacing/executioner
 	neck = /obj/item/clothing/neck/roguetown/gorget
 	mask = /obj/item/clothing/head/roguetown/roguehood/black
-	armor = /obj/item/clothing/suit/roguetown/armor/regenerating/skin/disciple/bailiff
+	armor = /obj/item/clothing/suit/roguetown/armor/brigandine/light/retinue // CC Edit Start
+	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson //CC edit end
 	wrists = /obj/item/clothing/wrists/roguetown/bracers
 	gloves = /obj/item/clothing/gloves/roguetown/leather
 	pants = /obj/item/clothing/under/roguetown/heavy_leather_pants
