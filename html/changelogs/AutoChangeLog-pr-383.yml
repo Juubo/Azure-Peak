@@ -1,0 +1,5 @@
+author: "DuskLight9978"
+delete-after: True
+changes:
+  - qol: "made transact refund cooldown and devotion on some failed cast conditions"
+  - balance: "Transact can no longer transact weapons."
