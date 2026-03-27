@@ -126,6 +126,9 @@
 		/datum/body_marking/harlequin,
 		/datum/body_marking/harlequinreversed,
 		/datum/body_marking/gradient,
+		/datum/body_marking/harpyleg,
+		/datum/body_marking/harpytalon,
+		/datum/body_marking/harpythigh,
 	)
 
 	descriptor_choices = list(
