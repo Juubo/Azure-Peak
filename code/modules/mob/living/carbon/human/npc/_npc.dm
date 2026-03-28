@@ -1,5 +1,32 @@
 #define ATTACKS_UNTIL_SWITCHING_UP 3 // How many attack a NPC will use on the same place before switching it up
 
+//CC Edit Begin
+
+// These are internal variables that are handled with the check_target_type() proc
+// These are cached in last_targets in an alist for quickly referencing the targets so we do not have to check on each retaliate
+
+//For simple mobs or mobs with no mind.
+#define TARGET_SIMPLE 0 
+//For ranged mobs, this includes archers, mages, and throwers alike.
+#define TARGET_LIKELY_RANGED 1
+//For melee mobs. This is self explanatory.
+#define TARGET_LIKELY_MELEE 2
+//For when the likelihood is above a certain threshold on both. Treat our targets in a special way.
+#define TARGET_LIKELY_BOTH 3
+//For when we are uncertain and need to check. Resets when we go back to idle.
+#define TARGET_UNCERTAIN 4
+
+//This is the actual style type, we compare this to the target type and return true or false.
+#define STYLE_BOTH 3
+
+#define STYLE_MELEE 2
+
+#define STYLE_RANGED 1
+
+#define STYLE_SIMPLE 0
+
+//CC Edit End
+
 /mob/living/carbon/human
 	var/aggressive=0 //0= retaliate only
 	var/frustration=0
@@ -61,6 +88,16 @@
 
 	//If we utilize our intents further outside of strong intent.
 	var/smart_combatant = FALSE
+
+	//CC Edit Begin
+
+	//Determines the target's fighting style. Picks between Melee, Ranged, or Both. Simple mobs are handled differently.
+	var/target_type = TARGET_UNCERTAIN 
+
+	//The last targets we were targeting until we went back to idle. Cache all of the target's fighting styles unless a new target joins us.
+	var/list/last_targets = alist()
+
+	//CC Edit End
 
 /mob/living/carbon/human/Initialize()
 	. = ..()
@@ -520,6 +557,20 @@
 	if(HAS_TRAIT(src, TRAIT_PACIFISM))
 		return FALSE
 
+	//CC Edit Begin
+	if(src.z != L.z) //If our target isn't on our Z level then we should move around randomly to prevent cheese.
+		var/possible_turfs = list()
+		for(var/turf/T in view(5, src)) //Lets not roam TOO far now...
+			possible_turfs += T
+		var/turf/my_turf = get_turf(src)
+		var/turf/target_turf = get_turf(pick(possible_turfs))
+		if(my_turf.Distance_cardinal_3d(target_turf, src) > 1)
+			if(!length(myPath)) // create a new path to the target
+				clear_path()
+				start_pathing_to(target_turf)
+		return FALSE
+	//CC Edit End
+
 	if(L == src)
 		return FALSE
 
@@ -660,19 +711,35 @@
 			if(frustration >= 15)
 				back_to_idle()
 				return TRUE
+			
+			//CC Edit Begin
+			//Unused until the sidestep proc can be figured out. I am currently stumped.
+/* 
+			if(check_target_style(STYLE_RANGED)) //Attempt to dodge ranged attacks
+				face_atom(target)
+				npc_try_sidestep_projectile()
+				//Someone with more knowledge on debugging touch this I do not know what this is sadly. Im sorry in advance.
+				NPC_THINK("Sidestepped an attack using [steps_moved_this_turn] moves out of [maxStepsTick]!") 
+				//Update our pathing and immediately continue heading towards our target after attempting a sidestep.
+				if(.)
+					validate_path()
+					clear_path()
+					start_pathing_to(target) // regenerate path now that we've jumped
+ */
+			//CC Edit End
 
 			// if we COULD attack, check rection time
 			var/should_frustrate = TRUE
-			if(Adjacent(target) && isturf(target.loc))	// if right next to perp
+			if(Adjacent(target) && isturf(target.loc)) // if right next to perp
 				frustration = 0
 				face_atom(target)
 				. = monkey_attack(target)
 				steps_moved_this_turn++ // an attack costs, currently, 1 movement step
 				NPC_THINK("Used [steps_moved_this_turn] moves out of [maxStepsTick]!")
-				if(.) // attack was successful, try to backstep. todo: generalise to post-attack behaviour?
+				if(. && check_target_style(STYLE_MELEE)) // attack was successful, try to backstep only if they mainly use melee. todo: generalise to post-attack behaviour?
 					npc_try_backstep()
 					return
-			else if(should_frustrate) // not next to perp, and we didn't fail due to reaction time
+			else if(should_frustrate) // not next to perp, and we didn't fail due to reaction time, or they're a ranged user we can't backstep
 				frustration++
 
 		if(NPC_AI_FLEE)
@@ -815,6 +882,10 @@
 	if(HAS_TRAIT(victim, TRAIT_CHUNKYFINGERS))
 		make_grab_chance = 30 // we can't use normal weapons, so try to grapple harder because we don't care about having a free hand
 		use_grab_chance = 50
+	//CC Edit Begin
+	if(check_target_style(STYLE_RANGED)) //If target is ranged we shouldn't give them the chance to run away again just to shoot us later.
+		make_grab_chance = Weapon ? 15 : 40
+	//CC Edit End
 	// we always try to move our grab into our offhand where possible, so no need to worry about main-hand weapons
 	var/obj/item/grabbing/the_grab = OffWeapon
 	if(istype(the_grab)) // if we already have a grab in our offhand, we might want to use it
@@ -856,8 +927,8 @@
 						swap_rmb_intent(/datum/rmb_intent/strong)
 						try_special_attack(target)
 						return TRUE //We used our special intent on the target as soon as we could.
-
-			if(smart_combatant && prob(50)) // Only if we use rmb intents...
+			//CC Edit - check_target_style
+			if(check_target_style(STYLE_MELEE || check_target_style(STYLE_BOTH)) && smart_combatant && prob(50)) // Only if we use rmb intents and the target is melee
 				if(possible_rmb_intents)
 					if(!has_status_effect(/datum/status_effect/debuff/feintcd))
 						if(possible_rmb_intents & /datum/rmb_intent/feint && rmb_intent != /datum/rmb_intent/feint && prob(50))
@@ -958,6 +1029,13 @@
 		if(!target)
 			emote("aggro")
 		target = L
+		//CC Edit Begin
+		//Handle the target's combat type and check if it's the same type or not if we are in combat.
+		if(!(last_targets[target])) //If we are not apart of last_targets
+			check_target_type() //Target is added to the list after checking.
+		else
+			target_type = last_targets[target] //Update our target type to change how we approach our new target
+		//CC Edit End
 		if(pathfinding_target != target)
 			clear_path() // Cancel pathfinding so that we can pursue our new enemy.
 		enemies |= L
@@ -1073,3 +1151,134 @@
 	name = "Swapped Intent Cooldown (NPC)"
 	desc = "I swapped my weapon intent, I must wait before I can do it again."
 	icon_state = "strikecd"
+
+//CC Edit Begin
+
+//In essence this proc checks the target and determines what type of combatant they are.
+// Check Target -> Is target Melee? -> Is target Ranged? -> Is target Both?
+// Return type : Melee, Ranged
+
+//Checks by evaluating what kind of combatant the target may be and should only run once per target, we then cache our target to an alist with the associated type.
+// We will ALWAYS assume what we see first on our target is what they will remain to be when we first encounter them.
+// This can make combat varied in many ways.
+/mob/living/carbon/human/proc/check_target_type()
+	//We are assuming at this point we do have a target.
+	if(!(target.mind)) //Other NPC's are treated with basic logic so we do not try fancy tricks on our opponents.
+		return TARGET_SIMPLE
+		
+	//The likelihood of being a ranged target.
+	var/ranged_likelihood
+	//The likelihood of being a melee target. We give leniency towards people primarily being melee.
+	var/melee_likelihood
+
+	var/obj/item/targets_primary_weapon = target.get_active_held_item()
+	var/obj/item/targets_secondary_weapon = target.get_inactive_held_item()
+
+	
+	//Check how many spells the target has and divide the total for a rating.
+	var/targets_spell_count = length(target.mind.spell_list)
+	if(targets_spell_count)
+		var/spell_rating = rating_divisor(targets_spell_count, 2) //Every 2 spells earns 1 rating
+		for(var/i in 1 to spell_rating)
+			ranged_likelihood++
+
+	//The more powerful the melee weapon, the more likely they're melee. Every 7 force combined
+	var/rating_force = rating_divisor(targets_primary_weapon?.force_dynamic, 7) + rating_divisor(targets_secondary_weapon?.force_dynamic, 7)
+
+	if(rating_force)
+		for(var/i in 1 to rating_force)
+			melee_likelihood++
+	
+	//Then we check more of the finer details.
+	if(istype(targets_primary_weapon, /obj/item/gun) || istype(targets_secondary_weapon, /obj/item/gun)) //They're holding a ranged weapon.
+		ranged_likelihood += 5 //Ranged weapon. Most likely ranged.
+
+	//We cache our targets to the list after running this proc once.
+	if(melee_likelihood > ranged_likelihood)
+		if(!(last_targets[target])) //If not in last_targets put them there
+			last_targets[target] = TARGET_LIKELY_MELEE
+			target_type = TARGET_LIKELY_MELEE 
+		return TARGET_LIKELY_MELEE
+	else if(ranged_likelihood > melee_likelihood)
+		if(!(last_targets[target])) //If not in last_targets put them there
+			last_targets[target] = TARGET_LIKELY_RANGED
+			target_type = TARGET_LIKELY_RANGED
+		return TARGET_LIKELY_RANGED
+	else if(ranged_likelihood == melee_likelihood)
+		if(!(last_targets[target])) //If not in last_targets put them there
+			last_targets[target] = TARGET_LIKELY_BOTH
+			target_type = TARGET_LIKELY_BOTH
+		return TARGET_LIKELY_BOTH
+	else
+		return TARGET_UNCERTAIN //We should only make a check if we're actually hurt.
+
+//More amt = higher rating
+//This is used to calculate the rating of a target's abilities to measure their likelihood of being ranged or melee.
+/mob/living/carbon/human/proc/rating_divisor(num, dividen)
+	if(num < dividen)
+		return FALSE //Cannot make a divisor out of a value lower than this or num is NULL or ZERO
+	num = (num / dividen)
+	return floor(num) //Floor it!!!
+
+// This proc is what actually checks and compares the style types and effectively acts as a key to access different movesets. 
+// If a target is melee, and the type of combat is melee, return true.
+/mob/living/carbon/human/proc/check_target_style(type_of_combat)
+	switch(type_of_combat)
+		if(STYLE_MELEE)
+			if(last_targets[target] == STYLE_MELEE)
+				return TRUE
+		if(STYLE_RANGED)
+			if(last_targets[target] == STYLE_RANGED)
+				return TRUE
+		if(STYLE_SIMPLE)
+			if(last_targets[target] == STYLE_SIMPLE)
+				return TRUE
+		if(STYLE_BOTH)
+			if(last_targets[target] == STYLE_BOTH)
+				return TRUE
+	return FALSE //If we don't match the same style don't consider doing these attacks/moves/mechanics, etc.
+
+
+//Sidestepping Projectile Mob Logic
+
+//In essence this proc will make it so that when running at a target they will attempt to sidestep projectiles on occasion in order to attempt to avoid being hit.
+
+//Not sure how to implement this at the time. I'll need some extra help regarding this.
+/* 
+/mob/living/carbon/human/proc/npc_try_sidestep_projectile(atom/dodge_tile)
+	var/const/base_sidestep_chance = 100 //DO NOT COMMIT THIS PLEASE I SWEAR TO GOD ME IF THIS GOES IN 
+	// For every point of STASPD above 10 you get an extra 5% juke chance
+	var/const/min_spd_for_sidestep = 8
+	var/const/sidestep_chance_per_spd = 5
+	if(mind?.has_antag_datum(/datum/antagonist/zombie)) // Deaddites cannot sidestep
+		return 
+	if(!target)
+		return 
+	if(steps_moved_this_turn >= maxStepsTick) // no movement left over
+		return 
+	var/sidestep_spd_bonus = STASPD > min_spd_for_sidestep ? (STASPD - min_spd_for_sidestep) * sidestep_chance_per_spd : 0
+
+	if(!prob(base_sidestep_chance + sidestep_spd_bonus))
+		NPC_THINK("Failed projectile sidestep roll ([base_juke_chance + juke_spd_bonus]%)!")
+		return FALSE
+	NPC_THINK("Succeeded projectile sidestep roll ([base_juke_chance + juke_spd_bonus]%)!")
+
+	var/list/newPath = list()
+	for(var/turf/T in get_adjacent_turfs(src))
+		newPath += T //Add all of the side turfs into our possible path's
+
+	if(!length(newPath))
+		return FALSE
+	// Pick only one of these path's to choose from
+	myPath = pick(newPath)
+	var/old_pathfinding_target = pathfinding_target
+	pathfinding_target = myPath[1]
+	steps_moved_this_turn += move_along_path()
+	pathfinding_target = old_pathfinding_target
+	tempfixeye = FALSE
+	if(!fixedeye)
+		nodirchange = FALSE
+	return TRUE // Sidestep Succeeded
+ */
+
+//CC Edit End
