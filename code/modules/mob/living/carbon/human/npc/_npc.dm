@@ -116,8 +116,7 @@
 	var/spell_channel_duration = 3 SECONDS
 
 	//The limit at which mobs will not fire spells if their /STAMINA/ gets below THIS amount. Default is set to SPELL_COST_QUARTER
-	//You can override this with a custom input to set a certain limit outside of these defines as well,
-	// setting it to [4.5675] will make the stamina cast limit to [78.1061850027], this is good for mobs who have a higher than average stamina field or use special spells.
+	//You can override this with a custom input to set a certain limit outside of these defines as well.
 	var/spell_cost_limit = SPELL_STAM_LIMIT_QUARTER
 
 	//Retains the target we need to keep healing until said target is back to a certain threshold.
@@ -133,8 +132,8 @@
 	//Only check for spells that actually can be used.
 	if(!client || !mind)
 		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
-			if(S.spell_logic == FALSE) // LOGIC_NONE == 0
-				mob_spell_list -= S //Remove spells with no logic from our list.
+			if(!(spell.spell_logic)) // LOGIC_NONE == 0
+				mob_spell_list -= spell //Remove spells with no logic from our list.
 	//CC End
 
 /mob/living/carbon/human/Destroy()
@@ -1053,10 +1052,6 @@
 
 // get angry at a mob
 /mob/living/carbon/human/proc/retaliate(mob/living/L)
-	//CC Edit - If a mob is hit, allow us to move again. Will make them cancel their channeled/stationary spells for example.
-	if(!allow_movement)
-		allow_movement = TRUE
-	//CC Edit
 	if(!wander)
 		wander = TRUE
 	if(L == src)
@@ -1357,10 +1352,11 @@
 		return
 
 	//If we have logic.
-	if(cur_spell?.spell_logic)
+	if(cur_spell?.spell_logic && prob(75)) //Don't garuntee casting the spell ALL the time.
 		ranged_ability = cur_spell
 		switch(cur_spell.spell_logic)
 			if(1) //No Logic - Cast at our target directly without any other special checks. Often the default for most granted spells.
+				NPC_THINK("ATTEMPTED TO CAST SPELL WITH NO LOGIC! DEFAULTING TO CASTING AT TARGET!")
 				cast_spell_at(cur_spell, target)
 			if(2) //Combat Logic - Cast at our target and avoid allies.
 				if(target.faction != faction)
@@ -1398,7 +1394,7 @@
 			if(6) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(M.health <= (M.maxHealth * 0.90)) // If under 90% HP Heal the target.
+					if(M.health < (M.maxHealth * 0.90)) // If under 90% HP Heal the target.
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
@@ -1445,12 +1441,10 @@
 			duration = cur_spell.recharge_time + spell_cd_offset
 		apply_status_effect(/datum/status_effect/debuff/spell_cooldown_npc, duration)
 
-	NPC_THINK("ATTEMPTED TO CAST SPELL WITH NO LOGIC! DEFAULTING TO CASTING AT TARGET!")
-
 //Handles the resources for casting spells. Only affects energy and devotion costs.
 /mob/living/carbon/human/proc/handle_spell_resources(obj/effect/proc_holder/spell/cur_spell)
 	//Handle stamina check.
-	if(stamina < (max_stamina / spell_cost_limit))
+	if(stamina > (max_stamina / spell_cost_limit))
 		return FALSE // We are below our limit, give us a moment to recover!
 
 	//Handle devotion costs

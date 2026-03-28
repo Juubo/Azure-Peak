@@ -662,7 +662,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	if(action?.button)
 		action.button.update_maptext(0)
 		action.UpdateButtonIcon()
-	if(user.mmb_intent && user.mmb_intent.mob_light)
+	if(user?.mmb_intent && user?.mmb_intent.mob_light) //CC edit
 		QDEL_NULL(user.mmb_intent.mob_light)
 
 /obj/effect/proc_holder/spell/proc/adjust_var(mob/living/target = usr, type, amount) //handles the adjustment of the var when the spell is used. has some hardcoded types

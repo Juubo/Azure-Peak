@@ -19,4 +19,7 @@
 
 //These guys will cast miracles from Graggar himself.
 /mob/living/carbon/human/species/hobgoblin/npc/miracle_worker
+	//No jumping. This drains stamina like CRAZY with spellcasters.
+	npc_jump_chance = 0
+	npc_jump_distance = 5 //Should never jump but on the off chance it does WOW they got a huge leap.
 	hobgob_outfit = /datum/outfit/job/roguetown/npc/hobgoblin/miracle_worker

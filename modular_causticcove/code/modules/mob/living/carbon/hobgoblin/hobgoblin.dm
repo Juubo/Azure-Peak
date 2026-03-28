@@ -18,7 +18,6 @@
 	possible_mmb_intents = list(INTENT_SPECIAL, INTENT_JUMP, INTENT_KICK, INTENT_BITE)
 	possible_rmb_intents = list(/datum/rmb_intent/feint, /datum/rmb_intent/swift, /datum/rmb_intent/riposte, /datum/rmb_intent/strong) //Strong intent for strong mob...
 
-	patron = /datum/patron/inhumen/graggar
 
 //////////////////   BODYPARTS	//////////////////
 	//I am going to experiment with pain with Hobgoblins, and eventually spread to other mobs if this feels right.
@@ -249,9 +248,11 @@
 
 /datum/outfit/job/roguetown/npc/hobgoblin/miracle_worker/pre_equip(mob/living/carbon/human/H)
 	..()
-	var/chance_zjumper = 25 //We are REALLY smart compared to goblins; Let us chase after these puny adventurers!!!
+	var/chance_zjumper = 5
 	var/chance_treeclimber = 50
 
+	//Make sure to manually mark the god you want them to have when making a NPC mob. These guy's don't have prefs like normal.
+	H.set_patron(/datum/patron/inhumen/graggar)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
 
@@ -295,3 +296,4 @@
 	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE) // Average Advent Dueler
 	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE) //Spellcasters!
