@@ -425,7 +425,7 @@
 	antimagic_allowed = FALSE
 	recharge_time = 45 SECONDS
 	miracle = TRUE
-	devotion_cost = 1 //TESTING VALUE
+	devotion_cost = 50
 	var/blood_price = 5
 	var/blood_vol_restore = 7.5 //30 every 2 seconds.
 	var/vol_per_skill = 1	//54 with legendary
