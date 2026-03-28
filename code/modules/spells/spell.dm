@@ -11,6 +11,8 @@
 //CC Edit Begin
 
 //These define the logic in which the spell should be casted when mobs are attempting to cast spells at another target.
+//We should look for another spell we can use. This is used exclusively for spells like Orison which do not impact combat or gameplay in any way.
+#define LOGIC_NONE 0
 //The spell should be cast on our current target. This is the default state of all spell logic, effectively the same as LOGIC_COMBAT, and is called before any other logic checks are made.
 //This logic does not make any other checks. This is ideal for spells that only need a point target to be casted on.
 #define LOGIC_GENERIC 1

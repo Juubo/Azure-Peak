@@ -98,6 +98,8 @@
 
 	//CC Edit Begin
 
+	var/allow_movement = TRUE
+
 	//Determines the target's fighting style. Picks between Melee, Ranged, or Both. Simple mobs are handled differently.
 	var/target_type = TARGET_UNCERTAIN 
 
@@ -127,6 +129,13 @@
 	. = ..()
 	our_cells = new(interesting_dist, interesting_dist, 1)
 	set_new_cells()
+	//CC Edit
+	//Only check for spells that actually can be used.
+	if(!client || !mind)
+		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
+			if(S.spell_logic == FALSE) // LOGIC_NONE == 0
+				mob_spell_list -= S //Remove spells with no logic from our list.
+	//CC End
 
 /mob/living/carbon/human/Destroy()
 	our_cells = null
@@ -210,6 +219,7 @@
 			// don't return, taunting is a free action
 	if(!handle_combat())
 		if(mode == NPC_AI_IDLE && !pickupTarget)
+			allow_movement = TRUE // CC Edit - Default to allowing movement to ensure we aren't frozen when we go out of combat.
 			npc_idle()
 			if(del_on_deaggro && last_aggro_loss && (world.time >= last_aggro_loss + del_on_deaggro))
 				if(deaggrodel())
@@ -1427,7 +1437,7 @@
 							cur_heal_target += M
 							break
 				if(target.faction == faction)
-					cast_spell_at(cur_spell, target, stationary)
+					cast_spell_at(cur_spell, target, stationary = TRUE)
 
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.

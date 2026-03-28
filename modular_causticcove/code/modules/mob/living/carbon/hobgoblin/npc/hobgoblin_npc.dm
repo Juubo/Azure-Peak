@@ -16,3 +16,7 @@
 /mob/living/carbon/human/species/hobgoblin/npc/ambush
 	wander = TRUE
 	//attack_speed = 1 //Unused var from npc AI? If it gets used in the future uncomment this.
+
+//These guys will cast miracles from Graggar himself.
+/mob/living/carbon/human/species/hobgoblin/npc/miracle_worker
+	hobgob_outfit = /datum/outfit/job/roguetown/npc/hobgoblin/miracle_worker

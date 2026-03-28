@@ -483,14 +483,14 @@
 						user_informed = TRUE
 						//CC Edit Begin
 						if(UH.mode)
-							allow_movement_again = TRUE
+							UH.allow_movement_again(TRUE)
 						//CC edit End
 				else
 					UH.visible_message(span_warning("Severs the bloodlink from [target]!"))
 					bloodbeam.End()
 					//CC Edit Begin
 					if(UH.mode)
-						allow_movement_again = TRUE
+						UH.allow_movement_again(TRUE)
 					//CC edit End
 					return TRUE
 			else
@@ -498,12 +498,12 @@
 				bloodbeam.End()
 				//CC Edit Begin
 				if(UH.mode)
-					allow_movement_again = TRUE
+					UH.allow_movement_again(TRUE)
 				//CC edit End
 				return TRUE
 		//CC Edit Begin
 		if(UH.mode)
-			allow_movement_again = TRUE
+			UH.allow_movement_again(TRUE)
 		//CC edit End
 		bloodbeam.End()
 		return TRUE
