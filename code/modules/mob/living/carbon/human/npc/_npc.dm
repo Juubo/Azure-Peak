@@ -1387,7 +1387,7 @@
 			if(6) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(M.health < (M.maxHealth * 0.90))
+					if(length(M.get_wounds()))
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
@@ -1417,7 +1417,7 @@
 			if(8) //Stationary Logic - Will cast a spell and attempt to remain still for as long as possible. Useful for blood transfer spells for example.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(M.health <= (M.maxHealth * 0.90)) // If under 90% HP attempt to Heal the target.
+					if(length(M.get_wounds())) // If under 90% HP attempt to Heal the target.
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")

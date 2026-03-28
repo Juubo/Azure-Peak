@@ -23,3 +23,8 @@
 	npc_jump_chance = 0
 	npc_jump_distance = 5 //Should never jump but on the off chance it does WOW they got a huge leap.
 	hobgob_outfit = /datum/outfit/job/roguetown/npc/hobgoblin/miracle_worker
+
+/mob/living/carbon/human/species/hobgoblin/npc/miracle_worker/Initialize()
+	. = ..()
+	//We're good at casting spells but not that good.
+	spell_cd_offset = rand(3 SECONDS, 5 SECONDS)
