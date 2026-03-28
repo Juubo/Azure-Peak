@@ -1352,7 +1352,7 @@
 				NPC_THINK("ATTEMPTED TO CAST SPELL WITH NO LOGIC! DEFAULTING TO CASTING AT TARGET!")
 				cast_spell_at(cur_spell, target)
 			if(2) //Combat Logic - Cast at our target and avoid allies.
-				if(target.faction != faction)
+				if(target.faction[1] != faction[1])
 					//Check for mobs in a line and return FALSE if we find an ally.
 					if(check_line_for_allies(src, target))
 						return FALSE
@@ -1361,20 +1361,20 @@
 				else
 					NPC_THINK("ATTEMPTED TO CAST A COMBATIVE SPELL AT AN ALLY SOMEHOW! ABORTING!!!")
 			if(3) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
-				if(target.faction != faction)
+				if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
-						if(M.faction == faction)
+						if(M.faction[1] == faction[1])
 							target = M
 							break
-				if(target.faction == faction) //We found an ally!
+				if(target.faction[1] == faction[1]) //We found an ally!
 					cast_spell_at(cur_spell, target)
 					target = old_target //Reset our target back to our original target.
 				else
 					NPC_THINK("FAILED TO LOCATE AN ALLY TO CAST A SUPPORTIVE SPELL! ABORTING!!!")
 			if(4) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
-				if(target.faction != faction)
+				if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
-						if(M.faction == faction)
+						if(M.faction[1] == faction[1])
 							target = M
 							break
 				//If we can't find an ally we can just cast it at our enemy.
@@ -1393,9 +1393,9 @@
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
 						cur_heal_target -= M //Get outta here!
 						return
-				else if(target.faction != faction)
+				else if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
-						if(M.faction == faction)
+						if(M.faction[1] == faction[1])
 							if(length(M.get_wounds()))
 								target = M
 								cur_heal_target += M
@@ -1403,7 +1403,7 @@
 							else
 								NPC_THINK("Can't locate a wound on this target, checking the next one!")
 								continue
-				if(target.faction == faction)
+				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target)
 			if(7) //Structure Logic - Place anywhere nearby that is not in the path to our target. Might be a bit expensive but shouldn't affect too much.
 				var/list/possible_loc = list()
@@ -1423,14 +1423,14 @@
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
 						cur_heal_target -= M //Get outta here!
 						return
-				else if(target.faction != faction)
+				else if(target.faction[1] != faction[1])
 					for(var/mob/living/M in oview(spell_range, src))
-						if(M.faction == faction)
+						if(M.faction[1] == faction[1])
 							if(length(M.get_wounds())) // If wounded provide heals.
 								target = M
 								cur_heal_target += M
 							break
-				if(target.faction == faction)
+				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target, stationary = TRUE)
 
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
@@ -1469,7 +1469,7 @@
 //Simple get_line proc that iterates and checks each tile if there's mobs of the same faction in it.
 /mob/living/carbon/human/proc/check_line_for_allies(us, them)
 	for(var/mob/living/M in get_line(us, them))
-		if(M.faction == faction)
+		if(M.faction[1] == faction[1])
 			NPC_THINK("Couldn't cast a spell at a target because an ally was in the way!")
 			return TRUE
 
