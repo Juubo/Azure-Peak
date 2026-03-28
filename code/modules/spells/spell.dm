@@ -8,6 +8,25 @@
 #define CHARGE_REDUCTION_PER_SKILL 0.05 // The amount of charge reduction per skill level.
 #define FATIGUE_REDUCTION_PER_SKILL 0.05 // The amount of fatigue reduction per skill level.
 
+//CC Edit Begin
+
+//These define the logic in which the spell should be casted when mobs are attempting to cast spells at another target.
+//The spell should only be cast on our current target. This is the default state of all spell logic, effectively the same as LOGIC_COMBAT, and is called before any other logic checks are made.
+#define LOGIC_UNKNOWN 1
+//The spell is a combat spell and should be used against anything not our ally.
+#define LOGIC_COMBAT 2
+//The spell is a supportive spell and we should use it on our ally, if no ally is in sight, attempt to use it on ourselves.
+#define LOGIC_SUPPORTIVE 3
+//The spell is both combative and utility, capable of harming/hindering enemies whilst buffing allies within the same faction.
+//We prioritize allies with these and assume the spell has different effects based on faction differences.
+#define LOGIC_UTILITY 4
+//The spell should only be casted on ourselves.
+#define LOGIC_SELFCAST 5
+//The spell is a healing spell and should only prioritize allies who are actively injured.
+#define LOGIC_HEAL 6
+
+//CC Edit End
+
 /obj/effect/proc_holder
 	var/panel = "Debug"//What panel the proc holder needs to go on.
 	var/active = FALSE //Used by toggle based abilities.
@@ -210,6 +229,11 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 	action_icon = 'icons/mob/actions/roguespells.dmi'
 	action_background_icon_state = ""
 	base_action = /datum/action/spell_action/spell
+
+	//CC Edit Begin
+	//This variable is used in _npc.dm to determine how a spell should be cast. Define types are listed at the top of this file.
+	var/spell_logic = LOGIC_UNKNOWN
+	//CC Edit End
 
 /obj/effect/proc_holder/spell/get_chargetime()
 	if(ranged_ability_user && chargetime)

@@ -25,6 +25,13 @@
 
 #define STYLE_SIMPLE 0
 
+//Spells will not be casted if under A FOURTH of our stamina.
+#define SPELL_STAM_LIMIT_QUARTER 4
+//Spells will not be casted if under A THIRD of our stamina.
+#define SPELL_STAM_LIMIT_THIRD 3
+//Spells will not be casted if under HALF of our stamina.
+#define SPELL_STAM_LIMIT_HALF 2
+
 //CC Edit End
 
 /mob/living/carbon/human
@@ -96,6 +103,20 @@
 
 	//The last targets we were targeting until we went back to idle. Cache all of the target's fighting styles unless a new target joins us.
 	var/list/last_targets = alist()
+
+	//If we utilize spells when casting. Spell casting logic is handled in the proc /handle_spell_casting_logic()
+	var/spell_caster = FALSE
+	
+	//The offset to apply to spells on mobs so they take longer.
+	var/spell_cd_offset = 1 SECONDS
+
+	//The limit at which mobs will not fire spells if their /STAMINA/ gets below THIS amount. Default is set to SPELL_COST_QUARTER
+	//You can override this with a custom input to set a certain limit outside of these defines as well,
+	// setting it to [4.5675] will make the stamina cast limit to [78.1061850027], this is good for mobs who have a higher than average stamina field or use special spells.
+	var/spell_cost_limit = SPELL_STAM_LIMIT_QUARTER
+
+	//Retains the target we need to keep healing until said target is back to a certain threshold.
+	var/list/cur_heal_target = list()
 
 	//CC Edit End
 
@@ -728,6 +749,13 @@
  */
 			//CC Edit End
 
+			//Attempt to cast a spell at the enemy in our LOS. Do not cast without LOS.
+			//Spellcasters can be expensive mobs so try and use them sparingly.
+			//If you're stood on top of a spellcaster they will not cast spells on you.
+			if(spell_caster && !has_status_effect(/datum/status_effect/debuff/spell_cooldown_npc))
+				if(target in oview(7, src)) //Only called if we don't have a cooldown active.
+					handle_spell_casting_logic()
+
 			// if we COULD attack, check rection time
 			var/should_frustrate = TRUE
 			if(Adjacent(target) && isturf(target.loc)) // if right next to perp
@@ -1156,7 +1184,7 @@
 
 //In essence this proc checks the target and determines what type of combatant they are.
 // Check Target -> Is target Melee? -> Is target Ranged? -> Is target Both?
-// Return type : Melee, Ranged
+// Caches the target by type : Melee, Ranged, or Both
 
 //Checks by evaluating what kind of combatant the target may be and should only run once per target, we then cache our target to an alist with the associated type.
 // We will ALWAYS assume what we see first on our target is what they will remain to be when we first encounter them.
@@ -1280,5 +1308,141 @@
 		nodirchange = FALSE
 	return TRUE // Sidestep Succeeded
  */
+
+/mob/living/carbon/human/proc/handle_spell_casting_logic()
+	//Check if we have any spells in our spell list.
+	if(!length(mob_spell_list))
+		if(spell_caster) //Secondary check to make sure the mob isn't actually a spell caster with a messed up spell list.
+			//If we ARE messed up, default to an arcyne bolt and notify admins.
+			AddSpell(new /obj/effect/proc_holder/spell/invoked/projectile/arcynebolt)
+			message_admins("NOTICE: NPC - A [src.real_name] AT [AREACOORD(src)] ATTEMPTED TO CAST A SPELL WITHOUT A SPELL LIST. DEFAULTING TO ARCYNE BOLT.")
+		return
+
+	//Do not cast on anything that isn't living.
+	if(!isliving(target))
+		return
+
+	var/obj/effect/proc_holder/spell/cur_spell = pick(mob_spell_list)
+
+	//Calculate our spell resources before we continue.
+	if(!handle_spell_resources(cur_spell)) //Returns FALSE if we cannot cast the spell.
+		return
+
+	//If we have logic.
+	if(cur_spell?.spell_logic)
+		ranged_ability = cur_spell
+		switch(cur_spell.spell_logic)
+			if(0) //No Logic - Cast at our target directly without any other special checks. Often the default for most granted spells.
+				cast_spell_at(cur_spell, target)
+			if(1) //Combat Logic - Cast at our target and avoid allies.
+				if(target.faction != faction)
+					//Check for mobs in a line and return FALSE if we find an ally.
+					if(check_line_for_allies(src, target))
+						return FALSE
+					//Until I can find a way to "fake" charging with a proc check, we'll just have to cast normally like this without any telegraphing... Like simplemobs...
+					cast_spell_at(cur_spell, target)
+				else
+					NPC_THINK("ATTEMPTED TO CAST A COMBATIVE SPELL AT AN ALLY SOMEHOW! ABORTING!!!")
+			if(2) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
+				var/old_target = target
+				if(target.faction != faction)
+					for(var/mob/living/M in view(7))
+						if(M.faction == faction)
+							target = M
+							break
+				if(target.faction == faction) //We found an ally!
+					cast_spell_at(cur_spell, target)
+					target = old_target //Reset our target back to our original target.
+				else
+					NPC_THINK("FAILED TO LOCATE AN ALLY TO CAST A SUPPORTIVE SPELL! ABORTING!!!")
+			if(3) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
+				var/old_target = target
+				if(target.faction != faction)
+					for(var/mob/living/M in view(7))
+						if(M.faction == faction)
+							target = M
+							break
+				//If we can't find an ally we can just cast it at our enemy.
+				cast_spell_at(cur_spell, target)
+				target = old_target //Reset our target back to our original target.
+			if(4) //Self Casting Logic - Cast only on ourselves. This spell is better that way for us.
+				var/old_target = target
+				target = src
+				cast_spell_at(cur_spell, target)
+				target = old_target
+			if(5) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
+				if(length(cur_heal_target))
+					var/mob/living/M = cur_heal_target[1]
+					if(M.health <= (M.maxHealth * 0.90)) // If under 90% HP Heal the target.
+						target = M
+					else
+						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
+						return
+				else if(target.faction != faction)
+					for(var/mob/living/M in view(7))
+						if(M.faction == faction)
+							target = M
+							cur_heal_target += M
+							break
+				if(target.faction == faction)
+					cast_spell_at(cur_spell, target)
+		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
+		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
+		if(cur_spell.recharge_time)
+			duration = cur_spell.recharge_time + spell_cd_offset
+		apply_status_effect(/datum/status_effect/debuff/spell_cooldown_npc, duration)
+
+	NPC_THINK("ATTEMPTED TO CAST SPELL WITH NO LOGIC! DEFAULTING TO CASTING AT TARGET!")
+
+//Handles the resources for casting spells. Only affects energy and devotion costs.
+/mob/living/carbon/human/proc/handle_spell_resources(obj/effect/proc_holder/spell/cur_spell)
+	//Handle stamina check.
+	if(stamina < (max_stamina / spell_cost_limit))
+		return FALSE // We are below our limit, give us a moment to recover!
+
+	//Handle devotion costs
+	if(cur_spell?.devotion_cost)
+		if(!devotion)
+			message_admins("NOTICE: NPC - A [src.real_name] AT [AREACOORD(src)] ATTEMPTED TO CAST A SPELL WITH DEVOTION COST /WITHOUT/ A DEVOTION DATUM ATTACHED.")
+			return FALSE //These mobs should spawn with a devotion datum or else they can't cast miracle spells.
+		if(cur_spell.devotion_cost > devotion.devotion)
+			NPC_THINK("I don't have enough resources to cast this!")
+			return FALSE
+		stoplag(1) //Don't run too quickly now.
+		devotion?.update_devotion(-cur_spell.devotion_cost)
+		return TRUE
+
+	//Handle energy costs
+	if(cur_spell?.releasedrain)
+		if(cur_spell.releasedrain > energy)
+			NPC_THINK("I don't have enough resources to cast this!")
+			return FALSE
+		stoplag(1) //Don't run too quickly now.
+		stamina_add(cur_spell.releasedrain)
+		return TRUE
+
+//Simple get_line proc that iterates and checks each tile if there's mobs of the same faction in it.
+/mob/living/carbon/human/proc/check_line_for_allies(us, them)
+	for(var/mob/living/M in get_line(us, them))
+		if(M.faction == faction)
+			NPC_THINK("Couldn't cast a spell at a target because an ally was in the way!")
+			return TRUE
+
+//Will need to add more. For now simply retains the spell.
+/mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target)
+	cur_spell.perform(target, user = src)
+
+
+//NPC SPECIFIC DEBUFF FOR SPELL CASTING, DO NOT USE ANYWHERE ELSE.
+/datum/status_effect/debuff/spell_cooldown_npc
+	id = "spell_cooldown_npc"
+	alert_type = /atom/movable/screen/alert/status_effect/debuff/spell_cooldown_npc
+	duration = 5 SECONDS //Overridden by the spell duration. Defaults to 5 seconds if otherwise.
+	status_type = STATUS_EFFECT_UNIQUE
+
+/atom/movable/screen/alert/status_effect/debuff/spell_cooldown_npc
+	name = "Spell Cooldown (NPC)"
+	desc = "I've casted my spell! I must wait before I can cast again."
+	icon_state = "strikecd"
 
 //CC Edit End
