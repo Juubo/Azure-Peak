@@ -133,6 +133,7 @@
 			headdy.icon_state = "[src.dna.species.id]_head"
 			headdy.sellprice = 40 // Double the value, double the threat.
 	src.grant_language(/datum/language/orcish)
+	language_holder.only_speaks_language = /datum/language/orcish //Only speak Orcish for when we cast spells.
 	var/obj/item/organ/eyes/eyes = src.getorganslot(ORGAN_SLOT_EYES)
 	if(eyes)
 		eyes.Remove(src,1)
@@ -255,6 +256,7 @@
 	H.set_patron(/datum/patron/inhumen/graggar)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
+	ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 
 	H.STASTR = 6
 	H.STAINT = 12 //We commune with Graggar! We're smarter than the rest.
@@ -279,12 +281,14 @@
 			r_hand = /obj/item/rogueweapon/woodstaff
 			if(prob(50))
 				head = /obj/item/clothing/head/roguetown/helmet/hobgoblin
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/hobgoblin
+			neck = /obj/item/clothing/neck/roguetown/psicross/inhumen/graggar
+			pants = /obj/item/clothing/under/roguetown/loincloth/deprived
 		if(2) //Axe and Leathers
 			r_hand = /obj/item/rogueweapon/woodstaff/quarterstaff
 			if(prob(50))
 				head = /obj/item/clothing/head/roguetown/helmet/leather/hobgoblin
-			armor = /obj/item/clothing/suit/roguetown/armor/leather/hobgoblin
+			neck = /obj/item/clothing/neck/roguetown/psicross/inhumen/graggar
+			pants = /obj/item/clothing/under/roguetown/loincloth/deprived
 
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)

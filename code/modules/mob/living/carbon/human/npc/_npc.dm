@@ -1417,17 +1417,18 @@
 			if(8) //Stationary Logic - Will cast a spell and attempt to remain still for as long as possible. Useful for blood transfer spells for example.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(length(M.get_wounds())) // If under 90% HP attempt to Heal the target.
+					if(length(M.get_wounds())) // If wounded provide heals.
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
 						cur_heal_target -= M //Get outta here!
 						return
 				else if(target.faction != faction)
-					for(var/mob/living/M in view(spell_range, src))
+					for(var/mob/living/M in oview(spell_range, src))
 						if(M.faction == faction)
-							target = M
-							cur_heal_target += M
+							if(length(M.get_wounds())) // If wounded provide heals.
+								target = M
+								cur_heal_target += M
 							break
 				if(target.faction == faction)
 					cast_spell_at(cur_spell, target, stationary = TRUE)
