@@ -24,6 +24,8 @@
 #define LOGIC_SELFCAST 5
 //The spell is a healing spell and should only prioritize allies who are actively injured.
 #define LOGIC_HEAL 6
+//The spell acts as a structure (like campfires) and actively provides an AOE effect. Place it anywhere around us in a small area within 2 tiles that is not on our LOS to the target.
+#define LOGIC_STRUCTURE 7
 
 //CC Edit End
 

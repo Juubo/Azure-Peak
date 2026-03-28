@@ -1322,6 +1322,7 @@
 	if(!isliving(target))
 		return
 
+	var/old_target = target
 	var/obj/effect/proc_holder/spell/cur_spell = pick(mob_spell_list)
 
 	//Calculate our spell resources before we continue.
@@ -1332,9 +1333,9 @@
 	if(cur_spell?.spell_logic)
 		ranged_ability = cur_spell
 		switch(cur_spell.spell_logic)
-			if(0) //No Logic - Cast at our target directly without any other special checks. Often the default for most granted spells.
+			if(1) //No Logic - Cast at our target directly without any other special checks. Often the default for most granted spells.
 				cast_spell_at(cur_spell, target)
-			if(1) //Combat Logic - Cast at our target and avoid allies.
+			if(2) //Combat Logic - Cast at our target and avoid allies.
 				if(target.faction != faction)
 					//Check for mobs in a line and return FALSE if we find an ally.
 					if(check_line_for_allies(src, target))
@@ -1343,8 +1344,7 @@
 					cast_spell_at(cur_spell, target)
 				else
 					NPC_THINK("ATTEMPTED TO CAST A COMBATIVE SPELL AT AN ALLY SOMEHOW! ABORTING!!!")
-			if(2) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
-				var/old_target = target
+			if(3) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
 				if(target.faction != faction)
 					for(var/mob/living/M in view(7))
 						if(M.faction == faction)
@@ -1355,8 +1355,7 @@
 					target = old_target //Reset our target back to our original target.
 				else
 					NPC_THINK("FAILED TO LOCATE AN ALLY TO CAST A SUPPORTIVE SPELL! ABORTING!!!")
-			if(3) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
-				var/old_target = target
+			if(4) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
 				if(target.faction != faction)
 					for(var/mob/living/M in view(7))
 						if(M.faction == faction)
@@ -1365,12 +1364,11 @@
 				//If we can't find an ally we can just cast it at our enemy.
 				cast_spell_at(cur_spell, target)
 				target = old_target //Reset our target back to our original target.
-			if(4) //Self Casting Logic - Cast only on ourselves. This spell is better that way for us.
-				var/old_target = target
+			if(5) //Self Casting Logic - Cast only on ourselves. This spell is better that way for us.
 				target = src
 				cast_spell_at(cur_spell, target)
 				target = old_target
-			if(5) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
+			if(6) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
 					if(M.health <= (M.maxHealth * 0.90)) // If under 90% HP Heal the target.
@@ -1386,6 +1384,17 @@
 							break
 				if(target.faction == faction)
 					cast_spell_at(cur_spell, target)
+			if(7) //Structure Logic - Place anywhere nearby that is not in the path to our target. Might be a bit expensive but shouldn't affect too much.
+				var/list/possible_loc = list()
+				for(var/turf/open/T in oview(3, src))
+					if(T in get_line(src, target))
+						continue
+					possible_loc += list()
+				target += pick(possible_loc)
+				cast_spell_at(target)
+				target = old_target
+			
+
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
 		if(cur_spell.recharge_time)
