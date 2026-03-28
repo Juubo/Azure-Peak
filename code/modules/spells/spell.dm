@@ -11,8 +11,9 @@
 //CC Edit Begin
 
 //These define the logic in which the spell should be casted when mobs are attempting to cast spells at another target.
-//The spell should only be cast on our current target. This is the default state of all spell logic, effectively the same as LOGIC_COMBAT, and is called before any other logic checks are made.
-#define LOGIC_UNKNOWN 1
+//The spell should be cast on our current target. This is the default state of all spell logic, effectively the same as LOGIC_COMBAT, and is called before any other logic checks are made.
+//This logic does not make any other checks. This is ideal for spells that only need a point target to be casted on.
+#define LOGIC_GENERIC 1
 //The spell is a combat spell and should be used against anything not our ally.
 #define LOGIC_COMBAT 2
 //The spell is a supportive spell and we should use it on our ally, if no ally is in sight, attempt to use it on ourselves.
@@ -24,8 +25,11 @@
 #define LOGIC_SELFCAST 5
 //The spell is a healing spell and should only prioritize allies who are actively injured.
 #define LOGIC_HEAL 6
-//The spell acts as a structure (like campfires) and actively provides an AOE effect. Place it anywhere around us in a small area within 2 tiles that is not on our LOS to the target.
+//The spell acts as a structure (like campfires) and actively provides an AOE effect. Place it anywhere around us in a small area within 3 tiles that is not on our LOS path to the target.
+//This is also useful for "summon" spells so we do not summon mobs directly on top of our target or in front of us, as we do not want to be too difficult to kill.
 #define LOGIC_STRUCTURE 7
+//The spell requires the caster to stand still for a duration of time. Such as blood transfer miracles.
+#define LOGIC_HEAL_STATIONARY 8
 
 //CC Edit End
 
@@ -234,7 +238,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 
 	//CC Edit Begin
 	//This variable is used in _npc.dm to determine how a spell should be cast. Define types are listed at the top of this file.
-	var/spell_logic = LOGIC_UNKNOWN
+	var/spell_logic = LOGIC_GENERIC
 	//CC Edit End
 
 /obj/effect/proc_holder/spell/get_chargetime()

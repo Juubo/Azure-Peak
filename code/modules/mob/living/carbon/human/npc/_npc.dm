@@ -110,6 +110,9 @@
 	//The offset to apply to spells on mobs so they take longer.
 	var/spell_cd_offset = 1 SECONDS
 
+	//How long we will channel stationary spells for until we are allowed to move again. Default is 3 seconds.
+	var/spell_channel_duration = 3 SECONDS
+
 	//The limit at which mobs will not fire spells if their /STAMINA/ gets below THIS amount. Default is set to SPELL_COST_QUARTER
 	//You can override this with a custom input to set a certain limit outside of these defines as well,
 	// setting it to [4.5675] will make the stamina cast limit to [78.1061850027], this is good for mobs who have a higher than average stamina field or use special spells.
@@ -391,6 +394,11 @@
 /// progress along an existing path or cancel it
 /// returns # of steps taken
 /mob/living/carbon/human/proc/move_along_path()
+	//CC Edit
+	//If we are not allowed to move, we shouldn't move again until we are able to.
+	if(!allow_movement)
+		return
+	//CC Edit
 	if(!length(myPath))
 		// no path, quit early
 		NPC_THINK("Tried to move along a nonexistent path?!")
@@ -1035,6 +1043,10 @@
 
 // get angry at a mob
 /mob/living/carbon/human/proc/retaliate(mob/living/L)
+	//CC Edit - If a mob is hit, allow us to move again. Will make them cancel their channeled/stationary spells for example.
+	if(!allow_movement)
+		allow_movement = TRUE
+	//CC Edit
 	if(!wander)
 		wander = TRUE
 	if(L == src)
@@ -1323,7 +1335,12 @@
 		return
 
 	var/old_target = target
+
+	//We randomly select an available spell from our spell list.
 	var/obj/effect/proc_holder/spell/cur_spell = pick(mob_spell_list)
+
+	//Clamp our spellss range for calculation between 1-8 tiles. NPC's cannot look very far.
+	var/spell_range = clamp(cur_spell?.range, 1, 8)
 
 	//Calculate our spell resources before we continue.
 	if(!handle_spell_resources(cur_spell)) //Returns FALSE if we cannot cast the spell.
@@ -1346,7 +1363,7 @@
 					NPC_THINK("ATTEMPTED TO CAST A COMBATIVE SPELL AT AN ALLY SOMEHOW! ABORTING!!!")
 			if(3) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
 				if(target.faction != faction)
-					for(var/mob/living/M in view(7))
+					for(var/mob/living/M in view(spell_range, src))
 						if(M.faction == faction)
 							target = M
 							break
@@ -1357,7 +1374,7 @@
 					NPC_THINK("FAILED TO LOCATE AN ALLY TO CAST A SUPPORTIVE SPELL! ABORTING!!!")
 			if(4) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
 				if(target.faction != faction)
-					for(var/mob/living/M in view(7))
+					for(var/mob/living/M in view(spell_range, src))
 						if(M.faction == faction)
 							target = M
 							break
@@ -1375,9 +1392,10 @@
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
+						cur_heal_target -= M //Get outta here!
 						return
 				else if(target.faction != faction)
-					for(var/mob/living/M in view(7))
+					for(var/mob/living/M in view(spell_range, src))
 						if(M.faction == faction)
 							target = M
 							cur_heal_target += M
@@ -1393,7 +1411,23 @@
 				target += pick(possible_loc)
 				cast_spell_at(target)
 				target = old_target
-			
+			if(8) //Stationary Logic - Will cast a spell and attempt to remain still for as long as possible. Useful for blood transfer spells for example.
+				if(length(cur_heal_target))
+					var/mob/living/M = cur_heal_target[1]
+					if(M.health <= (M.maxHealth * 0.90)) // If under 90% HP attempt to Heal the target.
+						target = M
+					else
+						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
+						cur_heal_target -= M //Get outta here!
+						return
+				else if(target.faction != faction)
+					for(var/mob/living/M in view(spell_range, src))
+						if(M.faction == faction)
+							target = M
+							cur_heal_target += M
+							break
+				if(target.faction == faction)
+					cast_spell_at(cur_spell, target, stationary)
 
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
@@ -1438,9 +1472,18 @@
 			return TRUE
 
 //Will need to add more. For now simply retains the spell.
-/mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target)
+/mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target, stationary)
 	cur_spell.perform(target, user = src)
+	if(stationary)
+		steps_moved_this_turn = 100 //We shouldn't move any further.
+		allow_movement = FALSE
+		addtimer(CALLBACK(src, PROC_REF(allow_movement_again), TRUE), spell_channel_duration)
 
+/mob/living/carbon/human/proc/allow_movement_again(bool)
+	if(bool)
+		allow_movement = TRUE
+		return
+	allow_movement = FALSE
 
 //NPC SPECIFIC DEBUFF FOR SPELL CASTING, DO NOT USE ANYWHERE ELSE.
 /datum/status_effect/debuff/spell_cooldown_npc
