@@ -248,6 +248,7 @@
 
 
 /datum/outfit/job/roguetown/npc/hobgoblin/miracle_worker/pre_equip(mob/living/carbon/human/H)
+	..()
 	var/chance_zjumper = 25 //We are REALLY smart compared to goblins; Let us chase after these puny adventurers!!!
 	var/chance_treeclimber = 50
 
