@@ -23,11 +23,11 @@
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
 
-	if(!isliving(targets)) //CC Edit - This keeps targeting armor.
+	if(!isliving(targets[1]))
 		revert_cast()
 		return FALSE
 
-	var/mob/living/target = targets //CC Edit - This keeps targeting armor.
+	var/mob/living/target = targets[1]
 
 	if(HAS_TRAIT(target, TRAIT_PSYDONITE))
 		target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))
@@ -425,7 +425,7 @@
 	antimagic_allowed = FALSE
 	recharge_time = 45 SECONDS
 	miracle = TRUE
-	devotion_cost = 50
+	devotion_cost = 1 //TESTING VALUE
 	var/blood_price = 5
 	var/blood_vol_restore = 7.5 //30 every 2 seconds.
 	var/vol_per_skill = 1	//54 with legendary

@@ -552,7 +552,7 @@ GLOBAL_LIST_INIT(spells, typesof(/obj/effect/proc_holder/spell)) //needed for th
 			var/turf/target_turf = get_turf(A)
 			var/turf/source_turf = get_turf(user)
 			//CC Edit: No more up and down turf checks, instead get the eye and see it's view
-			if(!(A in view(user.client.eye)))
+			if(!(user.mode) && !(A in view(user?.client.eye)))
 				to_chat(user, span_warning("I do not have line of sight! Casting on nearest tile."))
 				var/list/possible_targets = getline(source_turf, target_turf)
 				for(var/i = possible_targets.len; i > 0; i--) // Since turfs added by the getline are in ordered by distance, we need to start from the end

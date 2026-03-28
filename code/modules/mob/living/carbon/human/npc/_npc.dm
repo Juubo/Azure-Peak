@@ -1475,6 +1475,9 @@
 
 //Will need to add more. For now simply retains the spell.
 /mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target, stationary)
+	target = list(target) //Make the target a list so that it doesn't return nothing when indexing on spells.
+	if(!isliving(target[1]))
+		message_admins("NPC FAILED TO CAST A SPELL ON A LIVING TARGET! - [target]")
 	cur_spell.perform(target, user = src)
 	if(stationary)
 		steps_moved_this_turn = 100 //We shouldn't move any further.

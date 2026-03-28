@@ -256,6 +256,7 @@
 	H.set_patron(/datum/patron/inhumen/graggar)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)
 	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
+	C.devotion = C.max_devotion
 	ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
 
 	H.STASTR = 6
