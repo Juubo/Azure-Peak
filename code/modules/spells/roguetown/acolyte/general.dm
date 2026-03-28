@@ -23,11 +23,11 @@
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
 
-	if(!isliving(targets[1]))
+	if(!isliving(targets)) //CC Edit - This keeps targeting armor.
 		revert_cast()
 		return FALSE
 
-	var/mob/living/target = targets[1]
+	var/mob/living/target = targets //CC Edit - This keeps targeting armor.
 
 	if(HAS_TRAIT(target, TRAIT_PSYDONITE))
 		target.visible_message(span_info("[target] stirs for a moment, the miracle dissipates."), span_notice("A dull warmth swells in your heart, only to fade as quickly as it arrived."))

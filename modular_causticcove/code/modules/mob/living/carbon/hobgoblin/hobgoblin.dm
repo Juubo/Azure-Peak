@@ -297,3 +297,6 @@
 	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE) //Spellcasters!
+
+	//This needs to be placed at the end of every spellcaster's pre_equip to ensure that they do not get any miracle spells that do not work for combat and in general.
+	H.prepare_spell_list()

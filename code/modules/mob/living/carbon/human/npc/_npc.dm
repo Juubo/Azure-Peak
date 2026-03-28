@@ -128,13 +128,6 @@
 	. = ..()
 	our_cells = new(interesting_dist, interesting_dist, 1)
 	set_new_cells()
-	//CC Edit
-	//Only check for spells that actually can be used.
-	if(!client || !mind)
-		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
-			if(!(spell.spell_logic)) // LOGIC_NONE == 0
-				mob_spell_list -= spell //Remove spells with no logic from our list.
-	//CC End
 
 /mob/living/carbon/human/Destroy()
 	our_cells = null
@@ -1394,7 +1387,7 @@
 			if(6) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(M.health < (M.maxHealth * 0.90)) // If under 90% HP Heal the target.
+					if(M.health < (M.maxHealth * 0.90))
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
@@ -1403,9 +1396,13 @@
 				else if(target.faction != faction)
 					for(var/mob/living/M in view(spell_range, src))
 						if(M.faction == faction)
-							target = M
-							cur_heal_target += M
-							break
+							if(length(M.get_wounds()))
+								target = M
+								cur_heal_target += M
+								break
+							else
+								NPC_THINK("Can't locate a wound on this target, checking the next one!")
+								continue
 				if(target.faction == faction)
 					cast_spell_at(cur_spell, target)
 			if(7) //Structure Logic - Place anywhere nearby that is not in the path to our target. Might be a bit expensive but shouldn't affect too much.
@@ -1488,6 +1485,16 @@
 		allow_movement = TRUE
 		return
 	allow_movement = FALSE
+
+//This proc gets rid of spells that are not able to be utilized. Called only at the end of an pre_equip for an outfit.
+/mob/living/carbon/human/proc/prepare_spell_list()
+	//CC Edit
+	//Only check for spells that actually can be used.
+	if(!client || !mind)
+		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
+			if(!(S.spell_logic)) // LOGIC_NONE == 0=
+				mob_spell_list -= S //Remove spells with no logic from our list.
+	//CC End
 
 //NPC SPECIFIC DEBUFF FOR SPELL CASTING, DO NOT USE ANYWHERE ELSE.
 /datum/status_effect/debuff/spell_cooldown_npc
