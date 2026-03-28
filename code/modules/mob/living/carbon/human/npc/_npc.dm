@@ -1487,6 +1487,10 @@
 /mob/living/carbon/human/proc/allow_movement_again(bool)
 	if(bool)
 		allow_movement = TRUE
+		for(var/mob/living/L in view(7, src)) // Check for enemies around us to immediately on the same Z as we are and start moving again if we do find them.
+			if(should_target(L))
+				if(retaliate(L))
+					start_pathing_to(target)
 		return
 	allow_movement = FALSE
 

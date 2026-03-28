@@ -31,3 +31,5 @@
 	. = ..()
 	//We're good at casting spells but not that good.
 	spell_cd_offset = rand(3 SECONDS, 5 SECONDS)
+	//Channel our supportive spells only for a second.
+	spell_channel_duration = 1 SECONDS

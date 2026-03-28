@@ -279,17 +279,15 @@
 
 	switch(loadout)
 		if(1) //Spear and Leathers
-			r_hand = /obj/item/rogueweapon/woodstaff
+			r_hand = /obj/item/rogueweapon/spear/bonespear
 			if(prob(50))
 				head = /obj/item/clothing/head/roguetown/helmet/hobgoblin
 			neck = /obj/item/clothing/neck/roguetown/psicross/inhumen/graggar
-			pants = /obj/item/clothing/under/roguetown/loincloth/deprived
 		if(2) //Axe and Leathers
-			r_hand = /obj/item/rogueweapon/woodstaff/quarterstaff
+			r_hand = /obj/item/rogueweapon/woodstaff/quarterstaff/iron
 			if(prob(50))
 				head = /obj/item/clothing/head/roguetown/helmet/leather/hobgoblin
 			neck = /obj/item/clothing/neck/roguetown/psicross/inhumen/graggar
-			pants = /obj/item/clothing/under/roguetown/loincloth/deprived
 
 	H.adjust_skillrank(/datum/skill/combat/polearms, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/combat/maces, 1, TRUE)
