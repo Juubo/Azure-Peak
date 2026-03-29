@@ -252,21 +252,11 @@
 	var/chance_zjumper = 5
 	var/chance_treeclimber = 50
 
-	//Make sure to manually mark the god you want them to have when making a NPC mob. These guy's don't have prefs like normal.
-	H.set_patron(/datum/patron/inhumen/graggar)
-	var/datum/devotion/C = new /datum/devotion(H, H.patron)
-	C.grant_miracles(H, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
-	C.devotion = C.max_devotion
-	ADD_TRAIT(H, TRAIT_HERESIARCH, TRAIT_GENERIC)
-
 	H.STASTR = 6
 	H.STAINT = 12 //We commune with Graggar! We're smarter than the rest.
 	H.STACON = 8
 	H.STAWIL = 6
 	H.STASPD = 12
-
-	//We are a SPELLCASTER! We cast Graggarite spells!
-	H.spell_caster = TRUE
 
 	if(prob(chance_zjumper))
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
@@ -300,6 +290,3 @@
 	H.adjust_skillrank(/datum/skill/misc/swimming, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/climbing, 4, TRUE)
 	H.adjust_skillrank(/datum/skill/misc/athletics, 3, TRUE) //Spellcasters!
-
-	//This needs to be placed at the end of every spellcaster's pre_equip to ensure that they do not get any miracle spells that do not work for combat and in general.
-	H.prepare_spell_list()

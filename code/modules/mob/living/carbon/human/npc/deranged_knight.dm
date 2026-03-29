@@ -110,9 +110,9 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
 			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
 			C.devotion = C.max_devotion
-			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/graggar)
 			prepare_spell_list(LOGIC_NONE, LOGIC_HEAL_STATIONARY)
 			//CC Edit
+			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/graggar)
 		if ("matthios")
 			ADD_TRAIT(src, TRAIT_COMMIE, TRAIT_GENERIC)
 			//CC Edit
@@ -124,9 +124,9 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
 			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
 			C.devotion = C.max_devotion
-			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/matthios)
 			prepare_spell_list(LOGIC_NONE, LOGIC_HEAL_STATIONARY)
 			//CC Edit
+			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/matthios)
 		if ("zizo")
 			ADD_TRAIT(src, TRAIT_CABAL, TRAIT_GENERIC)
 			//CC Edit
@@ -138,9 +138,9 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
 			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
 			C.devotion = C.max_devotion
-			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/zizo)
 			prepare_spell_list(LOGIC_NONE, LOGIC_HEAL_STATIONARY)
 			//CC Edit
+			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/zizo)
 		if ("hedgeknight")
 			if(prob(50))
 				equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/hedge_knight)

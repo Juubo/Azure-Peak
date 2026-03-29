@@ -762,7 +762,7 @@
 			//Attempt to cast a spell at the enemy in our LOS. Do not cast without LOS.
 			//Spellcasters can be expensive mobs so try and use them sparingly.
 			//If you're stood on top of a spellcaster they will not cast spells on you.
-			if(spell_caster && !(has_status_effect(/datum/status_effect/debuff/spell_cooldown_npc)))
+			if(spell_caster && !has_status_effect(/datum/status_effect/debuff/spell_cooldown_npc))
 				if(target in oview(7, src)) //Only called if we don't have a cooldown active.
 					handle_spell_casting_logic()
 
@@ -1420,6 +1420,7 @@
 								continue
 				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target)
+					target = old_target
  
 			if(7) //Structure Logic - Place anywhere nearby that is not in the path to our target. Might be a bit expensive but shouldn't affect too much.
 				var/list/possible_loc = list()
@@ -1452,6 +1453,7 @@
 							break
 				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target, stationary = TRUE)
+					target = old_target
 
 			if(9) // Dead Logic - Spell will only target mobs that are dead. Primarily for spells that require a corpse. Currently untested.
 				for(var/mob/living/M in view(spell_range, src))
@@ -1507,8 +1509,6 @@
 //Will need to add more. For now simply retains the spell.
 /mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target, stationary)
 	target = list(target) //Make the target a list so that it doesn't return nothing when indexing on spells.
-	if(!isliving(target[1]))
-		message_admins("NPC FAILED TO CAST A SPELL ON A LIVING TARGET! - [target]")
 	cur_spell.perform(target, user = src)
 	if(stationary)
 		steps_moved_this_turn = 100 //We shouldn't move any further.
