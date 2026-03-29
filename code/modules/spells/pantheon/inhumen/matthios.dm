@@ -20,7 +20,7 @@
 	devotion_cost = 0
 
 	//CC Edit
-	spell_logic = LOGIC_NONE
+	spell_logic = LOGIC_NONE //This serves 0 purpose to an NPC.
 
 /obj/effect/proc_holder/spell/invoked/appraise/secular
 	name = "Secular Appraise"
