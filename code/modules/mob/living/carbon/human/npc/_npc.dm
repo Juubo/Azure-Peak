@@ -117,7 +117,7 @@
 
 	//The limit at which mobs will not fire spells if their /STAMINA/ gets below THIS amount. Default is set to SPELL_COST_QUARTER
 	//You can override this with a custom input to set a certain limit outside of these defines as well.
-	var/spell_cost_limit = SPELL_STAM_LIMIT_QUARTER
+	var/spell_cost_limit = SPELL_STAM_LIMIT_THIRD
 
 	//Retains the target we need to keep healing until said target is back to a certain threshold.
 	var/list/cur_heal_target = list()
@@ -1348,9 +1348,11 @@
 	if(cur_spell?.spell_logic && prob(75)) //Don't garuntee casting the spell ALL the time.
 		ranged_ability = cur_spell
 		switch(cur_spell.spell_logic)
+
 			if(1) //No Logic - Cast at our target directly without any other special checks. Often the default for most granted spells.
 				NPC_THINK("ATTEMPTED TO CAST SPELL WITH NO LOGIC! DEFAULTING TO CASTING AT TARGET!")
 				cast_spell_at(cur_spell, target)
+
 			if(2) //Combat Logic - Cast at our target and avoid allies.
 				if(target.faction[1] != faction[1])
 					//Check for mobs in a line and return FALSE if we find an ally.
@@ -1360,9 +1362,12 @@
 					cast_spell_at(cur_spell, target)
 				else
 					NPC_THINK("ATTEMPTED TO CAST A COMBATIVE SPELL AT AN ALLY SOMEHOW! ABORTING!!!")
+
 			if(3) //Support Logic - Attempt to cast on one of our allies. Do not cast on our enemy.
 				if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
+						if(M.stat == DEAD || M.stat == UNCONSCIOUS)
+							continue //Can't support what's already down.
 						if(M.faction[1] == faction[1])
 							target = M
 							break
@@ -1371,23 +1376,31 @@
 					target = old_target //Reset our target back to our original target.
 				else
 					NPC_THINK("FAILED TO LOCATE AN ALLY TO CAST A SUPPORTIVE SPELL! ABORTING!!!")
+
 			if(4) //Utility Logic - Cast either on our target, or on our allies. Attempt to prioritze allies.
 				if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
+						if(M.stat == DEAD || M.stat == UNCONSCIOUS)
+							continue //Can't support what's already down.
 						if(M.faction[1] == faction[1])
 							target = M
 							break
 				//If we can't find an ally we can just cast it at our enemy.
 				cast_spell_at(cur_spell, target)
 				target = old_target //Reset our target back to our original target.
+
 			if(5) //Self Casting Logic - Cast only on ourselves. This spell is better that way for us.
 				target = src
 				cast_spell_at(cur_spell, target)
 				target = old_target
+
 			if(6) //Healing Logic - Only heals allies that are actively injured. Keeps healing the same target until they are fully healed.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(length(M.get_wounds()))
+					if(M.stat != DEAD || M.stat != UNCONSCIOUS)
+						cur_heal_target -= M
+						return //Can't heal what's already dead!
+					else if(length(M.get_wounds()))
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
@@ -1395,6 +1408,8 @@
 						return
 				else if(target.faction[1] != faction[1])
 					for(var/mob/living/M in view(spell_range, src))
+						if(M.stat == DEAD || M.stat == UNCONSCIOUS)
+							continue //Can't heal what's already downed.
 						if(M.faction[1] == faction[1])
 							if(length(M.get_wounds()))
 								target = M
@@ -1405,19 +1420,24 @@
 								continue
 				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target)
+ 
 			if(7) //Structure Logic - Place anywhere nearby that is not in the path to our target. Might be a bit expensive but shouldn't affect too much.
 				var/list/possible_loc = list()
 				for(var/turf/open/T in oview(3, src))
 					if(T in get_line(src, target))
 						continue
-					possible_loc += list()
-				target += pick(possible_loc)
-				cast_spell_at(target)
+					possible_loc += T
+				target = pick(possible_loc)
+				cast_spell_at(cur_spell, target)
 				target = old_target
+
 			if(8) //Stationary Logic - Will cast a spell and attempt to remain still for as long as possible. Useful for blood transfer spells for example.
 				if(length(cur_heal_target))
 					var/mob/living/M = cur_heal_target[1]
-					if(length(M.get_wounds())) // If wounded provide heals.
+					if(M.stat != DEAD || M.stat != UNCONSCIOUS)
+						cur_heal_target -= M
+						return //Can't heal what's already dead!
+					else if(length(M.get_wounds()))
 						target = M
 					else
 						NPC_THINK("Our allies are fully healed! No longer casting healing miracles!")
@@ -1432,6 +1452,17 @@
 							break
 				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target, stationary = TRUE)
+
+				if(9) // Dead Logic - Spell will only target mobs that are dead. Primarily for spells that require a corpse. Currently untested.
+					for(var/mob/living/M in view(spell_range, src))
+						if(M.stat == DEAD)
+							target = M
+							break
+					if(!M)
+						NPC_THINK("Failed to locate a corpse!")
+						return 
+					cast_spell_at(cur_spell, target)
+					target = old_target //Reset our target back to our original target.
 
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
@@ -1494,15 +1525,17 @@
 		return
 	allow_movement = FALSE
 
-//This proc gets rid of spells that are not able to be utilized. Called only at the end of an pre_equip for an outfit.
-/mob/living/carbon/human/proc/prepare_spell_list()
-	//CC Edit
+//This proc gets rid of spells that are not able to be utilized within given parameters. Called only at the end of an pre_equip for an outfit.
+/mob/living/carbon/human/proc/prepare_spell_list(list/logic_types)
+	if(length(logic_types))
+		logic_types = logic_types
+	else //If no given types dish out everything except for LOGIC_NONE
+		logic_types = list(1,2,3,4,5,6,7,8) //As of currently there are only 8 different logic types.
 	//Only check for spells that actually can be used.
 	if(!client || !mind)
 		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
-			if(!(S.spell_logic)) // LOGIC_NONE == 0=
+			if(!(S.spell_logic in logic_types))
 				mob_spell_list -= S //Remove spells with no logic from our list.
-	//CC End
 
 //NPC SPECIFIC DEBUFF FOR SPELL CASTING, DO NOT USE ANYWHERE ELSE.
 /datum/status_effect/debuff/spell_cooldown_npc

@@ -32,6 +32,8 @@
 #define LOGIC_STRUCTURE 7
 //The spell requires the caster to stand still for a duration of time. Such as blood transfer miracles.
 #define LOGIC_HEAL_STATIONARY 8
+//The spell requires the caster to only target nearby targets that are DEAD. This is used with the Necromancer and any possible Revival spells.
+#define LOGIC_DEAD 9
 
 //CC Edit End
 

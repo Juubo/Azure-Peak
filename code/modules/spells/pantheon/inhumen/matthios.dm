@@ -19,6 +19,9 @@
 	miracle = TRUE
 	devotion_cost = 0
 
+	//CC Edit
+	spell_logic = LOGIC_NONE
+
 /obj/effect/proc_holder/spell/invoked/appraise/secular
 	name = "Secular Appraise"
 	overlay_state = "appraise"
@@ -57,6 +60,9 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy
 	recharge_time = 30 MINUTES //To avoid spamming this.
+
+	//CC Edit
+	spell_logic = LOGIC_NONE
 
 /obj/effect/proc_holder/spell/invoked/muffle/cast(mob/living/user)
 	var/turf/T = get_turf(user)
@@ -105,6 +111,8 @@
 	miracle = TRUE
 	devotion_cost = 20
 
+	//CC Edit
+	spell_logic = LOGIC_NONE
 
 /obj/effect/proc_holder/spell/invoked/transact/cast(list/targets, mob/living/user)
 	. = ..()
@@ -180,6 +188,8 @@
 	recharge_time = 2 MINUTES
 	range = 4
 
+	//CC Edit
+	spell_logic = LOGIC_COMBAT
 
 /obj/effect/proc_holder/spell/invoked/equalize/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
@@ -257,6 +267,9 @@
 	movement_interrupt = FALSE
 	recharge_time = 2 MINUTES
 	range = 4
+
+	//CC Edit
+	spell_logic = LOGIC_COMBAT
 
 
 /obj/effect/proc_holder/spell/invoked/churnwealthy/cast(list/targets, mob/living/user)

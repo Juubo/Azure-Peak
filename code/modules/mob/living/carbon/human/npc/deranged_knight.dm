@@ -101,13 +101,46 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 	switch(preset)
 		if("graggar")
 			ADD_TRAIT(src, TRAIT_HORDE, TRAIT_GENERIC)
+			//CC Edit
+			set_patron(/datum/patron/inhumen/graggar)
+			spell_caster = TRUE
+			spell_cd_offset = 5 SECONDS
+			spell_channel_duration = 1 SECONDS
+			spell_cost_limit = SPELL_STAM_LIMIT_HALF
+			var/datum/devotion/C = new /datum/devotion(src, src.patron)
+			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
+			C.devotion = C.max_devotion
 			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/graggar)
+			prepare_spell_list()
+			//CC Edit
 		if ("matthios")
 			ADD_TRAIT(src, TRAIT_COMMIE, TRAIT_GENERIC)
+			//CC Edit
+			set_patron(/datum/patron/inhumen/matthios)
+			spell_caster = TRUE
+			spell_cd_offset = 5 SECONDS
+			spell_channel_duration = 1 SECONDS
+			spell_cost_limit = SPELL_STAM_LIMIT_HALF
+			var/datum/devotion/C = new /datum/devotion(src, src.patron)
+			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
+			C.devotion = C.max_devotion
 			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/matthios)
+			prepare_spell_list()
+			//CC Edit
 		if ("zizo")
 			ADD_TRAIT(src, TRAIT_CABAL, TRAIT_GENERIC)
+			//CC Edit
+			set_patron(/datum/patron/inhumen/zizo)
+			spell_caster = TRUE
+			spell_cd_offset = 5 SECONDS
+			spell_channel_duration = 1 SECONDS
+			spell_cost_limit = SPELL_STAM_LIMIT_HALF
+			var/datum/devotion/C = new /datum/devotion(src, src.patron)
+			C.grant_miracles(src, cleric_tier = CLERIC_T2, passive_gain = CLERIC_REGEN_WEAK, devotion_limit = CLERIC_REQ_2, is_npc = TRUE)
+			C.devotion = C.max_devotion
 			equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/zizo)
+			prepare_spell_list()
+			//CC Edit
 		if ("hedgeknight")
 			if(prob(50))
 				equipOutfit(new /datum/outfit/job/roguetown/quest_miniboss/hedge_knight)
