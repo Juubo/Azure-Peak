@@ -1453,16 +1453,16 @@
 				if(target.faction[1] == faction[1])
 					cast_spell_at(cur_spell, target, stationary = TRUE)
 
-				if(9) // Dead Logic - Spell will only target mobs that are dead. Primarily for spells that require a corpse. Currently untested.
-					for(var/mob/living/M in view(spell_range, src))
-						if(M.stat == DEAD)
-							target = M
-							break
-					if(!M)
-						NPC_THINK("Failed to locate a corpse!")
-						return 
-					cast_spell_at(cur_spell, target)
-					target = old_target //Reset our target back to our original target.
+			if(9) // Dead Logic - Spell will only target mobs that are dead. Primarily for spells that require a corpse. Currently untested.
+				for(var/mob/living/M in view(spell_range, src))
+					if(M.stat == DEAD)
+						target = M
+						break
+				if(target == old_target)
+					NPC_THINK("Failed to locate a corpse!")
+					return 
+				cast_spell_at(cur_spell, target)
+				target = old_target //Reset our target back to our original target.
 
 		//Apply the spell casting CD regardless of if wether they could cast it or not. Duration lasts as long as the used spell's recharge time.
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
@@ -1529,13 +1529,13 @@
 /mob/living/carbon/human/proc/prepare_spell_list(list/logic_types)
 	if(length(logic_types))
 		logic_types = logic_types
-	else //If no given types dish out everything except for LOGIC_NONE
-		logic_types = list(1,2,3,4,5,6,7,8) //As of currently there are only 8 different logic types.
+	else //If no given types dish out everything except for LOGIC_NONE, remove that.
+		logic_types = list(0)
 	//Only check for spells that actually can be used.
 	if(!client || !mind)
 		for(var/obj/effect/proc_holder/spell/S in mob_spell_list)
-			if(!(S.spell_logic in logic_types))
-				mob_spell_list -= S //Remove spells with no logic from our list.
+			if((S.spell_logic in logic_types))
+				mob_spell_list -= S //Remove spells with matching logic from our list.
 
 //NPC SPECIFIC DEBUFF FOR SPELL CASTING, DO NOT USE ANYWHERE ELSE.
 /datum/status_effect/debuff/spell_cooldown_npc
