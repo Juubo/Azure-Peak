@@ -94,6 +94,9 @@
 	miracle = TRUE
 	devotion_cost = 70
 
+	//CC Edit
+	spell_logic = LOGIC_COMBAT
+
 /obj/effect/proc_holder/spell/invoked/revel_in_slaughter/cast(list/targets, mob/living/user = usr)
 	var/mob/living/carbon/human/human = targets[1]
 
