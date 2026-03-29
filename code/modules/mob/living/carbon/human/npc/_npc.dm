@@ -762,7 +762,7 @@
 			//Attempt to cast a spell at the enemy in our LOS. Do not cast without LOS.
 			//Spellcasters can be expensive mobs so try and use them sparingly.
 			//If you're stood on top of a spellcaster they will not cast spells on you.
-			if(spell_caster && !has_status_effect(/datum/status_effect/debuff/spell_cooldown_npc))
+			if(spell_caster && !(has_status_effect(/datum/status_effect/debuff/spell_cooldown_npc)))
 				if(target in oview(7, src)) //Only called if we don't have a cooldown active.
 					handle_spell_casting_logic()
 
