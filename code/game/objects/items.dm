@@ -1572,6 +1572,7 @@ GLOBAL_VAR_INIT(rpg_loot_items, FALSE)
 /obj/item/proc/altgrip(mob/living/carbon/user)
 	return cycle_altgrip(user, 1)
 
+
 /obj/item/proc/wield(mob/living/carbon/user, show_message = TRUE)
 	if(wielded && !altgripped)
 		return
