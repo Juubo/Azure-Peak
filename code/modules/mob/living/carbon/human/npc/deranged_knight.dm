@@ -104,7 +104,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			//CC Edit
 			set_patron(/datum/patron/inhumen/graggar)
 			spell_caster = TRUE
-			spell_cd_offset = 10 SECONDS
+			spell_cd_offset = 15 SECONDS
 			spell_channel_duration = 1 SECONDS
 			spell_cost_limit = SPELL_STAM_LIMIT_HALF
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
@@ -118,7 +118,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			//CC Edit
 			set_patron(/datum/patron/inhumen/matthios)
 			spell_caster = TRUE
-			spell_cd_offset = 5 SECONDS
+			spell_cd_offset = 15 SECONDS
 			spell_channel_duration = 1 SECONDS
 			spell_cost_limit = SPELL_STAM_LIMIT_HALF
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
@@ -132,7 +132,7 @@ GLOBAL_LIST_INIT(hedgeknight_aggro, world.file2list("strings/rt/hedgeknightaggro
 			//CC Edit
 			set_patron(/datum/patron/inhumen/zizo)
 			spell_caster = TRUE
-			spell_cd_offset = 5 SECONDS
+			spell_cd_offset = 15 SECONDS
 			spell_channel_duration = 1 SECONDS
 			spell_cost_limit = SPELL_STAM_LIMIT_HALF
 			var/datum/devotion/C = new /datum/devotion(src, src.patron)
