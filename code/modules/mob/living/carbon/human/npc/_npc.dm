@@ -1503,7 +1503,7 @@
 /mob/living/carbon/human/proc/check_line_for_allies(us, them)
 	var/list/line = get_line(us, them)
 	for(var/i in 1 to length(line))
-		for(var/mob/living/M in line[i].contents) //This throws an error but it works.
+		for(var/mob/living/M in line[i].contents) //This throws an error on compile but it works as intended.
 			if(M.faction[1] == faction[1])
 				NPC_THINK("Couldn't cast a spell at a target because an ally was in the way!")
 				return TRUE
