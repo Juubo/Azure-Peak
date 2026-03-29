@@ -1501,10 +1501,12 @@
 
 //Simple get_line proc that iterates and checks each tile if there's mobs of the same faction in it.
 /mob/living/carbon/human/proc/check_line_for_allies(us, them)
-	for(var/mob/living/M in get_line(us, them))
-		if(M.faction[1] == faction[1])
-			NPC_THINK("Couldn't cast a spell at a target because an ally was in the way!")
-			return TRUE
+	var/list/line = get_line(us, them)
+	for(var/i in 1 to length(line))
+		for(var/mob/living/M in line[i].contents) //This throws an error but it works.
+			if(M.faction[1] == faction[1])
+				NPC_THINK("Couldn't cast a spell at a target because an ally was in the way!")
+				return TRUE
 
 //Will need to add more. For now simply retains the spell.
 /mob/living/carbon/human/proc/cast_spell_at(obj/effect/proc_holder/spell/cur_spell, target, stationary)
