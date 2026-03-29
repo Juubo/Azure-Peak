@@ -1484,7 +1484,7 @@
 		if(cur_spell.devotion_cost > devotion.devotion)
 			NPC_THINK("I don't have enough resources to cast this!")
 			return FALSE
-		stoplag(1) //Don't run too quickly now.
+		sleep(1) //Don't run too quickly now.
 		devotion?.update_devotion(-cur_spell.devotion_cost)
 		return TRUE
 
@@ -1493,7 +1493,7 @@
 		if(cur_spell.releasedrain > energy)
 			NPC_THINK("I don't have enough resources to cast this!")
 			return FALSE
-		stoplag(1) //Don't run too quickly now.
+		sleep(1) //Don't run too quickly now.
 		stamina_add(cur_spell.releasedrain)
 		return TRUE
 
