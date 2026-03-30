@@ -482,14 +482,14 @@
 						to_chat(UH, span_info("They're at a healthy blood level, but I can keep going."))
 						user_informed = TRUE
 						//CC Edit Begin
-						if(UH.mode)
+						if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
 							UH.allow_movement_again(TRUE)
 						//CC edit End
 				else
 					UH.visible_message(span_warning("Severs the bloodlink from [target]!"))
 					bloodbeam.End()
 					//CC Edit Begin
-					if(UH.mode)
+					if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
 						UH.allow_movement_again(TRUE)
 					//CC edit End
 					return TRUE
@@ -497,12 +497,12 @@
 				UH.visible_message(span_warning("Severs the bloodlink from [target]!"))
 				bloodbeam.End()
 				//CC Edit Begin
-				if(UH.mode)
+				if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
 					UH.allow_movement_again(TRUE)
 				//CC edit End
 				return TRUE
 		//CC Edit Begin
-		if(UH.mode)
+		if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
 			UH.allow_movement_again(TRUE)
 		//CC edit End
 		bloodbeam.End()

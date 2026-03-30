@@ -97,30 +97,46 @@
 	var/smart_combatant = FALSE
 
 	//CC Edit Begin
+	//////
+	//Do not use or define these variables unless you know what you're doing.
 
+	//Internal Var - utilized for stationary spellcasting spells. Please see the '/obj/effect/proc_holder/spell/invoked/blood_heal/cast(' proc for a better example.
 	var/allow_movement = TRUE
 
-	//Determines the target's fighting style. Picks between Melee, Ranged, or Both. Simple mobs are handled differently.
+	//Internal Var - Determines the target's fighting style. Picks between Melee, Ranged, or Both. Simple mobs are handled differently.
+	//This is used internally alongside check_target_style() to check if the target is ranged, or melee, upon first encounter.
 	var/target_type = TARGET_UNCERTAIN 
 
-	//The last targets we were targeting until we went back to idle. Cache all of the target's fighting styles unless a new target joins us.
+	//Internal Var - The last targets we were targeting until we went back to idle. Cache all of the target's fighting styles unless a new target joins us.
 	var/list/last_targets = alist()
+
+	//Internal Var - Retains the target we need to keep healing until said target is back to a certain threshold.
+	var/list/cur_heal_target = list()
+
+	//////
 
 	//If we utilize spells when casting. Spell casting logic is handled in the proc /handle_spell_casting_logic()
 	var/spell_caster = FALSE
 	
-	//The offset to apply to spells on mobs so they take longer.
+	//The offset to apply to spells on mobs so they take longer to cast each time they're cast. By default this is 1 second. You can also reduce spell CD's with this as well.
+	//If a spell's CD is below 0 it will not apply any CD on a spell. The mob will still burn through energy upon casting.
 	var/spell_cd_offset = 1 SECONDS
 
-	//How long we will channel stationary spells for until we are allowed to move again. Default is 3 seconds.
+	//How long we will channel stationary spells for until we are allowed to move again. Default is 3 seconds. Negative values do not work.
 	var/spell_channel_duration = 3 SECONDS
 
 	//The limit at which mobs will not fire spells if their /STAMINA/ gets below THIS amount. Default is set to SPELL_COST_QUARTER
 	//You can override this with a custom input to set a certain limit outside of these defines as well.
 	var/spell_cost_limit = SPELL_STAM_LIMIT_THIRD
 
-	//Retains the target we need to keep healing until said target is back to a certain threshold.
-	var/list/cur_heal_target = list()
+	//The minimum distance we should path towards our target. This is primarily for ranged mobs like mages who are not active fighters. 
+	//They do not have appropriate fleeing AI or kiting AI, I do not want this nor should they have this as it'd be REALLY annoying to fight NPC's with those mechanics.
+	//They WILL however chase after a target that hits them with a melee weapon or ANY object for as long as they remain within their aggro range for making them not have awkward melee fighting mechanics.
+	var/min_dis_to_target = 1
+
+	//Added to the value for when to consider going back to their minimum distance. For example: When min_dis_to_target is set to 3, and tether_distance is set to 1, an NPC will chase a target
+	// For up to 4 tiles before returning to their default 3 tile minimum distance. Useful for handling melee combat and making the melee combat flow feel better for when an NPC returns to their default ranged state.
+	var/tether_distance = 3 // Default is 3. Mobs will most likely not lose melee aggro unless the target fully runs away.
 
 	//CC Edit End
 
@@ -527,7 +543,7 @@
 		var/const/MAX_RANGE_FIND = 32
 		NPC_THINK("Pathfinding to [pathfinding_target]...")
 		is_currently_pathing = TRUE
-		myPath = get_path_to(src, turf_of_target, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), MAX_RANGE_FIND + 1, 250, 1, adjacent = TYPE_PROC_REF(/turf, reachableTurftest3d))
+		myPath = get_path_to(src, turf_of_target, TYPE_PROC_REF(/turf, Heuristic_cardinal_3d), MAX_RANGE_FIND + 1, 250, 1, adjacent = TYPE_PROC_REF(/turf, reachableTurftest3d), mintargetdist = min_dis_to_target) //CC Edit added in the mintargetdist; Wow this line is long!
 		is_currently_pathing = FALSE
 		if(length(myPath))
 			myPath -= get_turf(src) // remove the turf we start on
@@ -712,8 +728,11 @@
 				validate_path()
 				var/turf/my_turf = get_turf(src)
 				var/turf/target_turf = get_turf(target)
+				var/distance = my_turf.Distance_cardinal_3d(target_turf, src)
 				// only path if we're more than one tile away
-				if(my_turf.Distance_cardinal_3d(target_turf, src) > 1)
+				if(distance > min_dis_to_target) //CC Edit
+					if(distance > initial(min_dis_to_target) + tether_distance) // CC Edit - Only reset our min_dis to target if they're outside our initial distance + tether_distance.
+						min_dis_to_target = initial(min_dis_to_target)
 					if(!length(myPath)) // create a new path to the target
 						start_pathing_to(target)
 
@@ -1081,7 +1100,8 @@
 
 /mob/living/carbon/human/attackby(obj/item/W, mob/user, params)
 	. = ..()
-	if((W.force) && (!target) && (W.damtype != STAMINA) )
+	min_dis_to_target = 1 //CC Edit - Reduce our minimum distance to 1 if we get attacked by our target
+	if((W.force) && (!target) && (W.damtype != STAMINA))
 		retaliate(user)
 
 /mob/living/carbon/human/proc/npc_taunt_target()
@@ -1470,7 +1490,8 @@
 		var/duration = spell_cd_offset //Defaults to the spell_cd_offset if we do not have a recharge time.
 		if(cur_spell.recharge_time)
 			duration = cur_spell.recharge_time + spell_cd_offset
-		apply_status_effect(/datum/status_effect/debuff/spell_cooldown_npc, duration)
+		if(duration > 0)
+			apply_status_effect(/datum/status_effect/debuff/spell_cooldown_npc, duration)
 
 //Handles the resources for casting spells. Only affects energy and devotion costs.
 /mob/living/carbon/human/proc/handle_spell_resources(obj/effect/proc_holder/spell/cur_spell)

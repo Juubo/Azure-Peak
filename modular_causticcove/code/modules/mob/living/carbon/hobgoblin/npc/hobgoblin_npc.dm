@@ -26,6 +26,9 @@
 
 	//These are miracle workers for Graggar! They cast spells!
 	spell_caster = TRUE
+	
+	//Should only get within 3 tiles of distance.
+	min_dis_to_target = 3
 
 /mob/living/carbon/human/species/hobgoblin/npc/miracle_worker/ambush
 	wander = TRUE
