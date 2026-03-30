@@ -12,7 +12,3 @@
 	name = "abandoned_tavern_decayed"
 	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_S/variants/abandoned_tavern/abandoned_tavern_decayed.dmm"
 
-//It's an inn... But raised! It's raised up by 1 Z-level with a slightly winding path into it.
-/datum/map_template/abandoned_tavern/raised_inn
-	name = "abandoned_tavern_raised"
-	mappath = "modular_causticcove/_maps/map_files/templates/cove_world/forest_grove_S/variants/abandoned_tavern/abandoned_tavern_raised.dmm"
