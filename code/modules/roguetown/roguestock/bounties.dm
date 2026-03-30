@@ -88,5 +88,5 @@
 			return TRUE
 		if(istype(I, /obj/item/tablecloth/silk)) //Standalone items that meet the price minimum can still be listed here, to 'brute-force' their redeemability in case of glitches.
 			return TRUE
-	if(I.get_real_price() >= 30) //The numerical value here determines how much mammons an item needs to be worth, at the minimum, to be automatically accepted into the Stockpile.
+	if(I.get_real_price() >= 150) //The numerical value here determines how much mammons an item needs to be worth, at the minimum, to be automatically accepted into the Stockpile.
 		return TRUE
