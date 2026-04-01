@@ -166,7 +166,7 @@ GLOBAL_LIST_EMPTY(last_words)
 				return
 		//Cove edit end
 		// Stop necrans from freaking out from digestion and unrevivable simplemob deaths
-			if (!gibbed)
+			if (!gibbed && !( (src.mind && src.mind.has_antag_datum(/datum/antagonist/zombie)) || (src.mind && src.mind.has_antag_datum(/datum/antagonist/skeleton)) || HAS_TRAIT(src, TRAIT_SECONDLIFE) )) // because I hate being jumpscared by "OOH SOMEONE DIED IN THE CHURCH" when they're just killing a deadite with burn rot to rez them
 				var/locale = prepare_deathsight_message()
 				for (var/mob/living/player in GLOB.player_list)
 					if (player.stat == DEAD || isbrain(player))
@@ -183,5 +183,5 @@ GLOBAL_LIST_EMPTY(last_words)
 /mob/living/proc/prepare_deathsight_message()
 	var/area/A = get_area(src)
 	if(!A)
-		return "a locale wreathed in enigmatic fog" // fallback if we can't find the area somehow??
+		return "an unknown locale, wreathed in enigmatic fog" // fallback if we can't find the area somehow?? -- This was not clear enough for me ICly that it's somewhere I shouldn't care about, now it should
 	return A.deathsight_message
