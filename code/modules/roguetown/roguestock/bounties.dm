@@ -95,5 +95,5 @@
 				return TRUE
 			else
 				return FALSE
-	if(I.get_real_price() >= 150)// CC Edit - Price from 30 -> 150 //The numerical value here determines how much mammons an item needs to be worth, at the minimum, to be automatically accepted into the Stockpile.
+	if(I.get_real_price() >= 100)// CC Edit - Price from 30 -> 100 //The numerical value here determines how much mammons an item needs to be worth, at the minimum, to be automatically accepted into the Stockpile.
 		return TRUE
