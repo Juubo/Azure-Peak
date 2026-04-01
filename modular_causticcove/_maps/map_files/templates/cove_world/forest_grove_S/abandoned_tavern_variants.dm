@@ -1,6 +1,6 @@
 /obj/effect/landmark/map_load_mark/variant/forest_grove_S/abandoned_tavern
 	name = "Abandoned Tavern / Inn"
-	templates = list("abandoned_tavern_default", "abandoned_tavern_decayed", "abandoned_tavern_raised")
+	templates = list("abandoned_tavern_default", "abandoned_tavern_decayed")
 	
 /datum/map_template/abandoned_tavern
 	name = "abandoned_tavern_default"
