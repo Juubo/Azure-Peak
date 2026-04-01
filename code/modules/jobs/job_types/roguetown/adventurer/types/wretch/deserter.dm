@@ -118,6 +118,9 @@
 			"Kulah Khud"	= /obj/item/clothing/head/roguetown/helmet/sallet/raneshen,
 			"Kabuto"	= /obj/item/clothing/head/roguetown/helmet/heavy/kabuto, //No mask, fuck you
 			"Shishak"	= /obj/item/clothing/head/roguetown/helmet/sallet/shishak,
+			"Visored Barbute" = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/visor,
+			"Great Barbute" = /obj/item/clothing/head/roguetown/helmet/heavy/barbute/great,
+			"Volf-Face Helm"		= /obj/item/clothing/head/roguetown/helmet/heavy/volfplate,
 			"None"
 		)
 		var/helmchoice = input(H, "Choose your Helm.", "TAKE UP HELMS") as anything in helmets
