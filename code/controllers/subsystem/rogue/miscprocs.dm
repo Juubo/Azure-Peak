@@ -160,7 +160,7 @@
 // Debug verb
 /mob/living/carbon/human/proc/devotionchange()
 	set name = "(DEBUG)Change Devotion"
-	set category = "-Special Verbs-"
+	set category = "✦ SPECIAL"
 
 	if(!devotion)
 		return FALSE
@@ -173,7 +173,7 @@
 
 /mob/living/carbon/human/proc/devotionreport()
 	set name = "Check Devotion"
-	set category = "Cleric"
+	set category = "CLERIC"
 
 	if(!devotion)
 		return FALSE
@@ -183,7 +183,7 @@
 
 /mob/living/carbon/human/proc/clericpray()
 	set name = "Give Prayer"
-	set category = "Cleric"
+	set category = "CLERIC"
 
 	if(!devotion)
 		return FALSE
