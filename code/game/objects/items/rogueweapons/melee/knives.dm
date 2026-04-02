@@ -1439,3 +1439,52 @@
 			qdel(item)
 			user.mind.add_sleep_experience(/datum/skill/craft/sewing, (user.STAINT))
 	return ..()
+
+// Caustic edit start
+
+// Obsidian weapons gimmick: Whole lotta damage, but a complete lack of AP
+
+/obj/item/rogueweapon/huntingknife/stoneknife/obsidian
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
+	name = "obsidian knife"
+	desc = "A fine blade made of obsidian. Sharp, but brittle."
+	icon_state = "obsidian_knife"
+	force = 29
+	armor_penetration = -100
+	max_blade_int = 15
+	wdefense = 2
+	sellprice = 12 // Shiny knife
+
+/obj/item/rogueweapon/huntingknife/stoneknife/flint
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/dagger/chop)
+	name = "flint knife"
+	desc = "A fine blade knapped from flint. Before the wisdom to work bronze came, this was the everyman's tool."
+	icon_state = "flint_knife"
+	force = 15
+	max_blade_int = 125
+	max_integrity = 150
+	wdefense = 2
+	sellprice = 10
+
+/obj/item/rogueweapon/huntingknife/stoneknife/manacrystal
+	force = 13
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/special/magicarc)
+	name = "manastone riteknife"
+	desc = "An intricate ritual-knife made from a shard of crystallized mana. Though not suited for direct combat, it will save you in a pinch."
+	icon_state = "magicstone_knife"
+	cast_time_reduction = CRYSTMANA_CAST_TIME_REDUCTION // 5% reduction
+	max_blade_int = 25
+	max_integrity = 50
+	sellprice = 15 // It's a very pretty rock on a stick.
+
+/obj/item/rogueweapon/huntingknife/stoneknife/bone
+	name = "bone skewer" // Craftable version. Apparently there's one located somewhere on the map
+	desc = "A sharpened piece of a long bone. Perhaps a femur."
+	icon_state = "bonedagger"
+	sheathe_icon = "bonedagger"
+	force = 14
+	wdefense = 2
+	max_integrity = 125
+	max_blade_int = 75
+
+// Caustic edit end

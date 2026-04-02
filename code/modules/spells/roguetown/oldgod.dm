@@ -13,7 +13,7 @@
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/ENDVRE.ogg'
-	invocations = list("ENDURE!","GET UP!","COME ON!") //CC Edit reverting this because all balls but no cum? Kept intentionally vague as to whether it's genuine magic or just a very inspiring attempt to rally the target, like with 'PRAYER'. Invigorate the wounded; give them the motivation to thug it out.
+	invocations = list("ENDURE!","GET UP!","ARISE!") //CC Edit reverting this because all balls but no cum? Kept intentionally vague as to whether it's genuine magic or just a very inspiring attempt to rally the target, like with 'PRAYER'. Invigorate the wounded; give them the motivation to thug it out.
 	invocation_type = "shout" //CC Edit, reverting
 	associated_skill = /datum/skill/magic/holy
 	antimagic_allowed = FALSE
@@ -35,9 +35,9 @@
 		var/damtotal = brute + burn
 		var/zcross_trigger = FALSE
 		if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD)) // YOU ARE NO LONGER MORTAL. NO LONGER OF HIM. PSYDON WEEPS.
-			// We do nothing to avoid meta checking for undead
-			target.visible_message(span_info("A strange stirring feeling pours from [target]!"), span_info("Sentimental thoughts drive away my pain..."))		
-			return TRUE
+			target.visible_message(span_danger("[target] shudders with a strange stirring feeling!"), span_userdanger("It hurts. You feel like weeping."))// cc edit
+			target.adjustBruteLoss(40)	
+			return TRUE//cc edit end
 
 		// Bonuses! Flavour! SOVL!
 		for(var/obj/item/clothing/neck/current_item in target.get_equipped_items(TRUE))
