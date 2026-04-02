@@ -191,7 +191,7 @@ SUBSYSTEM_DEF(vote)
 				var/vote_power = 1
 				/*if(usr.client.holder)
 					vote_power += 5*/
-				if(ishuman(usr))
+				/*if(ishuman(usr)) //Caustic Edit - Set votepower to 1!
 					var/mob/living/carbon/H = usr
 					if(H.stat != DEAD)
 						vote_power += 3
@@ -205,7 +205,7 @@ SUBSYSTEM_DEF(vote)
 									if(D.increase_votepwr)
 										vote_power += 3
 				if(mode in everyone_is_equal)
-					vote_power = 1
+					vote_power = 1*/
 				choices[choices[vote]] += vote_power //check this
 				return vote
 	return 0
