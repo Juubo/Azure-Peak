@@ -1,4 +1,4 @@
-// Lesser miracle
+// Lesser miracle 
 /obj/effect/proc_holder/spell/invoked/lesser_heal
 	name = "Miracle"
 	desc = "Heals target over time, causes damage if something is embedded in target. Burns undead instead of healing them if you worship the Ten.<br>Does not work on those worshipping the dead god."
@@ -17,6 +17,9 @@
 	miracle = TRUE
 	devotion_cost = 10
 
+	//CC Edit
+	spell_logic = LOGIC_HEAL
+
 /obj/effect/proc_holder/spell/invoked/lesser_heal/cast(list/targets, mob/living/user)
 	. = ..()
 
@@ -33,10 +36,9 @@
 		return FALSE
 
 	if(user.patron?.undead_hater && (target.mob_biotypes & MOB_UNDEAD))
-		// We simply do nothing to avoid healing being used to vamp/skelly check!
-		var/message_out_undead = span_info("Healing energies envelop [target]!")
-		var/message_self_undead = span_notice("I am bathed in healing choral hymns!")
-		target.visible_message(message_out_undead, message_self_undead)
+		target.visible_message(span_danger("[target] is burned by holy light!"), span_userdanger("I'm burned by holy light!"))//cc Edit
+		target.adjustFireLoss(10)
+		target.fire_act(1, 10)//cc edit end
 		return TRUE
 
 	if(target.has_status_effect(/datum/status_effect/buff/healing))
@@ -81,15 +83,11 @@
 		playsound(target, 'sound/combat/dismemberment/dismem (2).ogg', 100)
 		human.emote("agony")
 		return FALSE
-
+	//cc edit
 	target.apply_status_effect(/datum/status_effect/buff/healing, healing)
-
-	// Edit - Overwriting the outgoing message here to prevent metagaming faith via message.
-	// Not getting rid of the messages in the code, we might want them for something else later.
-	message_out = span_info("Healing energies envelop [target]!")
 	target.visible_message(message_out, message_self)
 
-	return TRUE
+	return TRUE//cc edit end
 
 // Miracle
 /obj/effect/proc_holder/spell/invoked/heal
@@ -112,6 +110,9 @@
 	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 20
+
+	//CC Edit
+	spell_logic = LOGIC_SUPPORTIVE
 
 /obj/effect/proc_holder/spell/invoked/heal/cast(list/targets, mob/living/user)
 	. = ..()
@@ -159,6 +160,9 @@
 	miracle = TRUE
 	devotion_cost = 10
 
+	//CC Edit
+	spell_logic = LOGIC_HEAL
+
 /obj/effect/proc_holder/spell/invoked/regression/cast(list/targets, mob/living/user)
 	. = ..()
 	if(isliving(targets[1]))
@@ -190,6 +194,9 @@
 	recharge_time = 20 SECONDS
 	miracle = TRUE
 	devotion_cost = 20
+
+	//CC Edit
+	spell_logic = LOGIC_SUPPORTIVE
 
 /obj/effect/proc_holder/spell/invoked/convergence/cast(list/targets, mob/living/user)
 	. = ..()
@@ -234,6 +241,9 @@
 	var/blood = 0
 	miracle = TRUE
 	devotion_cost = 30
+
+	//CC Edit
+	spell_logic = LOGIC_SUPPORTIVE
 
 /obj/effect/proc_holder/spell/invoked/stasis/cast(list/targets, mob/user = usr)
 	if(isliving(targets[1]))
@@ -342,6 +352,9 @@
 	var/delay = 4.5 SECONDS	//Reduced to 1.5 seconds with Legendary
 	devotion_cost = 100
 
+	//CC Edit
+	spell_logic = LOGIC_HEAL //May not work as intended due to requiring a targeted limb.
+
 /obj/effect/proc_holder/spell/invoked/wound_heal/cast(list/targets, mob/user = usr)
 	if(ishuman(targets[1]))
 	
@@ -418,6 +431,9 @@
 	var/vol_per_skill = 1	//54 with legendary
 	var/delay = 0.5 SECONDS
 
+	//CC Edit
+	spell_logic = LOGIC_HEAL_STATIONARY
+
 /obj/effect/proc_holder/spell/invoked/blood_heal/cast(list/targets, mob/user = usr)
 	if(ishuman(targets[1]))
 		var/mob/living/carbon/human/target = targets[1]
@@ -465,14 +481,30 @@
 					if(target.blood_volume >= BLOOD_VOLUME_NORMAL && !user_informed)
 						to_chat(UH, span_info("They're at a healthy blood level, but I can keep going."))
 						user_informed = TRUE
+						//CC Edit Begin
+						if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
+							UH.allow_movement_again(TRUE)
+						//CC edit End
 				else
 					UH.visible_message(span_warning("Severs the bloodlink from [target]!"))
 					bloodbeam.End()
+					//CC Edit Begin
+					if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
+						UH.allow_movement_again(TRUE)
+					//CC edit End
 					return TRUE
 			else
 				UH.visible_message(span_warning("Severs the bloodlink from [target]!"))
 				bloodbeam.End()
+				//CC Edit Begin
+				if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
+					UH.allow_movement_again(TRUE)
+				//CC edit End
 				return TRUE
+		//CC Edit Begin
+		if(UH.mode) //Reminder this calls view(7, src) so only use on NPC's.
+			UH.allow_movement_again(TRUE)
+		//CC edit End
 		bloodbeam.End()
 		return TRUE
 	revert_cast()

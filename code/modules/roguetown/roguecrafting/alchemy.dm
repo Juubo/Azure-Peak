@@ -262,6 +262,14 @@
 	craftdiff = 4
 	verbage_simple = "transmute"
 
+/datum/crafting_recipe/roguetown/alchemy/i2sil //Caustic edit. 
+	name = "gold to silver"
+	category = "Transmutation"
+	result = list(/obj/item/rogueore/silver = 1)
+	reqs = list(/obj/item/rogueore/gold = 4)
+	craftdiff = 6
+	verbage_simple = "transmute"
+
 /datum/crafting_recipe/roguetown/alchemy/g2top
 	name = "gold to toper"
 	category = "Transmutation"

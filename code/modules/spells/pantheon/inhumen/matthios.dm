@@ -19,6 +19,9 @@
 	miracle = TRUE
 	devotion_cost = 0
 
+	//CC Edit
+	spell_logic = LOGIC_NONE //This serves 0 purpose to an NPC.
+
 /obj/effect/proc_holder/spell/invoked/appraise/secular
 	name = "Secular Appraise"
 	overlay_state = "appraise"
@@ -57,6 +60,9 @@
 	chargedloop = /datum/looping_sound/invokegen
 	associated_skill = /datum/skill/magic/holy
 	recharge_time = 30 MINUTES //To avoid spamming this.
+
+	//CC Edit
+	spell_logic = LOGIC_NONE
 
 /obj/effect/proc_holder/spell/invoked/muffle/cast(mob/living/user)
 	var/turf/T = get_turf(user)
@@ -105,19 +111,28 @@
 	miracle = TRUE
 	devotion_cost = 20
 
+	//CC Edit
+	spell_logic = LOGIC_NONE
 
 /obj/effect/proc_holder/spell/invoked/transact/cast(list/targets, mob/living/user)
 	. = ..()
 	var/obj/item/held_item = user.get_active_held_item()
 	if(!held_item)
 		to_chat(user, span_info("I need something of value to make a transaction..."))
+		revert_cast()//cc edit
 		return
 	var/helditemvalue = held_item.get_real_price()
+	if(ispath(held_item.type, /obj/item/rogueweapon) || ispath(held_item.type, /obj/item/gun))
+		to_chat(user, span_info("I cannot transact a weapon!"))
+		revert_cast()
+		return
 	if(!helditemvalue)
 		to_chat(user, span_info("This has no value, It will be of no use In such a transaction."))
+		revert_cast()
 		return
 	if(helditemvalue<10)
 		to_chat(user, span_info("This has little value, It will be of no use In such a transaction."))
+		revert_cast()//cc edit end
 		return
 	if(isliving(targets[1]))
 		var/mob/living/target = targets[1]
@@ -173,6 +188,8 @@
 	recharge_time = 2 MINUTES
 	range = 4
 
+	//CC Edit
+	spell_logic = LOGIC_COMBAT
 
 /obj/effect/proc_holder/spell/invoked/equalize/cast(list/targets, mob/living/user)
 	if(ishuman(targets[1]))
@@ -250,6 +267,9 @@
 	movement_interrupt = FALSE
 	recharge_time = 2 MINUTES
 	range = 4
+
+	//CC Edit
+	spell_logic = LOGIC_COMBAT
 
 
 /obj/effect/proc_holder/spell/invoked/churnwealthy/cast(list/targets, mob/living/user)
@@ -333,8 +353,8 @@
 				explosion(get_turf(target), light_impact_range = 1, flame_range = 1, smoke = FALSE)
 				new /obj/item/roguecoin/silver/pile(target.loc)
 				new /obj/item/roguecoin/gold/pile(target.loc)
-				new /obj/item/roguegem/random(target.loc)
-				new /obj/item/roguegem/random(target.loc)
+				new /obj/effect/spawner/lootdrop/roguegem/random(target.loc)
+				new /obj/effect/spawner/lootdrop/roguegem/random(target.loc)
 
 				var/list/possible_limbs = list()
 				for(var/zone in list(BODY_ZONE_R_ARM, BODY_ZONE_L_ARM, BODY_ZONE_R_LEG, BODY_ZONE_L_LEG))

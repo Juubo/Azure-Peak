@@ -39,7 +39,7 @@
 		playsound(user, pick('sound/foley/waterwash (1).ogg','sound/foley/waterwash (2).ogg'), 70, FALSE)
 		if(do_after(user,2 SECONDS, target = src))
 			reagents.trans_to(I, reagents.total_volume)
-	return TRUE
+	. = ..() // Caustic change, to allow glazeable pot subtypes to actually work.
 
 /obj/item/reagent_containers/glass/bucket/pot/aalloy
 	name = "decrepit pot"
@@ -52,6 +52,7 @@
 /obj/item/reagent_containers/glass/bucket/pot/stone
 	name = "stone pot"
 	desc = "A pot made out of stone. It can hold less than a metal pot."
+	icon_state = "pote_stone" // Caustic Edit
 	volume = 120 // 99 is the max volume for a stone pot
 
 /obj/item/reagent_containers/glass/bucket/pot/kettle

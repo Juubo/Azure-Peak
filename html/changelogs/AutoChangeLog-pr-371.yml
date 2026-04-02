@@ -1,0 +1,4 @@
+author: "apple5382"
+delete-after: True
+changes:
+  - rscadd: "Added a recipie to transmute 4 gold ore to one silver ore. it requires legendary alchemy."
