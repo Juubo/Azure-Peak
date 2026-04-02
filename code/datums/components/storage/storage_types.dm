@@ -312,3 +312,8 @@
 		/obj/item/clothing/mask/cigarette/rollie,
 		/obj/item/flint,
 		))
+
+/datum/component/storage/concrete/grid/anvil_bin
+	max_w_class = WEIGHT_CLASS_HUGE
+	screen_max_rows = 8
+	screen_max_columns = 4
