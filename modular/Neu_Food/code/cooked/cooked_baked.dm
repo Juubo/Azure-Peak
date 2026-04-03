@@ -10,6 +10,7 @@
 	cooked_type = /obj/item/reagent_containers/food/snacks/rogue/crackerscooked
 	w_class = WEIGHT_CLASS_NORMAL
 	eat_effect = null
+	cooked_smell = /datum/pollutant/food/hardtack
 	//CC Edit Begin
 	diet_types = list("Grains")
 	diet_change_amount = FOOD_DIETARY_VALUE_POOR
