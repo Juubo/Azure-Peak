@@ -366,7 +366,7 @@
 	/obj/structure/fluff/psycross/crafted,
 	/obj/structure/fluff/psycross/necra/cloth,
 	/obj/structure/fluff/psycross/necra,
-	/obj/item/clothing/neck/roguetown/psicross) //CC Edit - Buff's Necra's Sight to see / mark Psicrosses (handheld amulets)
+	/obj/item/clothing/neck/roguetown/psicross/necra) //CC Edit - Buff's Necra's Sight to see / mark Necran Psicrosses (handheld amulets)
 	var/list/marked_objects = list()
 	var/outline_color = "#4ea1e6"
 	var/last_index = 1
