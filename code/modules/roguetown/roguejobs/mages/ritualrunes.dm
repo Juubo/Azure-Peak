@@ -5,7 +5,7 @@
 	anchored = TRUE
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "6"
-	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = SIGIL_LAYER
 	color = null
 	var/magictype = "arcyne"//"arcyne", "divine", "druid", "blood"
@@ -684,7 +684,7 @@ GLOBAL_LIST(teleport_runes)
 	desc = "A relatively basic confinement matrix used to hold small things when summoned."
 	icon_state = "summon"
 	invocation = "Evoca et Constringe!"
-	max_integrity = 0
+	max_integrity = -1
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	tier = 1
 	can_be_scribed = TRUE
