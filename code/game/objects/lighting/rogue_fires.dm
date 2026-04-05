@@ -134,6 +134,7 @@
 	crossfire = FALSE
 	pixel_y = 32
 	healing_range = 2
+	greater_fire = TRUE //CC Edit
 
 /obj/machinery/light/rogue/campfire/fireplace/attack_hand(mob/user)
 	if(isliving(user) && on)
