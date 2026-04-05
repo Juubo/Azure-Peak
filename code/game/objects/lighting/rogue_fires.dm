@@ -822,7 +822,7 @@
 			if(distance > healing_range || human.construct)
 				continue
 			human.add_stress(/datum/stressevent/campfire)
-			
+
 			if(human.has_status_effect(/datum/status_effect/incapacitating/sleeping)) // CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down.
 
 				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
@@ -842,7 +842,7 @@
 					if(valid_bed)
 						if(!human.has_status_effect(/datum/status_effect/buff/campfire))
 							to_chat(human, span_info("Settling in by the flames lifts the burdens of the week."))
-						human.apply_status_effect(/datum/status_effect/buff/campfire)
+						human.apply_status_effect(/datum/status_effect/buff/campfire) //CC Edit - See above comment.
 
 
 /obj/machinery/light/rogue/campfire/onkick(mob/user)
