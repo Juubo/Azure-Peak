@@ -807,6 +807,7 @@
 	soundloop = /datum/looping_sound/fireloop
 	var/healing_range = 2
 	var/static/list/acceptable_beds = list(/obj/structure/bed, /obj/structure/flora/roguetree/stump, /obj/item/bedsheet)
+	var/greater_fire = FALSE //CC Edit
 
 /obj/machinery/light/rogue/campfire/process()
 	..()
@@ -823,7 +824,8 @@
 				continue
 			human.add_stress(/datum/stressevent/campfire)
 			// CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down. For towners, this does not affect them.
-			if(human.has_status_effect(/datum/status_effect/incapacitating/sleeping) || human.job == "Towner" || istype(human.mind?.assigned_role, /datum/job/roguetown/villager))
+			//If the campfire is a greater firepit (densefire), apply these effects anyways.
+			if(greater_fire || human.has_status_effect(/datum/status_effect/incapacitating/sleeping) || human.job == "Towner" || istype(human.mind?.assigned_role, /datum/job/roguetown/villager))
 
 				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
 					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed to get a better rest."))
@@ -875,6 +877,7 @@
 	bulb_colour = "#eea96a"
 	max_integrity = 60
 	healing_range = 4
+	greater_fire = TRUE //CC Edit
 
 /obj/machinery/light/rogue/campfire/densefire/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
