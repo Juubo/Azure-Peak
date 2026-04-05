@@ -431,8 +431,7 @@
 
 /datum/alt_grip/mordhau/sword
 	grip_intents = list(
-		/datum/intent/sword/strike,
-		/datum/intent/sword/bash,
+		SWORD_BASH,
 		/datum/intent/effect/daze
 	)
 	onmobprop_overrides = list(
@@ -468,9 +467,9 @@
 
 /datum/alt_grip/mordhau/broadsword
 	grip_intents = list(
-		/datum/intent/sword/strike,
-		/datum/intent/sword/bash,
-		/datum/intent/effect/daze,
+		SWORD_BASH,
+		/datum/intent/sword/cut/broadsword,
+		/datum/intent/effect/daze
 	)
 	onmobprop_overrides = list(
 		"altgrip" = list(
@@ -500,8 +499,7 @@
 
 /datum/alt_grip/mordhau/greatsword
 	grip_intents = list(
-		/datum/intent/sword/strike,
-		/datum/intent/sword/bash,
+		SWORD_BASH,
 		/datum/intent/effect/daze
 	)
 	onmobprop_overrides = list(
@@ -535,9 +533,8 @@
 
 /datum/alt_grip/mordhau/broadsword/forgotten_blade
 	grip_intents = list(
-		/datum/intent/effect/daze,
-		/datum/intent/sword/strike,
-		/datum/intent/sword/bash
+		SWORD_BASH,
+		/datum/intent/effect/daze
 	)
 	onmobprop_overrides = list(
 		"altgrip" = list(
@@ -567,10 +564,9 @@
 	var_overrides = null
 
 /datum/alt_grip/mordhau/broadsword/dream_broadsword
-	grip_intents = list(
-		/datum/intent/effect/daze,
-		/datum/intent/sword/strike,
-		/datum/intent/sword/bash
+	grip_intents = list(		
+		SWORD_BASH,
+		/datum/intent/effect/daze
 	)
 	onmobprop_overrides = list(
 		"altgrip" = list(
