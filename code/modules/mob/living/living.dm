@@ -2216,7 +2216,7 @@
 
 	if(m_intent != MOVE_INTENT_SNEAK)
 		if(water_view)
-			visible_message(span_info("[src] peers into the thickness of the water above his head."))
+			visible_message(span_info("[src] peers into the thickness of the water above [src.p_their()] head."))
 		else
 			to_chat(src, span_info("[src] peers into the thickness of the water above his head."))
 	else
