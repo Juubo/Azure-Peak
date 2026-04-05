@@ -822,8 +822,8 @@
 			if(distance > healing_range || human.construct)
 				continue
 			human.add_stress(/datum/stressevent/campfire)
-
-			if(human.has_status_effect(/datum/status_effect/incapacitating/sleeping)) // CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down.
+			// CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down. For towners, this does not affect them.
+			if(human.has_status_effect(/datum/status_effect/incapacitating/sleeping) || human.job == "Towner" || istype(human.mind?.assigned_role, /datum/job/roguetown/villager))
 
 				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
 					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed to get a better rest."))
