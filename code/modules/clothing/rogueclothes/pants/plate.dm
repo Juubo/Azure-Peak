@@ -78,43 +78,53 @@
 	armor = ARMOR_PLATE_BSTEEL
 	sellprice = 100 //Heretical~
 
-/* //Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
+//Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
 /obj/item/clothing/under/roguetown/platelegs/matthios/Initialize()
 	. = ..()
-	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT) //Casutic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 	AddComponent(/datum/component/cursed_item, TRAIT_FREEMAN, "ARMOR")
 
 /obj/item/clothing/under/roguetown/platelegs/matthios/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
-*/ //Caustic Edit End
+	qdel(src)*/
+//Caustic Edit End
 
-/obj/item/clothing/under/roguetown/platelegs/zizo
-	max_integrity = ARMOR_INT_LEG_ANTAG
+/obj/item/clothing/under/roguetown/platelegs/avantyne
 	name = "avantyne garments"
-	desc = "An unstemmable cognitovirus, laminated into thrice-parted leggings worn by only the truest - those, anointed by the Dame of Progress. In Her name."
-	icon_state = "zizocloth"
+	desc = "Bolstered by threads of avantyne, padded by darksteel. It covers and protects - thought to be impossibly made."
+	icon_state = "zizoplatelegs_med"
+	max_integrity = ARMOR_INT_LEG_STEEL_PLATE
 	armor = ARMOR_PLATE_BSTEEL
+	armor_class = ARMOR_CLASS_MEDIUM
 	sellprice = 100 //Heretical~
 
-/* //Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
-/obj/item/clothing/under/roguetown/platelegs/zizo/Initialize()
+/obj/item/clothing/under/roguetown/platelegs/avantyne/heavy
+	name = "fused avantyne garments"
+	desc = "An unstemmable cognitovirus, laminated into thrice-parted leggings worn by only the truest - those, anointed by the Dame of Progress. In Her name."
+	icon_state = "zizocloth"
+	max_integrity = ARMOR_INT_LEG_ANTAG
+
+/obj/item/clothing/under/roguetown/platelegs/avantyne/Initialize(mapload)
 	. = ..()
-	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT) //Caustic Edit - Allow dropping of Heretic Armors
 	AddComponent(/datum/component/cursed_item, TRAIT_CABAL, "ARMOR")
-
-/obj/item/clothing/under/roguetown/platelegs/zizo/dropped(mob/living/carbon/human/user)
-	. = ..()
-	if(QDELETED(src))
-		return
-	qdel(src)
-*/ //Caustic Edit End
-
-/obj/item/clothing/under/roguetown/platelegs/zizo/Initialize(mapload)
-	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP, 8)
+
+/obj/item/clothing/under/roguetown/platelegs/avantyne/dropped(mob/living/carbon/human/user)
+	return ..()
+
+//Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
+/obj/item/clothing/under/roguetown/platelegs/avantyne/heavy/Initialize(mapload)
+	. = ..()
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/under/roguetown/platelegs/avantyne/heavy/dropped(mob/living/carbon/human/user)
+	. = ..()
+	/*if(QDELETED(src))
+		return
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/under/roguetown/platelegs/skirt
 	name = "steel plate tassets"

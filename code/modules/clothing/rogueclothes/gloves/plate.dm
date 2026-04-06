@@ -68,6 +68,21 @@
 	icon_state = "graggarplategloves"
 	sellprice = 44 //Heretical~
 
+/obj/item/clothing/gloves/roguetown/plate/graggar/heavy
+	name = "vicious bone-gauntlets"
+	desc = "Steel plated gauntlets overlaid by an ornamental imagery of fractured bone and entrails."
+	icon_state = "graggarplategloves_heavy"
+
+/obj/item/clothing/gloves/roguetown/plate/graggar/heavy/Initialize()
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/gloves/roguetown/plate/graggar/heavy/dropped(mob/living/carbon/human/user)
+	. = ..()
+	if(QDELETED(src))
+		return
+	qdel(src)
+
 /obj/item/clothing/gloves/roguetown/plate/graggar/Initialize()
 	. = ..()
 	AddComponent(/datum/component/cursed_item, TRAIT_HORDE, "ARMOR", "RENDERED ASUNDER")
@@ -90,26 +105,40 @@
 	qdel(src)
 */ //Caustic Edit End
 
-/obj/item/clothing/gloves/roguetown/plate/zizo
+/obj/item/clothing/gloves/roguetown/plate/avantyne
 	name = "avantyne gauntlets"
+	desc = "Gauntlets with full range of motion. The fore-arm guards do hurt, if used."
+	icon_state = "zizogauntlets_med"
+	max_integrity = ARMOR_INT_SIDE_STEEL
+	chunkcolor = "#363030"
+	material_category = ARMOR_MAT_PLATE
+	armor_class = ARMOR_CLASS_MEDIUM
+	sellprice = 44 //CC Edit
+
+/obj/item/clothing/gloves/roguetown/plate/avantyne/heavy
+	name = "heavy avantyne gauntlets"
 	desc = "Unknowing truths, veiling the hands that prayed. Called forth from the edge of what should be known, in Her name."
 	icon_state = "zizogauntlets"
 	max_integrity = ARMOR_INT_SIDE_ANTAG
-	chunkcolor = "#363030"
-	material_category = ARMOR_MAT_PLATE
-	sellprice = 44 //CC Edit
 
-/* //Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
-/obj/item/clothing/gloves/roguetown/plate/zizo/Initialize()
+/obj/item/clothing/gloves/roguetown/plate/avantyne/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	AddComponent(/datum/component/cursed_item, TRAIT_CABAL, "ARMOR")
 
-/obj/item/clothing/gloves/roguetown/plate/zizo/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/gloves/roguetown/plate/avantyne/dropped(mob/living/carbon/human/user)
+	return ..()
+
+//Caustic Edit - Allow dropping of the armor.
+/obj/item/clothing/gloves/roguetown/plate/avantyne/heavy/Initialize()
 	. = ..()
-	if(QDELETED(src))
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/gloves/roguetown/plate/avantyne/heavy/dropped(mob/living/carbon/human/user)
+	. = ..()
+	/*if(QDELETED(src))
 		return
-	qdel(src)
-*/ //Caustic Edit End
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/gloves/roguetown/plate/shadowgauntlets
 	name = "darkplate gauntlets"
