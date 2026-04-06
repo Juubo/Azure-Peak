@@ -75,7 +75,10 @@
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 	sleep(1)
-	explode()
+	//Caustic Edit - Only explode if it's already lit.
+	if(lit)
+		explode()
+	//Caustic Edit End
 
 /obj/item/bomb/process()
 	fuze--
