@@ -1517,7 +1517,7 @@
 	if(!..())
 		return
 	if((user.patron?.type) != /datum/patron/inhumen/zizo)
-		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		to_chat(user,span_warning("Touching it sends a cold shock up my arm. I shouldn't be trying to use this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
@@ -1617,7 +1617,7 @@
 	if(!..())
 		return
 	if((user.patron?.type) != /datum/patron/inhumen/matthios)
-		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		to_chat(user,span_warning("Somehow, I get the feeling touching this will take something from me..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
@@ -1777,7 +1777,7 @@
 	if(!..())
 		return
 	if((user.patron?.type) != /datum/patron/inhumen/graggar)
-		to_chat(user,span_smallred("I don't know the proper rites for this..."))
+		to_chat(user,span_warning("I hear a distant war cry in the back of my mind as I touch this..."))
 		return
 	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
 		to_chat(user,span_smallred("I don't know the proper rites for this..."))
