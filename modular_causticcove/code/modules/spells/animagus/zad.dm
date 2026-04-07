@@ -41,7 +41,7 @@
 		TRAIT_BRITTLE,
 	)
 	inherent_biotypes = MOB_HUMANOID
-	armor = 5
+	//armor = 5 //Armor Rework from AP probably changed this? This var doesn't exist anymore apparently. Sorry Poss! - Jon
 	no_equip = list(SLOT_SHIRT, SLOT_HEAD, SLOT_WEAR_MASK, SLOT_ARMOR, SLOT_GLOVES, SLOT_SHOES, SLOT_PANTS, SLOT_CLOAK, SLOT_BELT, SLOT_BACK_R, SLOT_BACK_L, SLOT_S_STORE)
 	nojumpsuit = 1
 	sexes = 1

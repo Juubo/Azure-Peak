@@ -404,6 +404,13 @@
 	else
 		icon_state = "boltpouch0"
 
+/obj/item/quiver/bolt/light/Initialize()
+	..()
+	for(var/i in 1 to max_storage)
+		var/obj/item/ammo_casing/caseless/rogue/bolt/light/A = new()
+		arrows += A
+	update_icon()
+
 /obj/item/quiver/bolt/standard/Initialize()
 	..()
 	for(var/i in 1 to max_storage)

@@ -781,7 +781,6 @@
 	desc = "A distinctive black dress that should be kept clean and tidy - unless you want to be disciplined. This one seems to be padded."
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS|VITALS
 	armor = ARMOR_PADDED
-	prevent_crits = PREVENT_CRITS_MOST
 	blocksound = SOFTUNDERHIT
 	blade_dulling = DULLING_BASHCHOP
 	max_integrity = ARMOR_INT_CHEST_LIGHT_MEDIUM
