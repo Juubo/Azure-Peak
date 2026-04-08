@@ -2117,3 +2117,47 @@
 	name = "sour sauce"
 	desc = "Sour flavors clear my mind!"
 	icon_state = "buff"
+
+//Artificer armor buff
+/datum/status_effect/buff/artificerint
+	id = "artificer_arcyne"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/artificerint
+	effectedstats = list(STATKEY_INT = 3)
+
+/atom/movable/screen/alert/status_effect/buff/artificerint
+	name = "Artificer Arcyne"
+	desc = "This armor fills me with arcyne power and knowledge."
+	icon_state = "buff"
+
+/datum/status_effect/buff/artificerstr
+	id = "artificer_athletic"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/artificerstr
+	effectedstats = list(STATKEY_STR = 2, STATKEY_WIL = 2)
+
+/atom/movable/screen/alert/status_effect/buff/artificerstr
+	name = "Artificer Athletic"
+	desc = "This armor fills me with atheletic power and strength."
+	icon_state = "buff"
+
+//construct buffing
+/datum/status_effect/buff/windup
+    id = "windup"
+    alert_type = /atom/movable/screen/alert/status_effect/buff/windup
+    effectedstats = list(STATKEY_SPD = 1, STATKEY_WIL = 1)
+    duration = 45 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/windup
+    name = "Drill Windup"
+    desc = "Malum's own drill has wound me up. I am faster, now."
+    icon_state = "buff"
+
+/datum/status_effect/buff/tuneup
+    id = "tuneup"
+    alert_type = /atom/movable/screen/alert/status_effect/buff/tuneup
+    effectedstats = list(STATKEY_CON = 1, STATKEY_PER = 1)
+    duration = 45 MINUTES
+
+/atom/movable/screen/alert/status_effect/buff/tuneup
+    name = "Wrench Tuneup"
+    desc = "Malum's own wrench powers me. I can withstand more damage, now."
+    icon_state = "buff"
