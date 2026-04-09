@@ -34,6 +34,12 @@
 
 	//Caustic edit
 	init_vore(TRUE)
+	//CC Edit - Audio Preloading
+	if(client.prefs.audio_preload)
+		if(cmode_music)
+			for(var/music in cmode_music)
+				src << load_resource(music, -1)
+		client.preload_sounds()
 	//Caustic edit end
 
 /mob/living/proc/login_fade()

@@ -355,11 +355,22 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		reconnecting = TRUE
 		player_details = GLOB.player_details[ckey]
 		player_details.byond_version = full_version
+		//CC Edit - Audio Preloading, reload every time the client is brought back in if they reconnect.
+		if(prefs.audio_preload)
+			if(mob?.cmode_music) //Preload our combat music as well.
+				for(var/music in mob.cmode_music)
+					src << load_resource(music, -1)
+			preload_sounds()
 	else
 		player_details = new(ckey)
 		player_details.byond_version = full_version
 		GLOB.player_details[ckey] = player_details
-
+		//CC Edit - Audio Preloading, same as above.
+		if(prefs.audio_preload)
+			if(mob?.cmode_music) //Preload our combat music as well.
+				for(var/music in mob.cmode_music)
+					src << load_resource(music, -1)
+			preload_sounds()
 
 	. = ..()	//calls mob.Login()
 	if (length(GLOB.stickybanadminexemptions))

@@ -294,5 +294,40 @@ GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/shop.ogg',
 	'sound/music/area/spidercave.ogg',
 	'sound/music/area/towngen.ogg',
-	'sound/music/area/townstreets.ogg'
+	'sound/music/area/townstreets.ogg',
+	'sound/music/area/sleeping.ogg',
+	'sound/music/area/manor.ogg',
+	'sound/music/area/manor2.ogg',
+	'sound/music/area/churchdawn.ogg',
+	'sound/music/area/peace.ogg',
+	'sound/newmusic/lovecraft2.ogg',
+	'sound/music/area/morosewaters.ogg',
+	'sound/music/area/decap_deeper.ogg',
+	'sound/music/area/dungeon2.ogg',
+	'sound/music/area/banditcamp.ogg',
+	'sound/music/area/dragonden.ogg',
+	'sound/music/area/underdark.ogg',
+	'sound/music/unholy.ogg',
+	'sound/music/area/original_sin.ogg'
 	))
+
+//CC Edit - Readd Preload Sounds, change how it functions.
+/client/verb/preload_sounds()
+	set category = "OPTIONS"
+	set name = "Preload Ambience"
+
+	for(var/music in GLOB.ambience_files)
+		src << load_resource(music, -1) //Load and save these to memory indefinitely.
+	to_chat(src, span_info("Audio effects preloaded!"))
+
+//CC Edit - Automatically preloads audio upon spawning into the game. Highly suggested to enable this.
+/client/verb/toggle_automatic_preload()
+	set category = "OPTIONS"
+	set name = "Toggle Audio Preload"
+	if(prefs)
+		prefs.audio_preload = !prefs.audio_preload
+		prefs.save_preferences()
+		if(prefs.audio_preload)
+			to_chat(src, "You will now automatically preload audio upon spawning in for the first time.")
+		else
+			to_chat(src, "You will no longer preload audio.")
