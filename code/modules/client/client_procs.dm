@@ -357,10 +357,12 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		player_details.byond_version = full_version
 		//CC Edit - Audio Preloading, reload every time the client is brought back in if they reconnect.
 		if(prefs.audio_preload)
-			if(mob?.cmode_music) //Preload our combat music as well.
-				for(var/music in mob.cmode_music)
-					src << load_resource(music, -1)
-			preload_sounds()
+			if(!prefs.preloaded)//Check if we already preloaded. Users may need to manually preload if anything happens to their client.
+				if(mob?.cmode_music) //Preload our combat music as well.
+					for(var/music in mob.cmode_music)
+						src << load_resource(music, -1)
+				prefs.preloaded = TRUE
+				preload_sounds()
 	else
 		player_details = new(ckey)
 		player_details.byond_version = full_version
@@ -371,6 +373,7 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 				if(mob?.cmode_music) //Preload our combat music as well.
 					for(var/music in mob.cmode_music)
 						src << load_resource(music, -1)
+				prefs.preloaded = TRUE
 				preload_sounds()
 
 	. = ..()	//calls mob.Login()

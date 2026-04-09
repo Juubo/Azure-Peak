@@ -275,6 +275,7 @@
 		C?.tgui_panel?.stop_music()
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Stop All Playing Sounds") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
+//CC Edit - This list should contain large files that need to be preloaded. Music for example is one of the biggest ones.
 GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/bath.ogg',
 	'sound/music/area/bog.ogg',
@@ -309,6 +310,29 @@ GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/underdark.ogg',
 	'sound/music/unholy.ogg',
 	'sound/music/area/original_sin.ogg'
+	'sound/ambience/bogday (1).ogg',
+	'sound/ambience/bogday (2).ogg',
+	'sound/ambience/bogday (3).ogg',
+	'sound/ambience/townnight (1).ogg',
+	'sound/ambience/townnight (2).ogg',
+	'sound/ambience/townnight (3).ogg',
+	'sound/ambience/MOUNTAIN (1).ogg',
+	'sound/ambience/MOUNTAIN (2).ogg',
+	'sound/ambience/rainin.ogg',
+	'sound/ambience/rainout.ogg',
+	'sound/ambience/rainsewer.ogg',
+	'sound/ambience/cave.ogg',
+	'sound/ambience/townday.ogg',
+	'sound/ambience/bognight.ogg',
+	'sound/ambience/forestday.ogg',
+	'sound/ambience/waves.ogg',
+	'sound/ambience/forestnight.ogg',
+	'sound/ambience/indoorgen.ogg',
+	'sound/ambience/basement.ogg',
+	'sound/ambience/jungleday.ogg',
+	'sound/ambience/lake (1).ogg',
+	'sound/ambience/lake (2).ogg',
+	'sound/ambience/lake (3).ogg',
 	))
 
 //CC Edit - Readd Preload Sounds, change how it functions.
@@ -318,7 +342,7 @@ GLOBAL_LIST_INIT(ambience_files, list(
 
 	for(var/music in GLOB.ambience_files)
 		src << load_resource(music, -1) //Load and save these to memory indefinitely.
-	to_chat(src, span_info("Audio effects preloaded! You should only see this happen ONCE every time you load the client."))
+	to_chat(src, span_info("Audio effects preloaded! You should only ever see this ONCE per load."))
 
 //CC Edit - Automatically preloads audio upon spawning into the game. Highly suggested to enable this.
 /client/verb/toggle_automatic_preload()
