@@ -367,10 +367,11 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 		GLOB.player_details[ckey] = player_details
 		//CC Edit - Audio Preloading, same as above.
 		if(prefs.audio_preload)
-			if(mob?.cmode_music) //Preload our combat music as well.
-				for(var/music in mob.cmode_music)
-					src << load_resource(music, -1)
-			preload_sounds()
+			if(!prefs.preloaded)//Check if we already preloaded. Users may need to manually preload if anything happens to their client.
+				if(mob?.cmode_music) //Preload our combat music as well.
+					for(var/music in mob.cmode_music)
+						src << load_resource(music, -1)
+				preload_sounds()
 
 	. = ..()	//calls mob.Login()
 	if (length(GLOB.stickybanadminexemptions))

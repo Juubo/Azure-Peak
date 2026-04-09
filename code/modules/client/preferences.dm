@@ -249,6 +249,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//CC Edit - Audio Preload
 	var/audio_preload
+	var/preloaded = FALSE //Bool Check
 
 /datum/preferences/New(client/C)
 	parent = C

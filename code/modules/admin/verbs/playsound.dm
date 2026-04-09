@@ -318,7 +318,7 @@ GLOBAL_LIST_INIT(ambience_files, list(
 
 	for(var/music in GLOB.ambience_files)
 		src << load_resource(music, -1) //Load and save these to memory indefinitely.
-	to_chat(src, span_info("Audio effects preloaded!"))
+	to_chat(src, span_info("Audio effects preloaded! You should only see this happen ONCE every time you load the client."))
 
 //CC Edit - Automatically preloads audio upon spawning into the game. Highly suggested to enable this.
 /client/verb/toggle_automatic_preload()
