@@ -309,7 +309,7 @@ GLOBAL_LIST_INIT(ambience_files, list(
 	'sound/music/area/dragonden.ogg',
 	'sound/music/area/underdark.ogg',
 	'sound/music/unholy.ogg',
-	'sound/music/area/original_sin.ogg'
+	'sound/music/area/original_sin.ogg',
 	'sound/ambience/bogday (1).ogg',
 	'sound/ambience/bogday (2).ogg',
 	'sound/ambience/bogday (3).ogg',
