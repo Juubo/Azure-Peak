@@ -2081,7 +2081,6 @@
 #include "code\modules\jobs\job_types\roguetown\other\goblin.dm"
 #include "code\modules\jobs\job_types\roguetown\other\greater_skeleton.dm"
 #include "code\modules\jobs\job_types\roguetown\other\lich_skeleton.dm"
-
 #include "code\modules\jobs\job_types\roguetown\other\tester.dm"
 #include "code\modules\jobs\job_types\roguetown\other\vampire_guard.dm"
 #include "code\modules\jobs\job_types\roguetown\other\vampire_servant.dm"
@@ -2888,6 +2887,7 @@
 #include "code\modules\spells\spell_types\bardic\songbook.dm"
 #include "code\modules\spells\spell_types\bardic\vicious_mockery.dm"
 #include "code\modules\spells\spell_types\classunique\berserker\berserkrage.dm"
+#include "code\modules\spells\spell_types\classunique\desertrider\zeybek_momentum.dm"
 #include "code\modules\spells\spell_types\classunique\spellblade\advance.dm"
 #include "code\modules\spells\spell_types\classunique\spellblade\air_strike.dm"
 #include "code\modules\spells\spell_types\classunique\spellblade\anime_spells_helper.dm"
