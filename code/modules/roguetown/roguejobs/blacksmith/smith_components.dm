@@ -310,7 +310,7 @@
 			M.obj_integrity *= modifier
 			if(skill_quality >= BLACKSMITH_LEVEL_LEGENDARY)
 				M.table_need = FALSE //Make armor plates work without a table, just like fabric! Encourage the use of good quality armor kits!
-				desc = "[initial(desc)] This kit features a special instructional pamphlet, allowing you to repair without the need of a table!"
+				M.desc = "[initial(M.desc)] This kit features a special instructional pamphlet, allowing you to repair without the need of a table!"
 
 		
 		//CC Edit End
