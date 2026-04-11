@@ -276,7 +276,8 @@
 		//I wanna watch this modifier closely, as swift weapons like daggers and rapiers can take huge advantage of this modifier.
 		//However, they shouldn't be *that* scary unless the smith can easily make priceless equipment all the time. Which is hard to do!
 		I.force += skill_quality // Flat amount based on skill quality. Note: Skill Quality is not restricted to max/min level cap. A really bad smith could make a weapon that does nothing!
-
+		I.force_dynamic += skill_quality //Also need to include dynamic force? 
+		
 		//Make non-crafters have to commit to their smithing or take a virtue; Otherwise suffer integ damage for low quality goods.
 		//You also need a good statpack as well if you came here seeking answers. STR, PER, INT all work together to make good smithing quality items.
 		if(modifier < 1)
@@ -297,12 +298,12 @@
 		
 		if(istype(I, /obj/item/needle))
 			var/obj/item/needle/N = I
-			N.maxstring *= modifier //Better needle for tighter threads in stitching and cleaner, more precise strokes through open wounds!
-			N.stringamt *= modifier //If you don't know how to make it.. Well.. it's not going to be a lot...
+			N.maxstring += skill_quality //Better needle for tighter threads in stitching and cleaner, more precise strokes through open wounds!
+			N.stringamt += skill_quality //If you don't know how to make it.. Well.. it's not going to be a lot...
 		
 		if(istype(I, /obj/item/contraption))
 			var/obj/item/contraption/C = I
-			C.charge_per_source += max(0, skill_quality) //Note: Skill Quality is not restricted to max/min level cap.
+			C.charge_per_source += max(1, skill_quality) //Note: Skill Quality is not restricted to max/min level cap.
 
 		if(istype(I, /obj/item/repair_kit/metal)) //Repair kits made by the smithy should be far more valuable than the normal ones.
 			var/obj/item/repair_kit/metal/M = I
