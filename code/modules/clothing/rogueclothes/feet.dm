@@ -93,7 +93,8 @@
 	icon_state = "psydonboots"
 	item_state = "psydonboots"
 	sewrepair = TRUE
-	armor = ARMOR_INT_SIDE_HARDLEATHER  //170 extra hp. stop footfragging my orthos. 
+	armor = ARMOR_LEATHER
+	max_integrity = ARMOR_INT_SIDE_HARDLEATHER //170 extra hp. stop footfragging my orthos. 
 	salvage_amount = 1
 	salvage_result = /obj/item/natural/hide/cured
 	sellprice = 15 //Blessed boots...
@@ -545,7 +546,7 @@
 	icon_state = "inqboots"
 	item_state = "inqboots"
 	allowed_race = ALL_RACES_TYPES
-	armor = ARMOR_INT_SIDE_HARDLEATHER
+	armor = ARMOR_PLATE
 
 
 // ----------------- BLACKSTEEL -----------------------
