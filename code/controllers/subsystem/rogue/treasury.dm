@@ -1,5 +1,6 @@
 // SEE treasury.dm in __DEFINES for definitions
 
+//Anyone from CC Editing or Cherry-Picking from AP, REMEMBER, We use the old treasury system! Not their minting system!
 /proc/send_ooc_note(msg, name, job)
 	var/list/names_to = list()
 	if(name)
@@ -32,12 +33,10 @@ SUBSYSTEM_DEF(treasury)
 		TAX_CAT_PEASANTS = list("taxAmount" = 12, "fineExemption" = FALSE)
 	)
 	var/tax_value = 0.11
-	var/queens_tax = 0.10
+	var/queens_tax = 0.15 //CC Edit - Higher tax
 	var/bank_interest_rate = 0.035 // 3.5% per day; changeable at steward
 	var/bank_interest_cap = 50
 	var/treasury_value = 0
-	var/mint_multiplier = 0.8 // 1x is meant to leave a margin after standard 80% collectable. Less than Bathmatron.
-	var/minted = 0
 	var/autoexport_percentage = 0.6 // Percentage above which stockpiles will automatically export  
 	var/list/bank_accounts = list()
 	var/list/noble_incomes = list()
@@ -105,7 +104,7 @@ SUBSYSTEM_DEF(treasury)
 			if(istype(VB))
 				VB.update_icon()
 		auto_export()
-		send_ooc_note("Income from wealth hoard: +[amt_to_generate]", job = list("Grand Duke", "Steward", "Clerk"))
+		send_ooc_note("Income from Wealth Hoard: +[amt_to_generate]", job = list("Grand Duke", "Steward", "Clerk"))
 
 /datum/controller/subsystem/treasury/proc/add_to_vault(var/obj/item/I)
 	if(I.get_real_price() <= 0 || istype(I, /obj/item/roguecoin))
