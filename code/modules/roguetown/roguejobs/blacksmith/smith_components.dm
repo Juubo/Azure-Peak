@@ -270,19 +270,50 @@
 					I.AddComponent(/datum/component/metal_glint)
 
 		I.sellprice *= modifier
+		//CC Edit Begin - More Smithing Modifiers
+		I.sharpness *= modifier //Sharper blades simply last longer in combat, and reduce the needs to return to a whetstone so often.
+
+		//I wanna watch this modifier closely, as swift weapons like daggers and rapiers can take huge advantage of this modifier.
+		//However, they shouldn't be *that* scary unless the smith can easily make priceless equipment all the time. Which is hard to do!
+		I.force += skill_quality // Flat amount based on skill quality. Note: Skill Quality is not restricted to max/min level cap. A really bad smith could make a weapon that does nothing!
+
 		//Make non-crafters have to commit to their smithing or take a virtue; Otherwise suffer integ damage for low quality goods.
 		//You also need a good statpack as well if you came here seeking answers. STR, PER, INT all work together to make good smithing quality items.
 		if(modifier < 1)
 			I.max_integrity *= modifier
 			I.obj_integrity *= modifier
 
-		if(istype(I, /obj/item/reagent_containers)) //Can't bend the shape right? Sucks to be you.
+		if(istype(I, /obj/item/reagent_containers))
 			var/obj/item/reagent_containers/R = I
 			R.volume *= modifier
 
 		if(istype(I, /obj/item/lockpick))
 			var/obj/item/lockpick/L = I
 			L.picklvl = modifier
+		
+		if(istype(I, /obj/item/flashlight/flare/torch/lantern))
+			var/obj/item/flashlight/flare/torch/lantern/L = I
+			L.light_outer_range *= modifier //Can be on the same brightness as a torch with masterwork.
+		
+		if(istype(I, /obj/item/needle))
+			var/obj/item/needle/N = I
+			N.maxstring *= modifier //Better needle for tighter threads in stitching and cleaner, more precise strokes through open wounds!
+			N.stringamt *= modifier //If you don't know how to make it.. Well.. it's not going to be a lot...
+		
+		if(istype(I, /obj/item/contraption))
+			var/obj/item/contraption/C = I
+			C.charge_per_source += max(0, skill_quality) //Note: Skill Quality is not restricted to max/min level cap.
+
+		if(istype(I, /obj/item/repair_kit/metal)) //Repair kits made by the smithy should be far more valuable than the normal ones.
+			var/obj/item/repair_kit/metal/M = I
+			M.max_integrity *= modifier
+			M.obj_integrity *= modifier
+			if(skill_quality >= BLACKSMITH_LEVEL_LEGENDARY)
+				M.table_need = FALSE //Make armor plates work without a table, just like fabric! Encourage the use of good quality armor kits!
+				desc = "[initial(desc)] This kit features a special instructional pamphlet, allowing you to repair without the need of a table!"
+
+		
+		//CC Edit End
 
 	// Clean up the original workpiece
 	qdel(parent)
