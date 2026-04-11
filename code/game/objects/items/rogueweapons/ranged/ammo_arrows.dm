@@ -118,6 +118,7 @@
 /obj/projectile/bullet/reusable/arrow/stone
 	name = "stone arrow"
 	ammo_type = /obj/item/ammo_casing/caseless/rogue/arrow/stone
+	damage = 30
 	accuracy = 60
 	min_range = MIN_ARROW_RANGE
 	max_range = MAX_ARROW_RANGE

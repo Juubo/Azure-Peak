@@ -629,6 +629,7 @@
 				if(src.alpha != 255)
 					animate(src, alpha = 255, time = used_time)
 			rogue_sneaking = FALSE
+			SEND_SIGNAL(src, COMSIG_MOB_BREAK_SNEAK)
 			return
 
 	else //not currently sneaking, check if we can sneak
