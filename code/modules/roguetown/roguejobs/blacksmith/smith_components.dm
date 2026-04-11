@@ -269,15 +269,16 @@
 					I.polished = 4
 					I.AddComponent(/datum/component/metal_glint)
 
-		I.sellprice *= modifier
+		I.sellprice *= modifier	
 		//CC Edit Begin - More Smithing Modifiers
-		I.sharpness *= modifier //Sharper blades simply last longer in combat, and reduce the needs to return to a whetstone so often.
+		I.max_blade_int *= modifier //Sharper blades simply last longer in combat, and reduce the needs to return to a whetstone so often.
+		I.blade_int *= modifier //blade_int is NOT object integrity, this is SHARPNESS.
 
 		//I wanna watch this modifier closely, as swift weapons like daggers and rapiers can take huge advantage of this modifier.
 		//However, they shouldn't be *that* scary unless the smith can easily make priceless equipment all the time. Which is hard to do!
 		I.force += skill_quality // Flat amount based on skill quality. Note: Skill Quality is not restricted to max/min level cap. A really bad smith could make a weapon that does nothing!
 		I.force_dynamic += skill_quality //Also need to include dynamic force? 
-		
+
 		//Make non-crafters have to commit to their smithing or take a virtue; Otherwise suffer integ damage for low quality goods.
 		//You also need a good statpack as well if you came here seeking answers. STR, PER, INT all work together to make good smithing quality items.
 		if(modifier < 1)
