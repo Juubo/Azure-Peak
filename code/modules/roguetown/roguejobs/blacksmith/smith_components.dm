@@ -281,6 +281,7 @@
 		if(I.force > 7)
 			I.force += skill_quality // Flat amount based on skill quality. Note: Skill Quality is not restricted to max/min level cap. A really bad smith could make a weapon that does nothing!
 			I.force_dynamic += skill_quality //Also need to include dynamic force? 
+			I.force_wielded += skill_quality //And the wielded force- How the hell did I forget this?
 
 		//Make non-crafters have to commit to their smithing or take a virtue; Otherwise suffer integ damage for low quality goods.
 		//You also need a good statpack as well if you came here seeking answers. STR, PER, INT all work together to make good smithing quality items.
