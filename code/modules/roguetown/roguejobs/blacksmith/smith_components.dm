@@ -261,12 +261,13 @@
 					I.name = "flawless [I.name]"
 				if(1.3)
 					I.name = "masterwork [I.name]"
-					I.polished = 4
+					//CC Edit - Remove polished for now, keep the glint. This causes confusion as it doesn't apply the polish buff. Proper polish is cheaper now anyhow!
+					//I.polished = 4
 					I.AddComponent(/datum/component/metal_glint)
 				if(1.4)
 					I.name = "priceless [I.name]"
 					I.desc = "[initial(I.desc)] It looks priceless!"
-					I.polished = 4
+					//I.polished = 4 //CC Edit - See above
 					I.AddComponent(/datum/component/metal_glint)
 
 		I.sellprice *= modifier	
