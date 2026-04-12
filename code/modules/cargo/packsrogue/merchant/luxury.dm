@@ -95,7 +95,7 @@
 	name = "Polishing Cream (x3)"
 	no_name_quantity = TRUE
 	cost = 30
-	contains = list(/obj/item/polishing_cream, /obj/item/armor_brush)
+	contains = list(/obj/item/polishing_cream, /obj/item/polishing_cream, /obj/item/polishing_cream)
 //CC Edit - Add a restock as well.
 
 /datum/supply_pack/rogue/luxury/talkstone
