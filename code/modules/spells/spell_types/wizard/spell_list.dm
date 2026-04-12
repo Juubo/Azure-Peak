@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(utility_spells, (list(
 		/datum/action/cooldown/spell/light,
 		/datum/action/cooldown/spell/magicians_brick,
 		/datum/action/cooldown/spell/magicians_stone,
+		/datum/action/cooldown/spell/magicians_rock,
 		/datum/action/cooldown/spell/mending,
 		///obj/effect/proc_holder/spell/invoked/mending/lesser, //Caustic Edit: For those who need to be cheap. -- Jon: The Mage 2 update likely wiped this from existence :<
 		/datum/action/cooldown/spell/message,
