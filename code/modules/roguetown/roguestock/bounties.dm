@@ -4,7 +4,7 @@
 	name = "Collectable Treasures"
 	desc = "Treasures are sent to the vault, where they accrue value over time. Payout is a percentage is based on the price of the treasure, with taxes removed from the payout after."
 	item_type = /obj/item
-	payout_price = 42 // CC Edit
+	payout_price = 66 // CC Edit
 	transport_item = /area/rogue/indoors/town/vault
 	percent_bounty = TRUE
 
