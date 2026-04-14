@@ -644,7 +644,7 @@
 		return
 	var/stamheal = healing_on_tick
 	if(!owner.cmode)
-		stamheal *= 2
+		stamheal *= 3 //CC Edit 2 -> 3 (15 Energy per tick)
 	owner.energy_add(stamheal)
 	owner.adjust_bodytemperature(8)
 
@@ -655,7 +655,7 @@
 	id = "healing_campfire"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing/campfire
 	examine_text = null
-	var/healing_on_tick = 2
+	var/healing_on_tick = 3 //CC Edit, 2 -> 3 healing on tick. 
 	duration = 6 SECONDS
 
 /datum/status_effect/buff/campfire/tick()
