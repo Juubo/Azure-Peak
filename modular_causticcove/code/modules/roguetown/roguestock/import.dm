@@ -29,6 +29,23 @@
 
 /obj/structure/closet/crate/chest/steward/parchmentpapers/Initialize()
 	. = ..()
+
+	//Wall of paper text.
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
+	new /obj/item/paper(src)
 	new /obj/item/paper(src)
 	new /obj/item/paper(src)
 	new /obj/item/paper(src)
