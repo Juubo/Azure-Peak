@@ -83,7 +83,7 @@
  */
 
 /datum/roguestock/import/marraigecrate
-	name = "Crate of Marraige Necessities"
+	name = "Crate of Marriage Necessities"
 	desc = "An imported crate of goods for marraige! Includes 2 Gold Rings, 2 Apple Nut Cakes, and 3 Apfelweinheim Ciders!"
 	item_type = /obj/structure/closet/crate/chest/steward/marraigecrate
 	export_price = 1500 //We're married! Yes it cost us a fortune!
