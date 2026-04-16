@@ -576,15 +576,15 @@ GLOBAL_LIST(teleport_runes)
 /obj/effect/decal/cleanable/roguerune/arcyne/teleport
 	name = "planar convergence matrix"
 	desc = "A large spiraling sigil that seems to thrum with power."
-	icon = 'icons/effects/160x160.dmi'
+	icon = 'icons/effects/96x96.dmi'
 	icon_state = "portal"
 	tier = 3 //Caustic Cove Edit - bump the tier to 3 so it's actually usable in regular play
 	req_invokers = 2
 	invocation = "Plana Convergant!"
 	req_keyword = TRUE
-	runesize = 2
-	pixel_x = -64 //So the big ol' 96x96 sprite shows up right
-	pixel_y = -64
+	runesize = 1
+	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 	rituals = list(/datum/runeritual/teleport::name = /datum/runeritual/teleport)
@@ -679,9 +679,9 @@ GLOBAL_LIST(teleport_runes)
 	else
 		fail_invoke()
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning	//32x32 rune t1(one tile)
-	name = "confinement matrix"
-	desc = "A relatively basic confinement matrix used to hold small things when summoned."
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning
+	name = "lesser matrix of summoning"
+	desc = "A lesser circle of arcyne power, channeling the energy of the evoker to breach the veil between the material plane and the other and bring forth creechurs."
 	icon_state = "summon"
 	invocation = "Evoca et Constringe!"
 	max_integrity = -1
@@ -773,11 +773,11 @@ GLOBAL_LIST(teleport_runes)
 		anticheese.ChangeTurf(/turf/open/floor/rogue/blocks)
 		continue
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid// 96x96 rune t2(3x3 tile)
-	name = "sealate confinement matrix"
-	desc = "An adept confinement matrix improved with the addition of a sealate matrix; used to hold things when summoned."
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid
+	name = "ordinary matrix of summoning"
+	desc = "An ordinary circle of arcyne power, capable of reaching into the second dimension of the veil and bringing forth more powerful creechurs."
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "sealate"
+	icon_state = "summonmid"
 	runesize = 1
 	tier = 2
 	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
@@ -789,16 +789,15 @@ GLOBAL_LIST(teleport_runes)
 	. = ..()
 	rituals += GLOB.t2summoningrunerituallist
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv	//160x160 rune t2(5x5 tile)
-	name = "warded sealate confinement matrix"
-	desc = "A thoroughly warded confinement matrix improved with the addition of a sealate matrix; \
-	used to hold larger, dangerous things when summoned."
-	icon = 'icons/effects/160x160.dmi'
-	icon_state = "warded"
-	runesize = 2
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv
+	name = "greater sealed matrix of summoning"
+	desc = "A greater summoning circle with the addition of a sealate matrix, the strongest a singular mage can sustain with the lyfeforce from their body, capable of summoning truly terrifying beasts."
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "summonadv"
+	runesize = 1
 	tier = 3
-	pixel_x = -64 //So the big ol' 160x160 sprite shows up right
-	pixel_y = -64
+	pixel_x = -32
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 
@@ -806,17 +805,15 @@ GLOBAL_LIST(teleport_runes)
 	. = ..()
 	rituals += GLOB.t3summoningrunerituallist
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/max	//224x224 rune t3(7x7 tile)
-	name = "noc's eye warded sealate confinement matrix"
-	desc = "A thoroughly warded confinement matrix improved with a Noc's eye sealing measure \
-	and the addition of a sealate matrix; used to hold the largest, most dangerous things summonable."
-	icon = 'icons/effects/224x224.dmi'
-	icon_state = "huge_runeblued"
-	runesize = 3
-	req_invokers = 3
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/max
+	name = "grand warded matrix of summoning"
+	desc = "A grand summoning circle capable of summoning the strongest and most powerful of creechurs modern mages can manage to reach."
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "summonmax"
+	runesize = 1
 	tier = 4
-	pixel_x = -96 //So the big ol' 96x96 sprite shows up right
-	pixel_y = -96
+	pixel_x = -32
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 
