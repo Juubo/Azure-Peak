@@ -72,21 +72,8 @@
 	damtype = BRUTE
 	force = 1
 	w_class = WEIGHT_CLASS_TINY
-	var/rune_to_scribe = null
-	var/amount = 8
-
-/obj/item/chalk/examine(mob/user)
-	. = ..()
-	desc += "It has [amount] uses left."
-
-/obj/item/chalk/attackby(obj/item/M, mob/user, params)
-	if(istype(M,/obj/item/rogueore/cinnabar))
-		if(amount < 8)
-			amount = 8
-			to_chat(user, span_notice("I press arcyne magic into the [M] and the red crystals within melt into quicksilver, quickly sinking into the [src]."))
-	else
-		return ..()
-
+	var/obj/effect/decal/cleanable/roguerune/rune_to_scribe = null
+	var/chosen_keyword
 
 /obj/item/chalk/attack_self(mob/living/carbon/human/user)
 	if(!isarcyne(user))
@@ -110,6 +97,18 @@
 	if(structures_in_way == TRUE)
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
+	/*if(initial(rune_to_scribe.requires_leyline)) //Caustic Edit - We don't have the separate Laylines
+		var/found_leyline = FALSE
+		for(var/obj/structure/leyline/L in range(5, user))
+			found_leyline = TRUE
+			break
+		if(!found_leyline)
+			to_chat(user, span_warning("This matrix must be drawn within reach of a leyline."))
+			return*/
+	if(initial(rune_to_scribe.req_keyword))
+		chosen_keyword = stripped_input(user, "Keyword for the new rune", "Runes", max_length = MAX_NAME_LEN)
+		if(!chosen_keyword)
+			return
 	var/crafttime = (100 - ((user.get_skill_level(/datum/skill/magic/arcane))*5))
 
 	user.visible_message(span_notice("\The [user] begins to drag [user.p_their()] [name] over \the [Turf], inscribing intricate symbols and sigils inside a circle."), span_notice("I start to drag my [name] over \the [Turf], inscribing intricate symbols and sigils on a circle."))
@@ -117,10 +116,7 @@
 	if(do_after(user, crafttime, target = src))
 		user.visible_message(span_warning("[user] draws an arcyne rune with [user.p_their()] [name]!"), \
 		span_notice("I finish tracing ornate symbols and circles with my [name], leaving behind a ritual rune."))
-		src.amount --
-		new rune_to_scribe(Turf)
-	if(amount == 0)
-		qdel(src)
+		new rune_to_scribe(Turf, chosen_keyword)
 
 /obj/item/chalk/proc/check_for_structures_and_closed_turfs(loc, var/obj/effect/decal/cleanable/roguerune/rune_to_scribe)
 	for(var/turf/T in range(loc, rune_to_scribe.runesize))
@@ -189,6 +185,14 @@
 	if(structures_in_way)
 		to_chat(user, span_cult("There is a structure, rune or wall in the way."))
 		return
+	/*if(initial(rune_to_scribe.requires_leyline)) //Caustic Edit - We don't have the separate Leylines
+		var/found_leyline = FALSE
+		for(var/obj/structure/leyline/L in range(5, user))
+			found_leyline = TRUE
+			break
+		if(!found_leyline)
+			to_chat(user, span_warning("This matrix must be drawn within reach of a leyline."))
+			return*/
 	if(initial(rune_to_scribe.req_keyword))
 		chosen_keyword = stripped_input(user, "Keyword for the new rune", "T4 Runes", max_length = MAX_NAME_LEN)
 		if(!chosen_keyword)
