@@ -134,6 +134,7 @@
 	crossfire = FALSE
 	pixel_y = 32
 	healing_range = 2
+	greater_fire = TRUE //CC Edit
 
 /obj/machinery/light/rogue/campfire/fireplace/attack_hand(mob/user)
 	if(isliving(user) && on)
@@ -812,6 +813,7 @@
 	soundloop = /datum/looping_sound/fireloop
 	var/healing_range = 2
 	var/static/list/acceptable_beds = list(/obj/structure/bed, /obj/structure/flora/roguetree/stump, /obj/item/bedsheet)
+	var/greater_fire = FALSE //CC Edit
 
 /obj/machinery/light/rogue/campfire/process()
 	..()
@@ -826,24 +828,29 @@
 			var/distance = get_dist(src, human)
 			if(distance > healing_range || human.construct)
 				continue
-			if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
-				to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed to get a better rest."))
-			human.apply_status_effect(/datum/status_effect/buff/campfire_stamina)
 			human.add_stress(/datum/stressevent/campfire)
-			if(human.resting && !human.cmode)
-				var/valid_bed = FALSE
-				var/turf/T = get_turf(human)
-				for(var/obj/O in T.contents)
-					for(var/path in acceptable_beds)
-						if(ispath(O.type, path))
-							valid_bed = TRUE
+			// CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down. For towners, this does not affect them.
+			//If the campfire is a greater firepit (densefire), apply these effects anyways.
+			if(greater_fire || human.has_status_effect(/datum/status_effect/incapacitating/sleeping) || human.job == "Towner" || istype(human.mind?.assigned_role, /datum/job/roguetown/villager))
+
+				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
+					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed to get a better rest."))
+				human.apply_status_effect(/datum/status_effect/buff/campfire_stamina)
+
+				if(human.resting && !human.cmode)
+					var/valid_bed = FALSE
+					var/turf/T = get_turf(human)
+					for(var/obj/O in T.contents)
+						for(var/path in acceptable_beds)
+							if(ispath(O.type, path))
+								valid_bed = TRUE
+								break
+						if(valid_bed)
 							break
 					if(valid_bed)
-						break
-				if(valid_bed)
-					if(!human.has_status_effect(/datum/status_effect/buff/campfire))
-						to_chat(human, span_info("Settling in by the flames lifts the burdens of the week."))
-					human.apply_status_effect(/datum/status_effect/buff/campfire)
+						if(!human.has_status_effect(/datum/status_effect/buff/campfire))
+							to_chat(human, span_info("Settling in by the flames lifts the burdens of the week."))
+						human.apply_status_effect(/datum/status_effect/buff/campfire) //CC Edit - See above comment.
 
 
 /obj/machinery/light/rogue/campfire/onkick(mob/user)
@@ -876,6 +883,7 @@
 	bulb_colour = "#eea96a"
 	max_integrity = 60
 	healing_range = 4
+	greater_fire = TRUE //CC Edit
 
 /obj/machinery/light/rogue/campfire/densefire/CanPass(atom/movable/mover, turf/target)
 	if(istype(mover) && (mover.pass_flags & PASSTABLE))
