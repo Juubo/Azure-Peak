@@ -7,7 +7,7 @@
 	density = FALSE
 	blade_dulling = DULLING_BASH
 	pixel_y = 32
-	var/return_ratio = 0.7 // CC Edit - 45 -> 70% cost should make it enticing enough to sell to merchant probably? Upped from 40 to account for taxation
+	var/return_ratio = 0.3 // CC Edit - .45 -> .3, should really consider selling to a merchant.
 	var/topay = 0
 
 /obj/structure/roguemachine/headeater/examine()
