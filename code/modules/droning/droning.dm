@@ -6,6 +6,8 @@ SUBSYSTEM_DEF(droning)
 /datum/controller/subsystem/droning/proc/area_entered(area/area_entered, client/entering)
 	if(!area_entered || !entering)
 		return
+	if(listener?.prefs?.stopdroning)
+		return
 /*
 	if(HAS_TRAIT(entering.mob, TRAIT_LEAN) && !area_entered.droning_sound)
 		//just kill the previous droning sound
@@ -110,6 +112,8 @@ SUBSYSTEM_DEF(droning)
 
 /datum/controller/subsystem/droning/proc/last_phase(area/area_player, client/listener, shouldskip = FALSE)
 	if(!area_player || !listener)
+		return
+	if(listener?.prefs?.stopdroning)
 		return
 	if(!listener?.droning_sound)
 		shouldskip = TRUE
