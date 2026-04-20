@@ -289,16 +289,6 @@
 	sellprice = 100
 	wdefense = 5
 
-/obj/item/rogueweapon/stoneaxe/woodcut/steel/decorated
-	name = "decorated axe"
-	icon_state = "nsapo"
-	desc = "Traditionally referred to as a 'nsapo', this beautifully decorated axe traces its roots back to the earliest daes of Psydonian \
-	civilization. Such makes it a favorite amongst the nobility of both Naledi and Ranenshen."
-	max_integrity = 300
-	smeltresult = /obj/item/ingot/gold
-	sellprice = 100
-	wdefense = 5
-
 /obj/item/rogueweapon/stoneaxe/woodcut/steel/paaxe
 	name = "ancient alloy axe"
 	desc = "A hatchet of polished gilbranze. Vheslyn molested the hearts of Man with sin - of greed towards the better offerings, and of lust for His divinity. With \
