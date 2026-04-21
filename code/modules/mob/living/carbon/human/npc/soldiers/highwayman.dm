@@ -7,15 +7,9 @@ GLOBAL_LIST_INIT(highwayman_aggro, world.file2list("strings/rt/highwaymanaggroli
 	dodgetime = 30
 	d_intent = INTENT_PARRY
 
-	//We're slightly smarter bandits than the peasant militia. 
-	smart_combatant = TRUE
-
-
 /mob/living/carbon/human/species/human/northern/highwayman/ambush
 	threat_point = THREAT_MODERATE
 	ambush_faction = "bandits"
-
-
 
 /mob/living/carbon/human/species/human/northern/highwayman/Initialize()
 	. = ..()

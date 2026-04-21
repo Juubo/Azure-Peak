@@ -16,9 +16,6 @@
 	associated_skill = /datum/skill/magic/holy
 	hand_path = /obj/item/melee/touch_attack/orison
 
-	//CC Edit
-	spell_logic = LOGIC_NONE
-
 /obj/item/melee/touch_attack/orison
 	name = "\improper lesser prayer"
 	//CC Edit - Description Addition

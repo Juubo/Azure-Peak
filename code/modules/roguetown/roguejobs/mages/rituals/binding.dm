@@ -118,16 +118,16 @@
 		"Watch! The void is sundered!",
 		"Manifest! Evoca et Liga!"
 	)
-	var/obj/structure/leyline/powerful/leyline
+	/*var/obj/structure/leyline/powerful/leyline //Caustic Edit - Repurposing this for familiar summoning, instead of the spell
 	for(var/obj/structure/leyline/powerful/L in range(LEYLINE_TILE_DETECTION_RANGE, loc))
 		leyline = L
 		break
 	if(!leyline)
 		to_chat(user, span_warning("There is no leyline of sufficent strength nearby. Only the most powerful of leylines will do, for this."))
-		return FALSE
+		return FALSE*/
 	user.visible_message(
-		span_danger("[user] begins to chant, channeling energy into the leyline!"),
-		span_danger("You begin to chant, channeling energy into the leyline!")
+		span_danger("[user] begins to chant, channeling energy into the rune!"),
+		span_danger("You begin to chant, channeling energy into the rune!")
 	)
 	playsound(loc, 'sound/magic/teleport_diss.ogg', 100, TRUE, 14)
 	user.visible_message(
@@ -135,20 +135,20 @@
 		span_danger("You tear open a rift in the veil, reaching forth into the void!"),
 	)
 	var/obj/effect/void_rift/rift = new /obj/effect/void_rift(loc)
-	var/list/active_beams = list()
+	//var/list/active_beams = list()
 	for(var/i in 1 to length(chants))
 		var/line = chants[i]
 		user.say(line, language = /datum/language/common, ignore_spam = TRUE, forced = "cult invocation")
 		// Beams: visually leyline → circle and circle → caster (origin.Beam draws FROM origin)
-		var/turf/leyline_turf = get_turf(leyline)
-		active_beams += leyline_turf.Beam(loc, icon_state = "b_beam", time = 2 SECONDS, maxdistance = 10)
-		active_beams += loc.Beam(user, icon_state = "b_beam", time = 2 SECONDS, maxdistance = 10)
+		//var/turf/leyline_turf = get_turf(leyline)
+		//active_beams += leyline_turf.Beam(loc, icon_state = "b_beam", time = 2 SECONDS, maxdistance = 10)
+		//active_beams += loc.Beam(user, icon_state = "b_beam", time = 2 SECONDS, maxdistance = 10)
 		// Drain energy from all chanters
 		user.energy_add(-10)
-		if(!do_after(user, 2 SECONDS, target = leyline))
+		if(!do_after(user, 2 SECONDS, target = rift))
 			to_chat(user, span_warning("The ritual is interrupted!"))
-			for(var/datum/beam/B in active_beams)
-				B.End()
+			//for(var/datum/beam/B in active_beams)
+			//	B.End()
 			qdel(rift)
 			return FALSE
 	qdel(rift)

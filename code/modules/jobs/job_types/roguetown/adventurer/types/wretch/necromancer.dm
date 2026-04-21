@@ -8,7 +8,7 @@
 	class_select_category = CLASS_CAT_MAGE
 	category_tags = list(CTAG_WRETCH)
 	//Caustic edit
-	traits_applied = list(TRAIT_ZOMBIE_IMMUNE, TRAIT_MAGEARMOR, TRAIT_NOSTINK, TRAIT_GRAVEROBBER, TRAIT_ARCYNE, TRAIT_ALCHEMY_EXPERT, TRAIT_MEDICINE_EXPERT)
+	traits_applied = list(TRAIT_ZOMBIE_IMMUNE, TRAIT_NOSTINK, TRAIT_GRAVEROBBER, TRAIT_ARCYNE, TRAIT_ALCHEMY_EXPERT, TRAIT_MEDICINE_EXPERT)
 	//Caustic edit end
 	maximum_possible_slots = 3 //Ira okayed this any problem open ticket
 	subclass_stats = list(

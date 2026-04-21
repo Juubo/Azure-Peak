@@ -88,7 +88,7 @@
 		H.AddSpell(F)
 		H.AddSpell(I)
 
-		var/mode = SSgnoll_scaling.get_gnoll_scaling()
+		var/mode = get_gnoll_scaling()
 		if(mode == GNOLL_SCALING_DYNAMIC)
 			to_chat(H, span_bignotice("I can expect to be joined by my pack this week. I should wait for them and group up."))
 		else
@@ -112,12 +112,11 @@
 		result["final_slots"] = 0
 		return result
 	var/slots = 1
-	if(SSgnoll_scaling)
-		switch(SSgnoll_scaling.get_gnoll_scaling())
-			if(GNOLL_SCALING_FLAT)
-				slots = 2
-			if(GNOLL_SCALING_DYNAMIC)
-				slots = 3
+	switch(get_gnoll_scaling())
+		if(GNOLL_SCALING_FLAT)
+			slots = 2
+		if(GNOLL_SCALING_DYNAMIC)
+			slots = 3
 	result["final_slots"] = slots
 	return result
 

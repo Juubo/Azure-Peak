@@ -379,7 +379,7 @@
 		/obj/item/clothing/neck/roguetown/psicross/bpearl = 10,
 		/obj/item/roguecoin/gold/pile = 5, //Valuables (materials)
 		/obj/item/roguecoin/silver/pile = 9,
-		/obj/item/roguegem/random = 10,
+		/obj/effect/spawner/lootdrop/roguegem/random = 10,
 		/obj/item/roguegem/ruby = 5,
 		/obj/item/riddleofsteel = 2,
 		/obj/item/roguestatue/gold = 10,

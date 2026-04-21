@@ -236,7 +236,6 @@
 	var/oldicon
 	var/oldicon_state
 	var/olddesc
-	var/oldname
 	var/ready = TRUE
 	var/timing_id
 

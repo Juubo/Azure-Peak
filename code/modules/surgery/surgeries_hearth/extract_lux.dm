@@ -60,5 +60,5 @@
 		SEND_SIGNAL(user, COMSIG_LUX_EXTRACTED, target)
 		//record_featured_stat(FEATURED_STATS_CRIMINALS, user)	- This.. isn't normally criminal.
 		record_round_statistic(STATS_LUX_HARVESTED)
-		target.apply_status_effect((apply_greater ? /datum/status_effect/debuff/devitalised/greater : /datum/status_effect/debuff/devitalised))
+		target.apply_status_effect((apply_greater ? /datum/status_effect/debuff/devitalised : /datum/status_effect/debuff/devitalised/lesser))
 	return TRUE

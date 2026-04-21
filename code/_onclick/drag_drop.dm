@@ -97,8 +97,9 @@
 	// New spell system intercepted this click — skip old cursor/intent handling
 	if(signal_result & COMPONENT_CLIENT_MOUSEDOWN_INTERCEPT)
 		return
-
-	tcompare = object
+	
+	drag_target = object //CC Edit - Mouse Dragging Fix
+	is_dragging = FALSE //CC Edit End
 
 	if(mouse_down_icon)
 		mouse_pointer_icon = mouse_down_icon
@@ -267,7 +268,7 @@
 		active_mousedown_item.onMouseUp(object, location, params, mob)
 		active_mousedown_item = null
 
-	is_dragging = FALSE
+	is_dragging = FALSE //CC Edit - Mouse Drag Fix addition
 
 /client/proc/updateprogbar(atom/clicked_object)
 	if(!mob)

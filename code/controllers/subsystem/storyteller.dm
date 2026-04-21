@@ -3,6 +3,8 @@
 #define DEFAULT_STORYTELLER_VOTE_OPTIONS 4
 ///amount of players we can have before no longer running votes for storyteller
 #define MAX_POP_FOR_STORYTELLER_VOTE 25
+#define LAST_ROUND_STATS_FILE "data/last_round/storyteller_vote.json"
+#define LAST_ROUND_STATS_STORYTELLER_VOTE "storyteller_vote"
 ///the duration into the round for which roundstart events are still valid to run
 #define ROUNDSTART_VALID_TIMEFRAME 3 MINUTES
 /// Width of a popup window that opens when user presses (?) and contains storyteller description
@@ -25,10 +27,10 @@
 
 
 /proc/is_storyteller_villain_blocked()
-	return is_storyteller_pending_or_roundstart(/datum/storyteller/eora) || is_storyteller_pending_or_roundstart(/datum/storyteller/psydon)
+	return FALSE //is_storyteller_pending_or_roundstart(/datum/storyteller/eora) || is_storyteller_pending_or_roundstart(/datum/storyteller/psydon) //Caustic Edit - We won't limit antags based on Storyteller, because they are handled differently here.
 
 /proc/is_storyteller_soft_antag_blocked()
-	return is_storyteller_pending_or_roundstart(/datum/storyteller/psydon)
+	return FALSE //is_storyteller_pending_or_roundstart(/datum/storyteller/psydon) //Caustic Edit - We won't limit antags based on Storyteller, because they are handled differently here.
 
 /proc/enforce_storyteller_soft_antag_slots()
 	if(!is_storyteller_soft_antag_blocked())
@@ -917,13 +919,13 @@ SUBSYSTEM_DEF(gamemode)
 			selected_storyteller = storyboy.type
 			last_storyteller_vote = storyboy.type
 			matched_storyteller = TRUE
-			SSgnoll_scaling.get_gnoll_scaling() // Calling this here as to make sure scaling holds true as per the roundstart vote, not a latejoin hunted character joining.
+			get_gnoll_scaling() // Calling this here as to make sure scaling holds true as per the roundstart vote, not a latejoin hunted character joining.
 			break
 	// Inconclusive vote (no votes cast, or winner string didn't match any storyteller name)
 	// â€” fall back to Astrata instead of leaving whatever init-time pick_most_influential() seeded.
 	if(!matched_storyteller)
 		selected_storyteller = /datum/storyteller/astrata
-		SSgnoll_scaling.get_gnoll_scaling()
+		get_gnoll_scaling()
 
 	var/datum/storyteller/storytypecasted = selected_storyteller
 	to_chat(world, span_notice("<b>Storyteller is [initial(storytypecasted.name)]!</b>"))
@@ -1470,7 +1472,7 @@ SUBSYSTEM_DEF(gamemode)
 	current_storyteller = chosen_storyteller
 	if(SSjob?.occupations?.len)
 		gnollslot_update()
-		update_scaling_slots()
+		//update_scaling_slots()
 		enforce_storyteller_soft_antag_slots()
 	if(!secret_storyteller)
 		send_to_playing_players(span_notice("<b>Storyteller is [current_storyteller.name]!</b>"))
@@ -1543,17 +1545,17 @@ SUBSYSTEM_DEF(gamemode)
 		dat += "<BR>Selected Roundstart Antag: [current_roundstart_event.name][guaranteed_pick_suffix]"
 
 	// Job Scaling Info
-	dat += "<BR><b>--- Job Scaling ---</b>"
+	/*dat += "<BR><b>--- Job Scaling ---</b>"
 	var/list/wretch_scaling = calculate_wretch_scaling()
 	var/datum/job/wretch_job = SSjob.GetJob("Wretch")
-	dat += "<BR>Wretch Slots: [wretch_job?.current_positions]/[wretch_job?.total_positions] — T1: [wretch_scaling["tier1_slots"]]/10, T2: +[wretch_scaling["tier2_extra"]] / 5 = [wretch_scaling["final_slots"]] final"
+	dat += "<BR>Wretch Slots: [wretch_job?.current_positions]/[wretch_job?.total_positions] ï¿½ T1: [wretch_scaling["tier1_slots"]]/10, T2: +[wretch_scaling["tier2_extra"]] / 5 = [wretch_scaling["final_slots"]] final"
 	dat += "<BR>&nbsp;&nbsp;Garrison: [wretch_scaling["garrison"]], Holy Warriors: [wretch_scaling["holy_warrior"]], Acolytes: [wretch_scaling["acolyte"]] (half weight), Combat Total: [wretch_scaling["combat_total"]] (need > 10 for T2)"
 	if(wretch_scaling["major_antag_active"])
-		dat += "<BR>&nbsp;&nbsp;<font color='red'>MAJOR ANTAG ACTIVE (VL/LICH) — Tier 2 locked, max 10</font>"
+		dat += "<BR>&nbsp;&nbsp;<font color='red'>MAJOR ANTAG ACTIVE (VL/LICH) ï¿½ Tier 2 locked, max 10</font>"
 
 	var/list/adv_scaling = calculate_adventurer_scaling()
 	var/datum/job/adv_job = SSjob.GetJob("Adventurer")
-	dat += "<BR>Adventurer Slots: [adv_job?.current_positions]/[adv_job?.total_positions] (Calculated: [adv_scaling["final_slots"]])"
+	dat += "<BR>Adventurer Slots: [adv_job?.current_positions]/[adv_job?.total_positions] (Calculated: [adv_scaling["final_slots"]])"*/
 	dat += "<HR>"
 	dat += "<a href='byond://?src=[REF(src)];panel=main;action=tab;tab=[GAMEMODE_PANEL_MAIN]' [panel_page == GAMEMODE_PANEL_MAIN ? "class='linkOn'" : ""]>Main</a>"
 	dat += " <a href='byond://?src=[REF(src)];panel=main;action=tab;tab=[GAMEMODE_PANEL_VARIABLES]' [panel_page == GAMEMODE_PANEL_VARIABLES ? "class='linkOn'" : ""]>Variables</a>"

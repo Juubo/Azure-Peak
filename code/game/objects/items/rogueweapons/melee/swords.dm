@@ -1840,7 +1840,6 @@
 	icon_state = "mkriegmesser"
 	possible_item_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/sword/strike, /datum/intent/rend/krieg)
 	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/thrust/krieg, /datum/intent/sword/strike, /datum/intent/rend/krieg)
-	alt_intents = null
 	smeltresult = /obj/item/ingot/steel
 	sheathe_icon = "mkriegmesser" 
 

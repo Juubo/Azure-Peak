@@ -8,7 +8,7 @@
 /datum/action/cooldown/spell/reversion
 	button_icon = 'icons/mob/actions/classuniquespells/vizier.dmi'
 	name = "Reversion"
-	desc = "Marks an adjacent ally's body and position, granting them the ability to revert to their marked state within 15 seconds. The target chooses when to activate the revert."
+	desc = "Marks an adjacent ally's body and position, granting them the ability to revert to their marked state within 15 seconds. The target chooses when to activate the revert. If the target is under Convergence when activating this, all healing gained after application will remain."
 	button_icon_state = "reversion"
 	sound = 'sound/magic/timeforward.ogg'
 	spell_color = GLOW_COLOR_ARCANE
@@ -105,7 +105,7 @@
 /datum/action/cooldown/spell/reversion_trigger
 	button_icon = 'icons/mob/actions/classuniquespells/vizier.dmi'
 	name = "Revert"
-	desc = "Activate to snap back to your marked position and restore your state."
+	desc = "Activate to snap back to your marked position and restore your state. If you are under Convergence when this is activated, you retain any healing gained during the effect."
 	button_icon_state = "reversion"
 	sound = 'sound/magic/timereverse.ogg'
 	spell_color = GLOW_COLOR_ARCANE
@@ -173,14 +173,27 @@
 	var/brutenew = target.getBruteLoss()
 	var/burnnew = target.getFireLoss()
 	var/oxynew = target.getOxyLoss()
+	var/toxinnew = target.getToxLoss()
 	target.adjust_fire_stacks(firestacks)
 	target.adjust_fire_stacks(sunderfirestacks, /datum/status_effect/fire_handler/fire_stacks/sunder)
 	target.adjust_fire_stacks(divinefirestacks, /datum/status_effect/fire_handler/fire_stacks/divine)
-	target.adjustBruteLoss(brutenew * -1 + brute)
-	target.adjustFireLoss(burnnew * -1 + burn)
-	target.adjustOxyLoss(oxynew * -1 + oxy)
-	target.adjustToxLoss(target.getToxLoss() * -1 + toxin)
-	target.blood_volume = blood
+	if(target.has_status_effect(/datum/status_effect/buff/convergence))
+		if(brutenew>brute)
+			target.adjustBruteLoss(brutenew * -1 + brute)
+		if(burnnew>burn)
+			target.adjustFireLoss(burnnew * -1 + burn)
+		if(oxynew>oxy)
+			target.adjustOxyLoss(oxynew * -1 + oxy)
+		if(toxinnew>toxin)
+			target.adjustToxLoss(target.getToxLoss() * -1 + toxin)
+		if(target.blood_volume<blood)
+			target.blood_volume = blood
+	else
+		target.adjustBruteLoss(brutenew * -1 + brute)
+		target.adjustFireLoss(burnnew * -1 + burn)
+		target.adjustOxyLoss(oxynew * -1 + oxy)
+		target.adjustToxLoss(target.getToxLoss() * -1 + toxin)
+		target.blood_volume = blood
 
 	// Remove any wounds gained after the mark
 	for(var/datum/wound/wound as anything in target.get_wounds())
@@ -245,3 +258,42 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 #undef REVERSION_MARK_DURATION
+
+//Caustic Edit - Re-Add Convergence here!
+/obj/effect/proc_holder/spell/invoked/convergence
+	name = "Convergence"
+	desc = "Converges the targets past and present, causing them to heal 50% more."
+	overlay_state = "convergence"
+	releasedrain = 30
+	chargedrain = 0
+	chargetime = 0
+	range = 4
+	warnie = "sydwarning"
+	movement_interrupt = FALSE
+	req_items = list(/obj/item/clothing/neck/roguetown/psicross)
+	sound = list('sound/magic/convergence1.ogg','sound/magic/convergence2.ogg','sound/magic/convergence3.ogg','sound/magic/convergence4.ogg')
+	action_icon = 'icons/mob/actions/classuniquespells/vizier.dmi'
+	invocation_type = "none"
+	associated_skill = /datum/skill/magic/arcane
+	antimagic_allowed = TRUE
+	recharge_time = 30 SECONDS
+	miracle = FALSE
+	cost = 4
+	devotion_cost = 0
+
+/obj/effect/proc_holder/spell/invoked/convergence/cast(list/targets, mob/living/user)
+	. = ..()
+	if(isliving(targets[1]))
+		var/mob/living/target = targets[1]
+		target.visible_message(span_info("A convergence of fates surrounds [target]!"), span_notice("My past and present converge as one!"))
+		if(iscarbon(target))
+			var/mob/living/carbon/C = target
+			C.apply_status_effect(/datum/status_effect/buff/convergence)
+			C.apply_status_effect(/datum/status_effect/buff/fortify)
+		else
+			target.adjustBruteLoss(-50)
+			target.adjustFireLoss(-50)
+		return TRUE
+	revert_cast()
+	return FALSE
+//Caustic Edit End

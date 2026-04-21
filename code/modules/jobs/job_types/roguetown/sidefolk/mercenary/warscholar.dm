@@ -231,9 +231,10 @@
 		/datum/skill/combat/staves = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/polearms = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/alchemy = SKILL_LEVEL_APPRENTICE,
-		/datum/skill/magic/arcane = SKILL_LEVEL_EXPERT,
+		/datum/skill/magic/arcane = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/combat/crossbows = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/sewing = SKILL_LEVEL_APPRENTICE,
+		/datum/skill/magic/holy = SKILL_LEVEL_EXPERT,
 	)
 	subclass_mage_aspects = list("mastery" = FALSE, "major" = 0, "minor" = 1, "utilities" = 6, "locked_aspects" = list(/datum/magic_aspect/lesser_augmentation), "ward" = TRUE)
 
@@ -279,6 +280,9 @@
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		(naledi_book) = 1
 		)
+	
+	var/datum/devotion/C = new /datum/devotion(H, H.patron)
+	C.grant_miracles(H, cleric_tier = CLERIC_T4, passive_gain = CLERIC_REGEN_MINOR, start_maxed = TRUE)	//Starts off maxed out.
 
 	if(H.mind)
 		detailcolor = input("Choose a color.", "NALEDIAN COLORPLEX") as anything in naledicolors
@@ -287,6 +291,7 @@
 		H.mind.AddSpell(new /datum/action/cooldown/spell/blink/shadowstep)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diminish)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/vizier_restoration)
+		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/convergence)
 		H.mind.AddSpell(new /datum/action/cooldown/spell/reversion)
 		H.mind.AddSpell(new /datum/action/cooldown/spell/bestow_ward)
 		H.mind.AddSpell(new /datum/action/cooldown/spell/guidance)

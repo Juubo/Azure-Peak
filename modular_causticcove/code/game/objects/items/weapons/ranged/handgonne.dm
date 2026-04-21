@@ -35,7 +35,7 @@
 	bolt_type = BOLT_TYPE_NO_BOLT
 	casing_ejector = FALSE
 	pickup_sound = 'modular_causticcove/sound/sheath_sounds/draw_from_holster.ogg'
-	sheathe_sound = 'modular_causticcove/sound/sheath_sounds/put_back_to_holster.ogg'
+	//sheathe_sound = 'modular_causticcove/sound/sheath_sounds/put_back_to_holster.ogg' //This is now on the holster component instead of the weapon!
 	var/spread_num = 10
 	var/damfactor = 2
 	var/reloaded = FALSE
@@ -89,7 +89,7 @@
 	if(altgripped || wielded) //Trying to unwield it
 		ungrip(user)
 		return
-	if(alt_intents)
+	if(has_altgrip_modes())
 		altgrip(user)
 	if(gripped_intents)
 		wield(user)
@@ -97,7 +97,7 @@
 
 /obj/item/gun/ballistic/handgonne/attackby(obj/item/A, mob/user, params)
 	user.stop_sound_channel(gunchannel)
-	var/firearm_skill = (user?.mind ? user.mind.get_skill_level(/datum/skill/combat/firearms) : 1)
+	var/firearm_skill = (user?.mind ? user.get_skill_level(/datum/skill/combat/firearms) : 1)
 	var/load_time_skill = load_time - (firearm_skill*2)
 	gunchannel = SSsounds.random_available_channel()
 
@@ -152,7 +152,7 @@
 /obj/item/gun/ballistic/handgonne/process_fire(atom/target, mob/living/user, message = TRUE, params = null, zone_override = "", bonus_spread = 0)
 
 	var/accident_chance = 0
-	var/firearm_skill = (user?.mind ? user.mind.get_skill_level(/datum/skill/combat/firearms) : 1)
+	var/firearm_skill = (user?.mind ? user.get_skill_level(/datum/skill/combat/firearms) : 1)
 	var/turf/knockback = get_ranged_target_turf(user, turn(user.dir, 180), rand(1,2))
 	spread = (spread_num - firearm_skill)
 	if(user.client)

@@ -7,8 +7,6 @@
 #define DEBUG
 // END_PREFERENCES
 // BEGIN_INCLUDE
-#include "_statpacks.dm"
-#include "_virtue.dm"
 #include "_maps\_basemap.dm"
 #include "_maps\map_files\cove_world\cove_CentCom.dmm"
 #include "_maps\templates\arcyne_fortress.dm"
@@ -2034,7 +2032,6 @@
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\heretic_spellblade.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\heretic_spellfist.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\licker.dm"
-#include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\mistwalker.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\munitioneer.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\necromancer.dm"
 #include "code\modules\jobs\job_types\roguetown\adventurer\types\wretch\outlaw.dm"
@@ -2702,10 +2699,11 @@
 #include "code\modules\roguetown\roguejobs\gravedigger\tools.dm"
 #include "code\modules\roguetown\roguejobs\mages\arcana_crafting.dm"
 #include "code\modules\roguetown\roguejobs\mages\enchanting_scrolls.dm"
-#include "code\modules\roguetown\roguejobs\mages\leylines.dm"
+//#include "code\modules\roguetown\roguejobs\mages\leylines.dm"
 #include "code\modules\roguetown\roguejobs\mages\magestructures.dm"
 #include "code\modules\roguetown\roguejobs\mages\ritualrunes.dm"
 #include "code\modules\roguetown\roguejobs\mages\rituals\_ritual.dm"
+#include "code\modules\roguetown\roguejobs\mages\rituals\binding.dm"
 #include "code\modules\roguetown\roguejobs\mages\rituals\buffs.dm"
 #include "code\modules\roguetown\roguejobs\mages\rituals\enchanting.dm"
 #include "code\modules\roguetown\roguejobs\mages\rituals\rituals.dm"
@@ -2972,7 +2970,7 @@
 #include "code\modules\spells\spell_types\wizard\conjure\conjure_crystalhide.dm"
 #include "code\modules\spells\spell_types\wizard\conjure\conjure_dragonhide.dm"
 #include "code\modules\spells\spell_types\wizard\conjure\conjure_primordial.dm"
-#include "code\modules\spells\spell_types\wizard\conjure\find_familiar.dm"
+//#include "code\modules\spells\spell_types\wizard\conjure\find_familiar.dm" //Attempting to get the Binding Ritual Working instead without laylines.
 #include "code\modules\spells\spell_types\wizard\conjure\forcewall.dm"
 #include "code\modules\spells\spell_types\wizard\cryomancy\_cryomancy_shared.dm"
 #include "code\modules\spells\spell_types\wizard\cryomancy\chill_food.dm"
@@ -3336,6 +3334,7 @@
 #include "modular_causticcove\code\game\objects\items\rogueitems\util.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\ammo.dm"
 #include "modular_causticcove\code\game\objects\items\weapons\ranged\arquebus.dm"
+#include "modular_causticcove\code\game\objects\items\weapons\ranged\handgonne.dm"
 #include "modular_causticcove\code\game\objects\structures\staircase_helper.dm"
 #include "modular_causticcove\code\modules\accessability\epilepsy.dm"
 #include "modular_causticcove\code\modules\accessability\epilepsy_prefs.dm"

@@ -20,7 +20,6 @@
 	faction = list(FACTION_ORCS, FACTION_STATION)
 	ai_controller = /datum/ai_controller/human_npc
 	cmode_music = FALSE
-	special_attacker = TRUE
 
 /mob/living/carbon/human/species/orc/npc/archer
 	orc_outfit = /datum/outfit/job/roguetown/orc/npc/archer

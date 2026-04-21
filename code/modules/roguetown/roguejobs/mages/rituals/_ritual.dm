@@ -8,6 +8,7 @@ GLOBAL_LIST_INIT(t2wallrunerituallist, generate_t2wall_rituallist())
 GLOBAL_LIST_INIT(t4wallrunerituallist, generate_t4wall_rituallist())
 GLOBAL_LIST_INIT(t2enchantmentrunerituallist,generate_t2enchantment_rituallist())
 GLOBAL_LIST_INIT(t4enchantmentrunerituallist,generate_t4enchantment_rituallist())
+GLOBAL_LIST_INIT(familiarbindingrituallist, generate_familiarbinding_rituallist())
 
 /proc/generate_runeritual_types()	//debug list
 	RETURN_TYPE(/list)
@@ -106,6 +107,15 @@ GLOBAL_LIST_INIT(t4enchantmentrunerituallist,generate_t4enchantment_rituallist()
 		runerituals[initial(runeritual.name)] = runeritual
 	return runerituals
 
+/proc/generate_familiarbinding_rituallist()
+	RETURN_TYPE(/list)
+	var/list/runerituals = list()
+	for(var/datum/runeritual/runeritual as anything in subtypesof(/datum/runeritual/binding))
+		if(runeritual.blacklisted)
+			continue
+		runerituals[initial(runeritual.name)] = runeritual
+	return runerituals
+
 /datum/runeritual
 	abstract_type = /datum/runeritual
 	var/name
@@ -117,6 +127,7 @@ GLOBAL_LIST_INIT(t4enchantmentrunerituallist,generate_t4enchantment_rituallist()
 	var/mob_to_summon
 	var/blacklisted = FALSE
 	var/tier = 0				/// Tier var is used for 'tier' of ritual, if the ritual has tiers. EX: Summoning rituals. If it doesn't have tiers, set tier to 0.
+	var/req_invokers = 1		/// Minimum number of invokers required to perform this ritual. 1 = solo.
 
 /datum/runeritual/proc/show_menu(mob/user)
 	user << browse(generate_html(user),"window=recipe;size=500x810")

@@ -38,9 +38,6 @@
 	to_chat(user, span_notice("I prepare to perform a minor arcyne incantation."))
 	return TRUE
 
-	//CC Edit
-	spell_logic = LOGIC_NONE //This serves 0 purpose to an NPC.
-
 /obj/item/melee/touch_attack/lesserknock
 	name = "Spectral Lockpick"
 	desc = "A faintly glowing lockpick that appears to be held together by the mysteries of the arcyne. To dispel it, simply use it on anything that isn't a door."

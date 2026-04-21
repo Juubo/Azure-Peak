@@ -832,6 +832,13 @@
 	desc = "Divine intervention bolsters me and aids my recovery."
 	icon_state = "fortify"
 
+//Caustic Edit - Readd Convergence
+/atom/movable/screen/alert/status_effect/buff/convergence
+	name = "Convergence Miracle"
+	desc = "My body converges to whence it found strength and health."
+	icon_state = "buff"
+//Caustic Edit End
+
 /atom/movable/screen/alert/status_effect/debuff/diminish
 	name = "Diminished"
 	desc = "Origin magick has diminished my instincts - my movements feel sluggish and predictable, and my body feels weakened."
@@ -851,6 +858,13 @@
 	id = "fortify"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/fortify
 	duration = 1 MINUTES
+
+//Caustic Edit - Readd Convergence
+/datum/status_effect/buff/convergence
+	id = "convergence"
+	alert_type = /atom/movable/screen/alert/status_effect/buff/convergence
+	duration = 1 MINUTES
+//Caustic Edit End
 
 /datum/status_effect/buff/censerbuff
 	id = "censer"

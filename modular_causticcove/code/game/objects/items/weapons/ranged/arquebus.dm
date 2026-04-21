@@ -146,7 +146,7 @@
 	if(altgripped || wielded) //Trying to unwield it
 		ungrip(user)
 		return
-	if(alt_intents)
+	if(has_altgrip_modes())
 		altgrip(user)
 	if(gripped_intents)
 		wield(user)

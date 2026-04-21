@@ -7,10 +7,6 @@ GLOBAL_LIST_INIT(drowraider_aggro, world.file2list("strings/rt/drowaggrolines.tx
 	dodgetime = 30
 	d_intent = INTENT_DODGE
 
-
-	//Whilst smart, they prefer to not take risks and instead will utilize their weapons for special means of attack.
-	special_attacker = TRUE
-
 /mob/living/carbon/human/species/elf/dark/drowraider/ambush
 	threat_point = THREAT_TOUGH
 	ambush_faction = "underdark"

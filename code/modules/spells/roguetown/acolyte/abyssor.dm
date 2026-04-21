@@ -98,9 +98,6 @@
 	miracle = TRUE
 	var/stamregenmod = 5	//How many % of stamina we regain after cast, scales with holy skill.
 
-	//CC Edit
-	spell_logic = LOGIC_SELFCAST
-
 /obj/effect/proc_holder/spell/self/abyssor_wind/cast(list/targets, mob/user)
 	if(!ishuman(user))
 		revert_cast()
@@ -386,9 +383,6 @@
 	var/max_slickness_greater_caster = 40
 	var/base_healing = 6.5
 
-	//CC Edit
-	spell_logic = LOGIC_HEAL
-
 /obj/effect/proc_holder/spell/invoked/abyssheal/cast(list/targets, mob/living/user)
 	. = ..()
 	if(isliving(targets[1]))
@@ -472,9 +466,6 @@
 	var/townercrab = TRUE //I was looking at this for three days and i am utterly stupid for not fixing it
 	var/mob/living/simple_animal/hostile/retaliate/rogue/mossback/summoned
 
-	//CC Edit
-	spell_logic = LOGIC_STRUCTURE
-
 /obj/effect/proc_holder/spell/invoked/call_mossback/cast(list/targets, mob/living/user)
 	. = ..()
 	var/turf/T = get_turf(targets[1])
@@ -508,9 +499,6 @@
 	var/outer_tele_radius = 2
 	var/include_dense = FALSE
 	var/include_teleport_restricted = FALSE
-
-	//CC Edit
-	spell_logic = LOGIC_COMBAT
 
 /obj/effect/proc_holder/spell/invoked/call_dreamfiend/cast(list/targets, mob/living/user)
 	. = ..()
@@ -654,9 +642,6 @@
 		/mob/living/simple_animal/hostile/rogue/dreamfiend/major,
 		/mob/living/simple_animal/hostile/rogue/dreamfiend/ancient
 	)
-
-	//CC Edit
-	spell_logic = LOGIC_SELFCAST
 
 /obj/effect/proc_holder/spell/invoked/abyssal_strength/cast(list/targets, mob/living/user)
 	. = ..()

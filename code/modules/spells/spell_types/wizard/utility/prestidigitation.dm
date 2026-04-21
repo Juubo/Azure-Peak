@@ -36,6 +36,13 @@
 
 	switch(caster.used_intent.type)
 		if(INTENT_HELP)
+			//Caustic Edit - Re-add gathering Mana Crystals and Obsidian!
+			if(istype(target, /obj/structure/well/fountain/mana) || istype(target, /turf/open/lava))
+				var/skill_level = caster.get_skill_level(associated_skill)
+				presti_hand.gather_thing(victim, caster, skill_level)
+				handle_presti_cost(caster, PRESTI_CLEAN)
+				return FALSE //This returns here to prevent it from actually attempting to clean these things as well!
+			//Caustic Edit End
 			if(presti_hand.clean_thing(victim, caster))
 				handle_presti_cost(caster, PRESTI_CLEAN)
 		if(INTENT_DISARM)
@@ -44,9 +51,9 @@
 		if(/datum/intent/use)
 			if(presti_hand.handle_mote(caster))
 				handle_presti_cost(caster, PRESTI_MOTE)
-		if(INTENT_GRAB)
+		/*if(INTENT_GRAB) //Caustic Edit - We don't have the typed leylines, so lets remove this for now
 			if(presti_hand.sense_leylines(caster))
-				handle_presti_cost(caster, PRESTI_SENSE)
+				handle_presti_cost(caster, PRESTI_SENSE)*/
 
 	return FALSE // don't consume the hand
 
@@ -60,8 +67,8 @@
 			extra_fatigue = 5
 		if(PRESTI_MOTE)
 			extra_fatigue = 15
-		if(PRESTI_SENSE)
-			extra_fatigue = 10
+		/*if(PRESTI_SENSE) //Caustic Edit - We don't have the typed leylines, so lets remove this for now
+			extra_fatigue = 10*/
 
 	user.stamina_add(fatigue_used + extra_fatigue)
 
@@ -82,6 +89,7 @@
 	var/motespeed = 20
 	var/sparkspeed = 30
 	var/spark_cd = 0
+	var/gatherspeed = 35 //Caustic Edit - Readd gathering Obsidian and Mana Crystals!
 	var/cast_range = 7
 	experimental_inhand = FALSE
 
@@ -104,7 +112,7 @@
 	QDEL_NULL(mote)
 	return ..()
 
-/obj/item/melee/new_touch_attack/prestidigitation/proc/sense_leylines(mob/living/carbon/human/user)
+/*/obj/item/melee/new_touch_attack/prestidigitation/proc/sense_leylines(mob/living/carbon/human/user) //Caustic Edit - We don't have the typed leylines, so lets remove this for now
 	if(!length(GLOB.leyline_sites))
 		to_chat(user, span_warning("You reach out through the veil but sense nothing. No leylines exist in this world."))
 		return FALSE
@@ -185,7 +193,7 @@
 	else
 		var/charges = get_leyline_charges(user)
 		to_chat(user, span_info("You have enough mana for <b>[charges]</b> more ritual[charges != 1 ? "s" : ""]."))
-	return TRUE
+	return TRUE*/
 
 /obj/item/melee/new_touch_attack/prestidigitation/proc/handle_mote(mob/living/carbon/human/user)
 	if(!mote)
@@ -268,8 +276,7 @@
 		return FALSE
 	return TRUE
 
-/obj/item/melee/new_touch_attack/prestidigitation/proc/gather_thing(atom/target, mob/living/carbon/human/user)
-	var/skill_level = user.get_skill_level(attached_spell.associated_skill)
+/obj/item/melee/new_touch_attack/prestidigitation/proc/gather_thing(atom/target, mob/living/carbon/human/user, var/skill_level)
 	gatherspeed = initial(gatherspeed) - (skill_level * 3) // 3 cleanspeed per skill level, from 35 down to a maximum of 17 (pretty quick)
 	if (istype(target, /obj/structure/well/fountain/mana))
 		if (do_after(user, src.gatherspeed, target = target))
@@ -277,7 +284,7 @@
 			new /obj/item/magic/manacrystal(user.loc)
 	if (istype(target, /turf/open/lava))
 		if (do_after(user, src.gatherspeed, target = target))
-			to_chat(user, span_notice("I mold a handful of oozing lava  with my arcane power, rapidly hardening it!"))
+			to_chat(user, span_notice("I mold a handful of oozing lava with my arcane power, rapidly hardening it!"))
 			new /obj/item/magic/obsidian(user.loc)
 
 // Intents for prestidigitation

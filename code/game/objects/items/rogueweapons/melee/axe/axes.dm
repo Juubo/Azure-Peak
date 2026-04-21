@@ -390,7 +390,7 @@
 	max_integrity = 100
 	minstr = 10
 	wdefense = 2
-	demolition_mod = 0.33 // Good luck trying to cut down a tree with what's essentially a shard of glass on a stick
+	//demolition_mod = 0.33 // Good luck trying to cut down a tree with what's essentially a shard of glass on a stick
 	wlength = WLENGTH_NORMAL
 	sellprice = 10 //Made of pretty glass
 

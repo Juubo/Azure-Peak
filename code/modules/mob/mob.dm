@@ -44,7 +44,7 @@ GLOBAL_VAR_INIT(mobids, 1)
 	for(var/cc in client_colours)
 		qdel(cc)
 	used_intent = null
-	used_rmb_intent = null
+	//used_rmb_intent = null //Caustic Edit - This var got commented out because it is an empty list that's never used! Wow yeah, it was. Amazing. rmb_intent is used instead and this got forgot about it seems.
 	if(a_intent && a_intent.mastermob == src)
 		a_intent.mastermob = null
 	a_intent = null

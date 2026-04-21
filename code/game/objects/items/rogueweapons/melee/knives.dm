@@ -1408,7 +1408,8 @@
 	name = "manastone riteknife"
 	desc = "An intricate ritual-knife made from a shard of crystallized mana. Though not suited for direct combat, it will save you in a pinch."
 	icon_state = "magicstone_knife"
-	cast_time_reduction = CRYSTMANA_CAST_TIME_REDUCTION // 5% reduction
+	implement_tier = IMPLEMENT_TIER_LESSER
+	implement_multiplier = IMPLEMENT_MULT_LESSER
 	max_blade_int = 25
 	max_integrity = 50
 	sellprice = 15 // It's a very pretty rock on a stick.

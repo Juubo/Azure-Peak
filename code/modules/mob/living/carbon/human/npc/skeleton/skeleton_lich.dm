@@ -2,10 +2,6 @@
 	skel_fragile = FALSE
 	skel_outfit = /datum/outfit/job/roguetown/npc/skeleton/dungeon/lich
 
-	//We're a BOSS. We are SMART and SPECIAL.
-	smart_combatant = TRUE
-	special_attacker = TRUE
-
 /datum/outfit/job/roguetown/npc/skeleton/dungeon/lich/pre_equip(mob/living/carbon/human/H)
 	..()
 	wrists = /obj/item/clothing/wrists/roguetown/bracers

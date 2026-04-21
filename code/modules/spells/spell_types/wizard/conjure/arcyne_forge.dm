@@ -114,3 +114,37 @@
 	point_cost = 0
 	spell_tier = 0
 	associated_skill = /datum/skill/magic/holy
+
+//Caustic Edit - Lesser Arcyne Forge! Mostly for tools, but not all of them
+/datum/action/cooldown/spell/arcyne_forge/Lesser
+	name = "Lesser Arcyne Forge"
+	desc = "A simpler form of Arcyne Forge with less variety then the original.\n\
+	Conjure a weapon or tool of your choice. Conjured items have halved durability.\n\
+	Only one conjured item can exist at a time - conjuring a new one destroys the old."
+
+	charge_required = TRUE
+	charge_time = 10 SECONDS
+	charge_drain = 1
+	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
+	charge_sound = 'sound/magic/charging.ogg'
+	cooldown_time = 7 MINUTES
+
+	spell_tier = 1
+	point_cost = 1
+
+	conjure_options = list(
+		// Weapons
+		"Cudgel" = /obj/item/rogueweapon/mace/cudgel,
+		"Dagger" = /obj/item/rogueweapon/huntingknife/idagger,
+		"Axe" = /obj/item/rogueweapon/stoneaxe/woodcut,
+		// Tools
+		"Pickaxe" = /obj/item/rogueweapon/pick,
+		"Hoe" = /obj/item/rogueweapon/hoe,
+		"Thresher" = /obj/item/rogueweapon/thresher,
+		"Sickle" = /obj/item/rogueweapon/sickle,
+		"Hammer" = /obj/item/rogueweapon/hammer/iron,
+		"Shovel" = /obj/item/rogueweapon/shovel,
+		"Scissors" = /obj/item/rogueweapon/huntingknife/scissors,
+		"Fishing Rod" = /obj/item/fishingrod,
+	)
+//Caustic Edit End

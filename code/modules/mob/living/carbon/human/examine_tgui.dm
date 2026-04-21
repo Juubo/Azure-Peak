@@ -136,8 +136,8 @@
 			else
 				headshot = holder_human.headshot_link
 			img_gallery = holder_human.img_gallery
-			if(is_naked)
-				nsfw_img_gallery = holder_human.nsfw_img_gallery
+			//if(is_naked) //Caustic Edit - This line and the next, remove the naked requirement!
+			nsfw_img_gallery = holder_human.nsfw_img_gallery
 		if(!headshot)
 			headshot = "headshot_red.png"
 
@@ -155,8 +155,8 @@
 		else
 			headshot = pref.headshot_link
 		img_gallery = pref.img_gallery
-		if(is_naked)
-			nsfw_img_gallery = pref.nsfw_img_gallery
+		//if(is_naked) //Caustic Edit - This line and the next, remove the naked requirement!
+		nsfw_img_gallery = pref.nsfw_img_gallery
 		char_name = pref.real_name
 		song_url = pref.ooc_extra
 		is_vet = viewing.check_agevet()

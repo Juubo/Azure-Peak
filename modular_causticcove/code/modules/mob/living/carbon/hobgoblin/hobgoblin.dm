@@ -64,13 +64,13 @@
 	sellprice = 2
 
 /mob/living/carbon/human/species/hobgoblin/handle_combat()
-	if(mode == NPC_AI_HUNT)
+	/*if(mode == NPC_AI_HUNT) //Caustic - Sorry Poss, Hobbo AI is broke :<
 		if(prob(5)) //WE ARE FEARSOME!!!
 			if(prob(50))
 				emote("laugh")
 			else 
 				emote("warcry")
-	. = ..()
+	. = ..()*/
 
 /mob/living/carbon/human/species/hobgoblin/update_body()
 	remove_overlay(BODY_LAYER)
@@ -173,10 +173,10 @@
 
 	if(prob(chance_zjumper))
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
-		H.find_targets_above = TRUE
+		//H.find_targets_above = TRUE //Caustic - Sorry Poss, Hobbo AI is broke :<
 	if(prob(chance_treeclimber))
-		H.tree_climber = TRUE
-		H.find_targets_above = TRUE // so they can taunt
+		//H.tree_climber = TRUE
+		//H.find_targets_above = TRUE // so they can taunt
 
 	var/loadout = rand(1,10)
 	//If they can make metal/plate armor, they 100% can make metal / iron weapons.
@@ -260,10 +260,10 @@
 
 	if(prob(chance_zjumper))
 		ADD_TRAIT(H, TRAIT_ZJUMP, TRAIT_GENERIC)
-		H.find_targets_above = TRUE
+		//H.find_targets_above = TRUE //Caustic - Sorry Poss, Hobbo AI is broke :<
 	if(prob(chance_treeclimber))
-		H.tree_climber = TRUE
-		H.find_targets_above = TRUE // so they can taunt
+		//H.tree_climber = TRUE
+		//H.find_targets_above = TRUE // so they can taunt
 
 	var/loadout = rand(1,2)
 
