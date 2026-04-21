@@ -38,6 +38,7 @@
 		STATKEY_INT = 2,
 		STATKEY_PER = 2,
 		STATKEY_SPD = 2,
+		STATKEY_CON = 1,
 		STATKEY_STR = -2
 	)
 	subclass_skills = list(
@@ -79,6 +80,9 @@
 	H.verbs |= /mob/living/carbon/human/proc/adjust_taxes
 	if(H.mind)
 		SStreasury.give_money_account(ECONOMIC_RICH, H, "Savings.")
+	backpack_contents = list(
+		/obj/item/mini_flagpole/steward = 1,
+	)
 
 GLOBAL_VAR_INIT(steward_tax_cooldown, -50000) // Antispam
 /mob/living/carbon/human/proc/adjust_taxes()

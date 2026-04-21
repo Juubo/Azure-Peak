@@ -84,7 +84,9 @@
 
 	if(mob.incapacitated())
 		return
-	
+
+	var/signal_result = SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+
 	if(mob.stat != CONSCIOUS)
 		mob.atkswinging = null
 		charging = null
@@ -92,9 +94,11 @@
 		mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 		return
 
-	// Prepare click-dragging behavior
-	drag_target = object
-	is_dragging = FALSE
+	// New spell system intercepted this click — skip old cursor/intent handling
+	if(signal_result & COMPONENT_CLIENT_MOUSEDOWN_INTERCEPT)
+		return
+
+	tcompare = object
 
 	if(mouse_down_icon)
 		mouse_pointer_icon = mouse_down_icon
@@ -197,11 +201,15 @@
 
 /mob
 	var/datum/intent/curplaying
+	var/obj/effect/spell_rune_under/spell_rune
 
 /atom/proc/should_click_on_mouse_up(var/atom/original_object)
 	return TRUE
 
 /client/MouseUp(object, location, control, params)
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		click_intercept_time = world.time
+
 	if(charging && isliving(mob))
 		update_to_mob(mob, 0)
 
@@ -399,6 +407,8 @@
 		selected_target[2] = params
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
+
 	
 	// (CC Edit) Set for drag-drop behavior
 	is_dragging = TRUE;

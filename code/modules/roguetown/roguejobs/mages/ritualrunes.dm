@@ -5,7 +5,7 @@
 	anchored = TRUE
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "6"
-	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	layer = SIGIL_LAYER
 	color = null
 	var/magictype = "arcyne"//"arcyne", "divine", "druid", "blood"
@@ -533,7 +533,6 @@ GLOBAL_LIST(teleport_runes)
 	var/datum/map_template/template
 	var/fortress = /datum/map_template/arcyne_fortress
 	var/list/barriers = list()
-	rituals = list(/datum/runeritual/other/wall/t3::name = /datum/runeritual/other/wall/t3)
 
 /obj/effect/decal/cleanable/roguerune/arcyne/wallgreater/New()
 	. = ..()
@@ -541,7 +540,6 @@ GLOBAL_LIST(teleport_runes)
 
 /obj/effect/decal/cleanable/roguerune/arcyne/wallgreater/proc/get_template(/datum/map_template/arcyne_fortress/fortress)
 
-	to_chat(usr, span_hierophant_warning("template retrieving"))
 	var/datum/map_template/temporary = new fortress
 	template = SSmapping.map_templates[temporary.id]
 	if(!template)
@@ -558,7 +556,6 @@ GLOBAL_LIST(teleport_runes)
 	get_template(template)
 
 	template.load(deploy_location, centered = TRUE)
-	to_chat(usr, span_hierophant_warning("template.load complete"))
 	if(ritual_result)
 		pickritual.cleanup_atoms(selected_atoms)
 
@@ -576,15 +573,15 @@ GLOBAL_LIST(teleport_runes)
 /obj/effect/decal/cleanable/roguerune/arcyne/teleport
 	name = "planar convergence matrix"
 	desc = "A large spiraling sigil that seems to thrum with power."
-	icon = 'icons/effects/160x160.dmi'
+	icon = 'icons/effects/96x96.dmi'
 	icon_state = "portal"
 	tier = 3 //Caustic Cove Edit - bump the tier to 3 so it's actually usable in regular play
 	req_invokers = 2
 	invocation = "Plana Convergant!"
 	req_keyword = TRUE
-	runesize = 2
-	pixel_x = -64 //So the big ol' 96x96 sprite shows up right
-	pixel_y = -64
+	runesize = 1
+	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 	rituals = list(/datum/runeritual/teleport::name = /datum/runeritual/teleport)
@@ -679,12 +676,12 @@ GLOBAL_LIST(teleport_runes)
 	else
 		fail_invoke()
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning	//32x32 rune t1(one tile)
-	name = "confinement matrix"
-	desc = "A relatively basic confinement matrix used to hold small things when summoned."
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning
+	name = "lesser matrix of summoning"
+	desc = "A lesser circle of arcyne power, channeling the energy of the evoker to breach the veil between the material plane and the other and bring forth creechurs."
 	icon_state = "summon"
 	invocation = "Evoca et Constringe!"
-	max_integrity = 0
+	max_integrity = -1
 	resistance_flags = INDESTRUCTIBLE | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	tier = 1
 	can_be_scribed = TRUE
@@ -712,21 +709,35 @@ GLOBAL_LIST(teleport_runes)
 
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/attack_hand(mob/living/user)
 	if(summoning && isarcyne(user))
+		var/mob/living/simple_animal/S = summoned_mob
+		if(!S || !istype(S) || QDELETED(S))
+			to_chat(user, span_warning("The containment has already faded."))
+			summoned_mob = null
+			summoning = FALSE
+			return
+
 		to_chat(user, span_warning("You release the summon from it's containment!"))
-		playsound(usr, 'sound/magic/teleport_diss.ogg', 75, TRUE)
+		playsound(user, 'sound/magic/teleport_diss.ogg', 75, TRUE)
 		do_invoke_glow()
 		clear_obstacles(user)
 		sleep(20)
-		animate(summoned_mob, color = null,time = 5)
-		REMOVE_TRAIT(summoned_mob, TRAIT_PACIFISM, TRAIT_GENERIC)	//can't kill while planar bound.
-		summoned_mob.status_flags -= GODMODE//remove godmode
-		summoned_mob.candodge = TRUE
-		summoned_mob.binded = FALSE
-		summoned_mob.move_resist = MOVE_RESIST_DEFAULT
-		summoned_mob.SetParalyzed(0)
+		if(!S || QDELETED(S))
+			summoned_mob = null
+			summoning = FALSE
+			return
+
+		animate(S, color = null, time = 5)
+		REMOVE_TRAIT(S, TRAIT_PACIFISM, TRAIT_GENERIC) // can't kill while planar bound.
+		S.status_flags -= GODMODE
+		S.candodge = TRUE
+		S.binded = FALSE
+		S.move_resist = MOVE_RESIST_DEFAULT
+		S.SetParalyzed(0)
+
 		summoned_mob = null
 		summoning = FALSE
 		return
+
 	. = ..()
 
 /obj/effect/decal/cleanable/roguerune/arcyne/summoning/invoke(list/invokers, datum/runeritual/runeritual)
@@ -759,11 +770,11 @@ GLOBAL_LIST(teleport_runes)
 		anticheese.ChangeTurf(/turf/open/floor/rogue/blocks)
 		continue
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid// 96x96 rune t2(3x3 tile)
-	name = "sealate confinement matrix"
-	desc = "An adept confinement matrix improved with the addition of a sealate matrix; used to hold things when summoned."
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid
+	name = "ordinary matrix of summoning"
+	desc = "An ordinary circle of arcyne power, capable of reaching into the second dimension of the veil and bringing forth more powerful creechurs."
 	icon = 'icons/effects/96x96.dmi'
-	icon_state = "sealate"
+	icon_state = "summonmid"
 	runesize = 1
 	tier = 2
 	pixel_x = -32 //So the big ol' 96x96 sprite shows up right
@@ -775,16 +786,15 @@ GLOBAL_LIST(teleport_runes)
 	. = ..()
 	rituals += GLOB.t2summoningrunerituallist
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv	//160x160 rune t2(5x5 tile)
-	name = "warded sealate confinement matrix"
-	desc = "A thoroughly warded confinement matrix improved with the addition of a sealate matrix; \
-	used to hold larger, dangerous things when summoned."
-	icon = 'icons/effects/160x160.dmi'
-	icon_state = "warded"
-	runesize = 2
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/adv
+	name = "greater sealed matrix of summoning"
+	desc = "A greater summoning circle with the addition of a sealate matrix, the strongest a singular mage can sustain with the lyfeforce from their body, capable of summoning truly terrifying beasts."
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "summonadv"
+	runesize = 1
 	tier = 3
-	pixel_x = -64 //So the big ol' 160x160 sprite shows up right
-	pixel_y = -64
+	pixel_x = -32
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 
@@ -792,17 +802,15 @@ GLOBAL_LIST(teleport_runes)
 	. = ..()
 	rituals += GLOB.t3summoningrunerituallist
 
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/max	//224x224 rune t3(7x7 tile)
-	name = "noc's eye warded sealate confinement matrix"
-	desc = "A thoroughly warded confinement matrix improved with a Noc's eye sealing measure \
-	and the addition of a sealate matrix; used to hold the largest, most dangerous things summonable."
-	icon = 'icons/effects/224x224.dmi'
-	icon_state = "huge_runeblued"
-	runesize = 3
-	req_invokers = 3
+/obj/effect/decal/cleanable/roguerune/arcyne/summoning/max
+	name = "grand warded matrix of summoning"
+	desc = "A grand summoning circle capable of summoning the strongest and most powerful of creechurs modern mages can manage to reach."
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "summonmax"
+	runesize = 1
 	tier = 4
-	pixel_x = -96 //So the big ol' 96x96 sprite shows up right
-	pixel_y = -96
+	pixel_x = -32
+	pixel_y = -32
 	pixel_z = 0
 	can_be_scribed = TRUE
 
