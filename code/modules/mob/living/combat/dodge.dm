@@ -257,7 +257,7 @@
 
 		var/attacker_feedback 
 
-		if(src.client?.prefs.showrolls)
+		if(src.client?.prefs.showrolls && !HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))
 			var/text = "Roll to dodge... [prob2defend]%"
 			if((defender_dualw || attacker_dualw))
 				if(defender_dualw && attacker_dualw)
