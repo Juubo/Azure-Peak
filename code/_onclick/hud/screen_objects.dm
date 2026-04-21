@@ -1440,6 +1440,23 @@
 	rebuild_limbs()
 	update_selection()
 
+/atom/movable/screen/zone_sel/proc/_has_visible_bleed(obj/item/bodypart/BP)
+	if(!BP)
+		return FALSE
+	var/bleed_rate = BP.bleeding
+	if(BP.bandage && !HAS_BLOOD_DNA(BP.bandage))
+		var/obj/item/natural/cloth/cloth = BP.bandage
+		if(istype(cloth))
+			bleed_rate *= cloth.bandage_effectiveness
+		return bleed_rate > 1
+	for(var/obj/item/embedded as anything in BP.embedded_objects)
+		if(!embedded.embedding?.embedded_bloodloss)
+			continue
+		bleed_rate += embedded.embedding.embedded_bloodloss
+	for(var/obj/item/grabbing/grab as anything in SANITIZE_LIST(BP.grabbedby))
+		bleed_rate *= grab.bleed_suppressing
+	return max(round(bleed_rate, 0.1), 0) > 0
+
 /atom/movable/screen/zone_sel/proc/rebuild_limbs()
 	if(hud.mymob.stat == DEAD || !ishuman(hud.mymob))
 		for(var/zone in limb_vis)
@@ -1478,7 +1495,7 @@
 			continue
 		var/damage = min(BP.burn_dam + BP.brute_dam, BP.max_damage)
 		var/wound_alpha = clamp(round((damage / BP.max_damage) * 510), 0, 255)
-		var/has_bleed = BP.bleeding > 0  // Прямое чтение — get_bleed_rate() вызывает process_bandage → heal_damage → рекурсия
+		var/has_bleed = _has_visible_bleed(BP)
 		_apply_limb_state(zone, null, wound_alpha, has_bleed)
 
 /// Creates limb/wound/bleed vis objects for a zone if they don't exist
@@ -1565,9 +1582,9 @@
 		if(!limb_vis[zone])
 			// Cold path: first time seeing this zone
 			_ensure_limb_vis(zone, H.gender == "male" ? "m" : "f")
-		var/has_bleed = BP.bleeding > 0  // Прямое чтение — get_bleed_rate() вызывает process_bandage → heal_damage → рекурсия
+		var/has_bleed = _has_visible_bleed(BP)
 		if(HAS_TRAIT(H, TRAIT_NOPAIN))
-			_apply_limb_state(zone, "#78a8ba", 0, has_bleed)
+			_apply_limb_state(zone, "#78a8ba", 0, FALSE)
 			return
 		var/damage = min(BP.burn_dam + BP.brute_dam, BP.max_damage)
 		var/wound_alpha = clamp(round((damage / BP.max_damage) * 510), 0, 255)
