@@ -42,8 +42,6 @@
 	if(!soundloop.stopped)
 		soundloop.stop()
 
-	var/datum/looping_sound/waterwheel_loop/soundloop
-
 /obj/structure/waterwheel/find_rotation_network()
 	. = ..()
 	setup_rotation(get_turf(src))

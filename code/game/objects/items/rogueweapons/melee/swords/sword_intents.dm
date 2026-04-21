@@ -117,6 +117,11 @@
 	item_d_type = "blunt"
 	intent_intdamage_factor = BLUNT_DEFAULT_INT_DAMAGEFACTOR
 
+/datum/intent/sword/strike/bash
+	name = "pommel swing"
+	icon_state = "inbash"
+	attack_verb = list("bashes", "clubs")
+
 /datum/intent/sword/strike/penalty
 	name = "heavy blunted swing"
 	icon_state = "incut"
@@ -325,6 +330,10 @@
 /datum/intent/sword/chop/cleave/prewarning()
 	if(mastermob)
 		playsound(mastermob, pick('sound/combat/rend_start.ogg'), 100, FALSE)
+
+/datum/intent/sword/chop/cleave/super
+	name = "unstoppable cleave"
+	penfactor = PEN_BSTEEL
 
 // GREATSWORDS
 /datum/intent/sword/cut/zwei

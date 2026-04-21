@@ -1404,7 +1404,7 @@
 
 /obj/item/rogueweapon/huntingknife/stoneknife/manacrystal
 	force = 13
-	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust, /datum/intent/special/magicarc)
+	possible_item_intents = list(/datum/intent/dagger/cut, /datum/intent/dagger/thrust)
 	name = "manastone riteknife"
 	desc = "An intricate ritual-knife made from a shard of crystallized mana. Though not suited for direct combat, it will save you in a pinch."
 	icon_state = "magicstone_knife"

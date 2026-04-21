@@ -527,10 +527,8 @@
 	desc = "An incredibly unusual executioner's sword clad in gold and brass. Two separate blades protude outwards and join near its intricately decorated crossguard. This weapon calls for order."
 	icon_state = "astratasword"
 	max_integrity = 200
-	sellprice = 150 //Astrata!
-	possible_item_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/strike)
-	gripped_intents = list(/datum/intent/sword/cut, /datum/intent/sword/thrust, /datum/intent/sword/peel, /datum/intent/axe/chop)
 	vorpal = TRUE // snicker snack this shit cuts heads off effortlessly (DO NOT PUT THIS ON ANYTHING ELSE UNLESS IT'S SUPER FUCKING RARE!!!)
+	sellprice = 150 //Astrata!
 
 /obj/item/rogueweapon/sword/long/exe/getonmobprop(tag)
 	. = ..()
@@ -1830,16 +1828,6 @@
 	desc = "A unique styled Kriegmesser originally conceived by Noccite Spellblades taking inspiration from Grenzelhoftian and Otavan blade designs. \
 	The unique colour of the blade is due to a forging technique combining Manablooms with the steel, giving the weapon better attunement with the Acryne."
 	icon_state = "mkriegmesser"
-	smeltresult = /obj/item/ingot/steel
-	sheathe_icon = "mkriegmesser" 
-
-/obj/item/rogueweapon/sword/long/nockriegmesser
-	name = "moonlight kriegmesser"
-	desc = "A unique styled Kriegmesser originally conceived by Noccite Spellblades taking inspiration from Grenzelhoftian and Otavan blade designs. \
-	The unique colour of the blade is due to a forging technique combining Manablooms with the steel, giving the weapon better attunement with the Acryne."
-	icon_state = "mkriegmesser"
-	possible_item_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/chop/falx, /datum/intent/sword/strike, /datum/intent/rend/krieg)
-	gripped_intents = list(/datum/intent/sword/cut/krieg, /datum/intent/sword/thrust/krieg, /datum/intent/sword/strike, /datum/intent/rend/krieg)
 	smeltresult = /obj/item/ingot/steel
 	sheathe_icon = "mkriegmesser" 
 

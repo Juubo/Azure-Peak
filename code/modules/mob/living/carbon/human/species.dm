@@ -1846,7 +1846,7 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		used_intfactor = higher_intfactor
 
 	if(ishuman(user) && user != H)
-		var/text = "[bodyzone2readablezone(selzone)]..."
+		var/text = "[bodyzone2readablezone(selzone_real)]..."
 		if(HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))
 			if(prob(10))
 				text = "<i>I can't tell...</i>"

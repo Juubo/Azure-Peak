@@ -1341,8 +1341,8 @@
 /obj/item/rogueweapon/spear/stone/manacrystal
 	force = 16
 	force_wielded = 20
-	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H, /datum/intent/special/magicarc)
-	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, /datum/intent/special/magicarc, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
+	possible_item_intents = list(SPEAR_THRUST_1H, SPEAR_CUT_1H)
+	gripped_intents = list(SPEAR_THRUST, SPEAR_CUT, SPEAR_BASH) //bash is for nonlethal takedowns, only targets limbs
 	name = "manastone spear"
 	desc = "A spear made from a shard of crystallized mana fixed atop a staff. This either the creation of a genius, a madman, or someone who heard the term 'magic spear' and went from there."
 	icon_state = "magicstonespear"
