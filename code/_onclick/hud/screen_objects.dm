@@ -483,13 +483,22 @@
 	vis_contents += slot
 	return slot
 
+/atom/movable/screen/act_intent/rogintent/proc/_clear_intent_vis()
+	intent_vis1.icon = null
+	intent_vis2.icon = null
+	intent_vis3.icon = null
+	intent_vis4.icon = null
+
+/atom/movable/screen/act_intent/rogintent/proc/_clear_border_vis()
+	border_vis1.icon = null
+	border_vis2.icon = null
+
 /atom/movable/screen/act_intent/rogintent/update_icon(list/intentsl,list/intentsr, oactive = FALSE)
 	if(!intentsl || !intentsr || !hud?.mymob)
-		intent_vis1.icon = null
-		intent_vis2.icon = null
-		intent_vis3.icon = null
-		intent_vis4.icon = null
+		_clear_intent_vis()
+		_clear_border_vis()
 		return
+	_clear_intent_vis()
 	var/list/used = intentsr
 	if(hud.mymob.active_hand_index == 1)
 		used = intentsl
@@ -512,12 +521,9 @@
 		slot.icon_state = intenty.icon_state
 		if(lol >= 4)
 			break
-	if(lol < 4)
-		intent_vis4.icon = null
-	if(lol < 3)
-		intent_vis3.icon = null
-	if(lol < 2)
-		intent_vis2.icon = null
+	if(!lol)
+		_clear_border_vis()
+		return
 	if(ismob(usr))
 		var/mob/M = usr
 		switch_intent(M.r_index, M.l_index, oactive)
@@ -527,14 +533,16 @@
 	if(oactive)
 		used = "offintentselected"
 	if(!r_index || !l_index || !hud?.mymob)
-		border_vis1.icon = null
-		border_vis2.icon = null
+		_clear_border_vis()
 		return
 	var/used_index = r_index
 	var/other = l_index
 	if(hud.mymob.active_hand_index == 1)
 		used_index = l_index
 		other = r_index
+	if(used_index < 1 || used_index > 4 || other < 1 || other > 4)
+		_clear_border_vis()
+		return
 	var/static/list/px = list(64, 96, 64, 96)
 	var/static/list/py = list(16, 16, 0, 0)
 	border_vis1.icon = 'icons/mob/roguehud.dmi'
