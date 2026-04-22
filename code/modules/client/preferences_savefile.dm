@@ -682,7 +682,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	_load_virtue(S)
 	_load_flaw(S)
 	//Caustic edit
-	_load_sizecat(S)
+	_load_sizescale(S)
 	//_load_pickupable(S)
 	//Caustic edit end
 	_load_culinary_preferences(S)
@@ -1023,7 +1023,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["directory_sexualitytag"], directory_sexualitytag)
 	WRITE_FILE(S["directory_ad"], directory_ad)
 
-	save_sizecat(S)
+	save_sizescale(S)
 	save_extra_virtue(S)
 	//save_pickupable(S)
 	//Caustic edit end

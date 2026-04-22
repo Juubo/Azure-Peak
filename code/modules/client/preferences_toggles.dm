@@ -61,7 +61,7 @@
 			to_chat(src, "Your character information will no longer be viewable when masked.") //Caustic Edit End
 
 /client/verb/toggle_instruments()
-	set category = "Options"
+	set category = "OPTIONS"
 	set name = "Toggle Instrument Sounds"
 	if(prefs)
 		prefs.toggles ^= SOUND_INSTRUMENTS
@@ -69,7 +69,7 @@
 	to_chat(src, "You will[(prefs.toggles & SOUND_INSTRUMENTS) ? "" : " no longer"] hear instrument-played songs.")
 
 /client/verb/toggle_midis()
-	set category = "Options"
+	set category = "OPTIONS"
 	set name = "Toggle Admin Midis"
 	if(prefs)
 		prefs.toggles ^= SOUND_MIDI
