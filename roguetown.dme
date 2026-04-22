@@ -2667,6 +2667,7 @@
 #include "code\modules\roguetown\roguejobs\blacksmith\blueprints.dm"
 #include "code\modules\roguetown\roguejobs\blacksmith\casting.dm"
 #include "code\modules\roguetown\roguejobs\blacksmith\forge.dm"
+#include "code\modules\roguetown\roguejobs\blacksmith\forgeables.dm"
 #include "code\modules\roguetown\roguejobs\blacksmith\grindwheel.dm"
 #include "code\modules\roguetown\roguejobs\blacksmith\items.dm"
 #include "code\modules\roguetown\roguejobs\blacksmith\smelter.dm"
