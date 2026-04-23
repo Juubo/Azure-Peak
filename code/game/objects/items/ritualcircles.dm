@@ -182,42 +182,46 @@
 	for(var/mob/living/carbon/human/target in ritualtargets)
 		target.apply_status_effect(/datum/status_effect/buff/stagehands_silence)
 
-/obj/effect/decal/cleanable/roguerune/god/ravox
+/obj/structure/ritualcircle/ravox
 	name = "Rune of Justice"
 	icon_state = "ravox_chalky"
 	desc = "A Holy Rune of Ravox. A blade to protect the weak with."
-	allowed_patron = /datum/patron/divine/ravox
-	rituals = list(/datum/runeritual/ravox_vow::name = /datum/runeritual/ravox_vow)
+	var/ravoxrites = list("Vow to Ravox")
 
-/datum/runeritual/ravox_vow
-	name = "Vow to Ravox"
+/obj/structure/ritualcircle/ravox/attack_hand(mob/living/user)
+	if(!..())
+		return
+	if((user.patron?.type) != /datum/patron/divine/ravox)
+		to_chat(user,span_warning("I feel a scornful gaze. This rune isn't for me."))
+		return
+	if(!HAS_TRAIT(user, TRAIT_RITUALIST))
+		to_chat(user,span_warning("I don't know the proper rites for this..."))
+		return
+	if(user.has_status_effect(/datum/status_effect/debuff/ritesexpended))
+		to_chat(user,span_warning("I have performed enough rituals for the day... I must rest before communing more."))
+		return
+	var/riteselection = input(user, "Rituals of Justice", src) as null|anything in ravoxrites
+	switch(riteselection) 
+		if("Vow to Ravox") // Ideally stick to this style for rites. Early returns + negatives. Minimises the "pyramid" shape you can see in Astrata, which I've left untouched for now -- CODEATHON
+			var/target = user
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("My steel is sharp, my heart is true!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("For the weak, my blade I drew!")
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("Let foes of justice face my might!")
+			if(!do_after(user, 3 SECONDS))
+				return
+			user.say("Ravox, guide my hand in righteous fight!")
+			playsound(loc, 'sound/magic/holyshield.ogg', 80, FALSE, -1)
+			ravoxvow(target)
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 
-/datum/runeritual/ravox_vow/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
-	if(!do_after(user, 5 SECONDS))
-		return FALSE
-
-	user.say("My steel is sharp, my heart is true!")
-
-	if(!do_after(user, 5 SECONDS))
-		return FALSE
-
-	user.say("For the weak, my blade I drew!")
-
-	if(!do_after(user, 5 SECONDS))
-		return FALSE
-
-	user.say("Let foes of justice face my might!")
-
-	if(!do_after(user, 3 SECONDS))
-		return FALSE
-
-	user.say("Ravox, guide my hand in righteous fight!")
-	playsound(loc, 'sound/magic/holyshield.ogg', 80, FALSE, -1)
-	
-	user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-	user.apply_status_effect(/datum/status_effect/buff/ravox_vow)
-
-	return TRUE
+/obj/structure/ritualcircle/ravox/proc/ravoxvow(mob/living/carbon/human/target)
+	target.apply_status_effect(/datum/status_effect/buff/ravox_vow)
 
 /obj/structure/ritualcircle/pestra
 	name = "Rune of Plague"
@@ -273,52 +277,59 @@
 		to_chat(target, span_userdanger("UNIMAGINABLE PAIN!"))
 		target.apply_status_effect(/datum/status_effect/buff/flylordstriage)
 
-/obj/effect/decal/cleanable/roguerune/god/dendor
+/obj/structure/ritualcircle/dendor
 	name = "Rune of Beasts"
-	desc = "A Holy Rune of Dendor. Becoming one with nature is to connect with ones true instinct."
 	icon_state = "dendor_chalky"
-	rituals = list(
-		/datum/runeritual/lesser_wolf::name = /datum/runeritual/lesser_wolf,
-		/datum/runeritual/borrowed_madness::name = /datum/runeritual/borrowed_madness,
-		/datum/runeritual/spider_kinship::name = /datum/runeritual/spider_kinship,
-	)
-	allowed_patron = /datum/patron/divine/dendor
+	desc = "A Holy Rune of Dendor. Becoming one with nature is to connect with ones true instinct."
+	var/dendorrites = list ("Rite of the Lesser Volf")
 
-/datum/runeritual/lesser_wolf
-	name = "Rite of the Lesser Wolf"
-
-/datum/runeritual/lesser_wolf/on_finished_recipe(mob/living/user, list/selected_atoms, turf/loc)
-	if(!do_after(user, 5 SECONDS))
+/obj/structure/ritualcircle/dendor/attack_hand(mob/living/user)
+	if(!..())
 		return
-
-	user.say("RRRGH GRRRHHHG GRRRRRHH!!")
-	playsound(loc, 'sound/vo/mobs/vw/idle (1).ogg', 100, FALSE, -1)
-	
-	if(!do_after(user, 5 SECONDS))
+	if((user.patron?.type) != /datum/patron/divine/dendor)
+		to_chat(user,span_warning("I can't interpret such mad scrawlings."))
 		return
-
-	user.say("GRRRR GRRRRHHHH!!")
-	playsound(loc, 'sound/vo/mobs/vw/idle (4).ogg', 100, FALSE, -1)
-
-	if(!do_after(user, 5 SECONDS))
+	if(user.has_status_effect(/datum/status_effect/debuff/ritesexpended))
+		to_chat(user,span_warning("I have performed enough rituals for the day... I must rest before communing more."))
 		return
+	var/riteselection = input(user, "Rituals of the Beast", src) as null|anything in dendorrites
+	switch(riteselection)
+		if("Rite of the Lesser Volf")
+			var/mob/living/target = null
+			var/turf/T = get_turf(src)
+			for(var/mob/living/person in T.contents)
+				if(!ishuman(person))
+					continue
+				if(user != person)
+					continue
+				target = person
+			if(!target)
+				to_chat(user, span_warning("I need to be standing on the rune for this to work."))
+				return
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("RRRGH GRRRHHHG GRRRHH!!")
+			playsound(loc, 'sound/vo/mobs/vw/idle (1).ogg', 100, FALSE, -1)
+			if(!do_after(user, 5 SECONDS))
+				return
+			user.say("GRRRR GRRRRHHHH!!")
+			playsound(loc, 'sound/vo/mobs/vw/idle (4).ogg', 100, FALSE, -1)
+			if(!do_after(user, 5 SECONDS))
+				return
+			loc.visible_message(span_warning("[user] snaps and snarls at the rune. Drool runs down their lip..."))
+			playsound(loc, 'sound/vo/mobs/vw/bark (1).ogg', 100, FALSE, -1)
+			if(!do_after(user, 3 SECONDS))
+				return
+			loc.visible_message(span_warning("[user] snaps their head upward, they let out a howl!"))
+			playsound(loc, 'sound/vo/mobs/wwolf/howl (2).ogg', 100, FALSE, -1)
+			lesservolf(target) // starts proc
+			user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 
-	loc.visible_message(span_warning("[user] snaps and snarls at the rune. Drool runs down their lip..."))
-	playsound(loc, 'sound/vo/mobs/vw/bark (1).ogg', 100, FALSE, -1)
+/obj/structure/ritualcircle/dendor/proc/lesservolf(mob/living/carbon/human/target) // IS proc
+	target.apply_status_effect(/datum/status_effect/buff/lesserwolf) // applies status effect
 
-	if(!do_after(user, 3 SECONDS))
-		return
-
-	loc.visible_message(span_warning("[user] snaps their head upward, they let out a howl!"))
-	playsound(loc, 'sound/vo/mobs/wwolf/howl (2).ogg', 100, FALSE, -1)
-
-	for(var/mob/living/carbon/human/target in view(1, loc))
-		target.apply_status_effect(/datum/status_effect/buff/lesserwolf)
-	
-	user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
-
-	return TRUE
-
+/* -- THESE RITUALS ARE CURRENTLY DEFUNCT -- Not shifting these for now. All they do is allow non-dendorites to shapeshift into a specific form (in theory)
+* You just need to move it over to the section as above. -- CODEATHON
 /datum/runeritual/borrowed_madness
 	name = "Borrowed Madness"
 
@@ -400,7 +411,7 @@
 	user.apply_status_effect(/datum/status_effect/debuff/ritesexpended)
 
 	return TRUE
-
+*/
 /obj/structure/ritualcircle/malum
 	name = "Rune of Forge"
 	desc = "A Holy Rune of Malum. A hammer and heat, to fix any imperfections with."

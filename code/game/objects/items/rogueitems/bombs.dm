@@ -84,10 +84,7 @@
 /obj/item/bomb/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	..()
 	sleep(1)
-	//Caustic Edit - Only explode if it's already lit, or thrown by a mob. We can just handwave they lit it, probably.
-	if(lit || istype(throwingdatum.thrower?.ai_controller))
-		explode()
-	//Caustic Edit End
+	explode()
 
 /obj/item/bomb/process()
 	fuze--
