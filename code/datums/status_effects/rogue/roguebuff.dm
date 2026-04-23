@@ -695,11 +695,11 @@
 		owner.update_damage_overlays()
 
 	var/const/HEALTH_PERCENTILE = 0.25 //Default of 25% of their damage total.
-	if(owner.getBruteLoss() > (owner.maxHealth * HEALTH_PERCENTILE))
+	if(owner.getBruteLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
 		owner.adjustBruteLoss(-healing_on_tick, 0)
-	if(owner.getFireLoss() > (owner.maxHealth * HEALTH_PERCENTILE))
+	if(owner.getFireLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
 		owner.adjustFireLoss(-healing_on_tick, 0)
-	if(owner.getToxLoss() > (owner.maxHealth * HEALTH_PERCENTILE))
+	if(owner.getToxLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
 		owner.adjustToxLoss(-healing_on_tick, 0)
 
 	owner.adjustOxyLoss(-healing_on_tick, 0) //Oxyloss doesn't need a check because this is to prevent death entirely.
