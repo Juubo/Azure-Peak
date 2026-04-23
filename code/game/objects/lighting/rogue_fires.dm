@@ -844,17 +844,19 @@
 					if(valid_bed)
 						break
 
-			//Check if we're a greater campfire, or a towner role, and resting and NOT in cmode.
+			//Check if we're a towner role, and resting and NOT in cmode.
 			var/static/list/towner_jobs
 			towner_jobs = GLOB.peasant_positions | GLOB.burgher_positions | GLOB.sidefolk_positions
-			if((greater_fire || (human.mind?.assigned_role in towner_jobs)) && (human.resting && !human.cmode)) //Don't be in cmode
+			if(((human.mind?.assigned_role in towner_jobs)) || (human.resting && !human.cmode)) //Don't be in cmode
 
 				if(!human.has_status_effect(/datum/status_effect/buff/campfire_stamina))
 					to_chat(human, span_info("The warmth of the fire comforts me, affording me a short rest. I would need to lie down on a bed, or bundle up in bedsheets to get a better rest."))
 				
-				if(human.resting) //Can only heal if resting... Second check for greater campfire.
+				if(human.resting) //Can only heal and recover energy if resting... Second check for greater campfire.
 					human.apply_status_effect(/datum/status_effect/buff/campfire, valid_bed)
-				human.apply_status_effect(/datum/status_effect/buff/campfire_stamina, valid_bed)
+
+				else if(greater_fire || human.resting) //Check to grant stamina only if we're a greater fire, otherwise resting.
+					human.apply_status_effect(/datum/status_effect/buff/campfire_stamina, valid_bed)
 			//CC Edit End
 
 
