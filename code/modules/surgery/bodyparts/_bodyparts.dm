@@ -815,8 +815,14 @@
 			if(organ_appearance)
 				. += organ_appearance
 
-	if(!skeletonized && draw_bodypart_features)
+	// Feature overlays
+	if(draw_bodypart_features)
 		for(var/datum/bodypart_feature/feature as anything in bodypart_features)
+			// Skip non-persistent features when skeletonized
+			if(skeletonized)
+				var/datum/sprite_accessory/accessory/A = SPRITE_ACCESSORY(feature.accessory_type)
+				if(!A || !A.persists_through_skeletonize)
+					continue
 			var/overlays = feature.get_bodypart_overlay(src)
 			if(overlays)
 				. += overlays
