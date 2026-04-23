@@ -1,5 +1,4 @@
 /datum/sprite_accessory/snout/skeleton
-	icon = 'icons/mob/sprite_accessory/snouts/skel_snouts.dmi'
 	persists_through_skeletonize = TRUE
 	color_disabled = TRUE
 	default_colors = list("#FFFFFF")

@@ -8,5 +8,11 @@
 
 /datum/sprite_accessory/tail/skeleton/lizard
 	name = "Bony Lizard Tail"
-	icon_state = "tail_lizard_bone"
+	icon_state = "lizard"
 	color_key_name = "lizard"
+
+/datum/sprite_accessory/tail/skeleton/dog
+	name = "Bony Dog Tail"
+	icon_state = "dog"
+	color_key_name = "dog"
+	icon = 'icons/mob/sprite_accessory/tails/skel_dog_tail.dmi'
