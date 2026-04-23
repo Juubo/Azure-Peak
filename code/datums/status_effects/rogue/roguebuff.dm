@@ -632,6 +632,13 @@
 	var/healing_on_tick = 5
 	var/outline_colour = "#7e6a3e"
 	var/tech_healing_modifier = 1
+	var/no_bed = FALSE
+
+//CC Edit - Less Energy without a bed.
+/datum/status_effect/buff/campfire_stamina/on_creation(mob/living/new_owner, bed)
+	. = ..()
+	if(bed)
+		no_bed = !no_bed
 
 /datum/status_effect/buff/campfire_stamina/on_apply()
 	var/filter = owner.get_filter(CAMPFIRE_BASE_FILTER)
@@ -642,6 +649,8 @@
 /datum/status_effect/buff/campfire_stamina/tick()
 	if(owner.construct)
 		return
+	if(no_bed)
+		healing_on_tick /= 4 //Energy regen destroyed by 75%, get a bed silly!
 	var/stamheal = healing_on_tick
 	if(!owner.cmode)
 		stamheal *= 3 //CC Edit 2 -> 3 (15 Energy per tick)
@@ -655,28 +664,49 @@
 	id = "healing_campfire"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing/campfire
 	examine_text = null
-	var/healing_on_tick = 3 //CC Edit, 2 -> 3 healing on tick. 
-	duration = 6 SECONDS
+	var/no_bed = FALSE //CC Edit - Halves the rate of healing. No Bedroll? *Megamind meme*
+	var/healing_on_tick = 3 //CC Edit, 2 -> 3 healing on tick. Without a bed, it's 1.5 healing. Better cover your dying ally or drag them somewhere comfy!
+	duration = 3 SECONDS //CC Edit , 6 -> 3 SECONDS. Stay near the fire if you wanna keep being healed.
+
+//CC Edit. Bed check.
+/datum/status_effect/buff/campfire/on_creation(mob/living/new_owner, bed)
+	. = ..()
+	if(bed)
+		no_bed = !no_bed
 
 /datum/status_effect/buff/campfire/tick()
 	if(owner.cmode)
 		return
 	if(owner.construct)
 		return
+	if(no_bed)
+		healing_on_tick /= 2 //No bed? Half that heal rate.
+		
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue/campfire(get_turf(owner))
 	H.color = "#c7aa5c"
-	if(owner.blood_volume < BLOOD_VOLUME_OKAY)
-		owner.blood_volume = min(owner.blood_volume+healing_on_tick, BLOOD_VOLUME_OKAY)
+
+	//CC Edit - Campfire is meant to prevent you from dying; Not heal you back to full.
+	if(owner.blood_volume < BLOOD_VOLUME_SURVIVE)
+		owner.blood_volume = min(owner.blood_volume+healing_on_tick, BLOOD_VOLUME_SURVIVE)
+
 	var/list/wCount = owner.get_wounds()
 	if(length(wCount))
-		owner.heal_wounds(healing_on_tick, list(/datum/wound/slash, /datum/wound/puncture, /datum/wound/bite, /datum/wound/bruise, /datum/wound/dynamic, /datum/wound/dislocation))
+		//CC Edit - No longer heals Dislocations. Only bleeding wounds will be sewn up.
+		owner.heal_wounds(healing_on_tick, list(/datum/wound/slash, /datum/wound/puncture, /datum/wound/bite, /datum/wound/bruise, /datum/wound/dynamic))
 		owner.update_damage_overlays()
-	owner.adjustBruteLoss(-healing_on_tick, 0)
-	owner.adjustFireLoss(-healing_on_tick, 0)
-	owner.adjustOxyLoss(-healing_on_tick, 0)
-	owner.adjustToxLoss(-healing_on_tick, 0)
-	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick)
+
+	var/const/HEALTH_PERCENTILE = 0.25 //Default of 25% of their damage total.
+	if(owner.getBruteLoss() > (owner.getBruteLoss() * HEALTH_PERCENTILE))
+		owner.adjustBruteLoss(-healing_on_tick, 0)
+	if(owner.getFireLoss() > (owner.getFireLoss() * HEALTH_PERCENTILE))
+		owner.adjustFireLoss(-healing_on_tick, 0)
+	if(owner.getToxLoss() > (owner.getToxLoss() * HEALTH_PERCENTILE))
+		owner.adjustToxLoss(-healing_on_tick, 0)
+
+	owner.adjustOxyLoss(-healing_on_tick, 0) //Oxyloss doesn't need a check because this is to prevent death entirely.
+	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick) //Same goes for these 2
 	owner.adjustCloneLoss(-healing_on_tick, 0)
+	//CC Edit End
 
 #undef CAMPFIRE_BASE_FILTER
 

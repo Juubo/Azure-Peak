@@ -340,6 +340,13 @@
 	var/broken_matress = FALSE
 	var/broken_percentage = 0
 
+//CC Edit - Make all the chairs state their sleep quality, even if they are all just 0.5. It's still 1 HP/tick of healing!
+/obj/structure/bed/rogue/Initialize()
+	. = ..()
+	if(sleepy)
+		desc += " (Sleep Quality: [sleepy] )"
+	
+
 /obj/structure/bed/rogue/proc/damage_bed(dam_value)
 	if(sleepy <= 2) // the bed is already pretty awful and broken (i.e: straw bed/bedroll), so don't break it even further
 		return
