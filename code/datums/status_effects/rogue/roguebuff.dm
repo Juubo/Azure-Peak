@@ -630,8 +630,7 @@
 	duration = 5 SECONDS
 	examine_text = "SUBJECTPRONOUN is enjoying a brief respite."
 	var/healing_on_tick = 5
-	var/outline_colour = "#7e6a3e"
-	var/tech_healing_modifier = 1
+	var/outline_colour = "#814ab1" //CC Edit - Warmer purple colors for the blue energy healing to make it more visually distinct.
 	var/no_bed = FALSE
 
 //CC Edit - Less Energy without a bed.
