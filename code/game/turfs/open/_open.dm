@@ -146,6 +146,7 @@
 	//CC Edit Begin
 	if(active_hotspot) //Used for NPC logic when traversing. They shouldn't be willingly walking into fire!
 		return FALSE
-	return TRUE
+	
+	. = ..()
 	//CC Edit End
 //CC Edit End

@@ -638,11 +638,22 @@
 
 /turf/open/water/transparent/update_multiz(prune, init)
 	var/turf/T = GET_TURF_BELOW(src)
-	if(T && init) vis_contents += T
+
+	//Caustic Edit - Should hopefully check for the tile below _actually_ being a water-tile first.
+	if(istype(T, /turf/open/water/transparent))
+		if(T && init)
+			vis_contents += T
+	//Caustic Edit End
+
 	return !!T
 
 
 /turf/open/water/transparent/can_zFall(atom/movable/A)
+	//Caustic Edit - Maybe this stops anchored reeds and plants and stuff from z-falling into water?
+	if(A.anchored)
+		return FALSE
+	//Caustic Edit End
+
 	if(ishuman(A))
 		var/mob/living/carbon/human/H = A
 		
@@ -650,19 +661,31 @@
 			return FALSE
 			
 		if(H.stat == UNCONSCIOUS || H.IsImmobilized() || H.IsKnockdown())
-			return TRUE
+			return ..() //Caustic Edit - ENSURE WE CALL THE PARENT!!!
 			
 		return FALSE 
-	return TRUE
+	
+	return ..() //Caustic Edit - ENSURE WE CALL THE PARENT!!!
 
 /turf/open/water/transparent/zPassOut(atom/movable/A, direction)
-	if(direction == DOWN && ishuman(A))
-		var/mob/living/carbon/human/H = A
-		if(H.stat == DEAD)
+	//Caustic Edit - Maybe this stops anchored reeds and plants and stuff from z-falling into water?
+	if(A.anchored)
+		return FALSE
+	
+	if(direction == DOWN)
+		var/turf/T = GET_TURF_BELOW(src)
+		if(!istype(T, /turf/open/water/transparent))
 			return FALSE
-		if(H.stat == UNCONSCIOUS || H.IsImmobilized() || H.IsKnockdown())
-			return TRUE
-		return FALSE 
+		
+		if(ishuman(A))
+			var/mob/living/carbon/human/H = A
+			if(H.stat == DEAD)
+				return FALSE
+			if(H.stat == UNCONSCIOUS || H.IsImmobilized() || H.IsKnockdown())
+				return ..()
+			return FALSE 
+	//Caustic Edit End
+	
 	return ..()
 
 /turf/open/water/transparent/Entered(atom/movable/AM)
