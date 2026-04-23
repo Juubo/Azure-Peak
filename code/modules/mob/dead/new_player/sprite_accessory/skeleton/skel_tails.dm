@@ -16,3 +16,5 @@
 	icon_state = "dog"
 	color_key_name = "dog"
 	icon = 'icons/mob/sprite_accessory/tails/skel_dog_tail.dmi'
+
+// I got a bone to pick with you
