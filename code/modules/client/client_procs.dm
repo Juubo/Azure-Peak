@@ -322,13 +322,12 @@ GLOBAL_LIST_EMPTY(external_rsc_urls)
 	if(!holder)
 		prefs.chat_toggles &= ~CHAT_GHOSTEARS
 		prefs.chat_toggles &= ~CHAT_GHOSTWHISPER
+		prefs.save_preferences()
 	prefs.last_ip = address				//these are gonna be used for banning
 	prefs.last_id = computer_id			//these are gonna be used for banning
 	fps = prefs.clientfps
 	preferred_ui_language = sanitize_preferred_ui_language(prefs.preferred_ui_language)
 	prefs.preferred_ui_language = preferred_ui_language
-	if(!holder)
-		prefs.save_preferences()
 
 	//Caustic edit
 	prefs_vr = new/datum/vore_preferences(src)
