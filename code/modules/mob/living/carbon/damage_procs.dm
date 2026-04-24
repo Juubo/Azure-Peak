@@ -271,7 +271,7 @@
 	Returns the total amount of "max_damage" that all limbs connected to the body are capable of taking.
 	Useful for when you need to get combined healthpool of every limb, including head and torso.
 */
-/mob/living/carbon/getMaxLimbDamage()
+/mob/living/carbon/getMaxLimbHealth()
 	. = 0
 	for(var/obj/item/bodypart/BP as anything in bodyparts)
 		. += BP.max_damage

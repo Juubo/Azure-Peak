@@ -631,13 +631,7 @@
 	examine_text = "SUBJECTPRONOUN is enjoying a brief respite."
 	var/healing_on_tick = 5
 	var/outline_colour = "#814ab1" //CC Edit - Warmer purple colors for the blue energy healing to make it more visually distinct.
-	var/no_bed = FALSE
 
-//CC Edit - Less Energy without a bed.
-/datum/status_effect/buff/campfire_stamina/on_creation(mob/living/new_owner, bed)
-	. = ..()
-	if(bed)
-		no_bed = !no_bed
 
 /datum/status_effect/buff/campfire_stamina/on_apply()
 	var/filter = owner.get_filter(CAMPFIRE_BASE_FILTER)
@@ -648,8 +642,6 @@
 /datum/status_effect/buff/campfire_stamina/tick()
 	if(owner.construct)
 		return
-	if(no_bed)
-		healing_on_tick /= 4 //Energy regen destroyed by 75%, get a bed silly!
 	var/stamheal = healing_on_tick
 	if(!owner.cmode)
 		stamheal *= 3 //CC Edit 2 -> 3 (15 Energy per tick)
@@ -663,23 +655,14 @@
 	id = "healing_campfire"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/healing/campfire
 	examine_text = null
-	var/no_bed = FALSE //CC Edit - Halves the rate of healing. No Bedroll? *Megamind meme*
-	var/healing_on_tick = 3 //CC Edit, 2 -> 3 healing on tick. Without a bed, it's 1.5 healing. Better cover your dying ally or drag them somewhere comfy!
+	var/healing_on_tick = 1.5 //CC Edit - Keep this at a 1.5. It's slow, but managable. Sleep on a bed for even faster healing. This is meant to ensure you don't die, simply.
 	duration = 3 SECONDS //CC Edit , 6 -> 3 SECONDS. Stay near the fire if you wanna keep being healed.
-
-//CC Edit. Bed check.
-/datum/status_effect/buff/campfire/on_creation(mob/living/new_owner, bed)
-	. = ..()
-	if(bed)
-		no_bed = !no_bed
 
 /datum/status_effect/buff/campfire/tick()
 	if(owner.cmode)
 		return
 	if(owner.construct)
 		return
-	if(no_bed)
-		healing_on_tick /= 2 //No bed? Half that heal rate.
 		
 	var/obj/effect/temp_visual/heal/H = new /obj/effect/temp_visual/heal_rogue/campfire(get_turf(owner))
 	H.color = "#c7aa5c"
@@ -695,14 +678,15 @@
 		owner.update_damage_overlays()
 
 	var/const/HEALTH_PERCENTILE = 0.25 //Default of 25% of their damage total.
-	if(owner.getBruteLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
+	if(owner.getBruteLoss() > (owner.getMaxLimbHealth() * HEALTH_PERCENTILE))
 		owner.adjustBruteLoss(-healing_on_tick, 0)
-	if(owner.getFireLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
+	if(owner.getFireLoss() > (owner.getMaxLimbHealth() * HEALTH_PERCENTILE))
 		owner.adjustFireLoss(-healing_on_tick, 0)
-	if(owner.getToxLoss() > (owner.getMaxLimbDamage() * HEALTH_PERCENTILE))
+	if(owner.getToxLoss() > (owner.getMaxLimbHealth() * HEALTH_PERCENTILE))
 		owner.adjustToxLoss(-healing_on_tick, 0)
 
-	owner.adjustOxyLoss(-healing_on_tick, 0) //Oxyloss doesn't need a check because this is to prevent death entirely.
+	//Oxyloss doesn't need a check because this is to prevent death entirely. Multiply the healing of oxy by 5 as well, we want them to live, not die.
+	owner.adjustOxyLoss((-healing_on_tick * 7), 0) //At 1.5 healing, this is 10.5 oxy healed / tick. Should be more than plenty whilst recovering wounds to prevent people dying to bloodloss.
 	owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, -healing_on_tick) //Same goes for these 2
 	owner.adjustCloneLoss(-healing_on_tick, 0)
 	//CC Edit End
