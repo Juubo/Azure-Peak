@@ -323,3 +323,5 @@
 // Caustic Edit end
 
 #undef SEW_HP_EXP_NORMALIZER
+#undef SEW_EXP_PER_STEP
+#undef SEW_EXP_FINISH
