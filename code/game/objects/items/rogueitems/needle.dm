@@ -180,6 +180,11 @@
 	var/obj/item/bodypart/affecting
 	var/is_simple_animal = !iscarbon(patient)
 	if(iscarbon(patient))
+		//OV edit
+		if(isooze(patient))
+			to_chat(doctor, span_warning("You can't sew an Ooze, their wounds must be burned closed."))
+			return FALSE
+		//OV edit end
 		affecting = patient.get_bodypart(check_zone(doctor.zone_selected))
 		if(!affecting)
 			to_chat(doctor, span_warning("That limb is missing."))
@@ -292,7 +297,7 @@
 
 /obj/item/needle/aalloy
 	name = "decrepit needle"
-	icon_state = "aneedle"
+	icon_state = "needle" //OV Edit: Because this one missing icon is making all our map tests fail.
 	desc = "This decrepit old needle doesn't seem helpful for much."
 	stringamt = 5
 	maxstring = 5

@@ -3501,6 +3501,10 @@
 #include "modular_causticcove\code\modules\events\adventure\random_bosses\random_boss.dm"
 #include "modular_causticcove\code\game\objects\items\clothes\causthats.dm"
 
+//Modular OV files!
+#include "modular_ochrevalley\code\modules\mob\living\carbon\human\species_types\roguetown\other\ooze.dm"
+#include "modular_ochrevalley\code\modules\mob\living\simple_animal\rogue\ooze_blob.dm"
+
 //Ratwood's Desert Town stuff here
 #include "modular_deserttown\camel.dm"
 #include "modular_deserttown\desertareas.dm"
