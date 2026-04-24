@@ -63,6 +63,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/preferred_map = null
 	var/pda_style = MONO
 	var/pda_color = "#808000"
+	var/topjob = null
 
 	var/uses_glasses_colour = 0
 
@@ -1120,6 +1121,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					var/mob/dead/new_player/P = user
 					if(istype(P))
 						P.topjob = job.title
+						topjob = job.title
 				if(JP_MEDIUM)
 					prefLevelLabel = "Medium"
 					prefLevelColor = "green"
@@ -2997,10 +2999,13 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 								S.cd = "/character[i]"
 								var/nickname = S["nickname"]
 								var/realname = S["real_name"]
+								var/suffix = S["topjob"]
 								if(!realname)
 									name = "[i] - \[EMPTY SLOT\]"
 								else
 									name = "[i] - [realname][nickname ? " ([nickname])" : ""]"
+									if(suffix)
+										name += " - [suffix]"
 								if(loaded_slot == i)
 									choices_default = name
 								choices[name] = i
