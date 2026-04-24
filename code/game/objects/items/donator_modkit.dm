@@ -432,7 +432,7 @@
 /obj/item/enchantingkit/weapon/euthanasia
 	name = "'Ritual Dagger Mould'"
 	target_items = list(
-		/obj/item/rogueweapon/knives/combat
+		/obj/item/rogueweapon/huntingknife/combat
 	)
 	result_item = /obj/item/rogueweapon/example/euthanasia
 
