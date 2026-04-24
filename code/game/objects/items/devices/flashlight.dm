@@ -149,6 +149,8 @@
 	light_height = 0
 	grid_width = 32
 	grid_height = 32
+	experimental_onhip = TRUE
+	experimental_inhand = TRUE
 	var/can_fix_ooze = TRUE //OV ADD
 
 /obj/item/flashlight/flare/torch/getonmobprop(tag)
