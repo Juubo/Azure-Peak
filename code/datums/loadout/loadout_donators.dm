@@ -309,4 +309,4 @@
 /datum/loadout_item/donator/euthanasia
 	name = "Donator Item - Euthanasia"
 	path = /obj/item/enchantingkit/weapon/euthanasia
-	ckeywhitelist = lost("rivercadaver")
+	ckeywhitelist = list("rivercadaver")
