@@ -244,11 +244,9 @@
 		extradefroll = prob(prob2defend)
 		defender_dualw = TRUE
 
-	if(src.client?.prefs.showrolls)
-		var/text = "Roll to parry... [HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "???" : prob2defend]%"
-		if(defender_dualw)
-			text += " Twice! Disadvantage! [!HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "([(prob2defend / 100) * (prob2defend / 100) * 100]%)" : ""]"
-		to_chat(src, span_info("[text]"))
+	var/text = "Roll to parry... [HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "???" : prob2defend]%"
+	if(defender_dualw)
+		text += " Twice! Disadvantage! [!HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS) ? "([(prob2defend / 100) * (prob2defend / 100) * 100]%)" : ""]"
 
 	if(has_status_effect(/datum/status_effect/swingdelay/penalty))
 		prob2defend = clamp(prob2defend - 50, 5, 90)
@@ -271,6 +269,7 @@
 					drained = drained + ( intenty.masteritem.wbalance * ((user.STASTR - src.STASTR) * STAM_DRAIN_PER_STR_DIFF_HEAVY_BAL) )
 	else
 		text += span_warning(" The enemy defeated my parry!")
+	
 	if(src.client?.prefs.showrolls)
 		to_chat(src, span_info("[text]"))
 

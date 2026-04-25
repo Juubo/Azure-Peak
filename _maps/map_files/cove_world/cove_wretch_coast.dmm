@@ -235,7 +235,7 @@
 /area/rogue/outdoors/banditcamp)
 "ba" = (
 /obj/structure/flagpole,
-/turf/open/floor/rogue/dirt/road,
+/turf/open/floor/rogue/grass,
 /area/rogue/outdoors/woods/wretch_lair)
 "bc" = (
 /obj/structure/fluff/walldeco/chains{
@@ -4949,6 +4949,10 @@
 /obj/structure/fluff/grindwheel,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cave/inhumen)
+"xn" = (
+/obj/structure/flagpole,
+/turf/open/floor/rogue/dirt,
+/area/rogue/outdoors/woods/wretch_lair)
 "xo" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/cleanshallow,
@@ -7335,6 +7339,7 @@
 "JZ" = (
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/railing/border/west,
+/obj/structure/flagpole,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/outdoors/woods/wretch_lair)
 "Kb" = (
@@ -29936,7 +29941,7 @@ Ev
 Ev
 Ev
 Ev
-ba
+Ev
 Ic
 nv
 NB
@@ -32791,7 +32796,7 @@ Ev
 Ev
 Ev
 Xm
-Xm
+ba
 Xm
 Xm
 Ev
@@ -33199,7 +33204,7 @@ Ev
 Ev
 Pg
 Pg
-Pg
+xn
 Pg
 Pg
 Ry
