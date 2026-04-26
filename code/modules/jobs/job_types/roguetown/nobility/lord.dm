@@ -171,7 +171,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/virtue/utility/riding
 	)
 	
-	subclass_stashed_items = list("Ducal Caparison" = /obj/item/caparison/azure)
+	subclass_stashed_items = list(
+		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
+		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
 /datum/outfit/job/roguetown/lord/warrior/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -218,7 +220,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/virtue/utility/riding
 	)
 
-	subclass_stashed_items = list("Ducal Caparison" = /obj/item/caparison/azure)
+	subclass_stashed_items = list(
+		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
+		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
 /datum/outfit/job/roguetown/lord/merchant/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -265,7 +269,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/virtue/utility/riding
 	)
 
-	subclass_stashed_items = list("Ducal Caparison" = /obj/item/caparison/azure)
+	subclass_stashed_items = list(
+		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
+		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
 /datum/outfit/job/roguetown/lord/mage/pre_equip(mob/living/carbon/human/H)
 	..()
@@ -306,7 +312,9 @@ GLOBAL_LIST_EMPTY(lord_titles)
 		/datum/virtue/utility/riding
 	)
 
-	subclass_stashed_items = list("Ducal Caparison" = /obj/item/caparison/azure)
+	subclass_stashed_items = list(
+		"Ducal Caparison (Saiga)" = /obj/item/caparison/azure,
+		"Fogbeast Caparison" = /obj/item/caparison/fogbeast)
 
 /datum/outfit/job/roguetown/lord/inbred/pre_equip(mob/living/carbon/human/H)
 	..()
