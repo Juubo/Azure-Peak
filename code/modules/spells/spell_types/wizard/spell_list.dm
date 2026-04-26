@@ -2,7 +2,7 @@
 to all mage classes.
 */
 GLOBAL_LIST_INIT(utility_spells, (list(
-		/datum/action/cooldown/spell/arcyne_forge/Lesser, //Caustic Edit - Add a lesser version of Arcyne Forge! Slightly longer cooldown, much less variety.
+		/datum/action/cooldown/spell/arcyne_forge/lesser, //Caustic Edit - Add a lesser version of Arcyne Forge! Slightly longer cooldown, much less variety.
 		/datum/action/cooldown/spell/chill_food,
 		/datum/action/cooldown/spell/create_campfire,
 		/datum/action/cooldown/spell/darkvision,

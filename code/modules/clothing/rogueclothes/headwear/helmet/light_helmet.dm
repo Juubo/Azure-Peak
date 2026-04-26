@@ -19,6 +19,8 @@
 /obj/item/clothing/head/roguetown/armingcap/padded/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_HONORBOUND)
+	if(armor_class > ARMOR_CLASS_LIGHT)
+		AddComponent(/datum/component/armour_filtering/negative, TRAIT_IRONMAN)
 
 /obj/item/clothing/head/roguetown/armingcap/padded
 	name = "padded arming cap"
@@ -235,3 +237,5 @@
 
 /obj/item/clothing/head/roguetown/mentorhat/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_HONORBOUND)
+	if(armor_class > ARMOR_CLASS_LIGHT)
+		AddComponent(/datum/component/armour_filtering/negative, TRAIT_IRONMAN)

@@ -840,7 +840,7 @@
 		var/list/hearers_in_range = get_hearers_in_LOS(healing_range, src, RECURSIVE_CONTENTS_CLIENT_MOBS)
 		for(var/mob/living/carbon/human/human in hearers_in_range)
 			var/distance = get_dist(src, human)
-			if(distance > healing_range || human.construct)
+			if(distance > healing_range || HAS_TRAIT(human, TRAIT_IRONMAN))
 				continue
 			human.add_stress(/datum/stressevent/campfire)
 			// CC Edit - Campfires only heal and boost energy regen when you're sleeping and laying down. For towners, this does not affect them.

@@ -1154,8 +1154,11 @@
 		to_chat(user, span_warning("This one has pledged themselves whole to Necra. They are Hers."))
 		return
 	if(target.mob_biotypes & MOB_UNDEAD) //positive energy harms the undead
-		target.visible_message(span_danger("[target] is unmade by divine magic! The Toll is accepted, and [target] is dragged to ever-death!"), span_userdanger("I'm unmade by divine magic!"))
-		target.gib()
+		//Caustic Edit - We don't need to go accidentally gibbing the undead!
+		to_chat(user, span_warning("This one still has the effects of the undead taint upon them. Necra demands them purified first!"))
+		//target.visible_message(span_danger("[target] is unmade by divine magic! The Toll is accepted, and [target] is dragged to ever-death!"), span_userdanger("I'm unmade by divine magic!"))
+		//target.gib()
+		//Caustic Edit End
 		return
 	if(alert(target, "A Toll is being offered for your soul, BREAK FREE?", "Revival", "I need to wake up", "Don't let me go") != "I need to wake up")
 		target.visible_message(span_notice("Nothing happens. They are not being let go."))

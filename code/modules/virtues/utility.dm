@@ -52,7 +52,7 @@
 			if(NOTABLE_RESIDENCY)
 				ADD_TRAIT(recipient, TRAIT_RESIDENT, TRAIT_VIRTUE)
 				var/mapswitch = 0
-				if(SSmapping.config.map_name == "Dun World")
+				if(SSmapping.config.map_name == "Cove World") //Caustic Edit - Lets try changing this to Cove World... Should have it work out? 
 					mapswitch = 1
 
 				if(mapswitch == 0)

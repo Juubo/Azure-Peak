@@ -21,6 +21,15 @@
 			return
 	..()
 
+/obj/item/rogueore/attack(mob/living/M, mob/user)
+	if(!user.cmode)
+		if(try_construct_consume(src, M, user))
+			return
+	else
+		return ..()
+		
+	return ..()
+
 /obj/item/rogueore/gold
 	name = "raw gold"
 	desc = "A clump of dirty lustrous nuggets!"
@@ -197,6 +206,12 @@
 		var/obj/machinery/anvil/A = loc
 		A.current_workpiece = null
 		A.update_icon()
+
+/obj/item/ingot/attack(mob/living/M, mob/user)
+	if(!user.cmode)
+		if(try_construct_consume(src, M, user))
+			return
+	return ..()
 
 /obj/item/ingot/gold
 	name = "gold bar"

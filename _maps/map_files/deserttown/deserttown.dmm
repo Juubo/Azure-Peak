@@ -36899,8 +36899,8 @@
 	locked = 1;
 	lockid = "lich"
 	},
-/obj/item/book/granter/spell/blackstone/skeleton,
-/obj/item/book/granter/spell/blackstone/bonechill,
+/obj/item/book/granter/spell/skeleton,
+/obj/item/book/granter/spell/bonechill,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/spells,
 /turf/open/floor/rogue/carpet/lord/right,

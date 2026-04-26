@@ -2000,10 +2000,10 @@
 /area/rogue/indoors/eventarea)
 "IT" = (
 /obj/structure/rack/rogue/shelf/biggest,
-/obj/item/book/granter/spell/blackstone/mirror_transform,
-/obj/item/book/granter/spell/blackstone/mirror_transform,
-/obj/item/book/granter/spell/blackstone/sizespell,
-/obj/item/book/granter/spell/blackstone/sizespell,
+/obj/item/book/granter/spell/mirror_transform,
+/obj/item/book/granter/spell/mirror_transform,
+/obj/item/book/granter/spell/sizespell,
+/obj/item/book/granter/spell/sizespell,
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/cave/inhumen)
 "IV" = (
