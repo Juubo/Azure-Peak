@@ -62,7 +62,7 @@
 	tranged = TRUE
 	noaa = TRUE
 
-/datum/intent/knuckles/strike
+/*/datum/intent/knuckles/strike
 	name = "punch"
 	blade_class = BCLASS_BLUNT
 	attack_verb = list("punches", "clocks")
@@ -82,6 +82,7 @@
 	damfactor = 1.1
 	intent_intdamage_factor = 0.6
 	icon_state = "inbash"	// Wallop is too long for a button; placeholder.
+*/
 
 /// INTENT DATUMS	^
 
@@ -448,7 +449,7 @@
 		added_def = 2,\
 	)
 
-/obj/item/rogueweapon/knuckles/psydon
+/*/obj/item/rogueweapon/knuckles/psydon
 	name = "psydonic knuckles"
 	desc = "A simple piece of harm molded in a holy mixture of steel and silver, finished with three stumps - Psydon's crown - to crush the heretics' garments and armor into smithereens."
 	icon_state = "psyknuckle"
@@ -578,7 +579,7 @@
 	desc = "Some times call for a more intimate approach."
 	icon_state = "eoraknuckle"
 	force = 28 // lower this to 27 if its too much
-
+*/
 ///Peasantry / Militia Weapon Pack///
 
 /obj/item/rogueweapon/woodstaff/militia
