@@ -1064,10 +1064,10 @@
 	req_bar = /obj/item/ingot/silver
 	created_item = /obj/item/rogueweapon/katar/silver
 
-/datum/anvil_recipe/weapons/silver/knuckle
+/*/datum/anvil_recipe/weapons/silver/knuckle
 	name = "Knuckledusters, Silver"
 	req_bar = /obj/item/ingot/silver
-	created_item = /obj/item/rogueweapon/knuckles/silver
+	created_item = /obj/item/rogueweapon/knuckles/silver*/
 
 /datum/anvil_recipe/weapons/silver/sword
 	name = "Arming Sword, Silver (+1 Silver)"
