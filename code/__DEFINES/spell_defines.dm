@@ -85,6 +85,7 @@
 // Standardized spell ranges
 #define SPELL_RANGE_PROJECTILE 10  // Standard projectile travel distance and projectile spell cast range
 #define SPELL_RANGE_GROUND     7   // Standard ground-targeted / AOE spell cast range
+#define SPELL_RANGE_ADJACENT   1   // One tile range is your own tile and the ones adjacent!
 
 // Charging slowdown tiers — how much the caster is slowed while charging
 #define CHARGING_SLOWDOWN_NONE 0       // Spellblade abilities, no movement penalty

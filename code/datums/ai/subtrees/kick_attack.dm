@@ -96,6 +96,7 @@
 				if(AI_INT_SCALE_PROB(pawn, KICK_EXHAUSTED_CHANCE))
 					should_kick = TRUE
 
+	controller.set_blackboard_key(BB_KICK_COOLDOWN, world.time + KICK_COOLDOWN) //Caustic Edit - Now kicks will trigger a cooldown regardless of if it succeeds or fails.
 	if(!should_kick)
 		return
 
@@ -137,7 +138,7 @@
 	QDEL_NULL(pawn.mmb_intent)
 	pawn.mmb_intent = old_mmb
 
-	controller.set_blackboard_key(BB_KICK_COOLDOWN, world.time + KICK_COOLDOWN)
+	//controller.set_blackboard_key(BB_KICK_COOLDOWN, world.time + KICK_COOLDOWN) //Caustic Edit - Lets move this earlier so it triggers any time the AI attempts to even pass or fail a kick.
 	controller.set_blackboard_key(BB_HUMAN_NPC_TECHNIQUE_CD, world.time + 3 SECONDS)
 	// Kick is a committed action; block the next melee swing briefly so they don't immediately
 	// combo into a full attack right after.

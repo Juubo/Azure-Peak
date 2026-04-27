@@ -9,7 +9,7 @@
 	releasedrain = 33
 	chargedrain = 0
 	chargetime = 0
-	range = 2 // psydon miracles should be worse than regular ones.
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 2!?!?!? REALLY?!
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/ENDVRE.ogg'
@@ -113,7 +113,7 @@
 	releasedrain = 33
 	chargedrain = 0
 	chargetime = 0
-	range = 2
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 2!?!?!? REALLY?!
 	warnie = "sydwarning"
 	desc = "Lesser lux-magicka. Endure the wounds of another, for their sake. </br>‎  </br>Siphons away lesser injuries, such as gashes and fractures, from the target. In exchange, any siphoned injuries are subsequently imposed onto you. If the target has lost any blood, they will be fully replenished through your own veins."
 	movement_interrupt = FALSE
@@ -206,7 +206,7 @@
 	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
-	range = 3 // i got a request to up this. tbh it could be 4.
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 3!? Really!?
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/psyabsolution.ogg'

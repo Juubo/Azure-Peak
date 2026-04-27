@@ -25,7 +25,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	range = 4
+	range = SPELL_RANGE_GROUND //Caustic Edit - Lets make this on parity with and using the new Spell Defines?
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/heal.ogg'
@@ -120,7 +120,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	range = 4
+	range = SPELL_RANGE_GROUND //Caustic Edit - Lets make this on parity with and using the Spell Defines?
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 //	chargedloop = /datum/looping_sound/invokeholy
@@ -183,7 +183,7 @@
 	releasedrain = 15
 	chargedrain = 0
 	chargetime = 3
-	range = 1
+	range = SPELL_RANGE_ADJACENT //Caustic Edit - Lets start using Spell Defines instead.
 	ignore_los = FALSE
 	warnie = "sydwarning"
 	movement_interrupt = TRUE
@@ -259,7 +259,7 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	range = 7
+	range = SPELL_RANGE_GROUND //Caustic Edit - Lets use the spell defines instead of hard-coding it.
 	ignore_los = FALSE
 	warnie = "sydwarning"
 	movement_interrupt = TRUE
