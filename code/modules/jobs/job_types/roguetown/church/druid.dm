@@ -88,7 +88,7 @@
 	head = /obj/item/clothing/head/roguetown/dendormask
 	wrists = /obj/item/clothing/neck/roguetown/psicross/dendor
 	shirt = /obj/item/clothing/suit/roguetown/shirt/robe/dendor
-	backpack_contents = list(/obj/item/ritechalk, /obj/item/storage/keyring/acolyte)
+	backpack_contents = list(/obj/item/ritechalk, /obj/item/storage/keyring/acolyte, /obj/item/mini_flagpole/church) //Caustic Edit - Add Church Flagpole!
 	H.ambushable = FALSE
 	H.AddComponent(/datum/component/wise_tree_alert)
 	var/datum/devotion/C = new /datum/devotion(H, H.patron)

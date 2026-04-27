@@ -105,7 +105,8 @@
 		/obj/item/paper,
 		/obj/item/paper,
 		/obj/item/paper,
-		/obj/item/book/spellbook
+		/obj/item/book/spellbook,
+		/obj/item/mini_flagpole/university, //Caustic Edit - Add University Flagpole!
 	)
 
 	if(H.mind)

@@ -88,6 +88,7 @@
 	backpack_contents = list(
 		/obj/item/book/spellbook = 1,
 		/obj/item/chalk = 1,
+		/obj/item/mini_flagpole/university, //Caustic Edit - Add mini-flagpole!
 		)
 	switch(H.patron?.type)
 		if(/datum/patron/inhumen/zizo)
