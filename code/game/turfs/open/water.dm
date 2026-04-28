@@ -655,9 +655,10 @@
 	
 	if(isliving(A))
 		var/mob/living/L = A
-		if(L.stat != UNCONSCIOUS && !L.IsImmobilized() && !L.IsKnockdown())
+		if(L.pulledby || (L.stat != UNCONSCIOUS && !L.IsImmobilized() && !L.IsKnockdown()))
 			return TRUE
-
+	if(A.throwing)
+		return TRUE
 	if(!A.can_zTravel(destination, DOWN, src)) // something is blocking their fall!
 		return TRUE
 	if(!A.can_zFall(src, DOWN, destination)) // they can't fall!
@@ -665,7 +666,7 @@
 	
 	return FALSE
 
-/turf/open/transparent/openspace/zPassIn(atom/movable/A, direction, turf/source)
+/turf/open/water/transparent/zPassIn(atom/movable/A, direction, turf/source)
 	if(direction == DOWN)
 		for(var/obj/O in contents)
 			if(O.obj_flags & BLOCK_Z_IN_DOWN)
@@ -683,11 +684,13 @@
 		return FALSE
 	if(HAS_TRAIT(A, TRAIT_I_AM_INVISIBLE_ON_A_BOAT))
 		return FALSE
+	if(A.throwing)
+		return FALSE
 	
 	if(direction == DOWN)
 		if(isliving(A))
 			var/mob/living/L = A
-			if(L.stat != UNCONSCIOUS && !L.IsImmobilized() && !L.IsKnockdown())
+			if(L.pulledby || (L.stat != UNCONSCIOUS && !L.IsImmobilized() && !L.IsKnockdown()))
 				return FALSE
 		for(var/obj/O in contents)
 			if(O.obj_flags & BLOCK_Z_OUT_DOWN)
