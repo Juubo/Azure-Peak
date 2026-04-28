@@ -91,7 +91,8 @@
 		/obj/item/flashlight/flare/torch/lantern/prelit = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot = 1,
-		/obj/item/signal_horn = 1
+		/obj/item/signal_horn = 1,
+		/obj/item/hunting_map/boars = 1,
 		)
 	H.verbs |= /mob/proc/haltyell
 	H.set_blindness(0)
@@ -118,7 +119,7 @@
 		if(hoodchoice != "None")
 			mask = hoods[hoodchoice]
 	if(H.mind)
-		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")
+		SStreasury.grant_savings(ECONOMIC_LOWER_MIDDLE_CLASS, H)
 
 /datum/advclass/warden/forester
 	name = "Forester"
@@ -170,7 +171,8 @@
 		/obj/item/storage/keyring/warden = 1,
 		/obj/item/flashlight/flare/torch/lantern = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/signal_horn = 1
+		/obj/item/signal_horn = 1,
+		/obj/item/hunting_map/boars = 1,
 		)
 	H.verbs |= /mob/proc/haltyell
 	H.set_blindness(0)
@@ -181,6 +183,7 @@
 			"Path of the Volf"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/wolf,
 			"Path of the Ram"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/goat,
 			"Path of the Bear"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/bear,
+			"Path of the Rous"		= /obj/item/clothing/head/roguetown/helmet/sallet/warden/rat,
 			"None"
 		)
 		var/helmchoice = input(H, "Choose your Path.", "HELMET SELECTION") as anything in helmets
@@ -196,4 +199,4 @@
 		if(helmchoice != "None")
 			mask = hoods[hoodchoice]
 	if(H.mind)
-		SStreasury.give_money_account(ECONOMIC_LOWER_MIDDLE_CLASS, H, "Savings.")
+		SStreasury.grant_savings(ECONOMIC_LOWER_MIDDLE_CLASS, H)

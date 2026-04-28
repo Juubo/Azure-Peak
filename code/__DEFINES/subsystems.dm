@@ -129,7 +129,6 @@
 #define INIT_ORDER_MINOR_MAPPING	47 //CC Edit for Map Templates
 #define INIT_ORDER_NETWORKS			45
 #define INIT_ORDER_SPATIAL_GRID     43
-#define INIT_ORDER_ECONOMY			40
 #define INIT_ORDER_OUTPUTS			35
 #define INIT_ORDER_ATOMS			30
 #define INIT_ORDER_TREESETUP		27 // CC Edit for Map Template
@@ -139,6 +138,7 @@
 #define INIT_ORDER_TIMER			1
 #define INIT_ORDER_DEFAULT			0
 #define INIT_ORDER_AIR				-1
+#define INIT_ORDER_ECONOMY			-2
 #define INIT_ORDER_ASSETS			-4
 #define INIT_ORDER_ICON_SMOOTHING	-5
 #define INIT_ORDER_OVERLAY			-6
