@@ -4,7 +4,7 @@
 	//color_keys = 2
 	color_key_name = "Member"
 	color_key_names = "Member" //list("Member", "Skin")
-	relevant_layers = list(/*BODY_BEHIND_LAYER, */CROTCH_LAYER) //Giving these their own unique layers now. PLEASE PLEASE PLEASE if anyone sees this, and wants to fix the names of the Iconstates in the various DMI files... I would love it. Check _sprite_accessory.dm as well to change what string is appended to the state. I'm leaving it as "FRONT" for now so I don't have to rename them all over AGAIN... - Jon //Vrell - Yes I know this is hacky but it works for now
+	relevant_layers = list(/*BODY_BEHIND_LAYER, */CROTCH_LAYER)
 	//Caustic Edit End
 
 /datum/sprite_accessory/penis/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
@@ -41,6 +41,10 @@
 		return "blank"
 
 /datum/sprite_accessory/penis/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	//Caustic Edit - Support to always show/hide parts!
+	if(organ.visible_organ && organ.always_show)
+		return TRUE
+	//Caustic Edit End
 	if(owner.underwear)
 		return FALSE
 	return is_human_part_visible(owner, HIDEJUMPSUIT|HIDECROTCH)
@@ -108,7 +112,7 @@
 /datum/sprite_accessory/testicles
 	icon = 'icons/mob/sprite_accessory/genitals/gonads.dmi'
 	color_key_name = "Sack"
-	relevant_layers = list(BODY_BEHIND_LAYER, TESTICLES_LAYER) //Caustic Edit - Giving these their own unique layers now. PLEASE PLEASE PLEASE if anyone sees this, and wants to fix the names of the Iconstates in the various DMI files... I would love it. Check _sprite_accessory.dm as well to change what string is appended to the state. I'm leaving it as "NSFRONT" for now so I don't have to rename them all over AGAIN... - Jon
+	relevant_layers = list(BODY_BEHIND_LAYER, TESTICLES_LAYER)
 
 /datum/sprite_accessory/testicles/adjust_appearance_list(list/appearance_list, obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_BELT, OFFSET_BELT_F)
@@ -118,6 +122,10 @@
 	return "[icon_state]_[testes.ball_size]"
 
 /datum/sprite_accessory/testicles/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	//Caustic Edit - Support to always show/hide parts!
+	if(organ.visible_organ && organ.always_show)
+		return TRUE
+	//Caustic Edit End
 	if(owner.underwear)
 		return FALSE
 	//Caustic Edit - Allow visible balls even with a slit!
@@ -143,7 +151,7 @@
 	//color_key_name = "Breasts"
 	color_keys = 2
 	color_key_names = list("Breasts", "Nipples")
-	relevant_layers = list(BODY_BEHIND_LAYER, BREASTS_LAYER) //Giving these their own unique layers now. PLEASE PLEASE PLEASE if anyone sees this, and wants to fix the names of the Iconstates in the various DMI files... I would love it. Check _sprite_accessory.dm as well to change what string is appended to the state. I'm leaving it as "FRONT" for now so I don't have to rename them all over AGAIN... - Jon
+	relevant_layers = list(BODY_BEHIND_LAYER, BREASTS_LAYER)
 	//Caustic Edit end
 
 /datum/sprite_accessory/breasts/get_icon_state(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
@@ -154,6 +162,10 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_ID, OFFSET_ID_F)
 
 /datum/sprite_accessory/breasts/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	//Caustic Edit - Support to always show/hide parts!
+	if(organ.visible_organ && organ.always_show)
+		return TRUE
+	//Caustic Edit End
 	if(owner.underwear && owner.underwear.covers_breasts)
 		return FALSE
 	return is_human_part_visible(owner, HIDEBOOB|HIDEJUMPSUIT)
@@ -182,6 +194,10 @@
 	generic_gender_feature_adjust(appearance_list, organ, bodypart, owner, OFFSET_BELT, OFFSET_BELT_F)
 
 /datum/sprite_accessory/vagina/is_visible(obj/item/organ/organ, obj/item/bodypart/bodypart, mob/living/carbon/owner)
+	//Caustic Edit - Support to always show/hide parts!
+	if(organ.visible_organ && organ.always_show)
+		return TRUE
+	//Caustic Edit End
 	if(owner.underwear)
 		return FALSE
 	return is_human_part_visible(owner, HIDECROTCH|HIDEJUMPSUIT)

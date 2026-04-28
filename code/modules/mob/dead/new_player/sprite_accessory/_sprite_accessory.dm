@@ -16,6 +16,7 @@
 	var/layer = BODY_LAYER
 	/// Relevant layers. If this is defined, instead of a single image the code will generate an image for each defined layer, with a suffix for the layer.
 	var/list/relevant_layers
+	//Caustic Edit - Attempting to add alternative layers
 	/// Amount of color keys this accessory uses.
 	var/color_keys = 1
 	/// Color key name to describe a single customizable color key.
@@ -178,15 +179,15 @@
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
 		//Caustic Edit
-		if(ASS_LAYER) //This one is the only one that is currently correct :<
-			return "ASS"
-		if(TESTICLES_LAYER) //PLEASE PLEASE PLEASE if anyone sees this, and wants to fix the names of the Iconstates in the various DMI files... I would love it. - Jon
-			return "NSFRONT"
-		if(BELLY_LAYER) //Fix me :<
+		if(ASS_LAYER) //Actually, running with this 'front' for all of them means we can just freely adjust the layers on the fly during runtime... Might be hacky but it might work?
 			return "FRONT"
-		if(BREASTS_LAYER) //Me too :<
+		if(TESTICLES_LAYER)
 			return "FRONT"
-		if(CROTCH_LAYER) //aAaaAAAaaa I hate the layering system
+		if(BELLY_LAYER)
+			return "FRONT"
+		if(BREASTS_LAYER)
+			return "FRONT"
+		if(CROTCH_LAYER)
 			return "FRONT"
 		if(GLASSES_LAYER)
 			return "ADJ"

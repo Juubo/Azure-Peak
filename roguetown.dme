@@ -3388,6 +3388,7 @@
 #include "modular_causticcove\code\modules\juices\varmods.dm"
 #include "modular_causticcove\code\modules\merporgans\belly.dm"
 #include "modular_causticcove\code\modules\merporgans\butt.dm"
+#include "modular_causticcove\code\modules\merporgans\revealverbs.dm"
 #include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\ears.dm"
 #include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\horns.dm"
 #include "modular_causticcove\code\modules\mob\dead\new_player\sprite_accessory\snout.dm"

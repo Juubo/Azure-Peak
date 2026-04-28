@@ -209,7 +209,7 @@
 		SEND_SOUND(mob, sound(null))
 
 /client/verb/toggle_area_music()
-	set category = "Options"
+	set category = "OPTIONS"
 	set name = "Toggle Area Music"
 	if(prefs)
 		prefs.stopdroning = !prefs.stopdroning
