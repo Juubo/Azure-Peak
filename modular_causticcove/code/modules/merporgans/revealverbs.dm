@@ -75,7 +75,7 @@
 				to_chat(src, span_notice("You don't have a butt!"))
 			return
 		if("Belly")
-			var/obj/item/organ/belly/tum = src.internal_organs_slot[ORGAN_SLOT_BUTT]
+			var/obj/item/organ/belly/tum = src.internal_organs_slot[ORGAN_SLOT_BELLY]
 			if(tum)
 				tum.always_show = !tum.always_show
 				/*if(tum.always_show)

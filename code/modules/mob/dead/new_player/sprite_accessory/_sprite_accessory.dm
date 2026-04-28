@@ -17,6 +17,8 @@
 	/// Relevant layers. If this is defined, instead of a single image the code will generate an image for each defined layer, with a suffix for the layer.
 	var/list/relevant_layers
 	//Caustic Edit - Attempting to add alternative layers
+	var/list/always_shown_layers
+	//Caustic Edit End
 	/// Amount of color keys this accessory uses.
 	var/color_keys = 1
 	/// Color key name to describe a single customizable color key.
@@ -87,15 +89,18 @@
 	var/icon_state_to_use = get_icon_state(organ, bodypart, owner)
 	if(!icon_state_to_use)
 		return null
-	var/list/appearance_list = get_overlay(icon_state_to_use, color_string)
+	var/always_show = FALSE
+	if(organ)
+		always_show = organ.always_show
+	var/list/appearance_list = get_overlay(icon_state_to_use, color_string, always_show)
 	adjust_appearance_list(appearance_list, organ, bodypart, owner)
 	return appearance_list
 
-/datum/sprite_accessory/proc/get_overlay(overlay_icon_state, color_string)
+/datum/sprite_accessory/proc/get_overlay(overlay_icon_state, color_string, always_show = FALSE)
 	color_string = sanitize_color_string(color_string)
 	var/key = "[type]-[overlay_icon_state]-[color_string]"
 	if(!accessory_icon_cache[key])
-		var/list/icon_states = generate_icon_states(overlay_icon_state, color_string)
+		var/list/icon_states = generate_icon_states(overlay_icon_state, color_string, always_show)
 		var/icon/icon_bundle = icon('icons/Testing/greyscale_error.dmi')
 		for(var/icon_state in icon_states)
 			icon_bundle.Insert(icon_states[icon_state], icon_state)
@@ -106,12 +111,20 @@
 	/// Generate mutable appearances from the icon
 	var/appearance_list = list()
 	if(relevant_layers)
-		for(var/iterated_layer in relevant_layers)
-			var/mutable_appearance/appearance = mutable_appearance(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]", layer = -iterated_layer)
-			appearance.pixel_x = pixel_x
-			appearance.pixel_y = pixel_y
-			//appearance.overlays += emissive_blocker(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]")
-			appearance_list += appearance
+		if(always_show && always_shown_layers)
+			for(var/iterated_layer in always_shown_layers)
+				var/mutable_appearance/appearance = mutable_appearance(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]", layer = -iterated_layer)
+				appearance.pixel_x = pixel_x
+				appearance.pixel_y = pixel_y
+				//appearance.overlays += emissive_blocker(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]")
+				appearance_list += appearance
+		else
+			for(var/iterated_layer in relevant_layers)
+				var/mutable_appearance/appearance = mutable_appearance(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]", layer = -iterated_layer)
+				appearance.pixel_x = pixel_x
+				appearance.pixel_y = pixel_y
+				//appearance.overlays += emissive_blocker(cached_icon, "[overlay_icon_state]_[get_layer_suffix(iterated_layer)]")
+				appearance_list += appearance
 	else
 		var/mutable_appearance/appearance = mutable_appearance(cached_icon, overlay_icon_state, layer = -layer)
 		appearance.pixel_x = pixel_x
@@ -134,13 +147,18 @@
 			color_list -= color_list[color_list.len]
 	return color_list_to_string(color_list)
 
-/datum/sprite_accessory/proc/generate_icon_states(overlay_icon_state, color_string)
+/datum/sprite_accessory/proc/generate_icon_states(overlay_icon_state, color_string, always_show = FALSE)
 	var/list/state_list = list()
 	var/list/color_list = color_string_to_list(color_string)
 	if(relevant_layers)
-		for(var/iterated_layer in relevant_layers)
-			var/layer_suffix = get_layer_suffix(iterated_layer)
-			state_list["[overlay_icon_state]_[layer_suffix]"] = generate_icon_state(overlay_icon_state, color_list, iterated_layer, layer_suffix)
+		if(always_show && always_shown_layers)
+			for(var/iterated_layer in always_shown_layers)
+				var/layer_suffix = get_layer_suffix(iterated_layer)
+				state_list["[overlay_icon_state]_[layer_suffix]"] = generate_icon_state(overlay_icon_state, color_list, iterated_layer, layer_suffix)
+		else
+			for(var/iterated_layer in relevant_layers)
+				var/layer_suffix = get_layer_suffix(iterated_layer)
+				state_list["[overlay_icon_state]_[layer_suffix]"] = generate_icon_state(overlay_icon_state, color_list, iterated_layer, layer_suffix)
 	else
 		state_list[overlay_icon_state] = generate_icon_state(overlay_icon_state, color_list, layer)
 	return state_list
@@ -180,7 +198,7 @@
 			return "FRONT"
 		//Caustic Edit
 		if(ASS_LAYER) //Actually, running with this 'front' for all of them means we can just freely adjust the layers on the fly during runtime... Might be hacky but it might work?
-			return "FRONT"
+			return "ASS" //Okay this might need a different one but, guh. So that it can properly have alternates for the 'always shown' option.
 		if(TESTICLES_LAYER)
 			return "FRONT"
 		if(BELLY_LAYER)
@@ -287,6 +305,12 @@
 
 	if(relevant_layers)
 		for(var/layer in relevant_layers)
+			var/layer_suffix = get_layer_suffix(layer)
+			if(layer_suffix)
+				layer_suffixes += "_[layer_suffix]"
+	
+	if(always_shown_layers)
+		for(var/layer in always_shown_layers)
 			var/layer_suffix = get_layer_suffix(layer)
 			if(layer_suffix)
 				layer_suffixes += "_[layer_suffix]"
