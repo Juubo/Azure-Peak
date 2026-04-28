@@ -189,6 +189,11 @@ TRAIT UNIQUE PROCS
 			user.remove_stress(/datum/stressevent/dungeoneerhoodlost)
 		return
 
+	if(id == "plague_mask")
+		if(positive)
+			ADD_TRAIT(user, TRAIT_NOSTINK, "plague_resistant")
+		return
+
 	return
 
 /datum/component/armour_filtering/proc/trait_boon_drop(mob/living/carbon/human/user, id)
@@ -226,6 +231,11 @@ TRAIT UNIQUE PROCS
 				if(ARMOR_CLASS_HEAVY)
 					user.apply_status_effect(/datum/status_effect/debuff/ironman_heavy)
 					user.add_stress(/datum/stressevent/fleshlingdepression)
+		return
+
+	if(id == "plague_mask")
+		if(positive)
+			REMOVE_TRAIT(user, TRAIT_NOSTINK, "plague_resistant")
 		return
 
 	return
