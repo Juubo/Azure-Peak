@@ -192,11 +192,13 @@ SUBSYSTEM_DEF(treasury)
 		for(var/obj/structure/roguemachine/vaultbank/VB in A)
 			if(istype(VB))
 				VB.update_icon()
-		mint(discretionary_fund, RURAL_TAX, "Rural Tax Collection")
-		record_round_statistic(STATS_RURAL_TAXES_COLLECTED, RURAL_TAX)
-		total_rural_tax += RURAL_TAX
-		auto_export()
 		send_ooc_note("Income from Wealth Hoard: +[amt_to_generate]", job = list("Grand Duke", "Steward", "Clerk"))
+		var/rural_tax_amount = get_rural_tax_amount()
+		mint(discretionary_fund, rural_tax_amount, "Rural Tax Collection")
+		record_round_statistic(STATS_RURAL_TAXES_COLLECTED, rural_tax_amount)
+		total_rural_tax += rural_tax_amount
+	
+		auto_export()
 
 /datum/controller/subsystem/treasury/proc/add_to_vault(var/obj/item/I)
 	if(I.get_real_price() <= 0 || istype(I, /obj/item/roguecoin))
@@ -208,6 +210,16 @@ SUBSYSTEM_DEF(treasury)
 	else
 		vault_accounting[I.type] = I.get_real_price()
 	return (vault_accounting[I.type]*interest_rate)
+
+/datum/controller/subsystem/treasury/proc/get_rural_tax_amount()
+	var/effective_pop = (SSeconomy && SSeconomy.simulated_player_scalar > 0) ? SSeconomy.simulated_player_scalar : get_active_player_count()
+	if(effective_pop <= RURAL_TAX_POP_LOW)
+		return RURAL_TAX_LOWPOP
+	if(effective_pop >= RURAL_TAX_POP_HIGH)
+		return RURAL_TAX
+	var/range = RURAL_TAX_POP_HIGH - RURAL_TAX_POP_LOW
+	var/lerp = (effective_pop - RURAL_TAX_POP_LOW) / range
+	return round(RURAL_TAX_LOWPOP - lerp * (RURAL_TAX_LOWPOP - RURAL_TAX))
 
 /datum/controller/subsystem/treasury/proc/get_account(target)
 	if(!target)
