@@ -31,7 +31,7 @@
 	contains = list(/obj/item/rogueweapon/woodstaff)
 
 /datum/supply_pack/rogue/adventure_supplies/lamptern
-	name = "Lamptern"
+	name = "Iron Lamptern"
 	cost = 15
 	contains = list(/obj/item/flashlight/flare/torch/lantern)
 
@@ -68,7 +68,7 @@
 					/obj/item/needle)
 
 /datum/supply_pack/rogue/adventure_supplies/rationpaper
-	name = "Ration Papers"
+	name = "Ration Wrapping Paper"
 	cost = 20
 	contains = list(
 					/obj/item/ration,
