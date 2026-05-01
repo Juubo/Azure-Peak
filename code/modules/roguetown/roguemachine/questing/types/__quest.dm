@@ -76,7 +76,12 @@ GLOBAL_LIST_EMPTY(quest_mobs)
 	var/circumstance_text = ""
 
 /datum/quest/Destroy()
-	// Clean up mobs with quest components
+	var/obj/effect/landmark/quest_spawner/held_landmark = pending_landmark_ref?.resolve()
+	if(held_landmark)
+		if(held_landmark.claimed_by?.resolve() == src)
+			held_landmark.claimed_by = null
+		held_landmark.cooldown_until = world.time + QUEST_LANDMARK_COOLDOWN
+
 	for(var/mob/living/M in GLOB.quest_mobs)
 		var/datum/component/quest_object/Q = M.GetComponent(/datum/component/quest_object)
 		if(Q && Q.quest_ref?.resolve() == src)
