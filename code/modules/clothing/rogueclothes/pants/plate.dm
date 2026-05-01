@@ -19,15 +19,12 @@
 	smelt_bar_num = 2
 	resistance_flags = FIRE_PROOF
 	armor_class = ARMOR_CLASS_HEAVY
-	sellprice = 40
 
 /obj/item/clothing/under/roguetown/platelegs/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP, 8)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_FENCERDEXTERITY)
 	AddComponent(/datum/component/armour_filtering/negative, TRAIT_HONORBOUND)
-	if(armor_class > ARMOR_CLASS_LIGHT)
-		AddComponent(/datum/component/armour_filtering/negative, TRAIT_IRONMAN)
 
 /obj/item/clothing/under/roguetown/platelegs/iron
 	name = "iron plate chausses"
@@ -36,7 +33,6 @@
 	item_state = "iplate_legs"
 	max_integrity = ARMOR_INT_LEG_IRON_PLATE
 	smeltresult = /obj/item/ingot/iron
-	sellprice = 20
 
 /obj/item/clothing/under/roguetown/platelegs/aalloy
 	name = "decrepit plate chausses"
@@ -48,23 +44,23 @@
 	material_category = ARMOR_MAT_PLATE
 	smeltresult = /obj/item/ingot/aaslag
 	anvilrepair = null
-	sellprice = 10
 
 /obj/item/clothing/under/roguetown/platelegs/paalloy
 	name = "ancient plate chausses"
-	desc = "Polished gilbranze plates, layered atop silken chausses. Only the few who had embraced undeath were spared from Zizo's ascension; now, they command the undying legionnaires who march forth to sunder creation in Her name."
+	desc = "Polished gilbranze plates, layered atop silken chausses. Only the few who had embraced undeath were spared from Zizo's ascension; now, they command the undying \
+	legionnaires who march forth to sunder creation in Her name."
 	icon_state = "ancientpants"
 	smeltresult = /obj/item/ingot/aaslag
-	sellprice = 10
 
 /obj/item/clothing/under/roguetown/platelegs/graggar
 	name = "vicious leggings"
-	desc = "Fluted chausses, marinated in the afterbirth of disemboweled tyrants. Never kneel, again - never fall, again; cripple the ones who sought to keep you a slave, and force them to see the monster they've made of you."
+	desc = "Fluted chausses, marinated in the afterbirth of disemboweled tyrants. Never kneel, again - never fall, again; cripple the ones who sought to keep you a slave, \
+	and force them to see the monster they've made of you."
 	icon_state = "graggarplatelegs"
 	armor = ARMOR_PLATE_BSTEEL
 	max_integrity = ARMOR_INT_LEG_STEEL_PLATE // Good good resistances, but less crit resist than the other ascendant armors. In trade, we can take off our pants to repair, and they are medium rather than heavy.
 	armor_class = ARMOR_CLASS_MEDIUM
-	sellprice = 100 //Heretical~
+	smeltresult = /obj/item/ingot/component/graggar
 
 /obj/item/clothing/under/roguetown/platelegs/graggar/Initialize(mapload)
 	. = ..()
@@ -76,29 +72,27 @@
 	desc = "But my outside to behold:"
 	icon_state = "matthioslegs"
 	armor = ARMOR_PLATE_BSTEEL
-	sellprice = 100 //Heretical~
+	smeltresult = /obj/item/ingot/component/matthios
 
-//Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
 /obj/item/clothing/under/roguetown/platelegs/matthios/Initialize()
 	. = ..()
-	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 	AddComponent(/datum/component/cursed_item, TRAIT_FREEMAN, "ARMOR")
 
 /obj/item/clothing/under/roguetown/platelegs/matthios/dropped(mob/living/carbon/human/user)
 	. = ..()
-	/*if(QDELETED(src))
+	if(QDELETED(src))
 		return
-	qdel(src)*/
-//Caustic Edit End
+	qdel(src)
 
-/obj/item/clothing/under/roguetown/platelegs/avantyne
+/obj/item/clothing/under/roguetown/platelegs/zizo
 	name = "avantyne garments"
 	desc = "Bolstered by threads of avantyne, padded by darksteel. It covers and protects - thought to be impossibly made."
 	icon_state = "zizoplatelegs_med"
 	max_integrity = ARMOR_INT_LEG_STEEL_PLATE
 	armor = ARMOR_PLATE_BSTEEL
 	armor_class = ARMOR_CLASS_MEDIUM
-	sellprice = 100 //Heretical~
+	smeltresult = /obj/item/ingot/component/zizo
 
 /obj/item/clothing/under/roguetown/platelegs/avantyne/heavy
 	name = "fused avantyne garments"
@@ -106,25 +100,34 @@
 	icon_state = "zizocloth"
 	max_integrity = ARMOR_INT_LEG_ANTAG
 
-/obj/item/clothing/under/roguetown/platelegs/avantyne/Initialize(mapload)
+/obj/item/clothing/under/roguetown/platelegs/zizo/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/cursed_item, TRAIT_CABAL, "ARMOR")
 	AddComponent(/datum/component/item_equipped_movement_rustle, SFX_PLATE_STEP, 8)
 
-/obj/item/clothing/under/roguetown/platelegs/avantyne/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/under/roguetown/platelegs/zizo/dropped(mob/living/carbon/human/user)
 	return ..()
 
-//Caustic Edit - Allow dropping of Heretic Armors (so fun can happen :P)
-/obj/item/clothing/under/roguetown/platelegs/avantyne/heavy/Initialize(mapload)
+/obj/item/clothing/under/roguetown/platelegs/zizo/heavy/Initialize(mapload)
 	. = ..()
-	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
-/obj/item/clothing/under/roguetown/platelegs/avantyne/heavy/dropped(mob/living/carbon/human/user)
+/obj/item/clothing/under/roguetown/platelegs/zizo/heavy/dropped(mob/living/carbon/human/user)
 	. = ..()
-	/*if(QDELETED(src))
+	if(QDELETED(src))
 		return
-	qdel(src)*/
-//Caustic Edit End
+	qdel(src)
+
+/obj/item/clothing/under/roguetown/platelegs/avantyne
+	name = "avantyne fauldcoat"
+	desc = "The fossilization of a memory, damned to be forgotten by all but the divine - Her lux, crystallized into a veil impenetratable by all but the sharpest \
+	blades. If the legends are to be believed, She had worn these very garments long ago during Psydonia's darkest hour; when the Ascendants were but-two, when the \
+	Sinistar blotted out Astrata's glare, and when the ashes of Her empire were still smoldering. </br>..and to think, it was all a war without reason."
+	icon_state = "zizoplatelegs_med"
+	max_integrity = ARMOR_INT_LEG_STEEL_PLATE
+	armor_class = ARMOR_CLASS_MEDIUM
+	smeltresult = /obj/item/ingot/avantyne
+	armor = ARMOR_PLATE_BSTEEL
 
 /obj/item/clothing/under/roguetown/platelegs/skirt
 	name = "steel plate tassets"
@@ -134,4 +137,3 @@
 	item_state = "plate_skirt"
 	body_parts_covered = GROIN
 	armor_class = ARMOR_CLASS_LIGHT
-	sellprice = 38
