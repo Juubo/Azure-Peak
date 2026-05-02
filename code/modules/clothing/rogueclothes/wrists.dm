@@ -444,16 +444,17 @@
 /obj/item/clothing/wrists/roguetown/bracers/zizo/heavy
 	name = "fused avantyne bracers"
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/wrists/roguetown/bracers/zizo/heavy/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/wrists/roguetown/bracers/zizo/heavy/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
-//
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/wrists/roguetown/bracers/graggar
 	name = "vicious bracers"

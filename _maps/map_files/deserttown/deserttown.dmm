@@ -7709,7 +7709,7 @@
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/under/underdark/rockhill)
 "cXr" = (
-/obj/structure/fluff/sellsign{
+/obj/structure/fluff/sign{
 	name = "Not for drinking!"
 	},
 /turf/open/floor/rogue/desert_grass,
@@ -21416,7 +21416,7 @@
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/town/grove)
 "iAt" = (
-/obj/structure/fluff/sellsign{
+/obj/structure/fluff/sign{
 	name = "Evil pyramid, keep out"
 	},
 /obj/machinery/light/rogue/candle,

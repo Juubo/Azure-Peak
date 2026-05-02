@@ -419,18 +419,19 @@
 
 	INVOKE_ASYNC(src, PROC_REF(giveup), M)
 	say("Assessing value of lyfe...")
-	sleep(10 SECONDS)
-
-	var/list/headcrush = list('sound/combat/fracture/headcrush (2).ogg', 'sound/combat/fracture/headcrush (3).ogg', 'sound/combat/fracture/headcrush (4).ogg')
+	sleep(13 SECONDS) //Caustic Edit - Adjusting the time to account for the removed below bits.
+	
+	//Caustic Edit - Changing this around so that struggling against it damages you, but doesn't kill, and submitting means no damage.
+	/*var/list/headcrush = list('sound/combat/fracture/headcrush (2).ogg', 'sound/combat/fracture/headcrush (3).ogg', 'sound/combat/fracture/headcrush (4).ogg')
 	playsound(src, pick_n_take(headcrush), 100, FALSE, -1)
 	M.emote("scream")
 	M.apply_damage(50, BRUTE, BODY_ZONE_HEAD, FALSE)
 	sleep(1 SECONDS)
 	playsound(src, pick(headcrush), 100, FALSE, -1)
 	M.emote("agony")
-	M.apply_damage(50, BRUTE, BODY_ZONE_HEAD, FALSE)
+	M.apply_damage(50, BRUTE, BODY_ZONE_HEAD, FALSE)*/
 
-	sleep(2 SECONDS)
+	//sleep(2 SECONDS)
 
 	if(correct_head)
 		say("A bounty has been sated.")
@@ -451,12 +452,24 @@
 		if(M.Adjacent(src))
 			say("Resistance detected...")
 			src.Shake()
-			var/obj/item/bodypart/head/victim_head = M.get_bodypart(BODY_ZONE_HEAD)
+			/*var/obj/item/bodypart/head/victim_head = M.get_bodypart(BODY_ZONE_HEAD)
 			message_admins("[M.real_name] was killed by the EXCIDIUM.")
 			log_admin("[M.real_name] was killed by the EXCIDIUM.")
 			playsound(src, 'sound/combat/vite.ogg', 100, FALSE, -1)
-			victim_head.skeletonize()
+			victim_head.skeletonize()*/
+			var/list/headcrush = list('sound/combat/fracture/headcrush (2).ogg', 'sound/combat/fracture/headcrush (3).ogg', 'sound/combat/fracture/headcrush (4).ogg')
+			playsound(src, pick_n_take(headcrush), 100, FALSE, -1) //Caustic Edit - Moved this block from above to in here instead.
+			M.emote("scream")
+			M.apply_damage(50, BRUTE, BODY_ZONE_HEAD, FALSE)
+			sleep(1 SECONDS)
+			playsound(src, pick(headcrush), 100, FALSE, -1)
+			M.emote("agony")
+			M.apply_damage(50, BRUTE, BODY_ZONE_HEAD, FALSE)
+			M.Unconscious(15 SECONDS)
+			sleep(2 SECONDS)
+			playsound(src, 'sound/combat/vite.ogg', 100, FALSE, -1)
 			submission = TRUE
+			//Caustic Edit End
 	else
 		M.Unconscious(15 SECONDS)
 		sleep(2 SECONDS)

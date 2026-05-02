@@ -68,15 +68,17 @@
 	icon_state = "graggarplategloves_heavy"
 	smeltresult = /obj/item/ingot/component/graggar
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/gloves/roguetown/plate/graggar/heavy/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/gloves/roguetown/plate/graggar/heavy/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/gloves/roguetown/plate/graggar/Initialize()
 	. = ..()
@@ -89,16 +91,17 @@
 	max_integrity = ARMOR_INT_SIDE_ANTAG
 	smeltresult = /obj/item/ingot/component/matthios
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/gloves/roguetown/plate/matthios/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/gloves/roguetown/plate/matthios/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
-
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/gloves/roguetown/plate/zizo
 	name = "avantyne gauntlets"
@@ -125,15 +128,17 @@
 /obj/item/clothing/gloves/roguetown/plate/zizo/dropped(mob/living/carbon/human/user)
 	return ..()
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/gloves/roguetown/plate/zizo/heavy/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/gloves/roguetown/plate/zizo/heavy/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/gloves/roguetown/plate/avantyne
 	name = "avantyne-threaded gloves"

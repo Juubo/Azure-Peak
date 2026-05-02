@@ -1111,17 +1111,17 @@
 /obj/item/clothing/neck/roguetown/bevor/zizo/heavy
 	name = "fused avantyne bevor"
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/neck/roguetown/bevor/zizo/heavy/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
 
 /obj/item/clothing/neck/roguetown/bevor/zizo/heavy/dropped(mob/living/carbon/human/user)
 	. = ..()
-	if(QDELETED(src))
+	/*if(QDELETED(src))
 		return
-	qdel(src)
-
-//
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/neck/roguetown/gorget/steel/graggar
 	name = "vicious gorget"

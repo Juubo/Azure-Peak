@@ -1495,9 +1495,11 @@
 /obj/item/clothing/cloak/graggar/heavy
 	icon_state = "graggarcloak_heavy"
 
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/cloak/graggar/heavy/Initialize()
 	. = ..()
-	ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+//Caustic Edit End
 
 /obj/item/clothing/cloak/graggar/Initialize()
 	. = ..()
