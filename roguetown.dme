@@ -3014,6 +3014,7 @@
 #include "code\game\objects\items\scabbard.dm"
 #include "code\game\objects\items\spellbooks.dm"
 #include "code\game\objects\items\surgery_bag.dm"
+#include "modular_causticcove\code\modules\roguetown\roguejobs\alchemist\herb_flora.dm"
 #include "code\game\objects\items\twstrap.dm"
 #include "code\game\objects\structures\fartravel.dm"
 #include "code\game\objects\weapons\axes.dm"

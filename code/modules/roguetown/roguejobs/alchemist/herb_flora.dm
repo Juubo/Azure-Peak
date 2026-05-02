@@ -84,7 +84,41 @@
 	/obj/structure/flora/roguegrass/herb/valeriana,
 	/obj/structure/flora/roguegrass/herb/artemisia,
 	/obj/structure/flora/roguegrass/herb/rosa,
-	/obj/structure/flora/roguegrass/swampweed))
+	/obj/structure/flora/roguegrass/swampweed,
+	// Caustic edit start
+	/obj/structure/flora/roguegrass/herb/wild/wheat,
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/rice,
+	/obj/structure/flora/roguegrass/herb/wild/apple,
+	/obj/structure/flora/roguegrass/herb/wild/pear,
+	/obj/structure/flora/roguegrass/herb/wild/plum,
+	/obj/structure/flora/roguegrass/herb/wild/tangerine,
+	/obj/structure/flora/roguegrass/herb/wild/lime,
+	/obj/structure/flora/roguegrass/herb/wild/lemon,
+	/obj/structure/flora/roguegrass/herb/wild/rocknut,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/strawberry,
+	/obj/structure/flora/roguegrass/herb/wild/blackberry,
+	/obj/structure/flora/roguegrass/herb/wild/raspberry,
+	/obj/structure/flora/roguegrass/herb/wild/tomato,
+	/obj/structure/flora/roguegrass/herb/wild/eggplant,
+	/obj/structure/flora/roguegrass/herb/wild/sugarcane,
+	/obj/structure/flora/roguegrass/herb/wild/coffee,
+	/obj/structure/flora/roguegrass/herb/wild/tea,
+	/obj/structure/flora/roguegrass/herb/wild/cabbage,
+	/obj/structure/flora/roguegrass/herb/wild/carrot,
+	/obj/structure/flora/roguegrass/herb/wild/onion,
+	/obj/structure/flora/roguegrass/herb/wild/garlick,
+	/obj/structure/flora/roguegrass/herb/wild/potato,
+	/obj/structure/flora/roguegrass/herb/wild/turnip,
+	// /obj/structure/flora/roguegrass/herb/wild/pumpkin,
+	// /obj/structure/flora/roguegrass/herb/wild/westleach, // Already spawn as bushes and 'herbs'
+	// /obj/structure/flora/roguegrass/herb/wild/swampweed,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers,
+	/obj/structure/flora/roguegrass/herb/wild/poppy
+	// Caustic edit end
+	))
 
 	var/obj/structure/flora/roguegrass/herb/boi = new type
 	boi.forceMove(get_turf(src))
