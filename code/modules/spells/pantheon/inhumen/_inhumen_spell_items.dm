@@ -2117,8 +2117,8 @@ var/global/list/da_bubbles = list('sound/foley/bubb (1).ogg','sound/foley/bubb (
 
 	new /obj/item/roguecoin/silver/pile(TT)
 	new /obj/item/roguecoin/gold/pile(TT)
-	new /obj/item/roguegem/random(TT)
-	new /obj/item/roguegem/random(TT)
+	new /obj/effect/spawner/lootdrop/roguegem/random(TT)
+	new /obj/effect/spawner/lootdrop/roguegem/random(TT)
 
 	var/list/possible_limbs = list()
 
