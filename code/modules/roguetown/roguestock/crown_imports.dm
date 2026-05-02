@@ -134,7 +134,7 @@
 
 /datum/crown_import/blacksmith
 	name = "Smith Crate"
-	desc = "Stone, coal , iron ingot, wood bin, bucket with hammer and tongs."
+	desc = "Stone, coal, iron ingot, wood bin, bucket with hammer and tongs."
 	item_type = /obj/structure/closet/crate/chest/steward/blacksmith
 	base_cost = 100
 	source_region_id = TRADE_REGION_DAFTSMARCH

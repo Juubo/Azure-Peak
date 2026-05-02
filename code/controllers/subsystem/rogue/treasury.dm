@@ -35,6 +35,7 @@ SUBSYSTEM_DEF(treasury)
 	var/minted = 0
 	var/queens_tax = 0.15
 	var/multiple_item_penalty = 0.66
+	var/interest_rate = 0.15
 	var/treasury_value = 0
 	var/autoexport_percentage = 0.6
 	var/list/bank_accounts = list()
@@ -166,15 +167,15 @@ SUBSYSTEM_DEF(treasury)
 			if(!initial_payment_done)
 				initial_payment_done = TRUE
 				distribute_daily_payments()
-			for(var/datum/roguestock/X in stockpile_datums)
+			/*for(var/datum/roguestock/X in stockpile_datums) //Caustic Note - I guess this is likely from the old method of 
 				if(!X.stable_price && !X.transport_item)
 					if(X.demand < initial(X.demand))
 						X.demand += rand(5,15)
 					if(X.demand > initial(X.demand))
-						X.demand -= rand(5,15)
-			for(var/datum/roguestock/stockpile/A in stockpile_datums) //Generate some remote resources
-				A.held_items[2] += A.passive_generation
-				A.held_items[2] = min(A.held_items[2],10) //To a maximum of 10
+						X.demand -= rand(5,15)*/
+			for(var/datum/roguestock/stockpile/A in stockpile_datums) //Caustic Edit - Modified this to just mimic the old free regen of resources, should be able to define it on a per-resource basis if desired for balans
+				if(A.auto_regen && A.stockpile_amount < A.regen_limit && A.stockpile_amount < (A.stockpile_limit + A.regen_amount))
+					A.stockpile_amount += A.regen_amount
 		var/area/A = GLOB.areas_by_type[/area/rogue/indoors/town/vault]
 		var/amt_to_generate = 0
 		for(var/obj/item/I in A)
@@ -186,7 +187,7 @@ SUBSYSTEM_DEF(treasury)
 				amt_to_generate += add_to_vault(I)
 		amt_to_generate = amt_to_generate - (amt_to_generate * queens_tax)
 		amt_to_generate = round(amt_to_generate)
-		give_money_treasury(amt_to_generate, "wealth hoard")
+		mint(discretionary_fund, amt_to_generate, "Wealth Hoard")
 		total_vault_income += amt_to_generate
 		for(var/obj/structure/roguemachine/vaultbank/VB in A)
 			if(istype(VB))

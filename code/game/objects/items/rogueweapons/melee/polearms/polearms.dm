@@ -1346,7 +1346,7 @@
 	desc = "A spear made from a shard of crystallized mana fixed atop a staff. This either the creation of a genius, a madman, or someone who heard the term 'magic spear' and went from there."
 	icon_state = "magicstonespear"
 	implement_tier = IMPLEMENT_TIER_LESSER
-	implement_multiplier = IMPLEMENT_MULT_LESSER
+	implement_refund = IMPLEMENT_REFUND_LESSER
 	max_blade_int = 20
 	associated_skill = /datum/skill/combat/polearms
 	max_integrity = 50

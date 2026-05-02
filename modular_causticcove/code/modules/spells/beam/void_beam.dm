@@ -24,7 +24,6 @@
 	charge_slowdown = CHARGING_SLOWDOWN_MEDIUM
 	charge_sound = 'sound/magic/charging.ogg'
 	cooldown_time = 25 SECONDS
-	is_implement_scaled_spell = FALSE
 	attunement_school = ASPECT_NAME_KINESIS
 
 	associated_skill = /datum/skill/magic/arcane

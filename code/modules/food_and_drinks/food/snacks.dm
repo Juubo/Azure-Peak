@@ -219,8 +219,8 @@ All foods are distributed among various categories. Use common sense.
 				//Caustic Edit - See if this fixes the Cheese Aging in a parcel dropping it on the ground? Otherwise does what it did before!
 				if(istype(location, /obj/item/parcel))
 					var/obj/item/parcel/package = location
-					package.contained_item = null
-					package.contained_item = NU
+					package.contained_items -= src
+					package.contained_items += NU
 					NU.forceMove(package)
 				else
 					NU.forceMove(get_turf(NU.loc))

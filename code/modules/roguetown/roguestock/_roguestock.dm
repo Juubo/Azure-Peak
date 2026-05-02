@@ -16,6 +16,12 @@
 	var/automatic_price = TRUE
 	var/automatic_limit = TRUE
 
+	//Caustic Edit - Adding back a small generation of imports to mimic the old auto-gen
+	var/auto_regen = TRUE
+	var/regen_amount = 2
+	var/regen_limit = 10
+	//Caustic Edit End
+
 /datum/roguestock/New()
 	..()
 	if(trade_good_id)
@@ -177,5 +183,3 @@
 
 /datum/roguestock/proc/get_import_price()
 	return withdraw_price * importexport_amt
-
-

@@ -53,16 +53,16 @@
 	var/dismissing = conjured_ward && !QDELETED(conjured_ward)
 	// Dismiss is instant - temporarily zero charge time, and skip the up-front stamina hit
 	var/saved_charge_time
-	var/saved_upfront
+	//var/saved_upfront
 	if(dismissing)
 		saved_charge_time = charge_time
 		charge_time = 0
-		saved_upfront = upfront_stamina_cost
-		upfront_stamina_cost = 0
+		//saved_upfront = upfront_stamina_cost
+		//upfront_stamina_cost = 0
 	. = ..()
 	if(dismissing)
 		charge_time = saved_charge_time
-		upfront_stamina_cost = saved_upfront
+		//upfront_stamina_cost = saved_upfront
 	. |= SPELL_NO_IMMEDIATE_COOLDOWN
 	if(dismissing)
 		// Dismiss doesn't cost stamina, and we handle invocation manually in cast()
@@ -70,11 +70,11 @@
 
 /datum/action/cooldown/spell/conjure_arcyne_ward/on_start_charge()
 	. = ..()
-	if(upfront_stamina_cost > 0 && isliving(owner))
+	/*if(upfront_stamina_cost > 0 && isliving(owner)) //Caustic Edit - Lets just keep the old costs!
 		var/mob/living/L = owner
 		var/adjusted = get_adjusted_cost(upfront_stamina_cost)
 		if(adjusted > 0)
-			L.stamina_add(adjusted)
+			L.stamina_add(adjusted)*/
 
 /// Adds the paired regen action to the owner. Called when a ward is conjured.
 /datum/action/cooldown/spell/conjure_arcyne_ward/proc/grant_regen_action()
@@ -182,11 +182,8 @@
 
 	click_to_activate = FALSE
 
-	// Costs are scaled at cast time in before_cast() by ward damage.
-	// Values here mirror the full-fresh conjure cost so damage_ratio=1 equals a re-cast.
-	primary_resource_type = SPELL_COST_ENERGY
-	primary_resource_cost = 130
-	var/upfront_stamina_cost = 70
+	primary_resource_type = SPELL_COST_STAMINA //Caustic Edit - Nah lets revert the cost of this lol
+	primary_resource_cost = SPELLCOST_CONJURE
 
 	charge_required = TRUE
 	charge_time = 6 SECONDS
@@ -237,26 +234,26 @@
 		return ..() | SPELL_CANCEL_CAST
 
 	var/damage_ratio = 1 - (ward.obj_integrity / ward.max_integrity)
-	var/saved_upfront = upfront_stamina_cost
+	//var/saved_upfront = upfront_stamina_cost //Caustic Edit - Lets just keep the old costs!
 	var/saved_drain = charge_drain
 	var/saved_primary = primary_resource_cost
-	upfront_stamina_cost = round(upfront_stamina_cost * damage_ratio)
+	//upfront_stamina_cost = round(upfront_stamina_cost * damage_ratio) //Caustic Edit - Lets just keep the old costs!
 	charge_drain = round(charge_drain * damage_ratio)
 	primary_resource_cost = round(primary_resource_cost * damage_ratio)
 
 	. = ..()
 
-	upfront_stamina_cost = saved_upfront
+	//upfront_stamina_cost = saved_upfront//Caustic Edit - Lets just keep the old costs!
 	charge_drain = saved_drain
 	primary_resource_cost = saved_primary
 
 /datum/action/cooldown/spell/regenerate_arcyne_ward/on_start_charge()
 	. = ..()
-	if(upfront_stamina_cost > 0 && isliving(owner))
+	/*if(upfront_stamina_cost > 0 && isliving(owner)) //Caustic Edit - Lets just keep the old costs!
 		var/mob/living/L = owner
 		var/adjusted = get_adjusted_cost(upfront_stamina_cost)
 		if(adjusted > 0)
-			L.stamina_add(adjusted)
+			L.stamina_add(adjusted)*/
 
 /datum/action/cooldown/spell/regenerate_arcyne_ward/cast(atom/cast_on)
 	. = ..()
