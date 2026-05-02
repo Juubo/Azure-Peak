@@ -264,9 +264,9 @@
 	// Trigger on-click when dropping on initial target (not self)
 	var/was_dragging = drag_target && is_dragging
 	if(mob.atkswinging && was_dragging)
-		var/atom/target_obj = (istype(drag_target, object) && drag_target != mob) ? drag_target : object
+		if(istype(drag_target) && drag_target != mob)
+			drag_target.Click(location, control, params)
 
-		target_obj.Click(location, control, params)
 		drag_target = null
 
 	if(active_mousedown_item)
