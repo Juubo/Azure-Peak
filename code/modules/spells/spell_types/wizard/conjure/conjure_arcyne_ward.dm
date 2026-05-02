@@ -19,13 +19,8 @@
 
 	click_to_activate = FALSE
 
-	// 70 stamina (green bar) drained up-front at charge start — see on_start_charge().
-	// 130-ish energy (blue bar) drained over the charge via charge_drain (5/tick * 5Hz * 6s = 150).
-	// Total resource drain is heavy to prevent in-combat re-cast abuse.
-	primary_resource_type = SPELL_COST_ENERGY
-	primary_resource_cost = 130
-	/// Flat stamina hit taken the instant channeling begins, even if the cast is interrupted.
-	var/upfront_stamina_cost = 70
+	primary_resource_type = SPELL_COST_STAMINA //Caustic Edit - Nah lets revert the cost of this lol
+	primary_resource_cost = SPELLCOST_CONJURE
 
 	invocations = list("Aegis Congrego!")
 	invocation_type = INVOCATION_SHOUT
