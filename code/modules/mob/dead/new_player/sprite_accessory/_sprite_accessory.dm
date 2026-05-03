@@ -200,7 +200,7 @@
 			return "FRONT"
 		//Caustic Edit
 		if(ASS_LAYER) //Actually, running with this 'front' for all of them means we can just freely adjust the layers on the fly during runtime... Might be hacky but it might work?
-			return "ASS" //Okay this might need a different one but, guh. So that it can properly have alternates for the 'always shown' option.
+			return "FRONT" //Okay this might need a different one but, guh. So that it can properly have alternates for the 'always shown' option.
 		if(TESTICLES_LAYER)
 			return "FRONT"
 		if(BELLY_LAYER)
