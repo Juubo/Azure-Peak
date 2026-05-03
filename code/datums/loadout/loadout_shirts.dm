@@ -194,3 +194,8 @@
 	name = "Maid Dress"
 	path = /obj/item/clothing/suit/roguetown/shirt/dress/maid
 	sort_category = "Shirts"
+
+/datum/loadout_item/wedding_dress
+	name = "Wedding Dress"
+	path = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress/weddingdress
+	sort_category = "Shirts"

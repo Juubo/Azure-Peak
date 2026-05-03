@@ -213,3 +213,8 @@
 	name = "Valorian Maid Headband"
 	path = /obj/item/clothing/head/roguetown/maidband
 	sort_category = "Hats"
+
+/datum/loadout_item/shawl
+	name = "Shawl"
+	path = /obj/item/clothing/head/roguetown/shawl
+	sort_category = "Hats"
