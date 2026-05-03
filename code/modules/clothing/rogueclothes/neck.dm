@@ -1109,9 +1109,6 @@
 	. = ..()
 	AddComponent(/datum/component/cursed_item, TRAIT_CABAL, "ARMOR")
 
-/obj/item/clothing/neck/roguetown/bevor/zizo/heavy
-	name = "fused avantyne bevor"
-
 //Caustic Edit - Let us remove and drop armors again! For fun stuffs.
 /obj/item/clothing/neck/roguetown/bevor/zizo/heavy/Initialize()
 	. = ..()
@@ -1130,11 +1127,21 @@
 	color = "#ddc0a7"
 	smeltresult = /obj/item/ingot/component/graggar
 
-/obj/item/clothing/neck/roguetown/gorget/graggar/Initialize()
+/obj/item/clothing/neck/roguetown/gorget/steel/graggar/Initialize()
 	. = ..()
 	AddComponent(/datum/component/cursed_item, TRAIT_HORDE, "ARMOR", "RENDERED ASUNDER")
 
-//
+//Caustic Edit - Let us remove and drop armors again! For fun stuffs.
+/obj/item/clothing/neck/roguetown/gorget/steel/graggar/heavy/Initialize()
+	. = ..()
+	//ADD_TRAIT(src, TRAIT_NODROP, CURSED_ITEM_TRAIT)
+
+/obj/item/clothing/neck/roguetown/gorget/steel/graggar/heavy/dropped(mob/living/carbon/human/user)
+	. = ..()
+	/*if(QDELETED(src))
+		return
+	qdel(src)*/
+//Caustic Edit End
 
 /obj/item/clothing/neck/roguetown/psicross/malum/secret
 	name = "beriddled amulet"
