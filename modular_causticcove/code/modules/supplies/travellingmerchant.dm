@@ -370,7 +370,7 @@
 /datum/supply_pack/rogue/travelling_merchant_pw/enchanting/light
 	name = "Light enchantment scroll"
 	cost = 100 
-	contains = list(/obj/item/enchantmentscroll/basic/light)
+	contains = list(/obj/item/enchantmentscroll/basic/revealinglight)
 	
 /datum/supply_pack/rogue/travelling_merchant_pw/enchanting/holding
 	name = "Holding enchantment scroll"
