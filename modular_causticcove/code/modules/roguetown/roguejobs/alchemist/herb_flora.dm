@@ -555,3 +555,209 @@
 	result = /obj/item/herbseed/poppy
 	reqs = list(/obj/item/compost = 1, /obj/item/seeds/poppy = 1)
 	craftdiff = 1
+
+
+// Spawners
+
+// Base / All the wild plants
+
+/obj/structure/flora/roguegrass/herb/wild/random
+	name = "random wild plant"
+	desc = "Haha, im in danger."
+	icon = 'icons/roguetown/helpers/spawnerhelpers.dmi'
+	icon_state = "wild_plant"
+	var/list/plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/wheat,
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/rice,
+	/obj/structure/flora/roguegrass/herb/wild/apple,
+	/obj/structure/flora/roguegrass/herb/wild/pear,
+	/obj/structure/flora/roguegrass/herb/wild/plum,
+	/obj/structure/flora/roguegrass/herb/wild/tangerine,
+	/obj/structure/flora/roguegrass/herb/wild/lime,
+	/obj/structure/flora/roguegrass/herb/wild/lemon,
+	/obj/structure/flora/roguegrass/herb/wild/rocknut,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/strawberry,
+	/obj/structure/flora/roguegrass/herb/wild/blackberry,
+	/obj/structure/flora/roguegrass/herb/wild/raspberry,
+	/obj/structure/flora/roguegrass/herb/wild/tomato,
+	/obj/structure/flora/roguegrass/herb/wild/eggplant,
+	/obj/structure/flora/roguegrass/herb/wild/sugarcane,
+	/obj/structure/flora/roguegrass/herb/wild/coffee,
+	/obj/structure/flora/roguegrass/herb/wild/tea,
+	/obj/structure/flora/roguegrass/herb/wild/cabbage,
+	/obj/structure/flora/roguegrass/herb/wild/carrot,
+	/obj/structure/flora/roguegrass/herb/wild/onion,
+	/obj/structure/flora/roguegrass/herb/wild/garlick,
+	/obj/structure/flora/roguegrass/herb/wild/potato,
+	/obj/structure/flora/roguegrass/herb/wild/turnip,
+	/obj/structure/flora/roguegrass/herb/wild/pumpkin,
+	/obj/structure/flora/roguegrass/herb/wild/westleach,
+	/obj/structure/flora/roguegrass/herb/wild/swampweed,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers,
+	/obj/structure/flora/roguegrass/herb/wild/poppy)
+
+/obj/structure/flora/roguegrass/herb/wild/random/Initialize()
+	var/chosen_plant = pick(plant_types)
+	var/obj/structure/flora/roguegrass/herb/wild/boi = new chosen_plant
+	boi.forceMove(get_turf(src))
+	boi.pixel_x += rand(-3,3)
+	. = ..()
+	return INITIALIZE_HINT_QDEL //Hint Qdel within the init proc.
+
+// Bog
+
+/obj/structure/flora/roguegrass/herb/wild/random/bog
+	name = "random wild bog plant"
+	icon_state = "wild_plant_bog"
+	plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/rice,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/sugarcane,
+	/obj/structure/flora/roguegrass/herb/wild/coffee,
+	/obj/structure/flora/roguegrass/herb/wild/tea,
+	/obj/structure/flora/roguegrass/herb/wild/swampweed,
+	/obj/structure/flora/roguegrass/herb/wild/poppy
+	)
+
+// Grove / Forest
+
+/obj/structure/flora/roguegrass/herb/wild/random/grove
+	name = "random wild grove plant"
+	icon_state = "wild_plant_grove"
+	plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/wheat,
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/apple,
+	/obj/structure/flora/roguegrass/herb/wild/pear,
+	/obj/structure/flora/roguegrass/herb/wild/plum,
+	/obj/structure/flora/roguegrass/herb/wild/tangerine,
+	/obj/structure/flora/roguegrass/herb/wild/lime,
+	/obj/structure/flora/roguegrass/herb/wild/lemon,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/strawberry,
+	/obj/structure/flora/roguegrass/herb/wild/blackberry,
+	/obj/structure/flora/roguegrass/herb/wild/raspberry,
+	/obj/structure/flora/roguegrass/herb/wild/tomato,
+	/obj/structure/flora/roguegrass/herb/wild/eggplant,
+	/obj/structure/flora/roguegrass/herb/wild/cabbage,
+	/obj/structure/flora/roguegrass/herb/wild/pumpkin,
+	/obj/structure/flora/roguegrass/herb/wild/westleach,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers)
+
+// Basin / Near town
+
+/obj/structure/flora/roguegrass/herb/wild/random/basin
+	name = "random wild basin plant"
+	icon_state = "wild_plant_basin"
+	plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/wheat,
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/apple,
+	/obj/structure/flora/roguegrass/herb/wild/pear,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/strawberry,
+	/obj/structure/flora/roguegrass/herb/wild/blackberry,
+	/obj/structure/flora/roguegrass/herb/wild/raspberry,
+	/obj/structure/flora/roguegrass/herb/wild/cabbage,
+	/obj/structure/flora/roguegrass/herb/wild/carrot,
+	/obj/structure/flora/roguegrass/herb/wild/turnip,
+	/obj/structure/flora/roguegrass/herb/wild/pumpkin,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers)
+
+// Coast
+
+/obj/structure/flora/roguegrass/herb/wild/random/coast
+	name = "random wild coast plant"
+	icon_state = "wild_plant_coast"
+	plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/cabbage,
+	/obj/structure/flora/roguegrass/herb/wild/carrot,
+	/obj/structure/flora/roguegrass/herb/wild/onion,
+	/obj/structure/flora/roguegrass/herb/wild/garlick,
+	/obj/structure/flora/roguegrass/herb/wild/potato,
+	/obj/structure/flora/roguegrass/herb/wild/turnip,
+	/obj/structure/flora/roguegrass/herb/wild/pumpkin,
+	/obj/structure/flora/roguegrass/herb/wild/westleach,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers,
+	/obj/structure/flora/roguegrass/herb/wild/poppy)
+
+// Mount Decap
+
+/obj/structure/flora/roguegrass/herb/wild/random/decap
+	name = "random wild decap plant"
+	icon_state = "wild_plant_decap"
+	plant_types = list(
+	/obj/structure/flora/roguegrass/herb/wild/oats,
+	/obj/structure/flora/roguegrass/herb/wild/rocknut,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry,
+	/obj/structure/flora/roguegrass/herb/wild/jackberry/poison,
+	/obj/structure/flora/roguegrass/herb/wild/blackberry,
+	/obj/structure/flora/roguegrass/herb/wild/raspberry,
+	/obj/structure/flora/roguegrass/herb/wild/onion,
+	/obj/structure/flora/roguegrass/herb/wild/garlick,
+	/obj/structure/flora/roguegrass/herb/wild/potato,
+	/obj/structure/flora/roguegrass/herb/wild/turnip,
+	/obj/structure/flora/roguegrass/herb/wild/sunflowers,
+	/obj/structure/flora/roguegrass/herb/wild/poppy)
+
+
+
+// Mapgen stuffs to actually put the plants in
+
+// Bog
+
+/datum/mapGeneratorModule/bog/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/bog = 4)
+	. = ..()
+
+/datum/mapGeneratorModule/boggrass/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/bog = 4)
+	. = ..()
+
+// Grove / Forest
+
+/datum/mapGeneratorModule/forest/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/grove = 4)
+	. = ..()
+
+/datum/mapGeneratorModule/forestgrass/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/grove = 4)
+	. = ..()
+
+// Basin / Near town
+
+/datum/mapGeneratorModule/roguetownfield/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/basin = 5)
+	. = ..()
+
+/datum/mapGeneratorModule/roguetowngrass/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/basin = 5)
+	. = ..()
+
+// Coast
+/datum/mapGeneratorModule/beach/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/coast = 15)
+	. = ..()
+
+/datum/mapGeneratorModule/beachgrass/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/coast = 15)
+	. = ..()
+
+// Mount Decap
+
+/datum/mapGeneratorModule/decapsnow/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/decap = 7)
+	. = ..()
+
+/datum/mapGeneratorModule/decapgrass/place()
+	spawnableAtoms |= list(/obj/structure/flora/roguegrass/herb/wild/random/decap = 7)
+	. = ..()
