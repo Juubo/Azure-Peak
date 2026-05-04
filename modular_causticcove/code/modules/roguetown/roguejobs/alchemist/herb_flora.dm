@@ -564,7 +564,7 @@
 /obj/structure/flora/roguegrass/herb/wild/random
 	name = "random wild plant"
 	desc = "Haha, im in danger."
-	icon = 'icons/roguetown/helpers/spawnerhelpers.dmi'
+	icon = 'modular_causticcove/icons/roguetown/helpers/spawnerhelpers.dmi'
 	icon_state = "wild_plant"
 	var/list/plant_types = list(
 	/obj/structure/flora/roguegrass/herb/wild/wheat,
