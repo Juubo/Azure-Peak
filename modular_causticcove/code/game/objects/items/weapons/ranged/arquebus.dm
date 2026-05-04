@@ -146,7 +146,7 @@
 	if(altgripped || wielded) //Trying to unwield it
 		ungrip(user)
 		return
-	if(alt_intents)
+	if(has_altgrip_modes())
 		altgrip(user)
 	if(gripped_intents)
 		wield(user)
@@ -547,6 +547,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	grid_height = 64
 	grid_width = 32
+	allowed_ammo_type = /obj/item/ammo_casing/caseless/rogue/bullet
 
 /obj/item/quiver/bulletpouch/attack_turf(turf/T, mob/living/user)
 	if(arrows.len >= max_storage)

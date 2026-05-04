@@ -178,11 +178,10 @@
 	the blessing on yourself to check what's needed. </br>The resurrected target will not be brought back, alone; a fierce dreamfriend will be tethered to their spirit, \
 	stalking and sapping their strength. Slaying this dreamfiend will fully restore their strength. </br>Unlike a regular Healing miracle, this can affect - and resurrect - devout Psydonians as well."
 	sound = 'sound/magic/whale.ogg'
-	//A medley of common ocean fish, totalling 10
+	//A medley of common ocean fish, totalling 6
 	required_items = list(
-		/obj/item/reagent_containers/food/snacks/fish/sole = 3,
-		/obj/item/reagent_containers/food/snacks/fish/cod = 3,
-		/obj/item/reagent_containers/food/snacks/fish/bass = 2,
+		/obj/item/reagent_containers/food/snacks/fish/sole = 2,
+		/obj/item/reagent_containers/food/snacks/fish/cod = 2,
 		/obj/item/reagent_containers/food/snacks/fish/plaice = 1,
 		/obj/item/reagent_containers/food/snacks/fish/lobster = 1,
 	)
@@ -430,7 +429,7 @@
 
 /atom/movable/screen/alert/status_effect/random_revival
 	name = "Strange Aftereffects"
-	desc = "The revival has left you with unexpected consequences..."
+	desc = "The revival has left you with unexpected consequences.."
 
 //Dendor, Malum, Ravox, Noc
 //Fairly generic for now, I might give these more unique effects later!
@@ -448,7 +447,7 @@
 
 /atom/movable/screen/alert/status_effect/malum_revival
 	name = "Malum's Burden"
-	desc = "Your body feels heavy and slow to recover."
+	desc = "Your body feels heavy and slow to recover.."
 	icon_state = "malum_burden"
 
 /datum/status_effect/debuff/ravox_revival
@@ -465,7 +464,7 @@
 
 /atom/movable/screen/alert/status_effect/ravox_revival
 	name = "Ravox's Weakness"
-	desc = "Your muscles feel feeble and movements sluggish."
+	desc = "Your muscles feel feeble and your movements feel sluggish.."
 	icon_state = "ravox_weakness"
 
 /datum/status_effect/debuff/dendor_revival
@@ -482,7 +481,7 @@
 
 /atom/movable/screen/alert/status_effect/dendor_revival
 	name = "Dendor's Sluggishness"
-	desc = "Your movements are weighted by invisible roots and your body feels fragile."
+	desc = "Your movements are weighted by invisible roots and your body feels fragile.."
 	icon_state = "dendor_sluggish"
 
 /datum/status_effect/debuff/noc_revival
@@ -606,7 +605,9 @@
 		/obj/item/paper = 15
 	)
 	debuff_type = /datum/status_effect/debuff/noc_revival
-	overlay_state = "noc_revive"
+	action_icon = 'icons/mob/actions/nocmiracles.dmi'
+	overlay_icon = 'icons/mob/actions/nocmiracles.dmi'
+	overlay_state = "revive"
 	sound = 'sound/magic/owlhoot.ogg'
 
 /obj/effect/proc_holder/spell/invoked/resurrect/undivided
@@ -620,3 +621,6 @@
 	)
 	debuff_type = /datum/status_effect/debuff/revived
 	sound = 'sound/magic/revive.ogg'
+	action_icon = 'icons/mob/actions/undividedmiracles.dmi'
+	overlay_icon = 'icons/mob/actions/undividedmiracles.dmi'
+	overlay_state = "revive"

@@ -1,3 +1,11 @@
+#define SEW_HP_EXP_NORMALIZER 100
+// How much EXP per sewing action per intelligence
+// 0.6 EXP at 10 INT
+#define SEW_EXP_PER_STEP 0.06
+// How much EXP per 100 sew threshold fixed per intelligence
+// 7.5 EXP at 10 INT for 100 sew treshold
+#define SEW_EXP_FINISH 0.75
+
 /obj/item/needle
 	name = "needle"
 	icon_state = "needle"
@@ -13,7 +21,7 @@
 	max_integrity = 20
 	anvilrepair = /datum/skill/craft/blacksmithing
 	tool_behaviour = TOOL_SUTURE
-	experimental_inhand = FALSE
+	experimental_inhand = TRUE
 	/// Amount of uses left
 	var/stringamt = 20
 	var/maxstring = 20
@@ -159,8 +167,8 @@
 				if(XP_ON_SUCCESS > 0)
 					user.mind.add_sleep_experience(/datum/skill/craft/sewing, user.STAINT * XP_ON_SUCCESS)
 				I.obj_integrity = min(I.obj_integrity + BASE_SEW_REPAIR + skill * SEW_REPAIR_PER_LEVEL, I.max_integrity)
-				if(I.obj_broken && istype(I, /obj/item/clothing) && I.obj_integrity >= I.max_integrity)
-					var/obj/item/clothing/cloth = I
+				if(I.obj_broken && istype(I, /obj/item) && I.obj_integrity >= I.max_integrity)
+					var/obj/item/cloth = I
 					cloth.obj_fix()
 					return
 				if(do_after(user, AUTO_SEW_DELAY, target = I))
@@ -230,10 +238,10 @@
 		target_wound.set_bleed_rate(max( (target_wound.bleed_rate - bleedreduction), 0))
 		if(target_wound.bleed_rate == 0 && !informed)
 			if(is_simple_animal)
-				patient.visible_message(span_smallgreen("One last drop of blood trickles from the [(target_wound?.name)] on [patient] before it closes."), span_smallgreen("The throbbing warmth coming out of [target_wound] soothes and stops. It no longer bleeds."))
+				patient.visible_message(span_smallgreen("One last drop of blood trickles from the [(target_wound?.name)] on [patient] before it closes."), span_smallgreen("The throbbing warmth coming out of the [target_wound] soothes and stops. It no longer bleeds."))
 				record_round_statistic(STATS_WOUNDS_SEWED) // CC Edit
 			else
-				patient.visible_message(span_smallgreen("One last drop of blood trickles from the [(target_wound?.name)] on [patient]'s [affecting.name] before it closes."), span_smallgreen("The throbbing warmth coming out of [target_wound] soothes and stops. It no longer bleeds."))
+				patient.visible_message(span_smallgreen("One last drop of blood trickles from the [(target_wound?.name)] on [patient]'s [affecting.name] before it closes."), span_smallgreen("The throbbing warmth coming out of the [target_wound] soothes and stops. It no longer bleeds."))
 				record_round_statistic(STATS_WOUNDS_SEWED) // CC Edit
 			informed = TRUE
 		if(istype(target_wound, /datum/wound/dynamic))
@@ -243,9 +251,13 @@
 			if(dynwound.is_armor_maxed)
 				dynwound.is_armor_maxed = FALSE
 		if(target_wound.sew_progress < target_wound.sew_threshold)
+			if(doctor.mind)
+				doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * SEW_EXP_PER_STEP)
 			continue
 		if(doctor.mind)
-			doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, doctor.STAINT * 2.5)
+			var/exp_scale = target_wound.sew_threshold / SEW_HP_EXP_NORMALIZER
+			var/base_exp = doctor.STAINT * SEW_EXP_FINISH
+			doctor.mind.add_sleep_experience(/datum/skill/misc/medicine, base_exp * exp_scale)
 		use(1)
 		target_wound.sew_wound()
 		if(patient == doctor)
@@ -275,6 +287,14 @@
 	maxstring = 5
 	anvilrepair = null
 
+/obj/item/needle/thorn/cleric
+	name = "clerical needle"
+	icon_state = "lesserneedle"
+	desc = "This iron-tipped needle can stem the flow of nastier wounds; a blessing, when one is delivered a grave blow while far away from the Church."
+	stringamt = 10
+	maxstring = 10
+	anvilrepair = null
+
 /obj/item/needle/pestra
 	name = "needle of pestra"
 	desc = span_green("This needle has been blessed by the goddess of medicine herself!")
@@ -289,7 +309,7 @@
 
 /obj/item/needle/aalloy
 	name = "decrepit needle"
-	icon_state = "needle" //OV Edit: Because this one missing icon is making all our map tests fail.
+	icon_state = "aneedle"
 	desc = "This decrepit old needle doesn't seem helpful for much."
 	stringamt = 5
 	maxstring = 5
@@ -304,3 +324,7 @@
 	maxstring = 10
 
 // Caustic Edit end
+
+#undef SEW_HP_EXP_NORMALIZER
+#undef SEW_EXP_PER_STEP
+#undef SEW_EXP_FINISH

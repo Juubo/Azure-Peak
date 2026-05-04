@@ -53,6 +53,7 @@
 	var/mouseControlObject = null
 	var/middragtime = 0
 	var/atom/middragatom
+	var/tcompare
 	var/charging = 0
 	var/chargedprog = 0
 	var/sections
@@ -67,10 +68,7 @@
 	var/charge_start_timeofday = 0
 	var/last_cooldown_warn = 0
 	var/charge_was_blocked_by_cooldown = FALSE
-
-	// (CC Edit) Intended for click-dragging behavior
-	var/is_dragging = FALSE
-	var/atom/drag_target = null // Sets to be target at the start of a drag
+	var/blocked_lmb = FALSE
 
 /atom
 	var/blockscharging = FALSE
@@ -82,9 +80,20 @@
 	charge_was_blocked_by_cooldown = FALSE
 	var/list/modifiers = params2list(params)
 
+	if(modifiers["left"])
+		if(blocked_lmb)
+			return
+		if(lmb_throttle(object, modifiers))
+			blocked_lmb = TRUE
+			return
+		if(!modifiers["shift"] || mob.BehindAtom(object, mob.dir))
+			mob.face_atom(object, location, control, params)
+
 	if(mob.incapacitated())
 		return
-	
+
+	var/signal_result = SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDOWN, object, location, control, params)
+
 	if(mob.stat != CONSCIOUS)
 		mob.atkswinging = null
 		charging = null
@@ -92,14 +101,17 @@
 		mouse_pointer_icon = 'icons/effects/mousemice/human.dmi'
 		return
 
-	// Prepare click-dragging behavior
-	drag_target = object
-	is_dragging = FALSE
+	// New spell system intercepted this click — skip old cursor/intent handling
+	if(signal_result & COMPONENT_CLIENT_MOUSEDOWN_INTERCEPT)
+		return
+
+	tcompare = object
 
 	if(mouse_down_icon)
 		mouse_pointer_icon = mouse_down_icon
 
 	var/delay = mob.CanMobAutoclick(object, location, params)
+
 	var/was_charging = charging
 
 	if(was_charging && mob.used_intent)
@@ -178,14 +190,14 @@
 			mouse_pointer_icon = mob.mmb_intent.pointer
 
 /client/proc/handle_left_click(atom/object, location, control, params, list/modifiers)
-	if(!modifiers["shift"] || mob.BehindAtom(object, mob.dir))
-		mob.face_atom(object, location, control, params)
+	var/cooldown = (mob.active_hand_index == 1) ? mob.next_lmove : mob.next_rmove
+
 	if(modifiers["right"])
 		return
 
-	var/cooldown = (mob.active_hand_index == 1) ? mob.next_lmove : mob.next_rmove
 	if(cooldown > world.time)
 		charge_was_blocked_by_cooldown = TRUE
+		blocked_lmb = TRUE
 		return
 
 	mob.atkswinging = "left"
@@ -197,11 +209,22 @@
 
 /mob
 	var/datum/intent/curplaying
+	var/obj/effect/spell_rune_under/spell_rune
 
 /atom/proc/should_click_on_mouse_up(var/atom/original_object)
 	return TRUE
 
 /client/MouseUp(object, location, control, params)
+	var/list/modifiers = params2list(params)
+	if(modifiers["left"])
+		blocked_lmb = FALSE
+
+	if(lmb_throttle(object, modifiers, no_swing = TRUE))
+		return
+
+	if(SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEUP, object, location, control, params) & COMPONENT_CLIENT_MOUSEUP_INTERCEPT)
+		click_intercept_time = world.time
+
 	if(charging && isliving(mob))
 		update_to_mob(mob, 0)
 
@@ -225,7 +248,6 @@
 	if(!mob.atkswinging)
 		return
 
-	var/list/modifiers = params2list(params)
 	if(modifiers["left"])
 		if(mob.atkswinging != "left")
 			mob.atkswinging = null
@@ -246,20 +268,18 @@
 		mouse_pointer_icon = mouse_up_icon
 	selected_target[1] = null
 
-	// (CC Edit) Fix for drag-drop behavior
-	// Trigger on-click when dropping on initial target (not self)
-	var/was_dragging = drag_target && is_dragging
-	if(mob.atkswinging && was_dragging)
-		var/atom/target_obj = (istype(drag_target, object) && drag_target != mob) ? drag_target : object
-
-		target_obj.Click(location, control, params)
-		drag_target = null
+	if(tcompare)
+		var/atom/target_atom = object
+		if(istype(target_atom) && tcompare != mob && (mob.atkswinging == "middle" || (mob.atkswinging && object != tcompare)))
+			target_atom.Click(location, control, params)
+		tcompare = null
 
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseUp(object, location, params, mob)
 		active_mousedown_item = null
 
-	is_dragging = FALSE
+	if(!isliving(mob))
+		return
 
 /client/proc/updateprogbar(atom/clicked_object)
 	if(!mob)
@@ -373,6 +393,7 @@
 	. = 1
 
 /client/MouseDrag(src_object,atom/over_object,src_location,over_location,src_control,over_control,params)
+
 	if(mob.incapacitated())
 		return
 
@@ -399,9 +420,8 @@
 		selected_target[2] = params
 	if(active_mousedown_item)
 		active_mousedown_item.onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
-	
-	// (CC Edit) Set for drag-drop behavior
-	is_dragging = TRUE;
+	SEND_SIGNAL(src, COMSIG_CLIENT_MOUSEDRAG, src_object, over_object, src_location, over_location, src_control, over_control, params)
+
 
 /obj/item/proc/onMouseDrag(src_object, over_object, src_location, over_location, params, mob)
 	return

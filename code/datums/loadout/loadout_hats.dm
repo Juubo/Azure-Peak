@@ -19,6 +19,26 @@
 	path = /obj/item/clothing/head/roguetown/archercap
 	sort_category = "Hats"
 
+/datum/loadout_item/cap
+	name = "Cap"
+	path = /obj/item/clothing/head/roguetown/cap
+	sort_category = "Hats"
+
+/datum/loadout_item/tiyon
+	name = "Tiyon"
+	path = /obj/item/clothing/head/roguetown/tiyon
+	sort_category = "Hats"
+
+/datum/loadout_item/longveil
+	name = "Long Veil"
+	path = /obj/item/clothing/head/roguetown/longveil
+	sort_category = "Hats"
+
+/datum/loadout_item/durag
+	name = "Durag"
+	path = /obj/item/clothing/head/roguetown/durag
+	sort_category = "Hats"
+	
 /datum/loadout_item/strawhat
 	name = "Straw Hat"
 	path = /obj/item/clothing/head/roguetown/strawhat
@@ -32,6 +52,41 @@
 /datum/loadout_item/witchhat/old
 	name = "Witch Hat (Old)"
 	path = /obj/item/clothing/head/roguetown/witchhat/old
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat
+	name = "Wizard Hat"
+	path = /obj/item/clothing/head/roguetown/wizhat
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat/red
+	name = "Wizard Hat (Red)"
+	path = /obj/item/clothing/head/roguetown/wizhat/red
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat/yellow
+	name = "Wizard Hat (Yellow)"
+	path = /obj/item/clothing/head/roguetown/wizhat/yellow
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat/green
+	name = "Wizard Hat (Green)"
+	path = /obj/item/clothing/head/roguetown/wizhat/green
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat/black
+	name = "Wizard Hat (Black)"
+	path = /obj/item/clothing/head/roguetown/wizhat/black
+	sort_category = "Hats"
+
+/datum/loadout_item/wizhat/gen
+	name = "Wizard Hat (Generic)"
+	path = /obj/item/clothing/head/roguetown/wizhat/gen
+	sort_category = "Hats"
+
+/datum/loadout_item/chefhat
+	name = "Chef's Hat"
+	path = /obj/item/clothing/head/roguetown/chef
 	sort_category = "Hats"
 
 /datum/loadout_item/bardhat
@@ -149,3 +204,17 @@
 	path = /obj/item/clothing/head/roguetown/jester
 	sort_category = "Hats"
 
+/datum/loadout_item/shawl
+	name = "Shawl"
+	path = /obj/item/clothing/head/roguetown/shawl
+	sort_category = "Hats"
+  
+/datum/loadout_item/maidband
+	name = "Maid Headdress"
+	path = /obj/item/clothing/head/roguetown/maidhead
+	sort_category = "Hats"
+
+/datum/loadout_item/maidbandfancy
+	name = "Valorian Maid Headband"
+	path = /obj/item/clothing/head/roguetown/maidband
+	sort_category = "Hats"

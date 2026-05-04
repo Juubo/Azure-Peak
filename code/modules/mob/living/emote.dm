@@ -65,9 +65,19 @@
 
 /datum/emote/living/meditate/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(do_after(user, 1 MINUTES))
-		user.add_stress(/datum/stressevent/meditation)
-		to_chat(user, span_green("My meditations were rewarding."))
+	if(HAS_TRAIT(user, TRAIT_IRONMAN))
+		to_chat(user, span_green("You focus inwards..."))
+		if(do_after(user, 1 MINUTES))
+			var/mob/living/U = user
+			var/percent = U.max_energy * 0.3
+			user.add_stress(/datum/stressevent/meditation_ironman)
+			user.energy_add(percent)
+			playsound(user, 'sound/misc/machineyes.ogg', 25)
+	else
+		to_chat(user, span_green("You focus inwards..."))
+		if(do_after(user, 1 MINUTES))
+			user.add_stress(/datum/stressevent/meditation)
+
 
 /datum/emote/living/bow
 	key = "bow"
@@ -76,13 +86,11 @@
 	message_param = "bows to %t."
 	restraint_check = TRUE
 	emote_type = EMOTE_VISIBLE
+	targetrange = 4
 
-/datum/emote/living/bow/run_emote(mob/user, params, type_override, intentional)
+/datum/emote/living/bow/adjacentaction(mob/user, mob/target)
 	. = ..()
-	if(. && params && isliving(user))
-		var/mob/living/L = user
-		var/list/split_params = splittext(params, " ")
-		var/mob/target = get_target(L, split_params)
+	if(isliving(user))
 		if(target && ishuman(target))
 			var/mob/living/carbon/human/H = target
 			if(HAS_TRAIT(H, TRAIT_NOBLE))
@@ -92,7 +100,7 @@
 	set name = "Bow"
 	set category = "EMOTES"
 
-	emote("bow", intentional = TRUE)
+	emote("bow", intentional = TRUE, targetted = TRUE)
 
 /datum/emote/living/burp
 	key = "burp"
@@ -818,7 +826,7 @@
 
 /datum/emote/living/scream/strain
 	key = "strain"
-	message = "strains themselves!"
+	message = "strains themself!"
 	emote_type = EMOTE_AUDIBLE
 	only_forced_audio = TRUE
 	show_runechat = FALSE
@@ -1500,7 +1508,7 @@
 
 /datum/emote/living/fsalute/run_emote(mob/living/user, params, type_override, intentional, targetted, animal)
 	. = ..()
-	if(. && !isnull(user.patron) && !HAS_TRAIT(user, TRAIT_DECEIVING_MEEKNESS))	//Guarded doesn't show an icon to anyone.
+	if(. && !isnull(user.patron))
 		user.play_overhead_indicator('icons/mob/overhead_effects.dmi', "stress", 15, MUTATIONS_LAYER, private = user.patron.type, soundin = 'sound/magic/holyshield.ogg', y_offset = 32)
 
 /mob/living/carbon/human/verb/emote_fsalute()
@@ -1619,7 +1627,10 @@
 			pre_color_msg = trim(pre_color_msg, MAX_MESSAGE_LEN)
 		// Checks to see if we're emoting on the body while we have a head, or if we're emoting on the head.
 		if(human && human.voice_color)
-			msg = "<span style='color:#[human.voice_color];text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>[emotelocation]</b></span> " + msg
+			var/color_to_use = human.voice_color
+			if(human.voicecolor_override)
+				color_to_use = human.voicecolor_override
+			msg = "<span style='color:#[color_to_use];text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;'><b>[emotelocation]</b></span> " + msg
 		else
 			msg = "<b>[emotelocation]</b> " + msg
 		for(var/mob/M in GLOB.dead_mob_list)
@@ -1865,7 +1876,7 @@
 	attempt_message_list = list(
 		"tries to maintain their composure...",
 		"attempts to appear impressive...",
-		"contemplating their next move...",
+		"starts contemplating their next move...",
 	)
 
 	success_message_list = list(
@@ -1885,3 +1896,57 @@
 	set category = "EMOTES"
 
 	emote("charisma", intentional = TRUE)
+
+/mob/living/carbon/human/verb/dive()
+	set name = "Dive Underwater"
+	set category = "IC" //Caustic Edit - Originally was it's own tab, "Swimming"
+	
+	var/turf/T = get_turf(src)
+	if(!istype(T, /turf/open/water/transparent))
+		to_chat(src, span_warning("You must be in deep water to dive!"))
+		return
+	
+	var/turf/below = GET_TURF_BELOW(T)
+	if(!below || !istype(below, /turf/open/water/transparent))
+		to_chat(src, span_warning("It's not deep enough here to dive."))
+		return
+
+	src.swim_z(DOWN)
+
+/mob/living/carbon/human/verb/surface()
+	set name = "Swim to Surface"
+	set category = "IC" //Caustic Edit - Originally was it's own tab, "Swimming"
+	
+	var/turf/T = get_turf(src)
+	
+	if(!istype(T, /turf/open/water/transparent/inner))
+		to_chat(src, span_warning("You are already at the surface!"))
+		return
+
+	var/turf/above = GET_TURF_ABOVE(T)
+	if(!above || !istype(above, /turf/open/water/transparent))
+		to_chat(src, span_warning("Something is blocking you from surfacing here."))
+		return
+
+	src.swim_z(UP)
+
+/mob/living/carbon/human/proc/swim_z(direction)
+	if(stat || IsKnockdown() || IsParalyzed()) 
+		to_chat(src, span_warning("You are too incapacitated to move!"))
+		return FALSE
+	
+	var/turf/current_T = get_turf(src)
+	var/target_z = (direction == UP) ? (z + 1) : (z - 1)
+	var/turf/target_T = locate(current_T.x, current_T.y, target_z)
+
+	if(istype(target_T, /turf/open/water))
+		if(!stamina_add(direction == DOWN ? 20 : 10)) 
+			to_chat(src, span_warning("You are too exhausted to [direction == UP ? "surface" : "dive"]!"))
+			return FALSE
+
+		visible_message(span_notice("[src] [direction == UP ? "emerges to the surface" : "dives into the depths"]."))
+		forceMove(target_T)
+		return TRUE
+		
+	to_chat(src, span_warning("You can't [direction == UP ? "emerge" : "dive"] here."))
+	return FALSE

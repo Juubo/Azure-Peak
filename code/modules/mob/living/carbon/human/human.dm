@@ -73,12 +73,10 @@
 
 /mob/living/carbon/human/Initialize()
 	verbs += /mob/living/proc/lay_down
-
-	icon_state = ""		//Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.
+	icon_state = "" //Remove the inherent human icon that is visible on the map editor. We're rendering ourselves limb by limb, having it still be there results in a bug where the basic human icon appears below as south in all directions and generally looks nasty.
 
 	//initialize limbs first
 	create_bodyparts()
-
 	setup_human_dna()
 
 	if(dna.species)
@@ -90,10 +88,19 @@
 
 	. = ..()
 
+	AddComponent(/datum/component/arousal)
+
+
 	RegisterSignal(src, COMSIG_COMPONENT_CLEAN_ACT, PROC_REF(clean_blood))
 	AddComponent(/datum/component/personal_crafting)
 	AddComponent(/datum/component/footstep, footstep_type, 1, 2)
 	GLOB.human_list += src
+	unarmed_special = new /datum/special_intent/upper_cut()
+
+	max_breath = 10
+	breath_remaining = 10
+	addtimer(CALLBACK(src, PROC_REF(update_breath_hud)), 1)
+
 
 /mob/living/carbon/human/ZImpactDamage(turf/T, levels)
 	var/obj/item/bodypart/affecting
@@ -135,10 +142,23 @@
 	dna.initialize_dna()
 
 /mob/living/carbon/human/Destroy()
-	STOP_PROCESSING(SShumannpc, src)
+	if(SScity_assembly?.is_alderman(src))
+		var/departing_name = real_name
+		var/departing_job = job
+		SScity_assembly.demote_alderman("Alderman's mob was deleted")
+		SScity_assembly.notify_alderman_lost_ref(departing_name, departing_job, "disconnected")
 	QDEL_NULL(physiology)
 	QDEL_NULL(sunder_light_obj)
 	GLOB.human_list -= src
+	if(current_fellowship)
+		current_fellowship.remove_member(src, reason = FELLOWSHIP_REASON_DESTROYED)
+		current_fellowship = null
+	if(length(incoming_fellowship_invites))
+		for(var/datum/weakref/W as anything in incoming_fellowship_invites)
+			var/datum/fellowship/F = W.resolve()
+			if(F)
+				F.remove_pending_invite(real_name)
+		incoming_fellowship_invites.Cut()
 	return ..()
 
 /mob/living/carbon/human/Stat()
@@ -660,9 +680,6 @@
 				else if(energy > 0)
 					hud_used.energy.icon_state = "energy5"
 
-		if(hud_used.zone_select)
-			hud_used.zone_select.update_icon()
-
 /mob/living/carbon/human/fully_heal(admin_revive = FALSE, break_restraints = FALSE)
 	dna?.species.spec_fully_heal(src)
 	if(admin_revive)
@@ -671,7 +688,9 @@
 	spill_embedded_objects()
 	set_heartattack(FALSE)
 	drunkenness = 0
-	return ..()
+	. = ..()
+	if(hud_used?.zone_select)
+		hud_used.zone_select.rebuild_limbs()
 
 /mob/living/carbon/human/check_weakness(obj/item/weapon, mob/living/attacker)
 	. = ..()
@@ -689,7 +708,7 @@
 /mob/living/carbon/human/can_hold_items()
 	return TRUE
 
-/mob/living/carbon/human/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
+/*/mob/living/carbon/human/vomit(lost_nutrition = 10, blood = 0, stun = 1, distance = 0, message = 1, toxic = 0)
 	if(blood && (NOBLOOD in dna.species.species_traits) && !HAS_TRAIT(src, TRAIT_TOXINLOVER))
 		if(message)
 			visible_message(span_warning("[src] dry heaves!"), \
@@ -697,7 +716,7 @@
 		if(stun)
 			Immobilize(200)
 		return 1
-	..()
+	..()*/ // why the FUC we have two vomit procs???? just call the real parent, this was causing noblood things to stunlock permanently 
 
 /mob/living/carbon/human/vv_get_dropdown()
 	. = ..()
@@ -715,8 +734,8 @@
 		if(!client || !client.prefs)
 			return
 		if(alert(usr,"This will irreversibly purge an INDIVIDUAL PORTION of this slot. Is this what you want?","DON'T FATFINGER THIS","PURGE","Nevermind") == "PURGE")
-			if(alert(usr,"The next prompt will not have a Nevermind option. Are you sure you want this?","ITS NOT REVERSIBLE","Yes","Nevermind") == "Yes")
-				var/choice = alert(usr,"What would you like to purge?","ITS TOO LATE NOW","Flavor","Notes","Extra")
+			if(alert(usr,"The next prompt will not have a Nevermind option. Are you sure you want this?","IT'S NOT REVERSIBLE","Yes","Nevermind") == "Yes")
+				var/choice = alert(usr,"What would you like to purge?","IT'S TOO LATE NOW","Flavor","Notes","Extra")
 				if(choice)
 					switch(choice)
 						if("Flavor")
@@ -735,7 +754,9 @@
 							client.prefs?.song_title = null
 							client.prefs?.ooc_extra = null
 							img_gallery = list()
+							nsfw_img_gallery = list()
 							client.prefs?.img_gallery = list()
+							client.prefs?.nsfw_img_gallery = list()
 						else
 							return
 					client.prefs?.save_preferences()
@@ -756,6 +777,7 @@
 				song_artist = null
 				song_title = null
 				img_gallery = list()
+				nsfw_img_gallery = list()
 				if(client)
 					client.prefs?.flavortext = null
 					client.prefs?.nsfwflavortext = null
@@ -765,6 +787,7 @@
 					client.prefs?.song_artist = null
 					client.prefs?.song_title = null
 					client.prefs?.img_gallery = list()
+					client.prefs?.nsfw_img_gallery = list()
 					client.prefs?.save_preferences()
 					client.prefs?.save_character()
 					to_chat(usr, span_warn("Slot purged successfully."))
@@ -786,37 +809,20 @@
 			set_species(newtype)
 
 /mob/living/carbon/human/MouseDrop_T(atom/dragged, mob/living/user)
-	if(pulling == dragged && stat == CONSCIOUS)
-		if(isliving(dragged))
-			/*if(user.grab_state && user.voremode) //Caustic - Commenting this out to instead implement it like Chompers has it
-				if(ismob(user.pulling))
-					vore_attackby(dragged, user)
-					user.vore_attackby(user, dragged, src) // User, Pulled, Predator target (which can be user, pulling, or src)
-					return TRUE*/
-			//Pick them up. Pick. Them. Up.
-			/*if(ishuman(dragged) && ishuman(user)) //Caustic - We should be handling this the Chomp way now!
-				var/mob/living/carbon/human/userhuman = user
-				var/mob/living/carbon/human/targethuman = dragged
-				if(targethuman.small_enough(userhuman) && user.grab_state)
-					if(targethuman.attempt_scoop(userhuman))
-						return TRUE*/
-			//If they dragged themselves and we're currently aggressively grabbing them try to piggyback (not on cmode)
-			if(user == dragged && can_piggyback(target))
-				if(cmode)
-					to_chat(dragged, span_warning("[src] won't let you on!"))
-					return FALSE
-				piggyback(dragged)
+	if(istype(dragged, /mob/living))
+		var/mob/living/target = dragged
+		if(stat == CONSCIOUS)
+			var/has_grab = FALSE
+			var/obj/item/grabbing/grab = get_active_held_item()
+			if(istype(grab) && grab.grabbed == target)
+				has_grab = TRUE
+			// If the target is grabbed and can be firemanned, we fireman carry them
+			if(has_grab && can_be_firemanned(target))
+				fireman_carry(target)
 				return TRUE
-			//If you dragged them to you and you're aggressively grabbing try to carry them
-			else if(user != dragged && can_be_firemanned(dragged))
-				var/obj/G = get_active_held_item()
-				if(G)
-					if(istype(G, /obj/item/grabbing))
-						fireman_carry(dragged)
-						return TRUE
-		else if(istype(dragged, /obj/item/bodypart/head/dullahan/))
-			var/obj/item/bodypart/head/dullahan/item_head = dragged
-			item_head.show_inv(user)
+	else if(istype(dragged, /obj/item/bodypart/head/dullahan/))
+		var/obj/item/bodypart/head/dullahan/item_head = dragged
+		item_head.show_inv(user)
 	. = ..()
 
 /mob/living/carbon/human/RightMouseDrop_T(atom/dragged, mob/living/user)
@@ -1070,6 +1076,16 @@
 	if(race)
 		set_species(race)
 
+/mob/living/carbon/human/species/LateInitialize()
+	. = ..()
+	var/turf/turf = get_turf(loc)
+	if(turf)
+		if(!("[turf.z]" in GLOB.weatherproof_z_levels))
+			if(SSmapping.level_has_any_trait(turf.z, list(ZTRAIT_IGNORE_WEATHER_TRAIT)))
+				GLOB.weatherproof_z_levels |= "[turf.z]"
+		if("[turf.z]" in GLOB.weatherproof_z_levels)
+			SSmatthios_mobs.register_mob(src)
+
 //Vrell - Moving this here to fix load order bugs
 /mob/living/carbon/human/has_penis()
 	return getorganslot(ORGAN_SLOT_PENIS)
@@ -1097,16 +1113,6 @@
 	if(!(mobility_flags & MOBILITY_CANSTAND) && mouth?.spitoutmouth)
 		visible_message(span_warning("[src] spits out [mouth]."))
 		dropItemToGround(mouth, silent = FALSE)
-
-/*/mob/living/carbon/human/proc/update_heretic_commune()
-	if(HAS_TRAIT(src, TRAIT_COMMIE) || HAS_TRAIT(src, TRAIT_CABAL) || HAS_TRAIT(src, TRAIT_HORDE) || HAS_TRAIT(src, TRAIT_DEPRAVED))
-		verbs |= /mob/living/carbon/human/verb/commune
-		verbs |= /mob/living/carbon/human/verb/show_heretics
-		verbs |= /mob/living/carbon/human/verb/bad_omen
-	else
-		verbs -= /mob/living/carbon/human/verb/commune
-		verbs -= /mob/living/carbon/human/verb/show_heretics
-		verbs -= /mob/living/carbon/human/verb/bad_omen*/
 
 /mob/living/carbon/human/Topic(href, href_list)
 	..()

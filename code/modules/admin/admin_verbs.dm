@@ -21,7 +21,6 @@ GLOBAL_PROTECT(admin_verbs_default)
 	/datum/admins/proc/admin_sleep,
 	/client/proc/jumptoarea,
 	/client/proc/jumptokey,
-	/client/proc/mass_direct,
 	/client/proc/local_lightsout,
 	/datum/admins/proc/checkpq,
 	/datum/admins/proc/adjustpq,
@@ -213,6 +212,7 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/toggle_medal_disable,
 	/client/proc/view_runtimes,
 	/client/proc/pump_random_event,
+	/client/proc/show_tip,
 	/client/proc/cmd_display_init_log,
 	/client/proc/cmd_display_overlay_log,
 	/client/proc/reload_configuration,
@@ -222,6 +222,8 @@ GLOBAL_PROTECT(admin_verbs_debug)
 	/client/proc/stresstest_chat,
 	/client/proc/performance_stress_test, // Uncomment these if you tick the performance stress test .dm file
 	/client/proc/cleanup_stress_test_mobs,
+	/client/proc/cmd_admin_economic_panel,
+	/client/proc/cmd_admin_view_chronicle,
 	//CC Edit
 	/client/proc/allow_broser_inspect
 	//CC Edit End
@@ -437,6 +439,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 			if(S && !M.IsKnockdown() && !M.IsStun() && !M.IsParalyzed()) // Wake them up unless they're asleep for another reason
 				M.remove_status_effect(S)
 				M.set_resting(FALSE, TRUE)
+			REMOVE_TRAIT(M, TRAIT_NOSSDINDICATOR, TRAIT_ADMIN)
 			M.density = initial(M.density)
 			M.invisibility = initial(M.invisibility)
 		else
@@ -457,6 +460,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		log_admin("[key_name(usr)] admin ghosted.")
 		message_admins("[key_name_admin(usr)] admin ghosted.")
 		var/mob/body = mob
+		ADD_TRAIT(mob, TRAIT_NOSSDINDICATOR, TRAIT_ADMIN)
 		if (aghost_toggle)
 			body.invisibility = INVISIBILITY_MAXIMUM
 			body.density = 0
@@ -713,11 +717,17 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	var/list/spell_list = list()
 	var/type_length = length("/obj/effect/proc_holder/spell") + 2
+	var/action_type_length = length("/datum/action/cooldown/spell") + 2
+
+	//Caustic Edit - Lets see if we can't get the admin menu to grant action-based spells as well
+	for(var/A in GLOB.action_spells)
+		spell_list[copytext("[A]", action_type_length)] = A
 	for(var/A in GLOB.spells)
 		spell_list[copytext("[A]", type_length)] = A
-	var/obj/effect/proc_holder/spell/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
+	var/S = input("Choose the spell to give to that guy", "ABRAKADABRA") as null|anything in sortList(spell_list)
 	if(!S)
 		return
+	//Caustic Edit End
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Give Spell") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].")
@@ -804,7 +814,8 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 
 	holder.deactivate()
 
-	to_chat(src, span_interface("I are now a normal player."))
+	to_chat(src, span_interface("I am now a normal player."))
+	hide_command_bar_button()
 	update_ooc_verb_visibility()
 	log_admin("[src] deadmined themself.")
 	message_admins("[src] deadmined themself.")
@@ -831,6 +842,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return //This can happen if an admin attempts to vv themself into somebody elses's deadmin datum by getting ref via brute force
 
 	to_chat(src, span_interface("I am now an admin."))
+	show_command_bar_button()
 	message_admins("[src] re-adminned themselves.")
 	log_admin("[src] re-adminned themselves.")
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Readmin")

@@ -103,8 +103,8 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 #define ismoth(A) (is_species(A, /datum/species/moth))
 #define istabaxi(A) (is_species(A, /datum/species/tabaxi))
 #define isvulp(A) (is_species(A, /datum/species/vulpkanin))
-#define isooze(A) (is_species(A, /datum/species/ooze)) //OV ADD
 #define isgnoll(A) (is_species(A, /datum/species/gnoll))
+#define isooze(A) (is_species(A, /datum/species/ooze)) //OV ADD
 
 
 //more carbon mobs
@@ -159,6 +159,12 @@ GLOBAL_LIST_INIT(our_forest_sex, typecacheof(list(
 #define isobj(A) istype(A, /obj) //override the byond proc because it returns true on children of /atom/movable that aren't objs
 
 #define isitem(A) (istype(A, /obj/item))
+
+#define isweapon(A) (istype(A, /obj/item/rogueweapon))
+
+#define isammo(A) (istype(A, /obj/item/ammo_casing))
+
+#define isreagentcontainer(A) (istype(A, /obj/item/reagent_containers))
 
 #define isidcard(I) (istype(I, /obj/item/card/id))
 

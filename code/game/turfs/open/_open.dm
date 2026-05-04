@@ -23,6 +23,8 @@
 		if(obj.obj_flags & BLOCK_Z_OUT_DOWN)
 			return slowdown
 		total_slowdown += obj.object_slowdown
+	if(active_hotspot)
+		total_slowdown += 15
 	return total_slowdown
 
 /turf
@@ -141,6 +143,7 @@
 	//CC Edit Begin
 	if(active_hotspot) //Used for NPC logic when traversing. They shouldn't be willingly walking into fire!
 		return FALSE
-	return TRUE
+	
+	. = ..()
 	//CC Edit End
 //CC Edit End

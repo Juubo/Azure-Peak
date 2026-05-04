@@ -56,6 +56,8 @@
 		return FALSE
 	var/mob/living/carbon/C = eater
 
+	//Caustic Edit - moved this spillable check from here to reagent_containers/glass
+
 	var/obj/item/bodypart/head/dullahan/eaterrelay
 	if(ishuman(src))
 		var/mob/living/carbon/human = src
@@ -81,7 +83,7 @@
 	if(covered)
 		if(!silent)
 			var/who = (isnull(user) || eater == user) ? "my" : "[eater.p_their()]"
-			to_chat(user, span_warning("I have to remove [who] [covered] first!"))
+			to_chat(user, span_warning("I have to remove [who] [covered], first!"))
 		return FALSE
 
 	// CC Edit Begin

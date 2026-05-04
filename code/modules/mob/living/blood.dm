@@ -49,8 +49,7 @@
 					if(prob(3))
 						blur_eyes(6)
 						to_chat(src, span_warning("I feel faint."))
-					if(prob(3) && !IsUnconscious())
-						Unconscious(rand(5 SECONDS,10 SECONDS))
+					if(prob(3))
 						to_chat(src, span_warning("I feel drained."))
 					remove_status_effect(/datum/status_effect/debuff/bleedingworse)
 					remove_status_effect(/datum/status_effect/debuff/bleeding)
@@ -83,10 +82,14 @@
 		return
 	
 	blood_volume = min(blood_volume, BLOOD_VOLUME_MAXIMUM)
-	if(dna?.species)
-		if(NOBLOOD in dna.species.species_traits)
-			blood_volume = BLOOD_VOLUME_NORMAL
-			return
+
+	if(dna?.species && (NOBLOOD in dna.species.species_traits))
+		blood_volume = BLOOD_VOLUME_NORMAL
+
+		for(var/datum/wound/W in src.get_wounds())
+			W.bleed_rate = 0 // should stop bleeding from appearing! :D
+
+		return
 
 	// if we're dead and have no blood left, then there's nothing to do here: we can't regen it ourselves (in this proc), so...
 	// we'll continue to bleed out for as long as we have blood, but that's it
@@ -97,6 +100,9 @@
 		else
 			// handle just the oxyloss, and then abort. nothing else in here is relevant to us
 			adjustOxyLoss(blood_volume <= BLOOD_VOLUME_SURVIVE ? 3 : 1)
+			if(prob(40) && !HAS_TRAIT(src, TRAIT_NOBREATH))
+				if(!stat == CONSCIOUS || !stat == DEAD)
+					emote("gasp")		
 			return
 
 	//Blood regeneration if there is some space
@@ -140,7 +146,6 @@
 						blur_eyes(6)
 						to_chat(src, span_warning("I feel faint."))
 					if(prob(3))
-						Unconscious(rand(5 SECONDS,10 SECONDS))
 						to_chat(src, span_warning("I feel drained."))
 				else
 					current_bleeding_tier = bleeding_tier
@@ -169,6 +174,9 @@
 
 			if(blood_volume <= BLOOD_VOLUME_BAD)
 				adjustOxyLoss(blood_volume <= BLOOD_VOLUME_SURVIVE ? 3 : 1)
+				if(prob(40) && !HAS_TRAIT(src, TRAIT_NOBREATH))
+					if(stat != DEAD)
+						emote("gasp")
 			else if((blood_volume > BLOOD_VOLUME_SURVIVE) || HAS_TRAIT(src, TRAIT_BLOODLOSS_IMMUNE))
 				if(getOxyLoss())
 					adjustOxyLoss(-1.6)
@@ -220,7 +228,6 @@
 		conbonus = CONSTITUTION_BLEEDRATE_CAP - 10
 	else if(STACON != 10)
 		conbonus = STACON - 10
-	if(mind)
 		amt -= amt * (conbonus * CONSTITUTION_BLEEDRATE_MOD)
 		if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
 			amt = amt * CRIT_RESISTANCE_EFFECTIVE_BLEEDRATE
@@ -230,10 +237,7 @@
 			amt = amt * 2
 	if(surrendering)
 		amt = amt / 4 // Helps yield condition not be a bloodloss failure state. Approx to grabbing all of your bodyparts at once
-	var/old_volume = blood_volume
 	blood_volume = max(blood_volume - amt, 0)
-	if (old_volume > 0 && !blood_volume) // it looks like we've just bled out. bummer.
-		to_chat(src, span_userdanger("The last of your lyfeblood ebbs from your ravaged body and soaks the cold earth below..."))
 	record_round_statistic(STATS_BLOOD_SPILT, amt)
 	if(isturf(src.loc)) //Blood loss still happens in locker, floor stays clean
 		add_drip_floor(src.loc, amt)

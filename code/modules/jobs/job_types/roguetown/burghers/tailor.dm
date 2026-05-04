@@ -59,7 +59,10 @@
 		/obj/item/storage/keyring/tailor,
 		/obj/item/dye_brush,
 		/obj/item/recipe_book/sewing,
-		/obj/item/recipe_book/leatherworking
+		/obj/item/recipe_book/leatherworking,
+		/obj/item/mini_flagpole/tailor,
+		/obj/item/rogueweapon/hammer/wood,
+		/obj/item/storage/belt/rogue/pouch/tailorscrap,
 		)
 	if(should_wear_femme_clothes(H))
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/silkdress
@@ -68,7 +71,7 @@
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/fittedclothing)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/takeapprentice)
-		SStreasury.give_money_account(ECONOMIC_UPPER_MIDDLE_CLASS, H, "Savings.") //There is a better way to do this, do I care for it - of course not.
+		SStreasury.grant_savings(ECONOMIC_UPPER_MIDDLE_CLASS, H) //There is a better way to do this, do I care for it - of course not.
 
 		///CC EDIT START
 		/*

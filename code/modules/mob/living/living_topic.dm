@@ -13,10 +13,16 @@
 
 /mob/living/proc/check_heartbeat(mob/user)
 	var/list/message = list()
-	if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || HAS_TRAIT(src, TRAIT_ROTMAN))
-		message += "<B>No heartbeat...</B>"
+	if(!HAS_TRAIT(src, TRAIT_IRONMAN)) // more sovl
+		if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH) || HAS_TRAIT(src, TRAIT_ROTMAN))
+			message += "<B>No heartbeat...</B>"
+		else
+			message += "<B>The heart is still beating.</B>"
 	else
-		message += "<B>The heart is still beating.</B>"
+		if(stat >= DEAD || HAS_TRAIT(src, TRAIT_FAKEDEATH))
+			message += "<B>Their core lies silent...</B>"
+		else
+			message += "<B>Their core hums with lyfe.</B>"	
 	var/list/soul_message = soul_examine(user)
 	if(length(soul_message))
 		message += soul_message
@@ -29,7 +35,7 @@
 			message += "<span class='deadsay'>[p_they(TRUE)] commited suicide... Nothing can be done..."
 		if(HAS_TRAIT(src, TRAIT_DNR))
 			message += "<span class='deadsay'>[p_their(TRUE)] heart will never beat again...</span>"
-		if(isobserver(user) || HAS_TRAIT(user, TRAIT_SOUL_EXAMINE))
+		if(isobserver(user) || HAS_TRAIT(user, TRAIT_SOUL_EXAMINE) || (user.get_skill_level(/datum/skill/misc/medicine) >= SKILL_LEVEL_MASTER))
 			if(!key && !get_ghost(FALSE, TRUE))
 				message += span_deadsay("[p_their(TRUE)] soul has departed...")
 			else

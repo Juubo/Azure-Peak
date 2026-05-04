@@ -6,7 +6,7 @@
 	icon_state = "roguepants"
 	item_state = "roguepants"
 	sewrepair = TRUE
-	armor = ARMOR_LEATHER_GOOD
+	armor = ARMOR_LEATHER
 	sellprice = 18
 	blocksound = SOFTHIT
 	max_integrity = ARMOR_INT_LEG_HARDLEATHER
@@ -21,6 +21,8 @@
 /obj/item/clothing/under/roguetown/heavy_leather_pants/ComponentInitialize()
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_FENCERDEXTERITY)
 	AddComponent(/datum/component/armour_filtering/positive, TRAIT_HONORBOUND)
+	if(armor_class > ARMOR_CLASS_LIGHT)
+		AddComponent(/datum/component/armour_filtering/negative, TRAIT_IRONMAN)
 
 /obj/item/clothing/under/roguetown/heavy_leather_pants/shorts
 	name = "hardened leather shorts"

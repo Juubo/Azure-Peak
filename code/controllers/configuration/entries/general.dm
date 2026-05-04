@@ -47,6 +47,8 @@
 
 /datum/config_entry/flag/log_say	// log client say
 
+/datum/config_entry/flag/log_npc_say	// log NPC say
+
 /datum/config_entry/flag/log_admin	// log admin actions
 	protection = CONFIG_ENTRY_LOCKED
 
@@ -508,4 +510,27 @@
 	min_val = 30
 
 /datum/config_entry/flag/reopen_roundstart_suicide_roles_command_report
+
+/datum/config_entry/flag/auto_profile
+
+/datum/config_entry/flag/profile_clear_on_dump
+
+/datum/config_entry/number/profiler_interval
+	config_entry_value = 300 SECONDS
+
+/datum/config_entry/number/drift_dump_threshold
+	config_entry_value = 4 SECONDS
+
+/datum/config_entry/number/drift_profile_delay
+	config_entry_value = 15 SECONDS
+
+/datum/config_entry/number/sustained_td_threshold_pct
+	config_entry_value = 20
+	integer = FALSE
+
+/datum/config_entry/number/sustained_td_duration
+	config_entry_value = 20 SECONDS
+
+/datum/config_entry/number/sustained_td_delay
+	config_entry_value = 120 SECONDS
 

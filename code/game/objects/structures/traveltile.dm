@@ -166,7 +166,8 @@
 /obj/structure/fluff/traveltile/proc/has_access(atom/movable/AM)
 	if(required_jobs && ishuman(AM))
 		var/mob/living/carbon/human/H = AM
-		return (H.job in required_jobs)
+		if(H.job in required_jobs) //Caustic Edit - Does this fix the Wretch Coast Teleports?
+			return TRUE
 	if(required_trait && isliving(AM))
 		return HAS_TRAIT(AM, required_trait)
 	return TRUE
@@ -250,7 +251,7 @@
 	aportalgoesto = "MultizEventOut"
 	aportalid = "MultizEventIn"
 
-/obj/structure/fluff/traveltile/bathhouse_passage
+/obj/structure/fluff/traveltile/bathhouse_passage // this is IN the bathhouse
 	name = "suspicious passage"
 	desc = "A crevice in the wall. It looks like it leads somewhere."
 	required_trait = "bathhouse_passage_seen"
@@ -260,3 +261,9 @@
 	travel_deny_message = "You're not supple enough to use this passage."
 	watchable = FALSE
 	travel_access_hint = "A tight passage that leads between the bathhouse and the northern coast, with many twists and turns - only a bathhouse staff member can fit through it. It takes a while to travel through, and is a popular route for smuggling goods in and out of town."
+	aportalid = "smuggler_bathhouse"
+	aportalgoesto = "smuggler_cove"
+
+/obj/structure/fluff/traveltile/bathhouse_passage/cave // this is ON THE COAST in the ne
+	aportalid = "smuggler_cove"
+	aportalgoesto = "smuggler_bathhouse"

@@ -358,26 +358,96 @@
 
 /obj/structure/closet/dirthole/attack_hand(mob/living/user)
 	. = ..()
-	if(HAS_TRAIT(user, TRAIT_SOUL_EXAMINE))
-		var/atom/movable/coffin = src
-		for(var/mob/living/corpse in coffin)
-			if(!corpse.stat == DEAD)
-				to_chat(user, "That one hasn't truly passed on yet?!")
-				return
-			if(corpse.burialrited)
-				to_chat(user, "This grave has already been consecrated...")
-				return
-			else
-				to_chat(user, "I begin my burial rites...")
-				if(do_after(user, 50))
-					user.say("#Rest thy soul for all aeon within Necra's embrace!")
-					to_chat(user, "I have extracted a strand of luxthread, proof of passing.")
-					playsound(user, 'sound/misc/bellold.ogg', 20)
-					new /obj/item/soulthread((get_turf(user)))
-					SEND_SIGNAL(user, COMSIG_GRAVE_CONSECRATED, src)
-					record_round_statistic(STATS_GRAVES_CONSECRATED)
-					corpse.burialrited = TRUE
+	if(!HAS_TRAIT(user, TRAIT_SOUL_EXAMINE))
+		return
 
+	var/atom/movable/coffin = src
+	var/list/valid_corpses = list()
+	var/has_consecrated = FALSE
+
+	// --- scan + classify ---
+	for(var/mob/living/corpse in coffin)
+		if(!corpse || QDELETED(corpse))
+			continue
+
+		if(corpse.stat != DEAD)
+			to_chat(user, "This grave is restless with lyfe, as if its denizen is not dead.")
+			return
+
+		if(corpse.burialrited)
+			has_consecrated = TRUE
+			continue
+
+		valid_corpses += corpse
+
+	// --- nothing to do ---
+	if(!length(valid_corpses))
+		if(has_consecrated)
+			to_chat(user, "You feel a comforting stillness. All within are already consecrated.")
+		else
+			to_chat(user, "There is nothing here to consecrate.")
+		return
+
+	// --- ritual start ---
+	if(has_consecrated)
+		to_chat(user, "Some within already rest. I shall tend to the remaining souls.")
+	else
+		to_chat(user, "I begin my burial rites...")
+
+	if(!do_after(user, 50))
+		return
+
+	// --- prayer (once) ---
+	var/list/necra_prayers = list(
+		"#Rest thy soul for all aeon within Necra's embrace!",
+		"#May the Undermaiden cradle thee beyond the veil.",
+		"#Let thy weary spirit find stillness in Necra's grasp.",
+		"#From flesh to silence, may she guide thee gently.",
+		"#Sleep now, for the Undermaiden has come.",
+		"#Thy wandering ends; be gathered into her quiet.",
+		"#May thy sins and sorrows fade in her shadow.",
+		"#Be unburdened, child of ash, and pass on.",
+		"#The veil parts for thee—walk without fear.",
+		"#Necra calls, and thou shalt answer in peace.",
+		"#Lay down thy struggle; her hand awaits thee.",
+		"#From dust thou came, to her thou return.",
+		"#Let silence take thee, and be made whole.",
+		"#No longer lost, no longer bound—go softly.",
+		"#Her embrace is cold, yet kinder than the world.",
+		"#Rest now beneath her watchful stillness.",
+		"#Thy echo fades, thy journey ends.",
+		"#Be freed from pain, and carried beyond.",
+		"#The Undermaiden weeps thee into slumber.",
+		"#All things end—may thine end be gentle.",
+		"#Cast off thy burden; Necra gathers thee.",
+		"#Drift now into the hush beyond breath.",
+		"#Thy final step is guided by her hand.",
+		"#Be still, and know the end of suffering.",
+		"#No shadow follows where she leads.",
+		"#The long night welcomes thee home.",
+		"#Fade now, as all must fade, in her grace.",
+		"#Thy name is whispered, then laid to rest.",
+		"#Be neither fearful nor alone—she is with thee.",
+		"#In her silence, thou art made eternal."
+	)
+
+	user.say(pick(necra_prayers))
+
+	var/count = length(valid_corpses)
+
+	to_chat(user, "I have extracted [count] strand\s of luxthread, proof of passing.")
+	playsound(user, 'sound/misc/bellold.ogg', 20)
+
+	// --- apply burial rites ---
+	for(var/mob/living/corpse in valid_corpses)
+		corpse.burialrited = TRUE
+
+	// --- spawn rewards ---
+	for(var/i = 1 to count)
+		new /obj/item/soulthread(get_turf(user))
+
+	SEND_SIGNAL(user, COMSIG_GRAVE_CONSECRATED, src)
+	record_round_statistic(STATS_GRAVES_CONSECRATED)
 
 /obj/structure/closet/dirthole/attackby(obj/item/attacking_item, mob/user, params)
 	if(!istype(attacking_item, /obj/item/rogueweapon/shovel))
@@ -444,18 +514,30 @@
 			else
 				stage++
 		if(stage == 4)
-			stage = 3
-			climb_offset = 0
-			locked = FALSE
-			open()
-			for(var/obj/structure/gravemarker/G in loc)
+			//Caustic Edit - Make it so that even the loot graves give the curse and count to the statistics
+			var/should_curse = FALSE
+			for(var/obj/structure/gravemarker/G in loc) //Technically this could mean that multiple markers on one grave would have counted multiple times? Since the Stats were in this bit.
+				should_curse = TRUE
+				qdel(G)
+			
+			if(istype(src, /obj/structure/closet/dirthole/closed/loot)) //If it's a Loot Grave, cast it as such and check the looted status. Non-looted ones should curse the digger!
+				var/obj/structure/closet/dirthole/closed/loot/lootgrave = src
+				if(!lootgrave.looted)
+					should_curse = TRUE
+
+			if(should_curse)
 				record_featured_stat(FEATURED_STATS_CRIMINALS, user)
 				record_round_statistic(STATS_GRAVES_ROBBED)
-				qdel(G)
 				if(isliving(user))
 					var/mob/living/L = user
 					if(!HAS_TRAIT(L, TRAIT_GRAVEROBBER))
 						L.apply_status_effect(/datum/status_effect/debuff/cursed)
+			
+			stage = 3
+			climb_offset = 0
+			locked = FALSE
+			open()
+			//Caustic Edit End
 		update_icon()
 		attacking_shovel.heldclod = new(attacking_shovel)
 		attacking_shovel.update_icon()

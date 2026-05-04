@@ -136,13 +136,22 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	slot_flags = ITEM_SLOT_MOUTH
 	obj_flags = null
 	w_class = WEIGHT_CLASS_TINY
-	experimental_inhand = FALSE
+	experimental_inhand = TRUE
 	associated_skill = /datum/skill/combat/unarmed
 	mill_result = /obj/item/reagent_containers/powder/mineral
 	/// If our stone is magical, this lets us know -how- magical. Maximum is 15.
 	var/magic_power = 0
 	sharpening_factor = 12
 	spark_chance = 35
+
+/obj/item/natural/stone/get_mechanics_examine(mob/user)
+	. = ..()
+	. += span_info("Left-click a bladed weapon to begin sharpening it. Sharpening automatically stops once you move, or once the bladed weapon has been completely resharpened.")
+	. += span_info("Left-clicking a bladed weapon, another stone, or a rock has a chance to spawn sparks. Sparks can be used to reignite extinguished torches, lampterns, hearths, and other igniteable structures.")
+	. += span_info("Sharpening a bladed weapon will permenantly remove a very small amount of its maximum sharpness, with each pass. This can be avoided by sharpening it at a blacksmith's grindstone.")
+	. += span_info("Left-clicking a stone with a chisel will turn it into a stone block, which can be used for masonry and construction.")
+	. += span_info("Stones can be 'slapcrafted' into new items by left-clicking them with certain tools and materials. 'Slapcrafted' items don't require a Crafting skill to make.")
+	. += span_info("'Slapcrafts' for stones include tools and pots.")
 
 /obj/item/natural/stone/Initialize()
 	. = ..()
@@ -181,6 +190,14 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	possible_item_intents = list(/datum/intent/hit, /datum/intent/mace/smash/wood, /datum/intent/dagger/cut)
 	sharpening_factor = 21
 	spark_chance = 80
+
+/obj/item/natural/whetstone/get_mechanics_examine(mob/user)
+	. = ..()
+	. += span_info("Left-click a bladed weapon to begin sharpening it. Sharpening automatically stops once you move, or once the bladed weapon has been completely resharpened.")
+	. += span_info("Left-clicking a bladed weapon, another stone, or a rock has a chance to spawn sparks. Sparks can be used to reignite extinguished torches, lampterns, hearths, and other igniteable structures.")
+	. += span_info("Sharpening a bladed weapon will permenantly remove a very small amount of its maximum sharpness, with each pass. This can be avoided by sharpening it at a blacksmith's grindstone.")
+	. += span_info("Whetstones can be 'slapcrafted' into new items by left-clicking them with certain tools and materials. 'Slapcrafted' items don't require a Crafting skill to make.")
+	. += span_info("'Slapcrafts' for whestones include tools, and - if used with hunting knives and farming tools - unique weapons.")
 
 /obj/item/natural/whetstone/Initialize()
 	. = ..()
@@ -347,14 +364,8 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 /obj/item/natural/stone/attack(mob/living/M, mob/user)
 
 	if(!user.cmode)
-		if(M.construct)
-			var/healydoodle = magic_power+1
-			M.apply_status_effect(/datum/status_effect/buff/rockmuncher, healydoodle)
-			qdel(src)
-			if(M == user)
-				user.visible_message(span_notice("[user] presses the stone to [user]'s body, and it is absorbed."), span_notice("I absorb the stone."))
-			else
-				user.visible_message(span_notice("[user] presses the stone to [M]'s body, and it is absorbed."), span_notice("I press the stone to [M], and it is absorbed."))
+		if(try_construct_consume(src, M, user))
+			return
 		else // if theyre not a construct, but we're not in cmode, beat them 2 death with rocks.
 			return ..()
 	else // if we're in cmode, beat them to death with rocks.
@@ -362,7 +373,7 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 
 /obj/item/natural/rock
 	name = "boulder"
-	desc = "A rock protudes from the ground."
+	desc = "They're not 'rocks', they're minerals!"
 	icon_state = "stonebig1"
 	dropshrink = 0
 	throwforce = 25
@@ -385,18 +396,36 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 	attacked_sound = 'sound/foley/hit_rock.ogg'
 
 
-/obj/item/natural/rock/Initialize()
-	icon_state = "stonebig[rand(1,2)]"
-	..()
+/obj/item/natural/rock/get_mechanics_examine(mob/user)
+	. = ..()
+	. += span_info("Rocks can be destroyed by left-clicking them with an item that has the 'PICK' intent selected. Hidden inside can be anything from stones and salt to ores and gems.")
+	. += span_info("Left-clicking a rock with a stone has a chance to spawn sparks. Sparks can be used to reignite extinguished torches, lampterns, hearths, and other igniteable structures.")
+	. += span_info("Left-clicking a rock with a chisel will turn it into a stone block, which can be used for masonry and construction.")
 
+/obj/item/natural/rock/Initialize(mapload, autodeconstruct)
+	icon_state = "stonebig[rand(1,2)]"
+	if(autodeconstruct)
+		deconstruct()
+		return
+	..()
 
 /obj/item/natural/rock/Crossed(mob/living/L)
 	if(istype(L) && !L.throwing)
 		if(L.m_intent == MOVE_INTENT_RUN)
 			L.visible_message(span_warning("[L] trips over the boulder!"),span_warning("I trip over the boulder!"))
 			L.Knockdown(10)
+			L.drop_all_held_items()
 			L.consider_ambush(always = TRUE)
 	..()
+
+/obj/item/natural/rock/attack(mob/living/M, mob/user)
+	if(!user.cmode)
+		if(try_construct_consume(src, M, user))
+			return
+		else // if theyre not a construct, but we're not in cmode, beat them 2 death with rocks.
+			return ..()
+	else // if we're in cmode, beat them to death with rocks.
+		return ..()
 
 /obj/item/natural/rock/attacked_by(obj/item/I, mob/living/user)
 	var/was_destroyed = obj_destroyed
@@ -520,12 +549,14 @@ GLOBAL_LIST_INIT(stone_personality_descs, list(
 /obj/item/natural/rock/random_ore
 	name = "rock?"
 	desc = "Wait, this shouldn't be here?"
-	icon_state = "stonerandom"
+	icon = 'icons/roguetown/helpers/spawnerhelpers.dmi'
+	icon_state = "random_rock"
 
 /obj/item/natural/rock/dungeon
 	name = "rock?"
 	desc = "Wait, this shouldn't be here? Tell Mumblemancer he's a shit coder!"
-	icon_state = "stonerandom"
+	icon = 'icons/roguetown/helpers/spawnerhelpers.dmi'
+	icon_state = "dungeon_rock"
 
 // actually random
 /obj/item/natural/rock/random_ore/Initialize()
@@ -615,7 +646,7 @@ BECAUSE this is a dungeon reward, and you're SUPPOSED to get SOMETHING, they've 
 	icon_state = "stoneblockbundle1"
 	icon = 'icons/roguetown/items/crafting.dmi'
 	item_state = "block"
-	experimental_inhand = FALSE
+	experimental_inhand = TRUE
 	grid_width = 64
 	grid_height = 64
 	base_width = 64

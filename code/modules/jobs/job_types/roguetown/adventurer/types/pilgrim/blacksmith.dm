@@ -38,25 +38,43 @@
 /datum/outfit/job/roguetown/adventurer/blacksmith/pre_equip(mob/living/carbon/human/H)
 	..()
 	belt = /obj/item/storage/belt/rogue/leather
-	beltr = /obj/item/rogueweapon/hammer/iron
-	beltl = /obj/item/rogueweapon/tongs
 	neck = /obj/item/storage/belt/rogue/pouch/coins/poor
 	gloves = /obj/item/clothing/gloves/roguetown/angle/grenzelgloves/blacksmith
 	cloak = /obj/item/clothing/cloak/apron/blacksmith
 	mouth = /obj/item/rogueweapon/huntingknife
 	pants = /obj/item/clothing/under/roguetown/trou
 	backl = /obj/item/storage/backpack/rogue/backpack
-	backpack_contents = list(
-		/obj/item/flint = 1,
-		/obj/item/rogueore/coal = 4,
-		/obj/item/rogueore/iron = 5,
-		/obj/item/flashlight/flare/torch = 1,
-		/obj/item/recipe_book/blacksmithing = 1,
-		/obj/item/recipe_book/survival = 1,
-		/obj/item/rogueweapon/scabbard/sheath = 1,
-		/obj/item/blueprint/mace_mushroom = 1
-		)
 	if(H.mind)
+		var/smith_type = list("Ironworker", "Bronzeworker")
+		var/smith_choice = input(H, "Choose your line.", "TAKE A PICK") as anything in smith_type
+		switch(smith_choice)
+			if("Ironworker")
+				beltr = /obj/item/rogueweapon/hammer/iron
+				beltl = /obj/item/rogueweapon/tongs
+				backpack_contents = list(
+					/obj/item/flint = 1,
+					/obj/item/rogueore/coal = 4,
+					/obj/item/rogueore/iron = 5,
+					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/recipe_book/blacksmithing = 1,
+					/obj/item/recipe_book/survival = 1,
+					/obj/item/rogueweapon/scabbard/sheath = 1,
+					/obj/item/blueprint/mace_mushroom = 1
+				)
+			if("Bronzeworker")
+				beltr = /obj/item/rogueweapon/hammer/bronze
+				beltl = /obj/item/rogueweapon/tongs/bronze
+				backpack_contents = list(
+					/obj/item/flint = 1,
+					/obj/item/rogueore/copper = 4,
+					/obj/item/rogueore/tin = 2,
+					/obj/item/flashlight/flare/torch = 1,
+					/obj/item/recipe_book/blacksmithing = 1,
+					/obj/item/recipe_book/survival = 1,
+					/obj/item/rogueweapon/scabbard/sheath = 1,
+					/obj/item/blueprint/mace_mushroom = 1
+				)
+
 		var/molds = list(
 			"Iron sword mold" = /obj/item/mold/sword,
 			"Iron axe mold" = /obj/item/mold/axe,
@@ -82,4 +100,4 @@
 		armor = /obj/item/clothing/suit/roguetown/shirt/dress/gen/random
 		shoes = /obj/item/clothing/shoes/roguetown/shortboots
 	if(H.mind)
-		SStreasury.give_money_account(ECONOMIC_UPPER_MIDDLE_CLASS, H, "Savings.")
+		SStreasury.grant_savings(ECONOMIC_UPPER_MIDDLE_CLASS, H)

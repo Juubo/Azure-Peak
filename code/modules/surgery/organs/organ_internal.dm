@@ -29,6 +29,9 @@
 
 	/// Whether the organ is fully internal and should not be seen by bare eyes.
 	var/visible_organ = FALSE
+	//Caustic Edit - Add ability to reveal any organs regardless of if it's covered or not
+	var/always_show = FALSE
+	//Caustic Edit End
 	/// Description when the organ is visible and examined while it's attached to a bodypart.
 	var/bodypart_desc = "This is an organ."
 	/// Icon of the organ when it's on a bodypart.
@@ -47,8 +50,8 @@
 	var/organ_dna_type = /datum/organ_dna
 	/// What food typepath should be used when eaten
 	var/food_type = /obj/item/reagent_containers/food/snacks/organ
-	/// Original owner of the organ, the one who had it inside them last
-	var/mob/living/carbon/last_owner = null
+	/// Whether this organ has ever been inside a mob
+	var/had_owner = FALSE
 
 	grid_width = 32
 	grid_height = 32
@@ -66,7 +69,7 @@
 			qdel(replaced)
 
 	owner = M
-	last_owner = M
+	had_owner = TRUE
 
 	if (visible_organ)
 		M.visible_organs |= src
@@ -108,7 +111,7 @@
 //	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/forceMove(atom/destination)
-	if((organ_flags & ORGAN_INTERNAL_ONLY) && last_owner)
+	if((organ_flags & ORGAN_INTERNAL_ONLY) && had_owner)
 		qdel(src)
 		return
 	..()
@@ -222,7 +225,7 @@
 		// The special flag is important, because otherwise mobs can die
 		// while undergoing transformation into different mobs.
 		Remove(owner, special=TRUE)
-	last_owner = null
+	had_owner = FALSE
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 

@@ -9,7 +9,7 @@
 	releasedrain = 33
 	chargedrain = 0
 	chargetime = 0
-	range = 2
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 2!?!?!? REALLY?!
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/ENDVRE.ogg'
@@ -97,6 +97,8 @@
 			user.adjustBruteLoss(25)		
 			return FALSE
 
+		if(HAS_TRAIT(target, TRAIT_IRONMAN) && istype(target.patron, /datum/patron/old_god))
+			target.add_stress(/datum/stressevent/constructendvre)
 		target.apply_status_effect(/datum/status_effect/buff/psyhealing, psyhealing)
 		return TRUE
 
@@ -111,7 +113,7 @@
 	releasedrain = 33
 	chargedrain = 0
 	chargetime = 0
-	range = 2
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 2!?!?!? REALLY?!
 	warnie = "sydwarning"
 	desc = "Lesser lux-magicka. Endure the wounds of another, for their sake. </br>‎  </br>Siphons away lesser injuries, such as gashes and fractures, from the target. In exchange, any siphoned injuries are subsequently imposed onto you. If the target has lost any blood, they will be fully replenished through your own veins."
 	movement_interrupt = FALSE
@@ -204,7 +206,7 @@
 	releasedrain = 50
 	chargedrain = 0
 	chargetime = 0
-	range = 1
+	range = SPELL_RANGE_GROUND //Caustic Edit - Setting this to not be shit range. 3!? Really!?
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = 'sound/magic/psyabsolution.ogg'
@@ -247,7 +249,7 @@
 		// Create visual effects
 		H.apply_status_effect(/datum/status_effect/buff/psyvived)
 		// Kill the caster
-		user.say("MY LYFE FOR YOURS! LYVE, AS DOES HE!", forced = TRUE)
+		user.say("MY LYFE FOR YOURS! LYVE, AS DOES HE!", forced = TRUE, language = /datum/language/common)
 		user.death()
 		// Revive the target
 		H.revive(full_heal = TRUE, admin_revive = FALSE)
@@ -323,7 +325,6 @@
 	recharge_time = 10 MINUTES
 	miracle = TRUE
 	devotion_cost = 30
-	range = 1
 	var/static/list/lootpool = list(/obj/item/flowercrown/rosa,
 	/obj/item/bouquet/rosa,
 	/obj/item/jingle_bells,
@@ -339,7 +340,7 @@
 	/obj/item/rogueweapon/huntingknife/idagger/navaja,
 	/obj/item/lockpick,
 	/obj/item/reagent_containers/glass/bottle/alchemical/strpot,
-	/obj/item/reagent_containers/glass/bottle/alchemical/endpot,
+	/obj/item/reagent_containers/glass/bottle/alchemical/willpot,
 	/obj/item/reagent_containers/glass/bottle/alchemical/conpot,
 	/obj/item/reagent_containers/glass/bottle/alchemical/lucpot,
 	/obj/item/reagent_containers/glass/bottle/rogue/poison,
@@ -371,21 +372,32 @@
 	if(!ishuman(user))
 		revert_cast()
 		return FALSE
+
 	var/mob/living/carbon/human/H = user
+	var/turf/T = get_turf(H)
+	if(!T)
+		revert_cast()
+		return FALSE
+
 	var/obj/item/found_thing
 	if(H.get_stress_amount() < 0 && H.STALUC > 10)
-		found_thing = new /obj/item/roguecoin/gold
+		found_thing = new /obj/item/roguecoin/gold(T)
 	else if(H.STALUC == 10)
-		found_thing = new /obj/item/roguecoin/silver
+		found_thing = new /obj/item/roguecoin/silver(T)
 	else
-		found_thing = new /obj/item/roguecoin/copper
+		found_thing = new /obj/item/roguecoin/copper(T)
+
 	to_chat(H, span_info("A coin in my boot? Psydon smiles upon me!"))
-	H.put_in_hands(found_thing, FALSE)
+	if(!H.put_in_hands(found_thing, FALSE))
+		found_thing.forceMove(T)
+
 	if(prob(H.STALUC + H.get_skill_level(associated_skill)))
-		var/obj/item/extra_thing = pick(lootpool)
-		new extra_thing(get_turf(user))
+		var/path = pick(lootpool)
+		var/obj/item/extra = new path(T)
 		to_chat(H, span_info("Ah, of course! I almost forgot I had this stashed away for a perfect occasion."))
-		H.put_in_hands(extra_thing, FALSE)
+		if(!H.put_in_hands(extra, FALSE))
+			extra.forceMove(T)
+
 	return TRUE
 
 //
@@ -397,7 +409,6 @@
 	releasedrain = 15
 	chargedrain = 0
 	chargetime = 0
-	range = 2
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = null
@@ -411,90 +422,111 @@
 
 /obj/effect/proc_holder/spell/self/psydonprayer/cast(mob/living/carbon/human/user) ///Lesser version of 'RESPITE' and 'PERSIST', T1. Self-regenerative.
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) || !(user.devotion && user.devotion.devotion > 15))
 		revert_cast()
 		return FALSE
-		
+
 	var/mob/living/carbon/human/H = user
-	var/brute = H.getBruteLoss()
-	var/burn = H.getFireLoss()
-	var/conditional_buff = FALSE
-	var/zcross_trigger = FALSE
-	var/sit_bonus1 = 0
-	var/sit_bonus2 = 0
-	var/psicross_bonus = 0
-
-	for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
-		if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
-			switch(current_item.type) // Worn Psicross Piety bonus. For fun.
-				if(/obj/item/clothing/neck/roguetown/psicross/wood)
-					psicross_bonus = -1				
-				if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
-					psicross_bonus = -2
-				if(/obj/item/clothing/neck/roguetown/psicross)
-					psicross_bonus = -4
-				if(/obj/item/clothing/neck/roguetown/psicross/silver)
-					psicross_bonus = -6
-				if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
-					psicross_bonus = -7
-				if(/obj/item/clothing/neck/roguetown/psicross/weeping)
-					psicross_bonus = -9
-				if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
-					zcross_trigger = TRUE		
-	if(brute > 100) //A supplemental healing bonus, scaling off of how much damage's currently inflicted onto you.
-		sit_bonus1 = -1
-	if(brute > 150)
-		sit_bonus1 = -2
-	if(brute > 200)
-		sit_bonus1 = -3	
-	if(brute > 300)
-		sit_bonus1 = -4		
-	if(brute > 350)
-		sit_bonus1 = -7
-	if(brute > 400)
-		sit_bonus1 = -9	
-		
-	if(burn > 100) //Ditto.
-		sit_bonus2 = -1
-	if(burn > 150)
-		sit_bonus2 = -2
-	if(burn > 200)
-		sit_bonus2 = -3	
-	if(burn > 300)
-		sit_bonus2 = -4		
-	if(burn > 350)
-		sit_bonus2 = -7
-	if(burn > 400)
-		sit_bonus2 = -9									
-
-	if(sit_bonus1 || sit_bonus2)				
-		conditional_buff = TRUE
-
-	var/bruthealval = -5 + psicross_bonus + sit_bonus1
-	var/burnhealval = -5 + psicross_bonus + sit_bonus2
-
+	if(HAS_TRAIT(H, TRAIT_IRONMAN))
+		to_chat(H, span_info("I take a moment to collect myself..."))
+		while(H.devotion && H.devotion.devotion >= 15)
+			if(!do_after(H, 50))
+				break
+			var/percent = H.max_energy * 0.05
+			H.add_stress(/datum/stressevent/meditation_ironman)
+			H.add_stress(/datum/stressevent/constructendvre)
+			H.energy_add(percent)
+			H.adjustBruteLoss(-3)
+			H.adjustFireLoss(-3)
+			playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			H.devotion.update_devotion(-15)
+			to_chat(H, span_info("My worries gives way to a sense of furthered clarity before returning again, eased."))
+		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
+		playsound(H, 'sound/misc/machineyes.ogg', 25)
+		return
+	
 	to_chat(H, span_info("I take a moment to collect myself..."))
-	if(zcross_trigger)
-		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
-		user.adjustBruteLoss(25)		
-		return FALSE
 
-	if(do_after(H, 50))
+	for(var/i in 1 to 10)
+		if(!do_after(H, 50))
+			break
+		var/brute = H.getBruteLoss()
+		var/burn = H.getFireLoss()
+		var/conditional_buff = FALSE
+		var/zcross_trigger = FALSE
+		var/sit_bonus1 = 0
+		var/sit_bonus2 = 0
+		var/psicross_bonus = 0
+
+		for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
+			if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
+				switch(current_item.type) // Worn Psicross Piety bonus. For fun.
+					if(/obj/item/clothing/neck/roguetown/psicross/wood)
+						psicross_bonus = -1
+					if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
+						psicross_bonus = -2
+					if(/obj/item/clothing/neck/roguetown/psicross)
+						psicross_bonus = -4
+					if(/obj/item/clothing/neck/roguetown/psicross/silver)
+						psicross_bonus = -6
+					if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
+						psicross_bonus = -7
+					if(/obj/item/clothing/neck/roguetown/psicross/weeping)
+						psicross_bonus = -9
+					if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
+						zcross_trigger = TRUE
+		if(zcross_trigger)
+			user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+			user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
+			user.adjustBruteLoss(25)
+			return FALSE
+
+		if(brute > 100) //A supplemental healing bonus, scaling off of how much damage's currently inflicted onto you.
+			sit_bonus1 = -1
+		if(brute > 150)
+			sit_bonus1 = -2
+		if(brute > 200)
+			sit_bonus1 = -3
+		if(brute > 300)
+			sit_bonus1 = -4
+		if(brute > 350)
+			sit_bonus1 = -7
+		if(brute > 400)
+			sit_bonus1 = -9
+
+		if(burn > 100) //Ditto.
+			sit_bonus2 = -1
+		if(burn > 150)
+			sit_bonus2 = -2
+		if(burn > 200)
+			sit_bonus2 = -3
+		if(burn > 300)
+			sit_bonus2 = -4
+		if(burn > 350)
+			sit_bonus2 = -7
+		if(burn > 400)
+			sit_bonus2 = -9
+
+		if(sit_bonus1 || sit_bonus2)
+			conditional_buff = TRUE
+
+		var/bruthealval = -5 + psicross_bonus + sit_bonus1
+		var/burnhealval = -5 + psicross_bonus + sit_bonus2
+
 		playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
 		H.adjustBruteLoss(bruthealval)
 		H.adjustFireLoss(burnhealval)
-		if (conditional_buff)
+		if(conditional_buff)
 			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
 		user.devotion?.update_devotion(-15)
 		to_chat(user, "<font color='purple'>I lose 15 devotion!</font>")
-		cast(user)	
-		return TRUE
-	else
-		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))	
-		return FALSE								
+
+	to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
+	return FALSE
 
 //
 
@@ -505,7 +537,6 @@
 	releasedrain = 25
 	chargedrain = 0
 	chargetime = 0
-	range = 2
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	sound = null
@@ -519,90 +550,111 @@
 
 /obj/effect/proc_holder/spell/self/psydonrespite/cast(mob/living/carbon/human/user) // Greater version of 'PRAYER', T2. Requires the 'Devotee' virtue to unlock, if not playing as an Orthodoxist or Missionary.
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) || !(user.devotion && user.devotion.devotion > 25))
 		revert_cast()
 		return FALSE
-		
+
 	var/mob/living/carbon/human/H = user
-	var/brute = H.getBruteLoss()
-	var/burn = H.getFireLoss()
-	var/conditional_buff = FALSE
-	var/zcross_trigger = FALSE
-	var/sit_bonus1 = 0
-	var/sit_bonus2 = 0
-	var/psicross_bonus = 0
-
-	for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
-		if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
-			switch(current_item.type) // Worn Psicross Piety bonus. For fun.
-				if(/obj/item/clothing/neck/roguetown/psicross/wood)
-					psicross_bonus = -2				
-				if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
-					psicross_bonus = -4
-				if(/obj/item/clothing/neck/roguetown/psicross)
-					psicross_bonus = -5
-				if(/obj/item/clothing/neck/roguetown/psicross/silver)
-					psicross_bonus = -7
-				if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
-					psicross_bonus = -9
-				if(/obj/item/clothing/neck/roguetown/psicross/weeping)
-					psicross_bonus = -11
-				if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
-					zcross_trigger = TRUE		
-	if(brute > 100)
-		sit_bonus1 = -2
-	if(brute > 150)
-		sit_bonus1 = -4
-	if(brute > 200)
-		sit_bonus1 = -6	
-	if(brute > 300)
-		sit_bonus1 = -8		
-	if(brute > 350)
-		sit_bonus1 = -10
-	if(brute > 400)
-		sit_bonus1 = -14	
-		
-	if(burn > 100)
-		sit_bonus2 = -2
-	if(burn > 150)
-		sit_bonus2 = -4
-	if(burn > 200)
-		sit_bonus2 = -6	
-	if(burn > 300)
-		sit_bonus2 = -8		
-	if(burn > 350)
-		sit_bonus2 = -10
-	if(burn > 400)
-		sit_bonus2 = -14									
-
-	if(sit_bonus1 || sit_bonus2)				
-		conditional_buff = TRUE
-
-	var/bruthealval = -7 + psicross_bonus + sit_bonus1
-	var/burnhealval = -7 + psicross_bonus + sit_bonus2
+	if(HAS_TRAIT(H, TRAIT_IRONMAN))
+		to_chat(H, span_info("I take a moment to collect myself..."))
+		while(H.devotion && H.devotion.devotion >= 25)
+			if(!do_after(H, 50))
+				break
+			var/percent = H.max_energy * 0.1
+			H.add_stress(/datum/stressevent/meditation_ironman)
+			H.add_stress(/datum/stressevent/constructendvre)
+			H.energy_add(percent)
+			H.adjustBruteLoss(-5)
+			H.adjustFireLoss(-5)
+			playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			H.devotion.update_devotion(-25)
+			to_chat(H, span_info("My worries gives way to a sense of furthered clarity before returning again, eased."))
+		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
+		playsound(H, 'sound/misc/machineyes.ogg', 25)		
+		return
 
 	to_chat(H, span_info("I take a moment to collect myself..."))
-	if(zcross_trigger)
-		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
-		user.adjustBruteLoss(25)		
-		return FALSE
 
-	if(do_after(H, 50))
+	for(var/i in 1 to 10)
+		if(!do_after(H, 50))
+			break
+		var/brute = H.getBruteLoss()
+		var/burn = H.getFireLoss()
+		var/conditional_buff = FALSE
+		var/zcross_trigger = FALSE
+		var/sit_bonus1 = 0
+		var/sit_bonus2 = 0
+		var/psicross_bonus = 0
+
+		for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
+			if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
+				switch(current_item.type) // Worn Psicross Piety bonus. For fun.
+					if(/obj/item/clothing/neck/roguetown/psicross/wood)
+						psicross_bonus = -2
+					if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
+						psicross_bonus = -4
+					if(/obj/item/clothing/neck/roguetown/psicross)
+						psicross_bonus = -5
+					if(/obj/item/clothing/neck/roguetown/psicross/silver)
+						psicross_bonus = -7
+					if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
+						psicross_bonus = -9
+					if(/obj/item/clothing/neck/roguetown/psicross/weeping)
+						psicross_bonus = -11
+					if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
+						zcross_trigger = TRUE
+		if(zcross_trigger)
+			user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+			user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
+			user.adjustBruteLoss(25)
+			return FALSE
+
+		if(brute > 100)
+			sit_bonus1 = -2
+		if(brute > 150)
+			sit_bonus1 = -4
+		if(brute > 200)
+			sit_bonus1 = -6
+		if(brute > 300)
+			sit_bonus1 = -8
+		if(brute > 350)
+			sit_bonus1 = -10
+		if(brute > 400)
+			sit_bonus1 = -14
+
+		if(burn > 100)
+			sit_bonus2 = -2
+		if(burn > 150)
+			sit_bonus2 = -4
+		if(burn > 200)
+			sit_bonus2 = -6
+		if(burn > 300)
+			sit_bonus2 = -8
+		if(burn > 350)
+			sit_bonus2 = -10
+		if(burn > 400)
+			sit_bonus2 = -14
+
+		if(sit_bonus1 || sit_bonus2)
+			conditional_buff = TRUE
+
+		var/bruthealval = -7 + psicross_bonus + sit_bonus1
+		var/burnhealval = -7 + psicross_bonus + sit_bonus2
+
 		playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
 		H.adjustBruteLoss(bruthealval)
 		H.adjustFireLoss(burnhealval)
-		if (conditional_buff)
+		if(conditional_buff)
 			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
 		user.devotion?.update_devotion(-25)
 		to_chat(user, "<font color='purple'>I lose 25 devotion!</font>")
-		cast(user)	
-		return TRUE
-	else
-		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))	
-		return FALSE					
+
+	to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
+	return FALSE
 
 //
 
@@ -613,7 +665,6 @@
 	releasedrain = 30
 	chargedrain = 0
 	chargetime = 0
-	range = 2
 	warnie = "sydwarning"
 	movement_interrupt = FALSE
 	invocations = list(span_blue("quietly recites a greater psalm, soothing their pains."))
@@ -627,90 +678,111 @@
 
 /obj/effect/proc_holder/spell/self/psydonpersist/cast(mob/living/carbon/human/user) // Greater version of 'PRAYER' and 'RESPITE', T4. Inherently restricted to the Absolver, but potentially(?) achievable as a Missionary with the 'Devotee' virtue.
 	. = ..()
-	if(!ishuman(user))
+	if(!ishuman(user) || !(user.devotion && user.devotion.devotion > 50))
 		revert_cast()
 		return FALSE
-		
+
 	var/mob/living/carbon/human/H = user
-	var/brute = H.getBruteLoss()
-	var/burn = H.getFireLoss()
-	var/conditional_buff = FALSE
-	var/zcross_trigger = FALSE
-	var/sit_bonus1 = 0
-	var/sit_bonus2 = 0
-	var/psicross_bonus = 0
-
-	for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
-		if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
-			switch(current_item.type) // Worn Psicross Piety bonus. For fun.
-				if(/obj/item/clothing/neck/roguetown/psicross/wood)
-					psicross_bonus = -2				
-				if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
-					psicross_bonus = -4
-				if(/obj/item/clothing/neck/roguetown/psicross)
-					psicross_bonus = -5
-				if(/obj/item/clothing/neck/roguetown/psicross/silver)
-					psicross_bonus = -7
-				if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
-					psicross_bonus = -9
-				if(/obj/item/clothing/neck/roguetown/psicross/weeping)
-					psicross_bonus = -11
-				if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
-					zcross_trigger = TRUE		
-	if(brute > 100)
-		sit_bonus1 = -2
-	if(brute > 150)
-		sit_bonus1 = -4
-	if(brute > 200)
-		sit_bonus1 = -6	
-	if(brute > 300)
-		sit_bonus1 = -8		
-	if(brute > 350)
-		sit_bonus1 = -10
-	if(brute > 400)
-		sit_bonus1 = -14	
-		
-	if(burn > 100)
-		sit_bonus2 = -2
-	if(burn > 150)
-		sit_bonus2 = -4
-	if(burn > 200)
-		sit_bonus2 = -6	
-	if(burn > 300)
-		sit_bonus2 = -8		
-	if(burn > 350)
-		sit_bonus2 = -10
-	if(burn > 400)
-		sit_bonus2 = -14									
-
-	if(sit_bonus1 || sit_bonus2)				
-		conditional_buff = TRUE
-
-	var/bruthealval = -14 + psicross_bonus + sit_bonus1
-	var/burnhealval = -14 + psicross_bonus + sit_bonus2
-
+	if(HAS_TRAIT(H, TRAIT_IRONMAN))
+		to_chat(H, span_info("I take a moment to collect myself..."))
+		while(H.devotion && H.devotion.devotion >= 50)
+			if(!do_after(H, 50))
+				break
+			var/percent = H.max_energy * 0.15
+			H.add_stress(/datum/stressevent/meditation_ironman)
+			H.add_stress(/datum/stressevent/constructendvre)
+			H.energy_add(percent)
+			H.adjustBruteLoss(-7) // same as hammerheal
+			H.adjustFireLoss(-7)
+			playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+			user.devotion.update_devotion(-50)
+			to_chat(H, span_info("My worries gives way to a sense of furthered clarity before returning again, eased."))
+		to_chat(H, span_warning("My thoughts and sense of quiet escape me."))
+		playsound(H, 'sound/misc/machineyes.ogg', 25)
+		return
+	
 	to_chat(H, span_info("I take a moment to collect myself..."))
-	if(zcross_trigger)
-		user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
-		user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
-		user.adjustBruteLoss(25)		
-		return FALSE
 
-	if(do_after(H, 50))
+	for(var/i in 1 to 10)
+		if(!do_after(H, 50))
+			break
+		var/brute = H.getBruteLoss()
+		var/burn = H.getFireLoss()
+		var/conditional_buff = FALSE
+		var/zcross_trigger = FALSE
+		var/sit_bonus1 = 0
+		var/sit_bonus2 = 0
+		var/psicross_bonus = 0
+
+		for(var/obj/item/clothing/neck/current_item in H.get_equipped_items(TRUE))
+			if(current_item.type in list(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy, /obj/item/clothing/neck/roguetown/psicross, /obj/item/clothing/neck/roguetown/psicross/wood, /obj/item/clothing/neck/roguetown/psicross/aalloy, /obj/item/clothing/neck/roguetown/psicross/silver, /obj/item/clothing/neck/roguetown/psicross/g))
+				switch(current_item.type) // Worn Psicross Piety bonus. For fun.
+					if(/obj/item/clothing/neck/roguetown/psicross/wood)
+						psicross_bonus = -2
+					if(/obj/item/clothing/neck/roguetown/psicross/aalloy)
+						psicross_bonus = -4
+					if(/obj/item/clothing/neck/roguetown/psicross)
+						psicross_bonus = -5
+					if(/obj/item/clothing/neck/roguetown/psicross/silver)
+						psicross_bonus = -7
+					if(/obj/item/clothing/neck/roguetown/psicross/g) // PURITY AFLOAT.
+						psicross_bonus = -9
+					if(/obj/item/clothing/neck/roguetown/psicross/weeping)
+						psicross_bonus = -11
+					if(/obj/item/clothing/neck/roguetown/psicross/inhumen/aalloy)
+						zcross_trigger = TRUE
+		if(zcross_trigger)
+			user.visible_message(span_warning("[user] shuddered. Something's very wrong."), span_userdanger("Cold shoots through my spine. Something laughs at me for trying."))
+			user.playsound_local(user, 'sound/misc/zizo.ogg', 25, FALSE)
+			user.adjustBruteLoss(25)
+			return FALSE
+
+		if(brute > 100)
+			sit_bonus1 = -2
+		if(brute > 150)
+			sit_bonus1 = -4
+		if(brute > 200)
+			sit_bonus1 = -6
+		if(brute > 300)
+			sit_bonus1 = -8
+		if(brute > 350)
+			sit_bonus1 = -10
+		if(brute > 400)
+			sit_bonus1 = -14
+
+		if(burn > 100)
+			sit_bonus2 = -2
+		if(burn > 150)
+			sit_bonus2 = -4
+		if(burn > 200)
+			sit_bonus2 = -6
+		if(burn > 300)
+			sit_bonus2 = -8
+		if(burn > 350)
+			sit_bonus2 = -10
+		if(burn > 400)
+			sit_bonus2 = -14
+
+		if(sit_bonus1 || sit_bonus2)
+			conditional_buff = TRUE
+
+		var/bruthealval = -14 + psicross_bonus + sit_bonus1
+		var/burnhealval = -14 + psicross_bonus + sit_bonus2
+
 		playsound(H, 'sound/magic/psydonrespite.ogg', 100, TRUE)
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
-		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4") 
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
+		new /obj/effect/temp_visual/psyheal_rogue(get_turf(H), "#e4e4e4")
 		H.adjustBruteLoss(bruthealval)
 		H.adjustFireLoss(burnhealval)
-		if (conditional_buff)
+		if(conditional_buff)
 			to_chat(user, span_info("My pain gives way to a sense of furthered clarity before returning again, dulled."))
 		user.devotion?.update_devotion(-50)
 		to_chat(user, "<font color='purple'>I lose 50 devotion!</font>")
-		cast(user)	
-		return TRUE
-	else
-		to_chat(H, span_warning("My thoughts and sense of quiet escape me!"))	
-		return FALSE					
+
+	to_chat(H, span_warning("My thoughts and sense of quiet escape me!"))
+	return FALSE
 
 //
 
