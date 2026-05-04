@@ -11,23 +11,21 @@ SUBSYSTEM_DEF(profiler)
 	msg += "|W:[round(write_cost,1)]ms"
 	return msg
 
-//Caustic Edit - I'm kinda paranoid that this is still somehow starting now and again, heh
 /datum/controller/subsystem/profiler/Initialize()
-	//if(CONFIG_GET(flag/auto_profile))
-		//StartProfiling()
-	//else
-	StopProfiling() //Stop the early start profiler
-	wait = CONFIG_GET(number/profiler_interval)
+	if(CONFIG_GET(flag/auto_profile))
+		StartProfiling()
+	else
+		StopProfiling() //Stop the early start profiler
+		wait = CONFIG_GET(number/profiler_interval)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/profiler/OnConfigLoad()
-	//if(CONFIG_GET(flag/auto_profile))
-		//StartProfiling()
-		//can_fire = TRUE
-	//else
-	StopProfiling()
+	if(CONFIG_GET(flag/auto_profile))
+		StartProfiling()
+		can_fire = TRUE
+	else
+		StopProfiling()
 	can_fire = FALSE
-//Caustic Edit end
 
 /datum/controller/subsystem/profiler/fire()
 	DumpFile(reason = "scheduled")
@@ -47,6 +45,10 @@ SUBSYSTEM_DEF(profiler)
 	world.Profile(PROFILE_STOP, type = "sendmaps")
 
 /datum/controller/subsystem/profiler/proc/DumpFile(allow_yield = TRUE, reason = "unknown")
+	//Caustic Edit - This might prevent it from being started? According to the Byond ref docs, Refresh functions like Start/Stop?
+	if(!CONFIG_GET(flag/auto_profile))
+		return
+	//Caustic Edit End
 	var/timer = TICK_USAGE_REAL
 	var/current_profile_data = world.Profile(PROFILE_REFRESH, format = "json")
 	var/current_sendmaps_data = world.Profile(PROFILE_REFRESH, type = "sendmaps", format="json")
