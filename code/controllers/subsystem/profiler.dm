@@ -11,21 +11,23 @@ SUBSYSTEM_DEF(profiler)
 	msg += "|W:[round(write_cost,1)]ms"
 	return msg
 
+//Caustic Edit - I'm kinda paranoid that this is still somehow starting now and again, heh
 /datum/controller/subsystem/profiler/Initialize()
-	if(CONFIG_GET(flag/auto_profile))
-		StartProfiling()
-	else
-		StopProfiling() //Stop the early start profiler
+	//if(CONFIG_GET(flag/auto_profile))
+		//StartProfiling()
+	//else
+	StopProfiling() //Stop the early start profiler
 	wait = CONFIG_GET(number/profiler_interval)
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/profiler/OnConfigLoad()
-	if(CONFIG_GET(flag/auto_profile))
-		StartProfiling()
-		can_fire = TRUE
-	else
-		StopProfiling()
-		can_fire = FALSE
+	//if(CONFIG_GET(flag/auto_profile))
+		//StartProfiling()
+		//can_fire = TRUE
+	//else
+	StopProfiling()
+	can_fire = FALSE
+//Caustic Edit end
 
 /datum/controller/subsystem/profiler/fire()
 	DumpFile(reason = "scheduled")
