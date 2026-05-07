@@ -3555,6 +3555,7 @@
 #include "modular_causticcove\code\modules\spells\beam\void_beam.dm"
 #include "modular_causticcove\code\modules\spells\components\temper_clothing.dm"
 #include "modular_causticcove\code\modules\spells\conjure\conjure_tool.dm"
+#include "modular_causticcove\code\modules\spells\conjure\shape_wood.dm"
 #include "modular_causticcove\code\modules\spells\invoked_single_target\temperitem.dm"
 #include "modular_causticcove\code\modules\spells\scrolls\spell_granters.dm"
 #include "modular_causticcove\code\modules\supplies\travellingmerchant.dm"
