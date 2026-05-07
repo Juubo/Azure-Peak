@@ -11,10 +11,9 @@
 
 //CC Edit - Cannot abuse natural armor if you do not hunger in the first place.
 /datum/virtue/combat/natarmor/handle_traits(mob/living/carbon/human/recipient)
-	. = ..()
+	..()
 	if(HAS_TRAIT(recipient, TRAIT_NOHUNGER))
 		to_chat(recipient, span_danger("YOU ARE INCAPABLE OF STARVING, YOUR NATURAL PROTECTION IS GONE!"))
 		to_chat(recipient, span_notice("You do not possess the correct biological setup to reform natural armor!"))
-		if(recipient.skin_armor)
-			qdel(recipient.skin_armor) //Delete the armor, rely on proper gear/loadout equipment.
+		recipient.skin_armor = null //Delete the armor, rely on proper gear/loadout equipment.
 //CC Edit End
