@@ -37,7 +37,7 @@
 	var/datum/antagonist/skeleton/skeleton = user.mind?.has_antag_datum(/datum/antagonist/skeleton)
 	//CC Edit - Roleplay Guidance Pref, whether you encourage PvP and wish to fight others if invited or discourage PvP and wish to avoid fighting,
 			//but does not exempt you from combat or the consequences of your own actions.
-	var/rp_guidance_preference = client.prefs.rp_guidance
+	var/rp_guidance_preference = client?.prefs.rp_guidance
 	//CC Edit End
 	if(maniac && (user != src))
 		race_name = "disgusting pig"
@@ -1102,11 +1102,11 @@
 	
 	//CC Edit - RP Guidance Text
 	switch(rp_guidance_preference)
-		if(0)
+		if(0) //Discourages Conflict
 			. += span_green("This user Discourages Conflict.")
-		if(1)
+		if(1) //Encourages Conflict
 			. += span_red("This user Encourages Conflict.")
-		if(2) //Same as normal. This can be changed in the future however if people wish.
+		if(2) //Same as normal. This can be changed in the future however if people wish. Encourages Conflict + Hunted.
 			. += span_red("This user Encourages Conflict.")
 	//CC Edit End
 

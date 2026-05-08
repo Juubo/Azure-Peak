@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//CC Edit - Roleplay Guidance Pref, whether you encourage PvP and wish to fight others if invited or discourage PvP and wish to avoid fighting,
 			//but does not exempt you from combat or the consequences of your own actions.
-	var/rp_guidance = FALSE //Handled as a bool for Encouraged/Discouraged, TRUE/FALSE, if instead is a falue above TRUE/FALSE, resorts to Heavily Encouraged PvP
+	var/rp_guidance = FALSE //Defaults to Conflict Discouraged.
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -2414,7 +2414,11 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 														\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, AND WILL, have CONSEQUENCES if you, or anyone else so deems it fitting. \
 														\n\
 														\n Selecting this option, you also opt into the HUNTED list, certain antags may and will seek you out to hunt you down. The Hunters MUST follow the Rules of Escalation, and so do you if you happen to stumble upon them first."))
-							rp_guidance = 2 //Not true or false!?
+							rp_guidance = 2 //Wildcard option to become hunted as we no longer have the Hunted flaw/vice.
+
+					if(!isnewplayer(user))
+						log_admin("[user.ckey] has updated their Roleplay Guidance preference to [choice] whilst in-game.")
+
 					return
 				//CC Edit End
 				if("vampire_hair")
