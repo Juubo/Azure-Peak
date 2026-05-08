@@ -261,6 +261,10 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/audio_preload
 	var/preloaded = FALSE //Bool Check
 
+	//CC Edit - Roleplay Guidance Pref, whether you encourage PvP and wish to fight others if invited or discourage PvP and wish to avoid fighting,
+			//but does not exempt you from combat or the consequences of your own actions.
+	var/rp_guidance = FALSE //Handled as a bool for Encouraged/Discouraged, TRUE/FALSE, if instead is a falue above TRUE/FALSE, resorts to Heavily Encouraged PvP
+
 /datum/preferences/New(client/C)
 	parent = C
 	migrant  = new /datum/migrant_pref(src)
@@ -759,6 +763,12 @@ GLOBAL_LIST_EMPTY(chosen_names)
 						dat += "<b>[capitalize(i)]:</b> <font color=red> \[IN [days_remaining] DAYS]</font><br>"
 					else
 						dat += "<b>[capitalize(i)]:</b> <a href='?_src_=prefs;preference=be_special;be_special_type=[i]'>[(i in be_special) ? "Enabled" : "Disabled"]</a><br>"
+			//CC Edit - Roleplay Guidance
+			var/hunted = ""
+			if(rp_guidance > 1)
+				hunted = "+ Hunted"
+			dat += "<b>Roleplay Guidance:</b> <a href='?_src_=prefs;preference=roleplay_guidance;task=input'>[rp_guidance ? "PvP Encouraged" : "PvP Discouraged"] [hunted]</a><BR>"
+			//CC Edit End
 			dat += "</td></tr></table>"
 
 		if(2) //OOC Preferences
@@ -2376,6 +2386,37 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					var/datum/loadout_menu/LM = new(user.client)
 					LM.ui_interact(user)
 					return
+				//CC Edit - Roleplay Guidance, this option should be FALSE BY DEFAULT, to encourage Conflict you MUST go into the Game Settings to enable it.
+				if("roleplay_guidance")
+					var/list/choices = list("Conflict Encouraged + Hunted", "Conflict Encouraged", "Conflict Discouraged")
+					var/choice = input(user, "Choose your Roleplay Guidance", "CHOOSE") as anything in choices
+
+					to_chat(user, span_notice("Roleplay Guidance is designed to allow users to tell if another user likes to engage in Conflict, or not. This does not allow you to attack anyone without proper escalation, or to avoid combat altogether,\
+												you MUST respect the rules set upon by the server. Failure to follow the rules will be met with punishment. \
+												\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, and WILL have CONSEQUENCES if you, or anyone else so deems it fitting."))
+												
+					switch(choice)
+						if("Conflict Discouraged")
+							to_chat(user, span_green("Conflict Discouraged - Other Players are less likely to attempt to Conflict with you. This does not mean you are allowed to avoid \
+													combat altogether, you are not exempt from combat. This is a guidance option to inform others that you do not wish to fight immediately, \
+													and would desire that they attempt to de-escalate the situation or cause little to no harm to your character. \
+													\n This does NOT grant you ANY IMMUNITY against combat. Your ACTIONS CAN, and WILL have CONSEQUENCES if someone so deems it fitting."))
+							rp_guidance = FALSE
+						if("Conflict Encouraged")
+							to_chat(user, span_red("Conflict Encouraged - Other Players are more likely to attempt to enter Conflict with you. This does not mean you are allowed to \
+													attack anyone for no reason, you MUST follow the rules of escalation and roleplay accordingly, \
+													and the person attacking you must also follow the rules of escalation.\
+													\n This does NOT grant ANYONE the free will to attack you without proper escalation, it is expected that you and anyone else involved will ROLEPLAY."))
+							rp_guidance = TRUE
+						if("Conflict Encouraged + Hunted")
+							to_chat(user, span_purple("Conflict Encouraged + Hunted - Other Players are highly likely to attempt to enter Conflict with you. This does not mean you are allowed to attack anyone without proper escalation, or to avoid combat altogether, \
+														you MUST respect the rules set upon by the server. Failure to follow the rules will be met with punishment. \
+														\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, AND WILL, have CONSEQUENCES if you, or anyone else so deems it fitting. \
+														\n\
+														\n Selecting this option, you also opt into the HUNTED list, certain antags may and will seek you out to hunt you down. The Hunters MUST follow the Rules of Escalation, and so do you if you happen to stumble upon them first."))
+							rp_guidance = 2 //Not true or false!?
+					return
+				//CC Edit End
 				if("vampire_hair")
 					var/new_vampirehair = input(user, "Choose your character's vampire hair color:", "Character Preference","#"+vampire_hair) as color|null
 					if(new_vampirehair)

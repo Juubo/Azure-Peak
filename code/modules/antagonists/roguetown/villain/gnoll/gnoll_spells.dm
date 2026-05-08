@@ -53,7 +53,7 @@
 	for(var/mob/living/L in GLOB.mob_living_list)
 		if(L == user || istype(L, /mob/living/carbon/human/dummy))
 			continue
-		if(L.has_flaw(/datum/charflaw/hunted))
+		if(HAS_TRAIT(L, TRAIT_HUNTED))
 			var/entry_name = "[L.real_name][L.job ? " - [L.job]" : ""]"
 			possible_targets[entry_name] = L
 			display_names += entry_name
@@ -140,7 +140,7 @@
 
 	// Determine Channel Time
 	var/channel_time = 10 SECONDS
-	if(target.has_flaw(/datum/charflaw/hunted))
+	if(HAS_TRAIT(target, TRAIT_HUNTED))
 		channel_time = 3 SECONDS
 
 	to_chat(user, span_notice("You begin pulling [target] into graggar's plane"))
@@ -242,7 +242,7 @@
 		if(get_dist(user, prey) <= 10)
 			to_chat(user, span_danger("My prey is close, my cloak lengthens."))
 			bonus_dur += 5 SECONDS // Small bonus for being close
-			if(prey.has_flaw(/datum/charflaw/hunted))
+			if(HAS_TRAIT(prey, TRAIT_HUNTED))
 				bonus_dur += 35 SECONDS // Massive bonus for hunted targets
 
 	var/total_dur = base_dur + bonus_dur
