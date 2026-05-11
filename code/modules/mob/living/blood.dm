@@ -224,7 +224,7 @@
 	//For each CON above 10, we bleed slower.
 	//Consequently, for each CON under 10 we bleed faster.
 	var/conbonus = 1
-	
+
 	//CC Edit - Fix Bleed Rates
 	if(STACON >= CONSTITUTION_BLEEDRATE_CAP)
 		conbonus = CONSTITUTION_BLEEDRATE_CAP - 10
@@ -233,11 +233,11 @@
 	
 	amt -= amt * (conbonus * CONSTITUTION_BLEEDRATE_MOD)
 	if(HAS_TRAIT(src, TRAIT_CRITICAL_RESISTANCE))
-		amt = amt * CRIT_RESISTANCE_EFFECTIVE_BLEEDRATE
+		amt *= CRIT_RESISTANCE_EFFECTIVE_BLEEDRATE
 	if(HAS_TRAIT(src, TRAIT_BLOOD_RESISTANCE))
 		amt *= BLOOD_RESISTANCE_EFFECTIVE_BLEEDRATE
 	if(HAS_TRAIT(src, TRAIT_CRITICAL_WEAKNESS))
-		amt = amt * 2
+		amt *= 2
 	//CC Edit - Fix Bleed Rates
 
 	if(surrendering)
