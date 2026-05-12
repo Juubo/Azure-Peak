@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//CC Edit - Roleplay Guidance Pref, whether you encourage PvP and wish to fight others if invited or discourage PvP and wish to avoid fighting,
 			//but does not exempt you from combat or the consequences of your own actions.
-	var/rp_guidance = FALSE //Defaults to Conflict Discouraged.
+	var/rp_guidance = 3 //Defaults to Nothing by default
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -2396,6 +2396,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 												\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, and WILL have CONSEQUENCES if you, or anyone else so deems it fitting."))
 												
 					switch(choice)
+						if("Unest")
+							to_chat(user, span_warn("You have decided to opt out of the guidance option."))
+							rp_guidance = 3 //The not opted in option.
+							
 						if("Conflict Discouraged")
 							to_chat(user, span_green("Conflict Discouraged - Other Players are less likely to attempt to Conflict with you. This does not mean you are allowed to avoid \
 													combat altogether, you are not exempt from combat. This is a guidance option to inform others that you do not wish to fight immediately, \
