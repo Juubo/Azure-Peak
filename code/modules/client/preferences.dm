@@ -263,7 +263,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 
 	//CC Edit - Roleplay Guidance Pref, whether you encourage PvP and wish to fight others if invited or discourage PvP and wish to avoid fighting,
 			//but does not exempt you from combat or the consequences of your own actions.
-	var/rp_guidance = 3 //Defaults to Nothing by default
+	var/rp_guidance = 3 //Defaults to Default by Default. 
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -2388,7 +2388,7 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					return
 				//CC Edit - Roleplay Guidance, this option should be FALSE BY DEFAULT, to encourage Conflict you MUST go into the Game Settings to enable it.
 				if("roleplay_guidance")
-					var/list/choices = list("Conflict Encouraged + Hunted", "Conflict Encouraged", "Conflict Discouraged")
+					var/list/choices = list("Conflict Encouraged + Hunted", "Conflict Encouraged", "Conflict Discouraged", "Default")
 					var/choice = input(user, "Choose your Roleplay Guidance", "CHOOSE") as anything in choices
 
 					to_chat(user, span_notice("Roleplay Guidance is designed to allow users to tell if another user likes to engage in Conflict, or not. This does not allow you to attack anyone without proper escalation, or to avoid combat altogether,\
@@ -2396,10 +2396,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 												\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, and WILL have CONSEQUENCES if you, or anyone else so deems it fitting."))
 												
 					switch(choice)
-						if("Unest")
-							to_chat(user, span_warn("You have decided to opt out of the guidance option."))
-							rp_guidance = 3 //The not opted in option.
-							
+						if("Default")
+							to_chat(user, span_warn("I have no strong feelings, one way or the other."))
+							rp_guidance = 3 //The not opted in option and the default.
+
 						if("Conflict Discouraged")
 							to_chat(user, span_green("Conflict Discouraged - Other Players are less likely to attempt to Conflict with you. This does not mean you are allowed to avoid \
 													combat altogether, you are not exempt from combat. This is a guidance option to inform others that you do not wish to fight immediately, \

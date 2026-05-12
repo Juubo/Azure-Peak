@@ -1108,8 +1108,7 @@
 			. += span_red("This user Encourages Conflict.")
 		if(2) //Same as normal. This can be changed in the future however if people wish. Encourages Conflict + Hunted.
 			. += span_red("This user Encourages Conflict.")
-		if(3)
-			. += "" //Don't add anything, user has opted out.
+		//if(3), this is the default, thus has nothing when it switches to it and shouldn't show anything on examine.
 	//CC Edit End
 
 
