@@ -110,7 +110,7 @@
 /area/rogue/indoors/banditcamp/desert)
 "cG" = (
 /obj/item/roguecoin/gold/pile,
-/obj/item/roguegem/random,
+/obj/effect/spawner/lootdrop/roguegem/random,
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/banditcamp/hoardmaster)
 "cI" = (
@@ -276,7 +276,7 @@
 /obj/item/roguecoin/gold/pile,
 /obj/item/roguecoin/gold/pile,
 /obj/item/roguecoin/gold/pile,
-/obj/item/roguegem/random,
+/obj/effect/spawner/lootdrop/roguegem/random,
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/banditcamp/hoardmaster)
 "gN" = (
@@ -1127,7 +1127,7 @@
 /obj/item/roguecoin/silver/pile,
 /obj/item/roguecoin/gold/pile,
 /obj/item/roguecoin/gold/pile,
-/obj/item/roguegem/random,
+/obj/effect/spawner/lootdrop/roguegem/random,
 /turf/open/floor/rogue/tile/harem2,
 /area/rogue/indoors/banditcamp/hoardmaster)
 "In" = (

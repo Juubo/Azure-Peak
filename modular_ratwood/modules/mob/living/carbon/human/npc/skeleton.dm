@@ -15,7 +15,7 @@
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe/black
 	wrists = /obj/item/clothing/wrists/roguetown/nocwrappings
 	if(prob(20))
-		head = /obj/item/clothing/head/roguetown/nochood
+		head = /obj/item/clothing/head/roguetown/roguehood/nochood
 	if(prob(30))
 		head = /obj/item/clothing/head/roguetown/roguehood/black
 	if(prob(50))
@@ -25,7 +25,7 @@
 	if(prob(20))
 		belt = /obj/item/storage/belt/rogue/leather/rope
 		if(prob(20))
-			beltr = /obj/item/storage/belt/rogue/pouch/treasure/
+			beltr = /obj/item/storage/belt/rogue/pouch/treasure
 		else
 			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor/
 	if(prob(5))
@@ -79,7 +79,7 @@
 	if(prob(40))
 		belt = /obj/item/storage/belt/rogue/leather/rope
 		if(prob(10))
-			beltr = /obj/item/storage/belt/rogue/pouch/treasure/
+			beltr = /obj/item/storage/belt/rogue/pouch/treasure
 		else
 			beltr = /obj/item/storage/belt/rogue/pouch/coins/poor/
 	if(prob(5))
