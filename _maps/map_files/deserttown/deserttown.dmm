@@ -1585,7 +1585,7 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	inertia_move_delay = 0;
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13
 	},
@@ -16401,7 +16401,7 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	inertia_move_delay = 0;
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13
 	},
@@ -20544,7 +20544,6 @@
 "ijZ" = (
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/outdoors/town/roofs/desert{
-	viewing_area = 1;
 	color = "#fa00f1"
 	})
 "ikd" = (
@@ -28969,7 +28968,7 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	inertia_move_delay = 0;
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13
 	},
@@ -30301,7 +30300,7 @@
 "mkp" = (
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13;
 	inertia_move_delay = 0
@@ -51553,7 +51552,6 @@
 "uHn" = (
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/town/roofs/desert{
-	viewing_area = 1;
 	color = "#fa00f1"
 	})
 "uHq" = (
@@ -55336,7 +55334,7 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	inertia_move_delay = 0;
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13
 	},
@@ -59800,7 +59798,6 @@
 "xTu" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/town/roofs/desert{
-	viewing_area = 1;
 	color = "#fa00f1"
 	})
 "xTA" = (
@@ -60221,7 +60218,7 @@
 /mob/living/carbon/human/species/skeleton/npc/ambush{
 	inertia_move_delay = 0;
 	STACON = 13;
-	STAEND = 13;
+	STAWIL = 13;
 	STASPD = 13;
 	STASTR = 13
 	},

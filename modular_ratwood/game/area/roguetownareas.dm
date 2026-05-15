@@ -59,3 +59,10 @@
 	converted_type = /area/rogue/outdoors/caves
 	deathsight_message = "an acid-scarred depths"
 	detail_text = DETAIL_TEXT_UNDERDARK
+
+/area/rogue/indoors/banditcamp/hoardmaster
+	name = "The Hoard"
+	icon_state = "rogue"
+	first_time_text = "A MISTAKE"
+	deathsight_message = "a place of greed and excess"
+	hoardmaster_protected = TRUE

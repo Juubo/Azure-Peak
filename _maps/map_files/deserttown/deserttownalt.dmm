@@ -225,9 +225,6 @@
 /obj/item/clothing/mask/rogue/ragmask/black,
 /obj/item/clothing/cloak/raincloak/purple,
 /obj/item/clothing/cloak/raincloak/purple,
-/obj/item/clothing/cloak/raincloak/drab,
-/obj/item/clothing/cloak/raincloak/drab,
-/obj/item/clothing/cloak/raincloak/drab,
 /turf/open/floor/rogue/tile/brownbrick,
 /area/rogue/indoors/banditcamp/desert)
 "ge" = (
@@ -580,8 +577,8 @@
 /obj/item/rope/chain,
 /obj/item/rope/chain,
 /obj/item/rope/chain,
-/obj/item/clothing/neck/roguetown/cursed_collar,
-/obj/item/clothing/neck/roguetown/cursed_collar,
+/obj/item/clothing/neck/roguetown/gorget/cursed_collar,
+/obj/item/clothing/neck/roguetown/gorget/cursed_collar,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/banditcamp/desert)
 "pZ" = (
