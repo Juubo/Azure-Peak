@@ -65,4 +65,9 @@
 	icon_state = "rogue"
 	first_time_text = "A MISTAKE"
 	deathsight_message = "a place of greed and excess"
-	hoardmaster_protected = TRUE
+	//hoardmaster_protected = TRUE //CC Edit - This var is designed to ASH people who enter this area. Currently unused/unimplemented. Will need feedback before considering.
+
+/area/rogue/underworld/adventurespawn
+	name = "wayfarer's dream"
+	icon_state = "dream"
+	first_time_text = "A Wayfarer's Dream"
