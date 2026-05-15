@@ -3628,7 +3628,8 @@
 #include "modular_ochrevalley\code\modules\mob\living\carbon\human\species_types\roguetown\other\ooze.dm"
 #include "modular_ochrevalley\code\modules\mob\living\simple_animal\rogue\ooze_blob.dm"
 
-//Ratwood's Desert Town stuff here
+//Ratwood's Modular Includes and Desert Town
+#include "modular_ratwood\ratwood_includes.dm"
 #include "modular_deserttown\camel.dm"
 #include "modular_deserttown\desertareas.dm"
 #include "modular_deserttown\desertclothing.dm"

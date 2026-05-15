@@ -990,7 +990,7 @@
 /area/rogue/under/underdarker)
 "avK" = (
 /turf/closed/mineral/random/rogue/sandstone,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "avN" = (
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor5-old"
@@ -1304,7 +1304,7 @@
 "aBw" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/open/water/swamp,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "aBz" = (
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena/bossroom)
@@ -1512,7 +1512,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "aFj" = (
 /obj/structure/fluff/railing/wood{
 	dir = 8;
@@ -2222,7 +2222,7 @@
 "aTt" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/water/swamp,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "aTH" = (
 /obj/item/reagent_containers/food/snacks/crow{
 	dir = 8
@@ -3345,7 +3345,7 @@
 "boR" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "boW" = (
 /obj/structure/fluff/walldeco/church/line{
 	dir = 8
@@ -4951,7 +4951,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "bTI" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern/desert)
@@ -7333,7 +7333,7 @@
 /area/rogue/under/underdarker)
 "cQQ" = (
 /turf/closed/mineral/random/rogue/sandstone/high,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "cQW" = (
 /obj/structure/table/wood/large_table/south_west,
 /obj/effect/spawner/lootdrop/valuable_candle_spawner,
@@ -7707,7 +7707,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "cXr" = (
 /obj/structure/fluff/sign{
 	name = "Not for drinking!"
@@ -8136,7 +8136,7 @@
 "dgv" = (
 /obj/structure/flora/roguegrass/bush/jungle,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "dgx" = (
 /obj/structure/table/wood,
 /obj/structure/bars{
@@ -10110,7 +10110,7 @@
 	name = "mean goblin key"
 	},
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "dRK" = (
 /obj/structure/bars/pipe{
 	dir = 10;
@@ -10655,7 +10655,7 @@
 "eci" = (
 /obj/structure/flora/roguegrass/water/reeds,
 /turf/open/water/swamp,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "eco" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/water/bath,
@@ -11952,7 +11952,7 @@
 "eCp" = (
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "eCr" = (
 /obj/structure/stairs/desert{
 	dir = 8
@@ -14615,7 +14615,7 @@
 "fHJ" = (
 /obj/item/natural/rock,
 /turf/open/water/swamp,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "fHM" = (
 /obj/item/roguebin/water,
 /turf/open/floor/carpet/stellar,
@@ -15645,7 +15645,7 @@
 "gfP" = (
 /obj/item/natural/poo/cow,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "ggk" = (
 /obj/structure/bed/rogue/shit,
 /obj/effect/spawner/lootdrop/general_loot_low,
@@ -16100,7 +16100,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "gpu" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/lightpath,
@@ -19827,7 +19827,7 @@
 "hRT" = (
 /obj/item/grown/log/tree,
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "hSa" = (
 /obj/item/cushion/desert2,
 /mob/living/carbon/human/species/skeleton/npc/cultist,
@@ -19924,7 +19924,7 @@
 "hUn" = (
 /obj/structure/flora/rogueshroom,
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "hUS" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/darkpath,
@@ -21171,7 +21171,7 @@
 "iuZ" = (
 /obj/structure/flora/roguegrass/bush/jungle,
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "iva" = (
 /obj/effect/decal/duneedge{
 	dir = 8
@@ -22627,7 +22627,7 @@
 "jej" = (
 /obj/item/natural/rock,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "jeo" = (
 /obj/structure/rack/rogue/shelf/biggest,
 /obj/item/reagent_containers/glass/bottle/alchemical,
@@ -26113,7 +26113,7 @@
 "kvf" = (
 /obj/structure/flora/rogueshroom/unhappy/random,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "kvj" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -31366,7 +31366,7 @@
 /area/rogue/indoors/town/desert)
 "mEs" = (
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "mEx" = (
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/town/church/basement)
@@ -31591,7 +31591,7 @@
 "mKr" = (
 /obj/effect/decal/remains/bigrat,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "mKv" = (
 /obj/structure/mineral_door/wood{
 	chat_color_name = "room";
@@ -33694,7 +33694,7 @@
 "nAr" = (
 /obj/structure/flora/rogueshroom,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "nAt" = (
 /turf/open/transparent/openspace/debug,
 /area/rogue/outdoors/desert/above)
@@ -35393,7 +35393,7 @@
 /obj/item/reagent_containers/food/snacks/smallrat,
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "okw" = (
 /obj/structure/bed/rogue/shit,
 /obj/item/grown/log/tree/stake,
@@ -35968,7 +35968,7 @@
 /area/rogue/under/town/basement/desert)
 "ouM" = (
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "ouV" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -37818,7 +37818,7 @@
 	dir = 9
 	},
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "pfs" = (
 /obj/structure/table/wood,
 /obj/structure/lever/wall{
@@ -38290,7 +38290,7 @@
 "poR" = (
 /obj/structure/flora/rogueshroom/unhappy/random,
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "ppj" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -41338,7 +41338,7 @@
 /area/rogue/indoors/town/academy/desert)
 "qBr" = (
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "qBs" = (
 /obj/structure/roguewindow/harem3{
 	opacity = 1
@@ -42236,7 +42236,7 @@
 	dir = 8
 	},
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "qUs" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -45060,7 +45060,7 @@
 "sbY" = (
 /obj/item/natural/rock,
 /turf/closed/mineral/random/rogue/sandstone,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "scl" = (
 /obj/item/roguecoin/gold/pile,
 /obj/machinery/light/rogue/candle/blue{
@@ -48064,7 +48064,7 @@
 "tkR" = (
 /obj/structure/flora/roguegrass/water,
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "tkT" = (
 /obj/structure/rack/rogue,
 /obj/item/reagent_containers/glass/bucket,
@@ -48602,7 +48602,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "tuH" = (
 /obj/structure/drape/zybantine,
 /obj/structure/mineral_door/wood/donjon{
@@ -52096,7 +52096,7 @@
 	dir = 1
 	},
 /turf/open/floor/rogue/dirt/road/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "uME" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -53266,7 +53266,7 @@
 /area/rogue/outdoors/desert)
 "vhN" = (
 /turf/closed/mineral/random/rogue/sandstone/med,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "vid" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -53467,7 +53467,7 @@
 /area/rogue/indoors/town/academy/desert)
 "vnO" = (
 /turf/open/water/swamp,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "vnZ" = (
 /obj/structure/fermentation_keg/sandpot,
 /turf/open/floor/rogue/deserttile{
@@ -57930,7 +57930,7 @@
 "xbQ" = (
 /obj/structure/glowshroom,
 /turf/open/floor/rogue/dirt/desert,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "xbS" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -60442,7 +60442,7 @@
 "xZu" = (
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/desert_grass,
-/area/rogue/under/underdark/rockhill)
+/area/rogue/under/underdark)
 "xZv" = (
 /turf/closed/wall/mineral/rogue/tent,
 /area/rogue/indoors/town/desert)
