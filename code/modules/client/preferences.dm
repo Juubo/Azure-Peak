@@ -2391,9 +2391,10 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 					var/list/choices = list("Conflict Encouraged + Hunted", "Conflict Encouraged", "Conflict Discouraged", "Default")
 					var/choice = input(user, "Choose your Roleplay Guidance", "CHOOSE") as anything in choices
 
-					to_chat(user, span_notice("Roleplay Guidance is designed to allow users to tell if another user likes to engage in Conflict, or not. This does not allow you to attack anyone without proper escalation, or to avoid combat altogether,\
-												you MUST respect the rules set upon by the server. Failure to follow the rules will be met with punishment. \
-												\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, and WILL have CONSEQUENCES if you, or anyone else so deems it fitting."))
+					to_chat(user, span_notice("Roleplay Guidance is intended to allow players to more easily indicate their desires for Mechanical Conflict, or not. It is expected to only be used to better find other players interested in mechanical antagonism. \
+												It does not allow you to attack anyone without proper escalation, or to avoid combat altogether, the server rules still apply. Failure to follow them may be met with punishment. \
+												\n If a player Discourages Combat, it does not mean they are immune. Their actions can and will still have consequences IC, if you or anyone else so deems it fitting. \
+												If someone has it set to Discouraged and repeatedly escalates situations with their actions or otherwise misuses it, please feel free to adminhelp to let us know, and we can chat with them."))
 												
 					switch(choice)
 						if("Default")
@@ -2401,23 +2402,24 @@ Slots: [job.spawn_positions] [job.round_contrib_points ? "RCP: +[job.round_contr
 							rp_guidance = 3 //The not opted in option and the default.
 
 						if("Conflict Discouraged")
-							to_chat(user, span_green("Conflict Discouraged - Other Players are less likely to attempt to Conflict with you. This does not mean you are allowed to avoid \
-													combat altogether, you are not exempt from combat. This is a guidance option to inform others that you do not wish to fight immediately, \
-													and would desire that they attempt to de-escalate the situation or cause little to no harm to your character. \
-													\n This does NOT grant you ANY IMMUNITY against combat. Your ACTIONS CAN, and WILL have CONSEQUENCES if someone so deems it fitting."))
+							to_chat(user, span_green("Conflict Discouraged - Other Players will see that you do not prefer mechanical conflict. This does not mean you are immune to \
+													combat altogether, your actions still can have consequences. This option means that you are less likely to enjoy Mechanical Conflict, and if someone else is searching for a fight, they might be better off with someone else. \
+													It is still partially your duty to de-escalate situations when desired, or to attempt to solve situations through roleplayed means instead. Try to provide other avenues of resolution! \
+													\nOnce again, this does not mean you are immune to mechanical combat. Your actions still have consequences if someone so deems it fitting, and respecting the escalation rules."))
 							rp_guidance = FALSE
 						if("Conflict Encouraged")
-							to_chat(user, span_red("Conflict Encouraged - Other Players are more likely to attempt to enter Conflict with you. This does not mean you are allowed to \
-													attack anyone for no reason, you MUST follow the rules of escalation and roleplay accordingly, \
-													and the person attacking you must also follow the rules of escalation.\
-													\n This does NOT grant ANYONE the free will to attack you without proper escalation, it is expected that you and anyone else involved will ROLEPLAY."))
+							to_chat(user, span_red("Conflict Encouraged - Other Players will see that you do enjoy engaging in mechanical conflict. It does not mean others are free to attack you without proper escalation, \
+													and for you to attack others without it as well. This option means you enjoy partaking in Mechanical Conflict as part of Roleplay, and those who similarly are looking for a fight may find one with you. \
+													You are still free to escalate or de-escalate situations as you wish, any situation can play out depending on how you interact with it!\
+													\nOnce again, this does not mean you are forced to a mechanical resolution, only that you wish for others to know you are welcoming it. It is still expected that all parties will follow proper escalation rules."))
 							rp_guidance = TRUE
 						if("Conflict Encouraged + Hunted")
-							to_chat(user, span_purple("Conflict Encouraged + Hunted - Other Players are highly likely to attempt to enter Conflict with you. This does not mean you are allowed to attack anyone without proper escalation, or to avoid combat altogether, \
-														you MUST respect the rules set upon by the server. Failure to follow the rules will be met with punishment. \
-														\n If a player Discourages combat, it does NOT grant them ANY IMMUNITY. Their ACTIONS CAN, AND WILL, have CONSEQUENCES if you, or anyone else so deems it fitting. \
-														\n\
-														\n Selecting this option, you also opt into the HUNTED list, certain antags may and will seek you out to hunt you down. The Hunters MUST follow the Rules of Escalation, and so do you if you happen to stumble upon them first."))
+							to_chat(user, span_purple("Conflict Encouraged + Hunted - Other Players will see that you do enjoy engaging in mechanical conflict. It does not mean others are free to attack you without proper escalation, \
+													and for you to attack others without it as well. This option means you enjoy partaking in Mechanical Conflict as part of Roleplay, and those who similarly are looking for a fight may find one with you. \
+													You are still free to escalate or de-escalate situations as you wish, any situation can play out depending on how you interact with it!\
+													\nOnce again, this does not mean you are forced to a mechanical resolution, only that you wish for others to know you are welcoming it. It is still expected that all parties will follow proper escalation rules. \
+													\n\
+													\nSelecting this option, you also opt into the Hunted list! Certain antags may use abilities to seek you out directly. The Hunters still are beholden to the Rules of Escalation, and so do you if you happen to stumble upon them first."))
 							rp_guidance = 2 //Wildcard option to become hunted as we no longer have the Hunted flaw/vice.
 
 					if(!isnewplayer(user))
