@@ -227,6 +227,11 @@
 	},
 /turf/open/floor/rogue/underworld/road,
 /area/rogue/underworld/adventurespawn)
+"zm" = (
+/obj/effect/landmark/start/wretch,
+/obj/effect/landmark/start/wretchlate,
+/turf/open/floor/rogue/churchrough,
+/area/rogue/underworld/adventurespawn)
 "Aa" = (
 /obj/structure/flora/roguetree/underworld,
 /obj/structure/underworld/barrier,
@@ -929,7 +934,7 @@ MR
 VD
 MR
 MR
-Ta
+zm
 Ta
 Ta
 MR

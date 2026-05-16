@@ -31,6 +31,15 @@ SUBSYSTEM_DEF(nightshift)
 	if(!CONFIG_GET(flag/enable_night_shifts))
 		can_fire = FALSE
 	current_tod = settod()
+
+	//CC Edit - Desert Map time shift
+	if(SSmapping.config.map_name == "Desert Town")
+		//Longer days in favor of shorter nights compared to default Cove World
+		nightshift_start_time = 774000		//774000=	930pm
+		nightshift_dawn_start = 198000		//198000=   530am
+		nightshift_day_start =  270000		//270000=   730am
+		nightshift_dusk_start = 666000		//630000=   630pm
+
 	return ..()
 
 /datum/controller/subsystem/nightshift/fire(resumed = FALSE)
