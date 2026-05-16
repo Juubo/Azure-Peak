@@ -60,7 +60,7 @@
 							/obj/structure/flora/roguegrass/herb/random = 2,
 							/obj/effect/decal/remains/bear = 0.5,
 							/obj/effect/decal/remains/human = 0.3,
-							///obj/structure/zizo_bane = 0.5,
+							/obj/structure/zizo_bane = 0.5,
 						)
 	// spawnableTurfs = list(/turf/open/floor/rogue/dirt/road=2,
 	// 					/turf/open/water/swamp=2,)

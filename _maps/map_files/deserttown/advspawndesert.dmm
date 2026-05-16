@@ -205,10 +205,10 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "xp" = (
-/obj/structure/underworld/barrier,
-/obj/structure/underworld/barrier,
 /turf/open/floor/rogue/churchrough,
-/area/rogue/underworld/adventurespawn)
+/area/rogue/underworld{
+	first_time_text = "wayfarer's dream"
+	})
 "xV" = (
 /obj/structure/bearpelt{
 	alpha = 200;
@@ -291,7 +291,6 @@
 	first_time_text = "wayfarer's dream"
 	})
 "Jn" = (
-/obj/structure/underworld/barrier,
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
@@ -349,7 +348,6 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "Pk" = (
-/obj/structure/underworld/barrier,
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
@@ -786,10 +784,10 @@ Ta
 MR
 Xc
 Aa
-xp
-VB
-VB
-Al
+Ta
+Ta
+Ta
+MR
 Dm
 fM
 "}
@@ -815,10 +813,10 @@ Ta
 MR
 MR
 LF
+xp
 Rt
 Rt
-Rt
-Al
+MR
 Dm
 fM
 "}
@@ -847,7 +845,7 @@ MR
 Jn
 Hm
 Rt
-Al
+MR
 Dm
 fM
 "}
@@ -876,7 +874,7 @@ MR
 Pk
 iY
 Rt
-Al
+MR
 Dm
 fM
 "}
@@ -905,7 +903,7 @@ MR
 Pk
 dA
 dA
-Al
+MR
 Dm
 fM
 "}
@@ -934,7 +932,7 @@ MR
 Ta
 Ta
 Ta
-Al
+MR
 Dm
 fM
 "}

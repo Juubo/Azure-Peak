@@ -1,36 +1,50 @@
 /datum/time_of_day
 	var/name = ""
 	var/color = ""
+	//CC Edit - Desert Colors
+	var/desert_color = ""
 	var/start = 6 HOURS // 6:00 am
 
 /datum/time_of_day/dawn
 	name = "Dawn"
 	color = list("#394579", "#49385d", "#3a1537")
+	//CC Edit - Desert Colors
+	desert_color = list("#568cbe", "#6e3bcc", "#a1469c")
 	start = 8 HOURS //8:00:00 AM
 
 /datum/time_of_day/sunrise
 	name = "Sunrise"
 	color = "#F598AB"
+	//CC Edit - Desert Colors
+	desert_color = "#eba63e"
 	start = 9.5 HOURS  //9:30:00 AM
 
 /datum/time_of_day/daytime
 	name = "Daytime"
 	color = list("#dbbfbf", "#ddd7bd", "#add1b0", "#a4c0ca", "#ae9dc6", "#d09fbf")
+	//CC Edit - Desert Colors
+	desert_color = list("#d89576", "#d6a993", "#b47456", "#e2db7d", "#dbb45f", "#d09fbf")
 	start = 10 HOURS //10:00:00 AM
 
 /datum/time_of_day/sunset
 	name = "Sunset"
 	color = "#ff8a63"
+	//CC Edit - Desert Colors
+	desert_color = "#ce6713"
 	start = 15 HOURS //3:00:00 PM
 
 /datum/time_of_day/dusk
 	name = "Dusk"
 	color = list("#c26f56", "#c05271", "#b84933")
+	//CC Edit - Desert Colors
+	desert_color = list("#9e482d", "#b43d19", "#cf3607")
 	start = 15.5 HOURS //3:30:00 PM
 
 /datum/time_of_day/midnight
 	name = "Midnight"
 	color = list("#100a18", "#0c0412", "#0f0012")
+	//CC Edit - Desert Colors
+	desert_color = list("#475255", "#0b4d61", "#407a8d")
 	start = 16 HOURS //4:00:00 PM
 
 GLOBAL_VAR_INIT(GLOBAL_LIGHT_RANGE, 3)
@@ -131,7 +145,11 @@ SUBSYSTEM_DEF(outdoor_effects)
 		next_step_datum = time_cycle_steps[1]
 
 	current_step_datum = new_step
-	picked_color = pick(current_step_datum.color)
+	//CC Edit - Desert Map Colors
+	if(SSmapping.config.map_name == "Desert Town")
+		picked_color = pick(current_step_datum.desert_color)
+	else
+		picked_color = pick(current_step_datum.color)
 
 	// If the next start time is less than the current start time (i.e 10 PM vs 5 AM) then set our NextDay value
 	if(next_step_datum.start <= current_step_datum.start)
