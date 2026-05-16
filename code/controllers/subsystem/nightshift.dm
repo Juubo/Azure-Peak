@@ -35,6 +35,7 @@ SUBSYSTEM_DEF(nightshift)
 	//CC Edit - Desert Map time shift
 	if(SSmapping.config.map_name == "Desert Town")
 		//Longer days in favor of shorter nights compared to default Cove World
+		//Nights are also slightly brighter in the desert due to a lack of foliage and often clear skies
 		nightshift_start_time = 774000		//774000=	930pm
 		nightshift_dawn_start = 198000		//198000=   530am
 		nightshift_day_start =  270000		//270000=   730am
