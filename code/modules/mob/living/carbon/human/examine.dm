@@ -1103,11 +1103,11 @@
 	//CC Edit - RP Guidance Text
 	switch(rp_guidance_preference)
 		if(0) //Discourages Conflict
-			. += span_green("This user Discourages Conflict.")
+			. += span_green("This user prefers alternatives to Mechanical Conflict.")
 		if(1) //Encourages Conflict
-			. += span_red("This user Encourages Conflict.")
+			. += span_red("This user may be willing to involve Mechanical Conflict.")
 		if(2) //Same as normal. This can be changed in the future however if people wish. Encourages Conflict + Hunted.
-			. += span_red("This user Encourages Conflict.")
+			. += span_red("This user may be willing to involve Mechanical Conflict.")
 		//if(3), this is the default, thus has nothing when it switches to it and shouldn't show anything on examine.
 	//CC Edit End
 
