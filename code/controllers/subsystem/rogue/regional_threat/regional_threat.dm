@@ -9,134 +9,213 @@ SUBSYSTEM_DEF(regionthreat)
 	// Basin & Grove & Terrorbog are fully tameable (min 0). Coast & Decap stay dangerous (min > 0).
 	// Budget = player_factor * pool * 3%. Solo combat budgets shown at max pool.
 	// Diminishing drain: 5-man party drains at ~39% efficiency, so regions resist zerging.
-	var/list/threat_regions = list(
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_AZURE_BASIN,
-			_latent_ambush = 150,
-			_min_ambush = 0,
-			_max_ambush = 375,
-			_fixed_ambush = FALSE,
-			_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
-			_lowpop_tick = 375 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 375 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_FOREST_GOBLIN = 60,
-				QUEST_FACTION_SEA_GOBLIN = 40,
-				QUEST_FACTION_HIGHWAYMAN = 5, // basically for blockade only
+	var/list/threat_regions 
+
+	//CC Edit - Desert Mappification
+/datum/controller/subsystem/regionthreat/Initialize(start_timeofday)
+	. = ..()
+	//CC Edit - Initialize the different regions; Cove World uses the default and Desert uses our variant.
+	if(SSmapping.config.map_name == "Desert Town")
+		threat_regions = list(
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_INNER_DUNES,
+				_latent_ambush = 50, //Don't overwhelm people.
+				_min_ambush = 50, //Nothing about the desert is able to be tamed, you can lower it, but it will always be a harsh place.
+				_max_ambush = 300, //But the closer to town, the safer it is.
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 300 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 300 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_STRAY_DEADITE = 60, //Skeletons are commonplace here.
+					QUEST_FACTION_FOREST_GOBLIN = 40,
+					QUEST_FACTION_MOON_GOBLIN = 25,
+					QUEST_FACTION_HIGHWAYMAN = 5, // basically for blockade only
+				),
+				_tp_budget_multiplier = 0.5, //The scale at which threat points generate. Much lower rates but it's also capped at 50 min points.
+				_delivery_reward_multiplier = 1.0,
+				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
-			_tp_budget_multiplier = 0.75,
-			_delivery_reward_multiplier = 1.0,
-			_kill_target_floor = 3,
-			_evergreen_target = 2,
-			_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
-		),
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_AZURE_GROVE,
-			_latent_ambush = 375,
-			_min_ambush = 0,
-			_max_ambush = 750,
-			_fixed_ambush = FALSE,
-			_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
-			_lowpop_tick = 750 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 750 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_FOREST_GOBLIN = 40,
-				QUEST_FACTION_HIGHWAYMAN = 30,
-				QUEST_FACTION_STRAY_DEADITE = 20,
-				QUEST_FACTION_WILD_BEAST = 10,
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_DEEP_DUNES,
+				_latent_ambush = 800,
+				_min_ambush = 600, //Nothing about the desert is able to be tamed, you can lower it, but it will always be a harsh place.
+				_max_ambush = 1600,
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 1600 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 1600 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_FOREST_GOBLIN = 50,
+					QUEST_FACTION_ORC = 30,
+					QUEST_FACTION_STRAY_DEADITE = 30,
+					QUEST_FACTION_HELL_GOBLIN = 20,
+					QUEST_FACTION_TARICHEA_DEADITE = 15,
+					QUEST_FACTION_HIGHWAYMAN = 15,
+					QUEST_FACTION_LICH_DEADITE = 10, //May occasionally send his army out and about.
+					QUEST_FACTION_MADMAN = 5, //The desert holds many, many riches.
+				),
+				_tp_budget_multiplier = 1.25, //The scale at which threat points generate.
+				_delivery_reward_multiplier = 1.0,
+				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
-			_tp_budget_multiplier = 1.0,
-			_delivery_reward_multiplier = 1.5,
-			_kill_target_floor = 4,
-			_evergreen_target = 2
-			// allowed_quest_types: default (all)
-		),
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_TERRORBOG,
-			_latent_ambush = 1500,
-			_min_ambush = 0, // Fully tameable — a warden can engage in a long war to tame the terrorbog.
-			_max_ambush = 1500,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 1500 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 1500 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_BOGMAN = 40,
-				QUEST_FACTION_MIRESPIDER = 25,
-				QUEST_FACTION_BOG_DEADITE = 20,
-				QUEST_FACTION_BOG_TROLL = 10,
-				QUEST_FACTION_FOREST_GOBLIN = 5,
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_DESERT_UNDERDARK,
+				_latent_ambush = 150,
+				_min_ambush = 600, //Nothing about the Underdark is ever safe. This is where real adventurers go, deep down down down where the riches lay.
+				_max_ambush = 2400,
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 2400 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 2400 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_SEA_GOBLIN = 60, //Should be cave goblins. Placeholder for now.
+					QUEST_FACTION_STRAY_DEADITE = 40,
+					QUEST_FACTION_TARICHEA_DEADITE = 30,
+					QUEST_FACTION_LICH_DEADITE = 20, //Much more often spotted underground.
+					QUEST_FACTION_DROW = 20, //Drow gotta be here! It's the underdark!
+					QUEST_FACTION_MINOTAUR = 10, //Oh n o.
+				),
+				_tp_budget_multiplier = 1.5, //The scale at which threat points generate.
+				_delivery_reward_multiplier = 1.0,
+				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
-			_tp_budget_multiplier = 1.5,
-			_delivery_reward_multiplier = 2.0,
-			_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
-			_kill_target_floor = 3,
-			_evergreen_target = 2
-		),
-		// Coast & Decap stay somewhat dangerous no matter what
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_AZUREAN_COAST,
-			_latent_ambush = 500,
-			_min_ambush = 225,
-			_max_ambush = 800,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 800 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 800 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_ORC = 30,
-				QUEST_FACTION_SEA_GOBLIN = 25,
-				QUEST_FACTION_GRONNMAN = 20,
-				QUEST_FACTION_BLEAKISLE_REAVER = 15,
-				QUEST_FACTION_HIGHWAYMAN = 10,
-			),
-			_tp_budget_multiplier = 1.2,
-			_delivery_reward_multiplier = 1.8,
-			_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
-			_kill_target_floor = 2
-		),
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_MOUNT_DECAP,
-			_latent_ambush = 600,
-			_min_ambush = 300,
-			_max_ambush = 1000,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 1000 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 1000 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_HELL_GOBLIN = 25,
-				QUEST_FACTION_TARICHEA_DEADITE = 20,
-				QUEST_FACTION_MOUNT_REAVER = 20,
-				QUEST_FACTION_MOUNTAIN_TROLL = 15,
-				QUEST_FACTION_MINOTAUR = 10,
-				QUEST_FACTION_GREAT_BEAST = 5,
-				QUEST_FACTION_MADMAN = 5,
-			),
-			_tp_budget_multiplier = 1.5,
-			_delivery_reward_multiplier = 2.0,
-			_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
-			_kill_target_floor = 2
-		),
-		// Underdark cannot be tamed — min_ambush is high, keeping the region permanently dangerous.
-		new /datum/threat_region(
-			_region_name = THREAT_REGION_UNDERDARK,
-			_latent_ambush = 600,
-			_min_ambush = 400, // Hard floor — drow and spider nests are eternal
-			_max_ambush = 1200,
-			_fixed_ambush = FALSE,
-			_lowpop_tick = 1200 * THREAT_LOWPOP_TICK_RATE,
-			_highpop_tick = 1200 * THREAT_HIGHPOP_TICK_RATE,
-			_faction_weights = list(
-				QUEST_FACTION_DROW = 30,
-				QUEST_FACTION_MIRESPIDER = 25,
-				QUEST_FACTION_MOON_GOBLIN = 25,
-				QUEST_FACTION_LICH_DEADITE = 10,
-				QUEST_FACTION_MINOTAUR = 10,
-			),
-			_tp_budget_multiplier = 1.5,
-			_delivery_reward_multiplier = 2.0,
-			_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
-			_kill_target_floor = 2
 		)
-	)
+	else
+		threat_regions = list(
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_AZURE_BASIN,
+				_latent_ambush = 150,
+				_min_ambush = 0,
+				_max_ambush = 375,
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 375 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 375 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_FOREST_GOBLIN = 60,
+					QUEST_FACTION_SEA_GOBLIN = 40,
+					QUEST_FACTION_HIGHWAYMAN = 5, // basically for blockade only
+				),
+				_tp_budget_multiplier = 0.75,
+				_delivery_reward_multiplier = 1.0,
+				_kill_target_floor = 3,
+				_evergreen_target = 2,
+				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
+			),
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_AZURE_GROVE,
+				_latent_ambush = 375,
+				_min_ambush = 0,
+				_max_ambush = 750,
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 750 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 750 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_FOREST_GOBLIN = 40,
+					QUEST_FACTION_HIGHWAYMAN = 30,
+					QUEST_FACTION_STRAY_DEADITE = 20,
+					QUEST_FACTION_WILD_BEAST = 10,
+				),
+				_tp_budget_multiplier = 1.0,
+				_delivery_reward_multiplier = 1.5,
+				_kill_target_floor = 4,
+				_evergreen_target = 2
+				// allowed_quest_types: default (all)
+			),
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_TERRORBOG,
+				_latent_ambush = 1500,
+				_min_ambush = 0, // Fully tameable — a warden can engage in a long war to tame the terrorbog.
+				_max_ambush = 1500,
+				_fixed_ambush = FALSE,
+				_lowpop_tick = 1500 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 1500 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_BOGMAN = 40,
+					QUEST_FACTION_MIRESPIDER = 25,
+					QUEST_FACTION_BOG_DEADITE = 20,
+					QUEST_FACTION_BOG_TROLL = 10,
+					QUEST_FACTION_FOREST_GOBLIN = 5,
+				),
+				_tp_budget_multiplier = 1.5,
+				_delivery_reward_multiplier = 2.0,
+				_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
+				_kill_target_floor = 3,
+				_evergreen_target = 2
+			),
+			// Coast & Decap stay somewhat dangerous no matter what
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_AZUREAN_COAST,
+				_latent_ambush = 500,
+				_min_ambush = 225,
+				_max_ambush = 800,
+				_fixed_ambush = FALSE,
+				_lowpop_tick = 800 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 800 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_ORC = 30,
+					QUEST_FACTION_SEA_GOBLIN = 25,
+					QUEST_FACTION_GRONNMAN = 20,
+					QUEST_FACTION_BLEAKISLE_REAVER = 15,
+					QUEST_FACTION_HIGHWAYMAN = 10,
+				),
+				_tp_budget_multiplier = 1.2,
+				_delivery_reward_multiplier = 1.8,
+				_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
+				_kill_target_floor = 2
+			),
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_MOUNT_DECAP,
+				_latent_ambush = 600,
+				_min_ambush = 300,
+				_max_ambush = 1000,
+				_fixed_ambush = FALSE,
+				_lowpop_tick = 1000 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 1000 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_HELL_GOBLIN = 25,
+					QUEST_FACTION_TARICHEA_DEADITE = 20,
+					QUEST_FACTION_MOUNT_REAVER = 20,
+					QUEST_FACTION_MOUNTAIN_TROLL = 15,
+					QUEST_FACTION_MINOTAUR = 10,
+					QUEST_FACTION_GREAT_BEAST = 5,
+					QUEST_FACTION_MADMAN = 5,
+				),
+				_tp_budget_multiplier = 1.5,
+				_delivery_reward_multiplier = 2.0,
+				_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
+				_kill_target_floor = 2
+			),
+			// Underdark cannot be tamed — min_ambush is high, keeping the region permanently dangerous.
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_UNDERDARK,
+				_latent_ambush = 600,
+				_min_ambush = 400, // Hard floor — drow and spider nests are eternal
+				_max_ambush = 1200,
+				_fixed_ambush = FALSE,
+				_lowpop_tick = 1200 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 1200 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_DROW = 30,
+					QUEST_FACTION_MIRESPIDER = 25,
+					QUEST_FACTION_MOON_GOBLIN = 25,
+					QUEST_FACTION_LICH_DEADITE = 10,
+					QUEST_FACTION_MINOTAUR = 10,
+				),
+				_tp_budget_multiplier = 1.5,
+				_delivery_reward_multiplier = 2.0,
+				_allowed_quest_types = list(QUEST_CLEAR_OUT, QUEST_RAID, QUEST_BOUNTY, QUEST_RECOVERY),
+				_kill_target_floor = 2
+			)
+		)
 
 /datum/controller/subsystem/regionthreat/fire(resumed)
 	var/player_count = GLOB.player_list.len

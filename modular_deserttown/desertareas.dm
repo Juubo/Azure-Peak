@@ -23,7 +23,7 @@
 	droning_sound_night = 'sound/music/area/desert/Moonrise.ogg'
 	deathsight_message = "somewhere in the dunes, next to towering walls"
 	warden_area = TRUE
-	//threat_region = THREAT_REGION_DESERT_NEAR
+	threat_region = THREAT_REGION_INNER_DUNES
 	
 /area/rogue/outdoors/desert/river
 	name = "river"
@@ -32,6 +32,7 @@
 	ambientnight = AMB_RIVERNIGHT
 	spookysounds = SPOOKY_FROG
 	spookynight = SPOOKY_FOREST
+	threat_region = THREAT_REGION_FRESH_RIVER
 
 /area/rogue/outdoors/desertdeep
 	name = "Deep Dunes"
@@ -58,7 +59,7 @@
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 10,)
 	converted_type = /area/rogue/indoors/shelter/desertdeep
 	deathsight_message = "an empty, parched desert"
-	//threat_region = THREAT_REGION_DESERT_DEEP
+	threat_region = THREAT_REGION_DEEP_DUNES
 
 /area/rogue/indoors/shelter/desertdeep
 	name = "Deep Desert (shelter)"

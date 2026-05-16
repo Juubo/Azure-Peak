@@ -9,14 +9,14 @@
 	name = "Dawn"
 	color = list("#394579", "#49385d", "#3a1537")
 	//CC Edit - Desert Colors
-	desert_color = list("#568cbe", "#6e3bcc", "#a1469c")
+	desert_color = list("#253d53", "#502a96", "#a1469c")
 	start = 8 HOURS //8:00:00 AM
 
 /datum/time_of_day/sunrise
 	name = "Sunrise"
 	color = "#F598AB"
 	//CC Edit - Desert Colors
-	desert_color = "#eba63e"
+	desert_color = "#ffb340"
 	start = 9.5 HOURS  //9:30:00 AM
 
 /datum/time_of_day/daytime
@@ -44,7 +44,7 @@
 	name = "Midnight"
 	color = list("#100a18", "#0c0412", "#0f0012")
 	//CC Edit - Desert Colors
-	desert_color = list("#475255", "#0b4d61", "#407a8d")
+	desert_color = list("#1b1f20", "#03161b", "#060c0e")
 	start = 16 HOURS //4:00:00 PM
 
 GLOBAL_VAR_INIT(GLOBAL_LIGHT_RANGE, 3)

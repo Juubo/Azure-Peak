@@ -59,6 +59,7 @@
 	converted_type = /area/rogue/outdoors/caves
 	deathsight_message = "an acid-scarred depths"
 	detail_text = DETAIL_TEXT_UNDERDARK
+	threat_region = THREAT_REGION_DESERT_UNDERDARK
 
 /area/rogue/indoors/banditcamp/hoardmaster
 	name = "The Hoard"
