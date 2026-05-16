@@ -1,12 +1,14 @@
 {
     "map_name": "Desert Town",
     "map_path": "map_files/deserttown",
-    "map_file": ["deserttown.dmm", "advspawndesert.dmm"],
+    "map_file": ["deserttown.dmm",
+	"advspawndesert.dmm"],
 	"traits": [{"Name": "Desert Town", "Up": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Up": true, "Down": true}, {"Down": true},
-			{"Name": "adventspawn"}],
+	{"Name": "adventspawn"}],
 	"minetype": null,
 	"space_empty_levels": 0,
 	"space_ruin_levels": 0,
+	"matthios_dungeon": 0,
 	"shuttles": {
 	    "cargo": "cargo_rogue",
 		"ferry": "ferry_base",
