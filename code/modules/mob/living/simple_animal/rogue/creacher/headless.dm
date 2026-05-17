@@ -1,4 +1,5 @@
 //The vile Vore Monster
+//CC EDIT - UNUSED, WE HAVE OUR OWN VARIANT NOW.
 /mob/living/simple_animal/hostile/retaliate/rogue/headless
 	icon = 'icons/roguetown/mob/monster/lamia.dmi'
 	name = "headless"

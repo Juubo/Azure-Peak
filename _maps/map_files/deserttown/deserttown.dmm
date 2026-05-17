@@ -5387,6 +5387,13 @@
 /obj/machinery/light/rogue/candle/r,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert/manor)
+"cct" = (
+/mob/living/carbon/human/species/goblin/hell,
+/obj/item/rogueweapon/pick/blacksteel,
+/turf/open/floor/rogue/lightpath{
+	color = "#b3acbf"
+	},
+/area/rogue/outdoors/desert)
 "ccy" = (
 /turf/open/floor/rogue/greenstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -6454,7 +6461,7 @@
 /turf/open/floor/rogue/ruinedwood/turned,
 /area/rogue/outdoors/town/roofs/desert)
 "czd" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/camel,
+/mob/living/simple_animal/hostile/retaliate/rogue/camel/tame,
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/desert)
 "cze" = (
@@ -6736,6 +6743,13 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/desertdeep/above)
+"cEa" = (
+/turf/open/water/bath,
+/turf/open/water/ocean,
+/turf/open/water/ocean,
+/turf/open/water/bath,
+/turf/open/water/ocean,
+/area/rogue/outdoors/town/desert)
 "cEd" = (
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/rogue/dirt/road/desert,
@@ -10875,10 +10889,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert/warden)
-"egf" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dunes,
-/area/rogue/under/cavewet/bogcaves)
 "egi" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -11140,6 +11150,12 @@
 /obj/structure/shisha/hookah,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/bath/desert)
+"elm" = (
+/obj/structure/gob_portal,
+/turf/open/floor/rogue/lightpath{
+	color = "#b3acbf"
+	},
+/area/rogue/outdoors/desert)
 "elo" = (
 /obj/machinery/light/rogue/candle/l,
 /obj/item/trash/applecore,
@@ -11896,10 +11912,6 @@
 	icon_state = "tilegreyblu"
 	},
 /area/rogue/indoors/town/academy/desert)
-"ezW" = (
-/obj/effect/landmark/quest_spawner/easy,
-/turf/open/floor/rogue/lightpath,
-/area/rogue/outdoors/desertdeep)
 "ezY" = (
 /obj/structure/roguemachine/chimeric_heart_beast,
 /turf/open/floor/rogue/churchmarble,
@@ -12690,6 +12702,8 @@
 /area/rogue/indoors/town/garrison/desert/cell)
 "eQB" = (
 /turf/open/water/ocean,
+/turf/open/water/bath,
+/turf/open/water/ocean,
 /area/rogue/outdoors/town/desert)
 "eQE" = (
 /obj/structure/fluff/railing/border,
@@ -13312,7 +13326,8 @@
 "feD" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/fox{
 	aggressive = 0;
-	name = "Vasilisa"
+	name = "Vasilisa";
+	faction = list("wolfs","zombie","neutral")
 	},
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/indoors/town/grove)
@@ -13789,6 +13804,10 @@
 /area/rogue/indoors/town/cell{
 	warden_area = 1
 	})
+"fpQ" = (
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/dunes,
+/area/rogue/under/cavewet/bogcaves)
 "fqk" = (
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/water/bath,
@@ -18593,6 +18612,11 @@
 	},
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desert)
+"hoi" = (
+/turf/open/floor/rogue/lightpath{
+	color = "#b3acbf"
+	},
+/area/rogue/outdoors/desert)
 "hoj" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -19351,6 +19375,9 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/bath/desert)
+"hGZ" = (
+/turf/open/lava,
+/area/rogue/under/cave)
 "hHb" = (
 /obj/structure/flora/roguegrass/bush/jungle/large,
 /turf/open/floor/rogue/dirt/desert,
@@ -20625,7 +20652,7 @@
 /turf/open/floor/rogue/churchmarble,
 /area/rogue/under/cave/licharena)
 "iiH" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/goatmale,
+/mob/living/simple_animal/hostile/retaliate/rogue/goatmale/tame,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desert)
 "iiI" = (
@@ -22077,10 +22104,6 @@
 "iRm" = (
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/outdoors/desert)
-"iRC" = (
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dunes,
-/area/rogue/under/town/basement/desert/town)
 "iRL" = (
 /obj/machinery/light/rogue/candle/green/r,
 /obj/structure/table/vtable/v2,
@@ -29139,9 +29162,9 @@
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desertdeep/above)
 "lJC" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/saiga/saigabuck,
-/turf/open/floor/rogue/naturalstone/sandstone,
-/area/rogue/indoors/town/grove)
+/obj/effect/landmark/quest_spawner/easy,
+/turf/open/floor/rogue/lightpath,
+/area/rogue/outdoors/desertdeep)
 "lJD" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -30926,11 +30949,20 @@
 /obj/structure/roguewindow/harem3,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern/desert)
+"mti" = (
+/turf/open/lava,
+/area/rogue/outdoors/desert)
 "mtl" = (
 /obj/structure/flora/roguegrass,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/town/desert)
+"mto" = (
+/mob/living/carbon/human/species/goblin/hell,
+/turf/open/floor/rogue/lightpath{
+	color = "#b3acbf"
+	},
+/area/rogue/outdoors/desert)
 "mtB" = (
 /obj/machinery/light/roguestreet/orange/midlamp{
 	density = 0
@@ -31209,6 +31241,10 @@
 	},
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/under/town/basement/desert/keep)
+"mBh" = (
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/dunes,
+/area/rogue/under/town/basement/desert/town)
 "mBj" = (
 /obj/structure/fluff/statue/gargoyle/candles,
 /turf/open/floor/rogue/church,
@@ -32462,6 +32498,10 @@
 /obj/effect/landmark/chimeric_calyx_spawner/fifteen,
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/underdarker)
+"ncT" = (
+/obj/effect/landmark/mapGenerator/rogue/underdarkrat,
+/turf/closed/mineral/rogue/bedrock,
+/area/rogue/under/cave)
 "ndi" = (
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 8
@@ -33308,6 +33348,9 @@
 /area/rogue/indoors/town/bath/desert)
 "ntq" = (
 /turf/open/water/bath,
+/turf/open/water/ocean,
+/turf/open/water/bath,
+/turf/open/water/ocean,
 /area/rogue/outdoors/town/desert)
 "ntx" = (
 /obj/effect/decal/cleanable/blood,
@@ -37205,6 +37248,10 @@
 	},
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /obj/structure/rack/rogue/shelf,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/dwarfin/desert)
 "oSs" = (
@@ -38166,6 +38213,8 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /obj/structure/rack/rogue/shelf,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/dwarfin/desert)
 "pmX" = (
@@ -38773,7 +38822,7 @@
 	},
 /area/rogue/indoors/shelter/desertdeep)
 "pzj" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/camel,
+/mob/living/simple_animal/hostile/retaliate/rogue/camel/tame,
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desert)
 "pzk" = (
@@ -40709,11 +40758,6 @@
 /obj/effect/landmark/start/druid,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/grove)
-"qnG" = (
-/obj/effect/decal/cleanable/blood/splatter,
-/obj/machinery/light/rogue/firebowl,
-/turf/open/floor/rogue/dunes,
-/area/rogue/under/cavewet/bogcaves)
 "qnH" = (
 /obj/structure/drape/zybantine{
 	pixel_y = 32
@@ -41140,6 +41184,10 @@
 	},
 /turf/open/floor/rogue/twig,
 /area/rogue/outdoors/desertdeep)
+"qxM" = (
+/obj/structure/pillar/sand1,
+/turf/open/floor/rogue/dunes,
+/area/rogue/outdoors/desert)
 "qxO" = (
 /obj/structure/fluff/walldeco/customflag{
 	pixel_y = -32
@@ -41633,6 +41681,11 @@
 	color = "#d4d6d6"
 	},
 /area/rogue/under/town/basement/desert/town)
+"qGx" = (
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light/rogue/firebowl,
+/turf/open/floor/rogue/dunes,
+/area/rogue/under/cavewet/bogcaves)
 "qGA" = (
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/indoors/town/manor/desert)
@@ -45191,6 +45244,8 @@
 /obj/item/ingot/iron,
 /obj/item/ingot/iron,
 /obj/item/ingot/iron,
+/obj/item/ingot/iron,
+/obj/item/ingot/iron,
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -45472,6 +45527,14 @@
 /obj/structure/table/wood,
 /obj/item/rogueweapon/hammer/wood{
 	pixel_x = 4
+	},
+/obj/item/roguegear{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/obj/item/roguegear{
+	pixel_y = 7;
+	pixel_x = -6
 	},
 /obj/item/roguegear{
 	pixel_y = 7;
@@ -47771,6 +47834,7 @@
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
+/obj/effect/spawner/lootdrop/roguetown/dungeon/materials,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/desert)
 "tfb" = (
@@ -48948,6 +49012,10 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/inq/basement)
+"tEE" = (
+/obj/structure/pillar/sand1,
+/turf/open/floor/rogue/dunes,
+/area/rogue/outdoors/desertdeep)
 "tES" = (
 /obj/structure/chair/wood/zybantine{
 	dir = 4;
@@ -50212,7 +50280,7 @@
 	},
 /area/rogue/indoors/town/desert)
 "ubO" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/goat,
+/mob/living/simple_animal/hostile/retaliate/rogue/goat/tame,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desert)
 "ubS" = (
@@ -50632,7 +50700,7 @@
 	},
 /area/rogue/indoors/town/tavern/desert)
 "ujT" = (
-/mob/living/simple_animal/hostile/retaliate/rogue/goatmale,
+/mob/living/simple_animal/hostile/retaliate/rogue/goatmale/tame,
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/desert)
 "ujX" = (
@@ -54316,6 +54384,10 @@
 /obj/structure/table/wood,
 /obj/item/ingot/steel,
 /obj/item/ingot/steel,
+/obj/item/ingot/steel,
+/obj/item/ingot/steel,
+/obj/item/ingot/steel,
+/obj/item/ingot/steel,
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -57621,6 +57693,8 @@
 /obj/item/natural/wood/plank,
 /obj/item/natural/wood/plank,
 /obj/item/natural/wood/plank,
+/obj/item/natural/wood/plank,
+/obj/item/natural/wood/plank,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/dwarfin/desert)
 "wWQ" = (
@@ -59413,6 +59487,10 @@
 	},
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/cave/rhgoblinencampment)
+"xGE" = (
+/turf/open/water/bath,
+/turf/open/water/ocean,
+/area/rogue/outdoors/town/desert)
 "xHj" = (
 /obj/structure/fluff/railing/border{
 	dir = 5
@@ -61352,7 +61430,7 @@ bck
 bck
 bck
 bck
-bck
+ncT
 "}
 (2,1,1) = {"
 bck
@@ -230209,7 +230287,7 @@ lbf
 lbf
 lbf
 lbf
-lbf
+hGZ
 lbf
 lbf
 lbf
@@ -230521,7 +230599,7 @@ lbf
 lbf
 lbf
 lbf
-lbf
+hGZ
 lbf
 lbf
 lbf
@@ -230833,8 +230911,8 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -231145,8 +231223,8 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -231457,8 +231535,8 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -231769,8 +231847,8 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -232081,8 +232159,8 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -232392,9 +232470,9 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -232704,9 +232782,9 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -233016,9 +233094,9 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -233328,9 +233406,9 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -233639,11 +233717,11 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -233951,11 +234029,11 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -234263,11 +234341,11 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -234575,12 +234653,12 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -234887,12 +234965,12 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -235199,14 +235277,14 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 qVX
@@ -235511,13 +235589,13 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -235823,13 +235901,13 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -236135,12 +236213,12 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -236447,11 +236525,11 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -236759,10 +236837,10 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -237071,9 +237149,9 @@ lbf
 lbf
 lbf
 lbf
-lbf
-lbf
-lbf
+hGZ
+hGZ
+hGZ
 lbf
 lbf
 lbf
@@ -267119,7 +267197,7 @@ wOy
 wOy
 wmz
 vIH
-lJC
+eqg
 eqg
 wOy
 eqg
@@ -269307,7 +269385,7 @@ kvr
 wOy
 wOy
 yaG
-uoD
+wbF
 eqg
 eqg
 wOy
@@ -285763,10 +285841,10 @@ und
 und
 und
 pVD
-egf
+fpQ
 bUS
 dtO
-qnG
+qGx
 pVD
 und
 und
@@ -291070,7 +291148,7 @@ wUb
 ccC
 ozo
 ozo
-iRC
+mBh
 wUb
 gio
 gKr
@@ -315515,7 +315593,7 @@ mVA
 mVA
 mVA
 mVA
-ezW
+lJC
 vmB
 mVA
 mVA
@@ -328354,7 +328432,7 @@ vmB
 vmB
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -328922,7 +329000,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 ezD
 vmB
 mVA
@@ -332123,7 +332201,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 vmB
 vmB
@@ -333395,7 +333473,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -334844,7 +334922,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 ezD
 vmB
 mVA
@@ -335809,7 +335887,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -337738,7 +337816,7 @@ vmB
 vmB
 mVA
 mVA
-mVA
+tEE
 mVA
 ezD
 mVA
@@ -337951,7 +338029,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 ezD
 mVA
 mVA
@@ -342720,7 +342798,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 ezD
 vmB
@@ -345414,7 +345492,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 cRY
 cRY
 cRY
@@ -345822,7 +345900,7 @@ mVA
 vmB
 vmB
 mVA
-mVA
+tEE
 mVA
 ezD
 ezD
@@ -346115,7 +346193,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -350011,20 +350089,20 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+mti
+mti
+hoi
+mti
+oDO
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -350082,7 +350160,7 @@ eMy
 cRY
 cRY
 cRY
-eMy
+qxM
 cRY
 adk
 eMy
@@ -350323,21 +350401,21 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+hoi
+cct
+hoi
+mti
+mti
+mti
+mti
+mti
+mti
+oDO
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -350420,7 +350498,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 adk
 adk
 cRY
@@ -350635,21 +350713,21 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+hoi
+hoi
+mti
+mti
+mti
+oDO
+mti
+mti
+mti
+mti
+hoi
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -350947,22 +351025,22 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+elm
+mti
+mti
+mti
+oDO
+oDO
+oDO
+oDO
+oDO
+mti
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -351259,22 +351337,22 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+hoi
+mto
+hoi
+hoi
+oDO
+oDO
+oDO
+oDO
+oDO
+hoi
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -351571,22 +351649,22 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+mti
+mti
+oDO
 mGA
 mGA
 mGA
@@ -351884,21 +351962,21 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+mti
+hoi
+oDO
 mGA
 mGA
 mGA
@@ -351937,7 +352015,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 adk
 eMy
 cRY
@@ -352199,19 +352277,19 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+oDO
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -352511,19 +352589,19 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+mti
+oDO
+oDO
+oDO
+oDO
+mti
+mti
+oDO
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -352823,18 +352901,18 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+mti
+mti
+oDO
+oDO
+oDO
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -353134,18 +353212,18 @@ mGA
 mGA
 mGA
 mGA
+oDO
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+hoi
+mti
+mti
+mti
+mti
+mti
+mti
+mti
+oDO
 mGA
 mGA
 mGA
@@ -353171,7 +353249,7 @@ mGA
 eMy
 eMy
 eMy
-eMy
+qxM
 cRY
 adk
 adk
@@ -353446,18 +353524,18 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+oDO
+mti
+mti
+mti
+hoi
+mti
+hoi
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -353758,18 +353836,18 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+mti
+mti
+mti
+mti
+mti
+mti
+mti
+oDO
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -354070,17 +354148,17 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+mti
+mti
+mti
+mti
+hoi
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -354382,17 +354460,17 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+mti
+mti
+mti
+hoi
+hoi
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -354693,18 +354771,18 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+mti
+mti
+hoi
+hoi
+hoi
+mti
+mti
+hoi
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -354849,7 +354927,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 vmB
 mVA
 ezD
@@ -355005,18 +355083,18 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+hoi
+mti
+mti
+hoi
+mti
+mti
+mti
+oDO
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -355317,17 +355395,17 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+oDO
+oDO
+hoi
+mti
+mti
+hoi
+hoi
+mti
+mti
+oDO
+oDO
 mGA
 mGA
 mGA
@@ -355630,16 +355708,16 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+hoi
+hoi
+mti
+mti
+hoi
+hoi
+mti
+hoi
+hoi
+hoi
 mGA
 mGA
 mGA
@@ -355693,7 +355771,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 eMy
 cRY
 cRY
@@ -355942,17 +356020,17 @@ mGA
 mGA
 mGA
 mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
-mGA
+hoi
+hoi
+hoi
+mti
+hoi
+hoi
+mti
+hoi
+hoi
+mti
+hoi
 mGA
 mGA
 mGA
@@ -356255,16 +356333,16 @@ mGA
 mGA
 eMy
 eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
+hoi
+mti
+hoi
+hoi
+hoi
+hoi
+mti
+mti
+hoi
+hoi
 eMy
 eMy
 eMy
@@ -356566,18 +356644,18 @@ mGA
 eMy
 eMy
 eMy
+hoi
+hoi
+mti
+hoi
+hoi
 eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
+hoi
+hoi
+hoi
+hoi
+hoi
+hoi
 eMy
 eMy
 eMy
@@ -356878,18 +356956,18 @@ eMy
 eMy
 eMy
 eMy
+hoi
+hoi
+hoi
+eMy
+hoi
+hoi
 eMy
 eMy
 eMy
 eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
-eMy
+hoi
+hoi
 eMy
 eMy
 eMy
@@ -356995,7 +357073,7 @@ mGA
 cRY
 eMy
 eMy
-eMy
+qxM
 cRY
 eMy
 eMy
@@ -357191,11 +357269,11 @@ eMy
 eMy
 eMy
 eMy
+hoi
+hoi
 eMy
 eMy
-eMy
-eMy
-eMy
+cRY
 eMy
 eMy
 eMy
@@ -357504,6 +357582,10 @@ eMy
 eMy
 eMy
 eMy
+hoi
+eMy
+adk
+cRY
 eMy
 eMy
 eMy
@@ -357530,11 +357612,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
-eMy
-eMy
-eMy
+qxM
 adk
 cRY
 eMy
@@ -357819,7 +357897,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+cRY
 eMy
 eMy
 eMy
@@ -358131,8 +358209,8 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
+cRY
+adk
 eMy
 eMy
 eMy
@@ -358443,7 +358521,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+cRY
 eMy
 eMy
 eMy
@@ -358755,7 +358833,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+cRY
 eMy
 eMy
 eMy
@@ -359066,8 +359144,8 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
+adk
+cRY
 eMy
 eMy
 eMy
@@ -359378,10 +359456,10 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
-eMy
-eMy
+cRY
+cRY
+cRY
+adk
 eMy
 eMy
 eMy
@@ -359690,9 +359768,9 @@ eMy
 eMy
 eMy
 eMy
+cRY
 eMy
-eMy
-eMy
+cRY
 eMy
 eMy
 eMy
@@ -360002,8 +360080,8 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
+cRY
+cRY
 eMy
 eMy
 eMy
@@ -360315,8 +360393,8 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
+cRY
+cRY
 eMy
 eMy
 eMy
@@ -360627,9 +360705,9 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
-eMy
+cRY
+cRY
+adk
 eMy
 eMy
 eMy
@@ -360939,9 +361017,9 @@ eMy
 eMy
 eMy
 eMy
-eMy
-eMy
-eMy
+cRY
+cRY
+adk
 eMy
 eMy
 eMy
@@ -361392,7 +361470,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -361602,7 +361680,7 @@ eMy
 adk
 adk
 eMy
-eMy
+qxM
 adk
 eMy
 eMy
@@ -361928,7 +362006,7 @@ cRY
 adk
 adk
 eMy
-eMy
+qxM
 eMy
 adk
 eMy
@@ -362188,7 +362266,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 eMy
 eMy
 cRY
@@ -362830,7 +362908,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 cRY
 cRY
 cRY
@@ -363511,7 +363589,7 @@ cRY
 cRY
 eMy
 eMy
-eMy
+qxM
 adk
 eMy
 eMy
@@ -364215,7 +364293,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 vmB
@@ -364562,7 +364640,7 @@ mVA
 mVA
 mVA
 mVA
-mVA
+tEE
 mVA
 mVA
 mVA
@@ -366035,7 +366113,7 @@ cRY
 cRY
 eMy
 adk
-eMy
+qxM
 eMy
 eMy
 eMy
@@ -371562,7 +371640,7 @@ yiY
 qUs
 icQ
 icQ
-ntq
+xGE
 icQ
 icQ
 icQ
@@ -371874,7 +371952,7 @@ kRH
 qUs
 icQ
 kZH
-ntq
+xGE
 icQ
 icQ
 icQ
@@ -373827,7 +373905,7 @@ eMy
 eMy
 eMy
 eMy
-eMy
+qxM
 adk
 cRY
 cRY
@@ -379050,7 +379128,7 @@ odo
 qUs
 icQ
 icQ
-ntq
+xGE
 icQ
 icQ
 icQ
@@ -379362,7 +379440,7 @@ kRH
 qUs
 icQ
 icQ
-ntq
+xGE
 icQ
 icQ
 icQ
@@ -395570,8 +395648,8 @@ icQ
 icQ
 icQ
 nrO
-ntq
-ntq
+xGE
+xGE
 ntq
 jve
 cSG
@@ -395882,7 +395960,7 @@ icQ
 fBV
 icQ
 nrO
-ntq
+xGE
 jgN
 ntq
 nPF
@@ -396194,7 +396272,7 @@ icQ
 icQ
 icQ
 nrO
-ntq
+xGE
 oTC
 ntq
 nPF
@@ -396506,7 +396584,7 @@ icQ
 icQ
 icQ
 nrO
-ntq
+xGE
 nrO
 ntq
 nPF
@@ -396820,7 +396898,7 @@ icQ
 nrO
 ntq
 ntq
-ntq
+cEa
 jnV
 qDD
 bxq
@@ -399423,7 +399501,7 @@ azp
 dQA
 xRv
 rSz
-rSz
+oAn
 mGA
 mGA
 mGA
@@ -399734,7 +399812,7 @@ pLN
 vrU
 dQA
 rSz
-wgO
+uqY
 rSz
 oAn
 rSz
@@ -400045,7 +400123,7 @@ xRv
 dQA
 xHv
 dQA
-rSz
+oAn
 rSz
 pEb
 rSz
@@ -400357,7 +400435,7 @@ dQA
 xHv
 aTb
 rSz
-rSz
+oAn
 rSz
 oAn
 rSz
@@ -400980,9 +401058,9 @@ ovP
 dQA
 dQA
 ubS
-mWW
+uqY
 rSz
-rSz
+wgO
 rSz
 fCW
 fCW
@@ -401292,7 +401370,7 @@ dQA
 xHv
 aDz
 oAn
-rSz
+oAn
 rSz
 rSz
 rSz
@@ -402538,7 +402616,7 @@ jrl
 fEH
 jrl
 kCh
-rSz
+oAn
 ubS
 rSz
 rSz
@@ -474814,24 +474892,24 @@ eMy
 eMy
 eMy
 eMy
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
 tSu
 tSu
 tSu
@@ -475124,24 +475202,24 @@ eMy
 eMy
 eMy
 eMy
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
 tSu
 tSu
 tSu
@@ -475435,17 +475513,17 @@ eMy
 eMy
 eMy
 eMy
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
-tSu
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
+eMy
 tSu
 tSu
 tSu
@@ -475747,10 +475825,10 @@ eMy
 eMy
 eMy
 eMy
-tSu
-tSu
-tSu
-tSu
+eMy
+eMy
+eMy
+eMy
 kFh
 kFh
 kFh

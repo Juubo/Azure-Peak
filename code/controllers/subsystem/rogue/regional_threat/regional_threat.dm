@@ -31,6 +31,7 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_FOREST_GOBLIN = 40,
 					QUEST_FACTION_MOON_GOBLIN = 25,
 					QUEST_FACTION_HIGHWAYMAN = 5, // basically for blockade only
+					QUEST_FACTION_GRAGGARITE_SPAWN = 1, //Very rare.
 				),
 				_tp_budget_multiplier = 0.5, //The scale at which threat points generate. Much lower rates but it's also capped at 50 min points.
 				_delivery_reward_multiplier = 1.0,
@@ -51,6 +52,7 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_SEA_GOBLIN = 50, //Sea Goblins?! Yeah sure why not.
 					QUEST_FACTION_STRAY_DEADITE = 10,
 					QUEST_FACTION_MOON_GOBLIN = 5,
+					QUEST_FACTION_GRAGGARITE_SPAWN = 5, //May rarely see them here.
 					QUEST_FACTION_HIGHWAYMAN = 1, // Basically for blockade only
 				),
 				_tp_budget_multiplier = 0.25, //The scale at which threat points generate. Much lower rates but it's also capped at 25 min points.
@@ -73,6 +75,7 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_ORC = 30,
 					QUEST_FACTION_STRAY_DEADITE = 30,
 					QUEST_FACTION_HELL_GOBLIN = 20,
+					QUEST_FACTION_GRAGGARITE_SPAWN = 20, //Graggarite spawn are dangerous and common.
 					QUEST_FACTION_TARICHEA_DEADITE = 15,
 					QUEST_FACTION_HIGHWAYMAN = 15,
 					QUEST_FACTION_LICH_DEADITE = 10, //May occasionally send his army out and about.
@@ -101,6 +104,7 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_LICH_DEADITE = 20, //Much more often spotted underground.
 					QUEST_FACTION_DROW = 20, //Drow gotta be here! It's the underdark!
 					QUEST_FACTION_MINOTAUR = 10, //Oh n o.
+					QUEST_FACTION_GRAGGARITE_SPAWN = 3, //Not commonly found here but may wander here.
 				),
 				_tp_budget_multiplier = 2, //Plans to make the underdark deeper and more dangerous in the future. Only ever at most 1 delivery quest.
 				_delivery_reward_multiplier = 1.0,
