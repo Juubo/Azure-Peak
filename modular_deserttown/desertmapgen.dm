@@ -14,7 +14,7 @@
 	clusterCheckFlags = CLUSTER_CHECK_ALL
 	allowed_turfs = list(/turf/open/floor/rogue/dunes)
 	// excluded_turfs = list()
-	spawnableAtoms = list(/mob/living/carbon/human/species/skeleton/npc/easy = 0.05)
+	spawnableAtoms = list(/mob/living/carbon/human/species/skeleton/npc/easy = 0.1)
 	// spawnableTurfs = list()
 	allowed_areas = list(/area/rogue/outdoors/desertdeep)
 
