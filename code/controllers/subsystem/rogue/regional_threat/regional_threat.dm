@@ -34,8 +34,29 @@ SUBSYSTEM_DEF(regionthreat)
 				),
 				_tp_budget_multiplier = 0.5, //The scale at which threat points generate. Much lower rates but it's also capped at 50 min points.
 				_delivery_reward_multiplier = 1.0,
-				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
-				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_kill_target_floor = 3, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 1, //Rare deliveries.
+				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
+			),
+			new /datum/threat_region(
+				_region_name = THREAT_REGION_FRESH_RIVER,
+				_latent_ambush = 25, //Don't overwhelm people.
+				_min_ambush = 25, //Still not safe but it's a LOT safer compared to other places.
+				_max_ambush = 150, //Closer to the soilsons, keep them safe don't let em die.
+				_fixed_ambush = FALSE,
+				_ambush_budget_pct = AMBUSH_BUDGET_PCT_SAFE_REGION,
+				_lowpop_tick = 300 * THREAT_LOWPOP_TICK_RATE,
+				_highpop_tick = 300 * THREAT_HIGHPOP_TICK_RATE,
+				_faction_weights = list(
+					QUEST_FACTION_SEA_GOBLIN = 50, //Sea Goblins?! Yeah sure why not.
+					QUEST_FACTION_STRAY_DEADITE = 10,
+					QUEST_FACTION_MOON_GOBLIN = 5,
+					QUEST_FACTION_HIGHWAYMAN = 1, // Basically for blockade only
+				),
+				_tp_budget_multiplier = 0.25, //The scale at which threat points generate. Much lower rates but it's also capped at 25 min points.
+				_delivery_reward_multiplier = 1.25, //Good area to farm deliveries and the area that sports the most deliveries anyways.
+				_kill_target_floor = 1, //Deliveries primarily. Rare combat.
+				_evergreen_target = 4, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
 				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
 			new /datum/threat_region(
@@ -58,9 +79,10 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_MADMAN = 5, //The desert holds many, many riches.
 				),
 				_tp_budget_multiplier = 1.25, //The scale at which threat points generate.
-				_delivery_reward_multiplier = 1.0,
-				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
-				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_delivery_reward_multiplier = 1.75, //Huge delivery multiplier for anyone carrying it out. It's a long walk back and forth doing nothing between.
+				//Grand amount of quests out here.
+				_kill_target_floor = 4, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 2, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
 				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
 			new /datum/threat_region(
@@ -80,10 +102,10 @@ SUBSYSTEM_DEF(regionthreat)
 					QUEST_FACTION_DROW = 20, //Drow gotta be here! It's the underdark!
 					QUEST_FACTION_MINOTAUR = 10, //Oh n o.
 				),
-				_tp_budget_multiplier = 1.5, //The scale at which threat points generate.
+				_tp_budget_multiplier = 2, //Plans to make the underdark deeper and more dangerous in the future. Only ever at most 1 delivery quest.
 				_delivery_reward_multiplier = 1.0,
-				_kill_target_floor = 2, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
-				_evergreen_target = 3, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
+				_kill_target_floor = 4, //Kill Target = Kill/Clear Out quests, min amount -> QUEST_KILL_TYPE_WEIGHTS
+				_evergreen_target = 1, //Evergreen = Courier/Retrieval quests, min amount -> QUEST_EVERGREEN_TYPE_WEIGHTS
 				_allowed_quest_types = list(QUEST_KILL_EASY, QUEST_CLEAR_OUT, QUEST_COURIER, QUEST_RETRIEVAL, QUEST_RECOVERY),
 			),
 		)
