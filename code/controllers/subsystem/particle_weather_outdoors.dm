@@ -16,28 +16,28 @@
 	name = "Sunrise"
 	color = "#F598AB"
 	//CC Edit - Desert Colors
-	desert_color = "#ff9c40"
+	desert_color = list("#4778a5", "#6a37c7", "#cf58c9")
 	start = 9.5 HOURS  //9:30:00 AM
 
 /datum/time_of_day/daytime
 	name = "Daytime"
 	color = list("#dbbfbf", "#ddd7bd", "#add1b0", "#a4c0ca", "#ae9dc6", "#d09fbf")
 	//CC Edit - Desert Colors
-	desert_color = list("#ffaf8a", "#ffcab0", "#ffa47a", "#fff78d", "#ffd16d", "#ffc5eb")
+	desert_color = list("#ffecce", "#ffe9de", "#ffd8c6", "#fff9a5", "#ffdc91", "#ffc5eb")
 	start = 10 HOURS //10:00:00 AM
 
 /datum/time_of_day/sunset
 	name = "Sunset"
 	color = "#ff8a63"
 	//CC Edit - Desert Colors
-	desert_color = "#e48315"
+	desert_color = "#ff8080"
 	start = 15 HOURS //3:00:00 PM
 
 /datum/time_of_day/dusk
 	name = "Dusk"
 	color = list("#c26f56", "#c05271", "#b84933")
 	//CC Edit - Desert Colors
-	desert_color = list("#a53f20", "#b43d19", "#cf3607")
+	desert_color = list("#973416", "#a33311", "#b82d03")
 	start = 15.5 HOURS //3:30:00 PM
 
 /datum/time_of_day/midnight
@@ -290,6 +290,8 @@ SUBSYSTEM_DEF(outdoor_effects)
 	//Get weather overlay if not weatherproof
 	OE.overlays = OE.weatherproof ? list(OE.sunlight_overlay) : list(OE.sunlight_overlay, get_weather_overlay())
 	OE.luminosity = MA.luminosity
+	//CC Edit - Brighter Lights w/ the appropriate blend modes during the day
+	OE.blend_mode = MA.blend_mode
 
 //Retrieve an overlay from the list - create if necessary
 /datum/controller/subsystem/outdoor_effects/proc/get_sunlight_overlay(fr, fg, fb, fa)
