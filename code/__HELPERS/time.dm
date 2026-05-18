@@ -81,7 +81,7 @@ GLOBAL_VAR_INIT(date_override_offset, 0)
 				if("dusk")
 					//CC Edit - Desert Map
 					if(desert)
-						if(prob(15))
+						if(prob(10))
 							GLOB.forecast = PARTICLEWEATHER_RAIN
 					else
 						if(prob(30))
@@ -91,9 +91,9 @@ GLOBAL_VAR_INIT(date_override_offset, 0)
 				if("night")
 					//CC Edit - Desert Map
 					if(desert)
-						if(prob(33)) //Make rain the most common at night when things have cooled off. Blood rain occurs more favorably.
+						if(prob(15)) //Make rain the most common at night when things have cooled off. Blood rain occurs more favorably.
 							GLOB.forecast = PARTICLEWEATHER_RAIN
-						if(prob(66) && (SSgamemode.current_storyteller.name == "Zizo" || SSgamemode.current_storyteller.name == "Graggar"))
+						if(prob(33) && (SSgamemode.current_storyteller.name == "Zizo" || SSgamemode.current_storyteller.name == "Graggar"))
 							GLOB.forecast = PARTICLEWEATHER_BLOODRAIN
 					else
 						if(prob(40))
