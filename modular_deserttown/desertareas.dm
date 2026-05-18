@@ -444,3 +444,23 @@
 	converted_type = /area/rogue/outdoors/exposed/church
 	deathsight_message = "a hallowed place, sworn to the One"
 	first_time_text = "THE HOUSE OF THE ONE"
+
+//Unqiue quest area for the indoor quest locations.
+/area/rogue/indoors/town/desert/quest
+	name = "desert town indoors"
+	icon_state = "town"
+	droning_sound = 'sound/music/area/desert/TheRoad.ogg'
+	droning_sound_dusk = 'sound/music/area/desert/NightPrayer.ogg'
+	droning_sound_night = 'sound/music/area/desert/Moonrise.ogg'
+	converted_type = /area/rogue/outdoors/exposed/town
+	town_area = TRUE
+	deathsight_message = "the city of Al-Ashur and all its bustling souls"
+	threat_region = THREAT_REGION_DESERT_TOWN
+	first_time_text = "Something feels off..." //Just a warning for players to know that this place is dangerous.
+	safe = FALSE //Using an unused var for Teleportation as a means to play a different area entry sound.
+
+//Underground caves for the town.
+/area/rogue/under/cavewet/bogcaves/desert
+	name = "The Lower Caverns"
+	first_time_text = "The Lower Caverns"
+	threat_region = THREAT_REGION_DESERT_TOWN_CAVES
