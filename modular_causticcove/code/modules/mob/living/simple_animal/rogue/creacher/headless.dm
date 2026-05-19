@@ -78,7 +78,7 @@
 	icon_state = "claw" //Funny claw
 	layer = HUD_LAYER
 	plane = ABOVE_LIGHTING_PLANE
-	duration = 1 SECONDS // Lasts for the entire duration of the ability including each smaller strike afterwards.
+	duration = 0.6 SECONDS // Lasts for the entire duration of the ability including each smaller strike afterwards.
 
 /datum/intent/simple/bite/headless
 	penfactor = PEN_MEDIUM

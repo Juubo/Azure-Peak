@@ -133,7 +133,7 @@
 		var/rend_turf = get_turf(target)
 		playsound(target, 'sound/combat/wooshes/blunt/wooshhuge (2).ogg', 75, TRUE)
 		new /obj/effect/temp_visual/rend_warning(rend_turf)
-		if(do_after(pawn, 0.5 SECONDS, FALSE, target, progress = FALSE)) //Don't show our progress bar.
+		if(do_after(pawn, 0.3 SECONDS, FALSE, target, progress = FALSE)) //Don't show our progress bar, but do show our special telegraph.
 			if(get_turf(target) == rend_turf)
 				target.Immobilize(25) //2.5 Seconds, enough to follow up with a headbutt.
 				shake_camera(target, 2, 2)
