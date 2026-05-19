@@ -337,8 +337,56 @@ GLOBAL_LIST_INIT(economic_regions, init_economic_regions())
 		TRADE_GOOD_MEAT = TG_DEMAND_MEAT_BULK,
 		TRADE_GOOD_SILK = TG_DEMAND_SILK,
 	)
-
+//==============================================
 //CC Edit - Desert Mappification
+
+//Placeholders, uh, fill with whatever you want in the future, either future poss or whoever.
+/datum/economic_region/town_placeholder
+	region_id = TRADE_REGION_TOWN_PLACEHOLDER
+	name = "Town Placeholder" //Placeholder do update if you want.
+	subtitle = "Placeholder of the town."
+	description = "Placeholder."
+	threat_region_id = THREAT_REGION_DESERT_TOWN
+	produces = list(
+		TRADE_GOOD_IRON_ORE = TG_SUPPLY_IRON,
+		TRADE_GOOD_COPPER_ORE = TG_SUPPLY_TIN_BRONZE,
+		TRADE_GOOD_TIN_ORE = TG_SUPPLY_TIN_BRONZE,
+		TRADE_GOOD_STONE = TG_SUPPLY_CHEAP_RAW_MAT,
+		TRADE_GOOD_COAL = TG_SUPPLY_IRON,
+		TRADE_GOOD_CINNABAR = TG_SUPPLY_PRECIOUS_METAL,
+		TRADE_GOOD_GOLD_ORE = TG_SUPPLY_PRECIOUS_METAL,
+		TRADE_GOOD_SALT = TG_SUPPLY_SALT,
+		TRADE_GOOD_GLASS_BATCH = TG_SUPPLY_GLASS,
+	)
+	demands = list(
+		TRADE_GOOD_GRAIN = TG_DEMAND_LOCAL_GRAIN,
+		TRADE_GOOD_MEAT = TG_DEMAND_MEAT_BULK,
+		TRADE_GOOD_CLOTH = TG_DEMAND_CLOTH,
+	)
+
+/datum/economic_region/lower_caverns_placeholder
+	region_id = TRADE_REGION_LOWER_CAVENRS_PLACEHOLDER
+	name = "Lower Caverns Placeholder" //Placeholder do update if you want.
+	subtitle = "Placeholder of the lower caverns."
+	description = "Placeholder."
+	threat_region_id = THREAT_REGION_DESERT_TOWN_CAVES
+	produces = list(
+		TRADE_GOOD_IRON_ORE = TG_SUPPLY_IRON,
+		TRADE_GOOD_COPPER_ORE = TG_SUPPLY_TIN_BRONZE,
+		TRADE_GOOD_TIN_ORE = TG_SUPPLY_TIN_BRONZE,
+		TRADE_GOOD_STONE = TG_SUPPLY_CHEAP_RAW_MAT,
+		TRADE_GOOD_COAL = TG_SUPPLY_IRON,
+		TRADE_GOOD_CINNABAR = TG_SUPPLY_PRECIOUS_METAL,
+		TRADE_GOOD_GOLD_ORE = TG_SUPPLY_PRECIOUS_METAL,
+		TRADE_GOOD_SALT = TG_SUPPLY_SALT,
+		TRADE_GOOD_GLASS_BATCH = TG_SUPPLY_GLASS,
+	)
+	demands = list(
+		TRADE_GOOD_GRAIN = TG_DEMAND_LOCAL_GRAIN,
+		TRADE_GOOD_MEAT = TG_DEMAND_MEAT_BULK,
+		TRADE_GOOD_CLOTH = TG_DEMAND_CLOTH,
+	)
+
 //This doesn't cover everything I don't think but it's a start.
 /datum/economic_region/glintskye
 	region_id = TRADE_REGION_GLINTSKY

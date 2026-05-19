@@ -110,13 +110,13 @@
 
 /********************BRUTE STEPS********************/
 /datum/surgery_step/heal/brute/basic
-	name = "Tend bruises"
-	brutehealing = 10
+	name = "Tend Bruises"
+	brutehealing = 20 //CC Edit - Faster default healing.
 	missinghpbonus = 6
 	requires_tech = FALSE
-	replaced_by = /datum/surgery_step/heal/brute/upgraded
 
-/datum/surgery_step/heal/brute/upgraded
+//CC Edit - Remove old TG Healing in favor of default healing.
+/* /datum/surgery_step/heal/brute/upgraded
 	name = "Tend bruises (Adv.)"
 	brutehealing = 20
 	missinghpbonus = 4
@@ -128,17 +128,17 @@
 	brutehealing = 30
 	missinghpbonus = 2
 	requires_tech = TRUE
-	replaced_by = null
+	replaced_by = null */
 
 /********************BURN STEPS********************/
 /datum/surgery_step/heal/burn/basic
-	name = "Tend burns"
-	burnhealing = 10
+	name = "Tend Burns"
+	burnhealing = 20 //CC Edit - Faster default healing.
 	missinghpbonus = 7.5
 	requires_tech = FALSE
-	replaced_by = /datum/surgery_step/heal/burn/upgraded
 
-/datum/surgery_step/heal/burn/upgraded
+//CC Edit - Remove old TG Healing in favor of default healing.
+/* /datum/surgery_step/heal/burn/upgraded
 	name = "Tend burns (Adv.)"
 	burnhealing = 10
 	missinghpbonus = 5
@@ -150,18 +150,18 @@
 	burnhealing = 10
 	missinghpbonus = 2.5
 	requires_tech = TRUE
-	replaced_by = null
+	replaced_by = null */
 
 /********************COMBO STEPS********************/
 /datum/surgery_step/heal/combo
-	name = "Tend damage"
-	brutehealing = 6
-	burnhealing = 6
+	name = "Tend Damage"
+	brutehealing = 12 //CC Edit - Faster Default Healing
+	burnhealing = 12 //CC Edit - Faster Default Healing
 	missinghpbonus = 7.5
 	requires_tech = FALSE
-	replaced_by = /datum/surgery_step/heal/combo/upgraded
 
-/datum/surgery_step/heal/combo/upgraded
+//CC Edit - Remove old TG Healing in favor of default healing.
+/* /datum/surgery_step/heal/combo/upgraded
 	name = "Tend damage (Adv.)"
 	brutehealing = 6
 	burnhealing = 6
@@ -175,7 +175,7 @@
 	burnhealing = 6
 	missinghpbonus = 2.5
 	requires_tech = TRUE
-	replaced_by = null
+	replaced_by = null */
 
 /datum/surgery_step/heal/combo/upgraded/femto/failure(mob/user, mob/living/target, target_zone, obj/item/tool, datum/intent/intent, success_prob)
 	display_results(user, target, span_warning("I screwed up!"),

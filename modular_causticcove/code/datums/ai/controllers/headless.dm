@@ -152,7 +152,7 @@
 					playsound(target, 'sound/combat/hits/bladed/largeslash (3).ogg', 75, TRUE)
 					finish_action(controller, TRUE, target_key)
 
-	controller.set_blackboard_key(BB_HEADLESS_REND_COOLDOWN, world.time + 5 SECONDS)
+	controller.set_blackboard_key(BB_HEADLESS_REND_COOLDOWN, world.time + rand(5 SECONDS, 10 SECONDS)) //Random between 5-10 seconds intentional.
 	finish_action(controller, FALSE, target_key)
 
 // HEAD STOMP / EXECUTE BEGIN ==================================
