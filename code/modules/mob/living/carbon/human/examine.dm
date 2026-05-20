@@ -1081,10 +1081,12 @@
 
 		. += app_str
 
+	/* //Caustic Edit - With the Vice being changed into a Trait and used for Roleplay Guidance, lets get rid of this bit.
 	// Characters with the hunted flaw will freak out if they can't see someone's face.
 	if(!appears_dead)
 		if(skipface && HAS_TRAIT(user, TRAIT_HUNTED) && user != src)
-			user.add_stress(/datum/stressevent/hunted)
+			user.add_stress(/datum/stressevent/hunted) */
+	//Caustic Edit End
 
 	if(dna?.species?.type == /datum/species/gnoll)
 		if(istype(user, /mob/living/carbon/human)) //Submitting this one upstream because not our shitcode for once
