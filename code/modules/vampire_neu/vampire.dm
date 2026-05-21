@@ -140,11 +140,11 @@ GLOBAL_LIST_EMPTY(vampire_objects)
 /datum/antagonist/vampire/proc/show_clan_selection(mob/living/carbon/human/vampdude)
 	if(!vampdude)
 		return
-
-	if(vampdude.job == "Wretch")
-		var/wretch_name = tgui_input_text(vampdude, "Enter your Caitiff clan name:", "Custom Clan", "Custom Clan", MAX_NAME_LEN)
-		create_custom_clan(vampdude, wretch_name)
-		return
+	//CC edit: allows wretches to pick a preset clan
+	//if(vampdude.job == "Wretch")
+	//	var/wretch_name = tgui_input_text(vampdude, "Enter your Caitiff clan name:", "Custom Clan", "Custom Clan", MAX_NAME_LEN)
+	//	create_custom_clan(vampdude, wretch_name)
+	//	return
 
 	var/datum/vampire_clan_selection_menu/menu = new(src, vampdude)
 	menu.ui_interact(vampdude)
