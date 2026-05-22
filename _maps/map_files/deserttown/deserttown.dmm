@@ -2318,7 +2318,7 @@
 /obj/structure/mineral_door/wood{
 	locked = 1;
 	lockid = "garrison";
-	name = "Guard's Barracks"
+	name = "Squire Garrison"
 	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -9566,7 +9566,7 @@
 "dHb" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "manor";
-	name = "Sheikh Suite"
+	name = "Councillor Suite"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
@@ -13361,15 +13361,12 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/bath/desert)
 "ffF" = (
-/obj/structure/mineral_door/wood{
-	icon_state = "wcv";
-	locked = 1;
+/obj/structure/mineral_door/wood/window{
 	lockid = "manor";
-	name = "Slaves Quarters"
+	name = "Feast Hall";
+	locked = 1
 	},
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
+/turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/desert/manor)
 "ffU" = (
 /turf/open/transparent/openspace,
@@ -13730,6 +13727,11 @@
 /obj/structure/fluff/railing/border{
 	dir = 9;
 	layer = 2
+	},
+/obj/structure/roguemachine/mail{
+	mailtag = "Hand's Office";
+	pixel_y = 0;
+	pixel_x = 32
 	},
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/manor/desert)
@@ -14500,10 +14502,6 @@
 "fFw" = (
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/church)
-"fFx" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/town/manor/desert)
 "fFA" = (
 /obj/structure/closet/crate/chest{
 	lockid = "armory"
@@ -19396,13 +19394,10 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/indoors/town/academy/desert)
 "hHm" = (
-/obj/item/rogueweapon/sword/long/exe/cloth,
 /obj/structure/closet/crate/roguecloset{
 	keylock = 1;
 	lockid = "dungeon"
 	},
-/obj/item/rogueweapon/whip/antique,
-/obj/item/clothing/head/roguetown/roguehood/shalal/purple,
 /obj/machinery/light/rogue/candle,
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -20533,11 +20528,9 @@
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/town/grove)
 "igC" = (
-/obj/structure/bookcase/random{
-	density = 0
-	},
-/turf/open/floor/rogue/tile/masonic/inverted,
-/area/rogue/indoors/town/manor/desert)
+/obj/structure/bookcase/random,
+/turf/open/floor/carpet/stellar,
+/area/rogue/indoors/town/magician/desert)
 "igG" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement/desert/town{
@@ -20815,7 +20808,7 @@
 "imE" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "knight";
-	name = "Cataphractii Wing";
+	name = "Knight's Wing";
 	locked = 1
 	},
 /turf/open/floor/carpet/stellar,
@@ -25561,10 +25554,6 @@
 	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/garrison/desert/cell)
-"kjg" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/rogue/ruinedwood,
-/area/rogue/indoors/town/magician/desert)
 "kjj" = (
 /obj/structure/fluff/walldeco/wantedposter{
 	pixel_x = -32
@@ -25612,9 +25601,6 @@
 /obj/structure/table/wood/long_table,
 /obj/structure/rack/rogue/shelf/big,
 /obj/item/natural/feather,
-/obj/structure/roguemachine/mail{
-	mailtag = "Slave Master's Office"
-	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
 "kks" = (
@@ -30837,6 +30823,7 @@
 /obj/structure/table/vtable/v2,
 /obj/item/paper/scroll,
 /obj/item/natural/feather,
+/obj/item/scomstone,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/manor/desert)
 "mpt" = (
@@ -36733,7 +36720,7 @@
 "oJc" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "sheriff";
-	name = "Cataphract Captain's Quarters";
+	name = "Knight Captain's Quarters";
 	locked = 1
 	},
 /turf/open/floor/carpet/stellar,
@@ -38959,7 +38946,7 @@
 /obj/structure/mineral_door/wood/fancywood{
 	locked = 1;
 	lockid = "hand";
-	name = "Vizier's Chambers"
+	name = "Hand's Quarter's"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
@@ -39560,8 +39547,9 @@
 /area/rogue/indoors/town/desert)
 "pML" = (
 /obj/structure/mineral_door/wood/fancywood{
-	lockid = "dungeon";
-	name = "Slavemaster's Chambers"
+	lockid = "manor";
+	name = "Guest Chamber";
+	locked = 1
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
@@ -41458,7 +41446,7 @@
 "qBR" = (
 /obj/structure/mineral_door/wood/fancywood{
 	lockid = "knight";
-	name = "Cataphract's Quarters";
+	name = "Knight's Quarters";
 	locked = 1
 	},
 /turf/open/floor/carpet/stellar,
@@ -43621,7 +43609,8 @@
 "rwx" = (
 /obj/structure/mineral_door/wood{
 	locked = 1;
-	lockid = "manor"
+	lockid = "manor";
+	name = "Squire Garrison"
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert/manor)
@@ -45141,8 +45130,12 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor/desert)
 "sbH" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/rogue/tile/masonic/inverted,
+/obj/structure/bookcase/random{
+	density = 0
+	},
+/turf/closed/wall/mineral/rogue/sandbrick{
+	density = 0
+	},
 /area/rogue/indoors/town/manor/desert)
 "sbY" = (
 /obj/item/natural/rock,
@@ -45513,7 +45506,8 @@
 /area/rogue/indoors/inq/office)
 "sjz" = (
 /obj/structure/mineral_door/wood{
-	lockid = "hand"
+	lockid = "hand";
+	locked = 1
 	},
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/manor/desert)
@@ -59662,7 +59656,7 @@
 	icon_state = "wcv";
 	locked = 1;
 	lockid = "manor";
-	name = "Head Slave's Room"
+	name = "Senechal's Room"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -388499,7 +388493,7 @@ dKT
 rCP
 rCP
 dKT
-ffF
+qAr
 dKT
 dKT
 dai
@@ -393189,8 +393183,8 @@ dKT
 dKT
 dKT
 dKT
-jPj
-jPj
+ffF
+ffF
 dKT
 dKT
 dKT
@@ -506438,7 +506432,7 @@ hZy
 llf
 sbH
 sbH
-igC
+sbH
 sbH
 hZy
 hZy
@@ -508005,12 +507999,12 @@ pBz
 hZy
 hZy
 hZy
-fFx
+sbH
 hZy
 hZy
 hZy
 hZy
-fFx
+sbH
 hZy
 llf
 qGA
@@ -509238,7 +509232,7 @@ llf
 hZy
 hZy
 hZy
-fFx
+sbH
 hZy
 hZy
 hZy
@@ -509263,7 +509257,7 @@ hZy
 dho
 asW
 eSk
-fFx
+sbH
 llf
 hZy
 hZy
@@ -509577,7 +509571,7 @@ asW
 eSk
 hZy
 sCF
-fFx
+sbH
 xLM
 vkx
 hZy
@@ -509868,7 +509862,7 @@ ukY
 asW
 hZy
 hZy
-fFx
+sbH
 hZy
 hZy
 hZy
@@ -519245,8 +519239,8 @@ lxL
 jOg
 vkx
 icy
-kjg
-enW
+jvb
+igC
 enW
 enW
 afk
@@ -519557,8 +519551,8 @@ jQb
 jOg
 vkx
 qex
-kjg
-enW
+jvb
+igC
 qWC
 eDx
 yiR
@@ -519869,7 +519863,7 @@ vkx
 vkx
 vkx
 cns
-kjg
+jvb
 uYQ
 dfb
 utl
@@ -520471,7 +520465,7 @@ llf
 vZK
 hZy
 sCF
-fFx
+sbH
 wpp
 rNv
 lwu
