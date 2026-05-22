@@ -1561,18 +1561,11 @@
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert/manor)
 "aGo" = (
-<<<<<<< Updated upstream
 /obj/effect/landmark/start/hand{
 	dir = 8
 	},
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/desert/manor)
-=======
-/obj/structure/roguewindow,
-/obj/structure/curtain/red,
-/turf/open/floor/rogue/herringbone,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "aGq" = (
 /obj/structure/spider/stickyweb,
 /turf/open/floor/rogue/naturalstone/sandstone,
@@ -1783,24 +1776,9 @@
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/tavern/desert)
 "aLc" = (
-<<<<<<< Updated upstream
 /obj/effect/landmark/start/dt/slavemaster,
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/town/desert/manor)
-=======
-/obj/structure/bars/passage/shutter{
-	redstone_id = "crier"
-	},
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81
-	},
-/obj/structure/table/wood/poor,
-/turf/open/floor/rogue/deserttile{
-	icon_state = "tiledrab2"
-	},
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "aLF" = (
 /obj/structure/stairs{
 	dir = 4
@@ -2766,20 +2744,12 @@
 /turf/open/floor/rogue/hexstone,
 /area/rogue/under/underdarker)
 "bfs" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/railing/border,
 /obj/structure/fluff/clock{
 	pixel_y = 9
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/standingbell{
-	name = "steward service bell"
-	},
-/turf/open/floor/rogue/metal,
-/area/rogue/outdoors/town/desert)
->>>>>>> Stashed changes
 "bfw" = (
 /obj/structure/fluff/railing/border{
 	dir = 1
@@ -5012,12 +4982,6 @@
 "bTI" = (
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/tavern/desert)
-"bTO" = (
-/obj/effect/landmark/start/hand{
-	dir = 8
-	},
-/turf/open/floor/carpet/purple,
-/area/rogue/indoors/town/manor/desert)
 "bTP" = (
 /turf/open/water/bath,
 /area/rogue/indoors/town/church)
@@ -5090,17 +5054,9 @@
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desertdeep)
 "bUS" = (
-<<<<<<< Updated upstream
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/dunes,
 /area/rogue/under/cavewet/bogcaves/desert)
-=======
-/obj/effect/decal/cleanable/roguerune/arcyne/enchantment,
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "bVj" = (
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -5144,10 +5100,6 @@
 /obj/structure/flora/roguegrass/bush/jungle,
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/desert)
-"bVO" = (
-/obj/structure/bed/rogue/shit,
-/turf/open/floor/rogue/cobblerock,
-/area/rogue/indoors/town/bath/desert)
 "bVV" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -5208,12 +5160,6 @@
 	},
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desertdeep)
-"bXz" = (
-/obj/machinery/light/rogue/candle/weak/l,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "bXE" = (
 /obj/structure/arcyne_wall,
 /turf/open/floor/rogue/darkpath,
@@ -5348,7 +5294,6 @@
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desert)
 "cai" = (
-<<<<<<< Updated upstream
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/random,
 /obj/item/clothing/under/roguetown/tights/random,
@@ -5357,11 +5302,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/fluff/railing/border/east,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
->>>>>>> Stashed changes
 "cap" = (
 /obj/structure/rack/rogue/shelf/big,
 /obj/item/natural/bundle/stick,
@@ -6750,18 +6690,9 @@
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/under/cave)
 "cDa" = (
-<<<<<<< Updated upstream
 /obj/effect/landmark/start/dt/slave,
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/indoors/town/desert/manor)
-=======
-/obj/structure/standingbell{
-	name = "church service bell";
-	dir = 1
-	},
-/turf/open/floor/rogue/churchbrick,
-/area/rogue/indoors/town/church)
->>>>>>> Stashed changes
 "cDb" = (
 /obj/structure/chair/wood/zybantine,
 /turf/open/floor/carpet/royalblack,
@@ -7407,12 +7338,6 @@
 /obj/effect/landmark/chest_or_mimic,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/magician/desert)
-"cQp" = (
-/obj/structure/bookcase/random{
-	density = 0
-	},
-/turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/magician/desert)
 "cQq" = (
 /obj/structure/closet/crate/chest{
 	lockid = "merc"
@@ -7500,7 +7425,6 @@
 	},
 /area/rogue/indoors/shelter/desertdeep)
 "cRW" = (
-<<<<<<< Updated upstream
 /obj/structure/table/wood{
 	icon_state = "longtable"
 	},
@@ -7509,12 +7433,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/handcart,
-/obj/structure/roguemachine/scomm/r,
-/turf/open/floor/rogue/blocks,
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "cRX" = (
 /turf/open/floor/rogue/citybrick/citybrick5,
 /area/rogue/outdoors/desertdeep/above)
@@ -7667,16 +7585,6 @@
 	},
 /turf/open/floor/carpet/stellar,
 /area/rogue/indoors/town/manor/desert)
-"cUA" = (
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/egg,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
-/obj/item/reagent_containers/food/snacks/rogue/meat/steak,
-/obj/structure/closet/crate/chest/crate,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/desert)
 "cUC" = (
 /obj/item/organ/heart,
 /obj/item/organ/liver,
@@ -8335,12 +8243,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/garrison/desert)
-"dhM" = (
-/obj/structure/fluff/alch,
-/turf/open/floor/rogue/ruinedwood/spiral{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/academy/desert)
 "dhP" = (
 /obj/structure/roguetent,
 /turf/open/floor/rogue/sandbrick,
@@ -8372,12 +8274,6 @@
 /area/rogue/indoors/town/cell{
 	warden_area = 1
 	})
-"dip" = (
-/obj/structure/roguewindow,
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "diq" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/random,
@@ -8703,10 +8599,6 @@
 /obj/effect/decal/cleanable/dirt/cobweb,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desertdeep)
-"doI" = (
-/obj/effect/landmark/start/crier,
-/turf/open/floor/carpet/red,
-/area/rogue/indoors/town/desert)
 "doK" = (
 /obj/machinery/light/rogue/candle/floorcandle{
 	pixel_x = -1;
@@ -8981,23 +8873,8 @@
 	},
 /area/rogue/indoors/town/desert)
 "dtO" = (
-<<<<<<< Updated upstream
 /turf/open/floor/rogue/dunes,
 /area/rogue/under/cavewet/bogcaves/desert)
-=======
-/obj/structure/table/wood/poor/alt_alt{
-	color = "#C4A484"
-	},
-/obj/structure/broadcast_horn/paid{
-	broadcaster_tag = "Public Broadcaster";
-	dir = 4d;
-	pixel_y = 8
-	},
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "dtS" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -9411,24 +9288,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/under/town/basement/desert/town)
 "dCT" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/walldeco/wantedposter,
 /obj/item/roguebin/trash,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
-=======
-/obj/structure/lever/wall{
-	dir = 8;
-	name = "shutters";
-	redstone_id = "crier"
-	},
-/obj/structure/fluff/railing/border,
-/obj/machinery/light/rogue/candle/weak/l,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "dCW" = (
 /obj/structure/bed/rogue/inn/wool{
 	dir = 1
@@ -9577,16 +9440,9 @@
 	},
 /area/rogue/indoors/town/desert)
 "dEW" = (
-<<<<<<< Updated upstream
 /obj/effect/landmark/start/dt/headslave,
 /turf/open/floor/rogue/citybrick/citybrick2,
 /area/rogue/indoors/town/desert/manor)
-=======
-/obj/structure/bed/rogue/inn/double,
-/obj/item/bedsheet/rogue/fabric_double,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "dFg" = (
 /obj/machinery/light/rogue/candle/blue,
 /obj/structure/mirror{
@@ -9673,7 +9529,6 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/cave/dungeon1)
 "dGG" = (
-<<<<<<< Updated upstream
 /obj/structure/roguewindow/openclose/reinforced{
 	dir = 1
 	},
@@ -9681,13 +9536,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/bookcase/random{
-	density = 0
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "dGI" = (
 /obj/structure/bearpelt{
 	pixel_x = -15;
@@ -11546,11 +11394,6 @@
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/tile/checkeralt,
 /area/rogue/under/town/basement/desert/town)
-"eqO" = (
-/obj/structure/table/wood/poor,
-/obj/machinery/light/rogue/candle,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/desert)
 "eqS" = (
 /obj/structure/chair/zybantine_sofa/left,
 /turf/open/floor/carpet/purple,
@@ -11622,18 +11465,9 @@
 	},
 /area/rogue/indoors/town/desert)
 "erR" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/campfire/fireplace/desert,
 /turf/closed/wall/mineral/rogue/sandbrick,
 /area/rogue/indoors/town/desert/manor)
-=======
-/obj/structure/bed/rogue/inn,
-/obj/item/bedsheet/rogue/fabric,
-/turf/open/floor/rogue/wood,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
->>>>>>> Stashed changes
 "erU" = (
 /obj/structure/flora/roguetree/palm,
 /obj/effect/landmark/quest_spawner/easy,
@@ -11755,22 +11589,6 @@
 "euC" = (
 /turf/open/floor/rogue/dunes,
 /area/rogue/under/cavewet)
-"euG" = (
-/obj/effect/decal/cobbleedge{
-	icon_state = "borderfall";
-	pixel_y = -8
-	},
-/obj/structure/closet/crate/roguecloset/dark{
-	lockid = "manor"
-	},
-/obj/item/clothing/head/roguetown/turban/fancypurple,
-/obj/item/clothing/under/roguetown/trou/shadowpants,
-/obj/item/clothing/suit/roguetown/shirt/tunic,
-/obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman,
-/obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
-/obj/item/clothing/cloak/hierophant,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/manor/desert)
 "euO" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/carpet/royalblack,
@@ -12731,7 +12549,6 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/under/town/basement/desert)
 "eNM" = (
-<<<<<<< Updated upstream
 /obj/structure/mineral_door/wood{
 	locked = 1;
 	lockid = "crafterguild";
@@ -12740,10 +12557,6 @@
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-=======
-/obj/structure/fluff/railing/border/west,
-/turf/open/floor/rogue/wood,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/dwarfin/desert)
 "eNQ" = (
 /turf/open/floor/rogue/tile/brownbrick{
@@ -13735,15 +13548,6 @@
 /obj/machinery/light/rogue/campfire/densefire,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desertdeep)
-"fiU" = (
-/obj/structure/stairs{
-	dir = 1
-	},
-/turf/open/floor/rogue/deserttile{
-	icon_state = "tiledrab2";
-	color = "#d4d6d6"
-	},
-/area/rogue/indoors/town/dwarfin/desert)
 "fjj" = (
 /obj/machinery/light/roguestreet/orange/walllamp{
 	dir = 8
@@ -13986,18 +13790,9 @@
 	warden_area = 1
 	})
 "fpQ" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/dunes,
 /area/rogue/under/cavewet/bogcaves/desert)
-=======
-/obj/structure/standingbell{
-	dir = 1;
-	name = "merchant service bell"
-	},
-/turf/open/floor/rogue/darkpath,
-/area/rogue/outdoors/town/desert)
->>>>>>> Stashed changes
 "fqk" = (
 /obj/machinery/light/rogue/candle/blue/l,
 /turf/open/water/bath,
@@ -14388,10 +14183,6 @@
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert)
-"fzD" = (
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/floor/rogue/citybrick/citybrick1,
-/area/rogue/outdoors/town/desert)
 "fzF" = (
 /obj/structure/mineral_door/wood/donjon{
 	dir = 4;
@@ -14710,17 +14501,8 @@
 /turf/open/floor/rogue/blocks/stonered,
 /area/rogue/indoors/town/church)
 "fFx" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/ruinedwood,
-=======
-/obj/structure/bookcase/random{
-	density = 0
-	},
-/turf/closed/wall/mineral/rogue/sandbrick{
-	density = 0
-	},
->>>>>>> Stashed changes
 /area/rogue/indoors/town/manor/desert)
 "fFA" = (
 /obj/structure/closet/crate/chest{
@@ -14979,13 +14761,6 @@
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/steward)
-"fKk" = (
-/obj/structure/standingbell{
-	dir = 1;
-	name = "guild service bell"
-	},
-/turf/open/floor/rogue/darkpath,
-/area/rogue/outdoors/town/desert)
 "fKv" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/camel/tame/saddled,
 /turf/open/floor/rogue/hay,
@@ -15793,12 +15568,6 @@
 	icon_state = "tilegreeny"
 	},
 /area/rogue/indoors/town/church)
-"gei" = (
-/obj/structure/stairs{
-	dir = 8
-	},
-/turf/open/floor/rogue/lightpath,
-/area/rogue/indoors/town/desert)
 "gej" = (
 /obj/machinery/light/rogue/hearth,
 /turf/open/floor/rogue/twig,
@@ -16305,16 +16074,10 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/shop/desert)
 "gof" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/railing/border{
 	dir = 5
 	},
 /turf/closed/wall/mineral/rogue/sandbrick,
-=======
-/obj/machinery/light/rogue/hearth,
-/obj/machinery/light/rogue/oven/south,
-/turf/open/floor/rogue/hexstone,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/desert)
 "goh" = (
 /obj/structure/chair/stool/rogue,
@@ -16341,17 +16104,9 @@
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/desert/above)
 "got" = (
-<<<<<<< Updated upstream
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/bath/desert)
-=======
-/obj/effect/landmark/start/squire{
-	dir = 4
-	},
-/turf/open/floor/rogue/tile/harem,
-/area/rogue/indoors/town/desert/manor)
->>>>>>> Stashed changes
 "gou" = (
 /obj/structure/roguewindow/harem3,
 /obj/structure/drape/zybantine,
@@ -16365,19 +16120,12 @@
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/under/cave)
 "goA" = (
-<<<<<<< Updated upstream
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "tablewood1"
 	},
 /obj/item/candle/yellow,
 /obj/structure/rack/rogue/shelf,
-=======
-/obj/machinery/light/rogue/candle/l,
-/obj/structure/fluff/walldeco/rpainting/crown{
-	pixel_y = 32
-	},
->>>>>>> Stashed changes
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
 "goF" = (
@@ -17042,26 +16790,14 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert/manor)
-"gDo" = (
-/obj/structure/fluff/railing/corner/south_east,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
 "gDr" = (
 /obj/structure/composter,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician/desert)
 "gDy" = (
-<<<<<<< Updated upstream
 /obj/item/cushion/desert2,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/closet/crate/roguecloset,
-/turf/open/floor/rogue/wood,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
->>>>>>> Stashed changes
 "gDC" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/ruinedwood/spiral,
@@ -17362,22 +17098,9 @@
 	},
 /area/rogue/indoors/town/desert/manor)
 "gKo" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/closet/crate/roguecloset{
-	keylock = 1;
-	locked = 1;
-	lockid = "crafterguild"
-	},
-/obj/item/roguekey/crafterguild,
-/obj/item/rogueweapon/hammer/iron,
-/obj/item/rogueweapon/tongs,
-/turf/open/floor/rogue/wood/herringbone,
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "gKq" = (
 /obj/structure/table/vtable,
 /obj/effect/spawner/lootdrop/cheap_tableware_spawner,
@@ -17495,7 +17218,6 @@
 /turf/open/floor/rogue/dirt/road/desert,
 /area/rogue/indoors/town/physician/desert)
 "gLP" = (
-<<<<<<< Updated upstream
 /obj/structure/closet/crate/roguecloset,
 /obj/item/reagent_containers/food/snacks/grown/wheat,
 /obj/item/reagent_containers/food/snacks/grown/wheat,
@@ -17505,18 +17227,6 @@
 /area/rogue/under/town/basement/desert/town{
 	tavern_area = 1
 	})
-=======
-/obj/structure/closet/crate/chest/wicker,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/item/reagent_containers/food/snacks/rogue/crackerscooked,
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 1
-	},
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "gLT" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -17949,19 +17659,6 @@
 	},
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/town/manor/desert/roofs)
-"gVH" = (
-/obj/structure/bars/passage/shutter{
-	redstone_id = "crier"
-	},
-/obj/structure/bars{
-	icon_state = "barsbent";
-	layer = 2.81
-	},
-/obj/structure/table/wood/poor,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "gVI" = (
 /obj/structure/mineral_door/wood{
 	icon_state = "wcv";
@@ -18899,15 +18596,10 @@
 	},
 /area/rogue/under/town/basement/desert)
 "hnQ" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/railing/border{
 	dir = 1
 	},
 /turf/open/floor/rogue/wood,
-=======
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/floor/rogue/tile/harem,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/dwarfin/desert)
 "hnV" = (
 /obj/structure/fluff/signage{
@@ -18985,15 +18677,9 @@
 /turf/open/floor/rogue/blocks,
 /area/rogue/indoors/town/bath/desert)
 "hpH" = (
-<<<<<<< Updated upstream
 /mob/living/carbon/human/species/human/northern/bum/ambush,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/garrison/desert/cell)
-=======
-/obj/structure/roguemachine/scomm/l,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "hpT" = (
 /obj/machinery/light/rogue/hearth{
 	pixel_y = 10
@@ -19201,10 +18887,6 @@
 /obj/item/rogueweapon/tongs,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/cave/rhgoblinencampment)
-"hvh" = (
-/obj/structure/fluff/railing/corner/south_west,
-/turf/closed/wall/mineral/rogue/sandbrick,
-/area/rogue/indoors/town/desert)
 "hvn" = (
 /obj/structure/bed/rogue/shit,
 /turf/open/floor/rogue/cobble,
@@ -19320,7 +19002,6 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/cave/skeletoncrypt)
 "hye" = (
-<<<<<<< Updated upstream
 /obj/item/clothing/cloak/hierophant,
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/black,
 /obj/item/clothing/suit/roguetown/armor/leather/vest/sailor/nightman,
@@ -19332,14 +19013,6 @@
 /obj/item/clothing/head/roguetown/turban/fancypurple,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/manor/desert)
-=======
-/obj/structure/stairs{
-	dir = 2
-	},
-/obj/machinery/light/rogue/candle/l,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "hyn" = (
 /obj/structure/table/church,
 /obj/item/candle/skull/lit{
@@ -19555,30 +19228,10 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/cave/rhgoblinencampment)
 "hEd" = (
-<<<<<<< Updated upstream
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/wool,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/closet/crate/roguecloset/inn,
-/obj/item/magic/manacrystal,
-/obj/item/magic/manacrystal,
-/obj/item/magic/manacrystal,
-/obj/item/magic/manacrystal,
-/obj/item/reagent_containers/food/snacks/grown/manabloom,
-/obj/item/reagent_containers/food/snacks/grown/manabloom,
-/obj/item/reagent_containers/food/snacks/grown/manabloom,
-/obj/item/magic/obsidian,
-/obj/item/magic/obsidian,
-/obj/item/magic/obsidian,
-/obj/item/chalk,
-/obj/item/chalk,
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "hEk" = (
 /obj/structure/table/wood{
 	dir = 8;
@@ -20141,10 +19794,6 @@
 /obj/structure/flora/roguegrass,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desert/above)
-"hPQ" = (
-/obj/structure/fluff/railing/border/west,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "hQA" = (
 /obj/structure/mirror{
 	pixel_x = 32;
@@ -20191,16 +19840,11 @@
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/under/town/basement/desert)
 "hRc" = (
-<<<<<<< Updated upstream
 /obj/structure/closet/crate/drawer{
 	pixel_y = 16
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/turf/open/floor/rogue/citybrick/citybrick1,
-/area/rogue/under/town/basement/desert/town)
->>>>>>> Stashed changes
 "hRe" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -20889,17 +20533,11 @@
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/town/grove)
 "igC" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random{
 	density = 0
 	},
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/manor/desert)
-=======
-/obj/structure/fluff/railing/corner,
-/turf/open/floor/rogue/tile/harem,
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "igG" = (
 /turf/open/floor/rogue/wood,
 /area/rogue/under/town/basement/desert/town{
@@ -20941,13 +20579,6 @@
 	color = "#d4ffcf"
 	},
 /area/rogue/under/cave/skeletoncrypt)
-"igZ" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1;
-	layer = 3
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "ihc" = (
 /obj/effect/landmark/start/cook,
 /turf/open/floor/rogue/tile/brownbrick{
@@ -21844,21 +21475,9 @@
 	},
 /area/rogue/outdoors/desert)
 "iAq" = (
-<<<<<<< Updated upstream
 /obj/structure/mineral_door/wood,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/closet/crate/roguecloset,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/obj/item/reagent_containers/food/snacks/grown/wheat,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
->>>>>>> Stashed changes
 "iAs" = (
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/indoors/town/grove)
@@ -23841,14 +23460,6 @@
 /area/rogue/indoors/town/physician/desert{
 	keep_area = 1
 	})
-"jtb" = (
-/obj/machinery/gear_painter,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
 "jth" = (
 /obj/structure/bars,
 /turf/open/floor/rogue/concrete{
@@ -25673,10 +25284,6 @@
 /obj/structure/composter/halffull,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/desert/manor)
-"kcz" = (
-/obj/structure/fluff/railing/border/west,
-/turf/open/floor/rogue/sandbrick,
-/area/rogue/outdoors/town/roofs/desert)
 "kcJ" = (
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/indoors/town/desert/manor)
@@ -25955,15 +25562,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/garrison/desert/cell)
 "kjg" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/magician/desert)
-=======
-/obj/structure/fluff/railing/corner/south_west,
-/turf/open/floor/rogue/deserttile,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "kjj" = (
 /obj/structure/fluff/walldeco/wantedposter{
 	pixel_x = -32
@@ -26068,12 +25669,6 @@
 	},
 /turf/open/transparent/openspace,
 /area/rogue/indoors/town/desert)
-"kkZ" = (
-/obj/structure/stairs/ccw{
-	dir = 1
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/dwarfin/desert)
 "klh" = (
 /obj/structure/table/wood,
 /obj/item/book/rogue/law,
@@ -26220,13 +25815,6 @@
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desert)
-"knq" = (
-/obj/structure/rack/rogue/shelf/biggest,
-/obj/structure/fluff/wallclock/l,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "knt" = (
 /obj/item/bee_smoker,
 /turf/open/floor/rogue/dirt/road/desert,
@@ -26908,14 +26496,6 @@
 /obj/item/bedsheet/rogue/wool,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/desert)
-"kCn" = (
-/obj/item/candle/candlestick/silver/lit{
-	pixel_x = 16;
-	pixel_y = 6
-	},
-/obj/structure/table/wood/large_table/north_west,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
 "kCq" = (
 /obj/structure/stairs/desert{
 	dir = 4
@@ -27003,14 +26583,6 @@
 /obj/item/reagent_containers/glass/cup/steel,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/bath/desert)
-"kEN" = (
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 8
-	},
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
 "kFh" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/desert/above)
@@ -27143,19 +26715,9 @@
 	},
 /area/rogue/indoors/town/desert)
 "kHd" = (
-<<<<<<< Updated upstream
 /obj/effect/landmark/start/bathmaster,
 /turf/open/floor/rogue/carpet,
 /area/rogue/indoors/town/bath/desert)
-=======
-/obj/structure/roguemachine/mail{
-	mailtag = "Town Crier";
-	pixel_y = 0;
-	pixel_x = -32
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "kHh" = (
 /obj/structure/flora/roguegrass/bush/wall/tall,
 /turf/open/floor/rogue/grasscold,
@@ -28073,15 +27635,11 @@
 	},
 /area/rogue/indoors/town/dwarfin/desert)
 "lci" = (
-<<<<<<< Updated upstream
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "tablewood1"
 	},
 /obj/item/candle/yellow,
-=======
-/obj/structure/fermentation_keg/sandpot/water,
->>>>>>> Stashed changes
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
 "lcl" = (
@@ -28451,12 +28009,6 @@
 /obj/structure/bars,
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/under/cavewet/bogcaves/desert)
-"ljO" = (
-/obj/structure/fluff/railing/border/west,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "ljT" = (
 /obj/structure/stairs/desert{
 	dir = 1;
@@ -28814,13 +28366,6 @@
 /mob/living/simple_animal/pet/cat/rogue,
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/indoors/town/grove)
-"lsg" = (
-/obj/structure/chair/wood/rogue{
-	dir = 4
-	},
-/obj/machinery/light/rogue/candle/l,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "lsi" = (
 /obj/item/rope/chain,
 /obj/item/rope/chain,
@@ -28909,10 +28454,6 @@
 /obj/item/bedsheet/rogue/pelt,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/tavern/desert)
-"lue" = (
-/obj/structure/fluff/railing/border/north,
-/turf/open/floor/rogue/tile/harem,
-/area/rogue/indoors/town/dwarfin/desert)
 "lui" = (
 /obj/structure/fluff/railing/border{
 	dir = 4
@@ -29064,12 +28605,6 @@
 /obj/structure/rack/rogue,
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/under/town/basement/desert)
-"lwE" = (
-/obj/machinery/light/rogue/candle/weak,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "lwF" = (
 /obj/effect/spawner/roguemap/hauntpile,
 /turf/open/floor/carpet/royalblack,
@@ -29652,7 +29187,6 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/town/basement/desert)
 "lJw" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/candle/r,
 /obj/structure/table/wood{
 	dir = 1;
@@ -29660,11 +29194,6 @@
 	},
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/structure/fluff/railing/corner/south_west,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "lJy" = (
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/garrison/desert)
@@ -30678,23 +30207,6 @@
 	},
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/bath/desert)
-"mdo" = (
-/obj/structure/closet/crate/roguecloset{
-	keylock = 1;
-	lockid = "dungeon"
-	},
-/obj/item/reagent_containers/glass/bottle/claybottle/wine,
-/obj/item/reagent_containers/glass/bottle/claybottle/wine,
-/obj/item/reagent_containers/glass/bottle/claybottle/wine,
-/obj/item/reagent_containers/glass/bottle/claybottle/wine,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/manor/desert)
-"mdH" = (
-/obj/item/clothing/suit/roguetown/shirt/dress/silkdress/loudmouth,
-/obj/structure/mannequin,
-/obj/item/clothing/head/roguetown/veiled/loudmouth,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "mdN" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/outdoors/desertdeep)
@@ -30765,13 +30277,6 @@
 "meZ" = (
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/outdoors/mountains)
-"mfc" = (
-/obj/structure/mineral_door/wood/red{
-	locked = 1;
-	lockid = "crier"
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "mfq" = (
 /turf/open/floor/rogue/citybrick/citybrick5,
 /area/rogue/indoors/town/desert/manor)
@@ -31216,14 +30721,6 @@
 	layer = 4.2
 	},
 /turf/closed/wall/mineral/rogue/wooddark/window,
-/area/rogue/indoors/town/desert)
-"mnr" = (
-/obj/item/reagent_containers/glass/cup/silver/small{
-	pixel_x = 7;
-	pixel_y = 6
-	},
-/obj/structure/table/wood/large_table/south_west,
-/turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/desert)
 "mnt" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/headless,
@@ -31879,19 +31376,9 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/church/basement)
 "mDF" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/fluff/railing/border{
-	dir = 8;
-	pixel_x = -7
-	},
-/obj/effect/landmark/start/tapster,
-/turf/open/floor/rogue/tile/harem,
-/area/rogue/indoors/town/tavern/desert)
->>>>>>> Stashed changes
 "mDP" = (
 /obj/item/roguebin,
 /obj/structure/fluff/nest{
@@ -32482,14 +31969,6 @@
 /obj/structure/fluff/walldeco/vinez/red,
 /turf/closed/wall/mineral/rogue/sandstone,
 /area/rogue/indoors/town/garrison/desert)
-"mQQ" = (
-/obj/structure/table/vtable,
-/obj/structure/broadcast_horn/loudmouth{
-	dir = 8;
-	pixel_y = 16
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
 "mQU" = (
 /obj/structure/fluff/canopy/side{
 	dir = 1;
@@ -32716,10 +32195,6 @@
 /obj/item/roguebin/water/gross,
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
-"mVT" = (
-/obj/structure/table/wood/large_table/north_east,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
 "mWk" = (
 /obj/structure/stairs/stone{
 	dir = 1
@@ -32922,11 +32397,6 @@
 	},
 /turf/open/water/swamp,
 /area/rogue/under/cave/dungeon1)
-"nak" = (
-/obj/structure/closet/crate/roguecloset,
-/obj/machinery/light/rogue/candle/l,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "nao" = (
 /obj/item/reagent_containers/glass/bucket{
 	anchored = 1
@@ -32987,15 +32457,8 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
 "nbk" = (
-<<<<<<< Updated upstream
 /obj/item/cushion/desert1,
 /turf/open/floor/rogue/wood/herringbone,
-=======
-/obj/structure/roguemachine/crier,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
->>>>>>> Stashed changes
 /area/rogue/indoors/town/desert)
 "nbo" = (
 /obj/structure/minecart_rail{
@@ -33855,21 +33318,11 @@
 	},
 /area/rogue/under/town/basement/desert)
 "nsn" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/hexstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/structure/table/vtable/v2,
-/obj/structure/broadcast_horn/loudmouth/guest{
-	dir = 4;
-	pixel_y = 18
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "nss" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -34495,12 +33948,6 @@
 /obj/structure/chair/wood/rogue,
 /turf/open/floor/rogue/woodturned,
 /area/rogue/indoors/town/academy/desert)
-"nEC" = (
-/obj/effect/landmark/start/tapster,
-/turf/open/floor/carpet/red,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
 "nED" = (
 /obj/structure/closet/crate/chest/wicker,
 /obj/item/natural/stone,
@@ -35715,11 +35162,6 @@
 	},
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/garrison/desert)
-"oef" = (
-/obj/structure/table/wood/poor,
-/obj/item/reagent_containers/glass/cup/wooden,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "oeu" = (
 /obj/structure/rack/rogue,
 /obj/item/reagent_containers/glass/bottle/rogue/whitewine,
@@ -35764,18 +35206,12 @@
 	},
 /area/rogue/indoors/town/magician/desert)
 "ofR" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/railing/border{
 	dir = 6
 	},
 /obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/effect/landmark/start/bathmaster,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/bath/desert)
->>>>>>> Stashed changes
 "oga" = (
 /obj/effect/landmark/events/testportal{
 	aportalloc = "manor"
@@ -36310,19 +35746,9 @@
 /turf/open/floor/rogue/citybrick,
 /area/rogue/under/cave/rhgoblinencampment)
 "opt" = (
-<<<<<<< Updated upstream
 /obj/item/reagent_containers/food/snacks/smallrat,
 /turf/open/floor/rogue/tile/harem1,
 /area/rogue/indoors/town/bath/desert)
-=======
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 1
-	},
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "opz" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/twig,
@@ -36875,10 +36301,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
-"oyx" = (
-/obj/structure/fluff/railing/border/east,
-/turf/open/floor/rogue/darkpath,
-/area/rogue/outdoors/town/desert)
 "oyK" = (
 /obj/structure/table/vtable,
 /obj/item/paper,
@@ -37674,16 +37096,10 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/desert)
 "oOH" = (
-<<<<<<< Updated upstream
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/cloth,
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/item/roguebin/water,
-/turf/open/floor/rogue/tile/harem,
-/area/rogue/indoors/town/tavern/desert)
->>>>>>> Stashed changes
 "oOJ" = (
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/blocks/stonered,
@@ -38705,13 +38121,6 @@
 	},
 /turf/open/floor/rogue/herringbone,
 /area/rogue/indoors/town/tavern/desert)
-"pkx" = (
-/obj/item/reagent_containers/food/snacks/rogue/meat/salami,
-/obj/item/rogueweapon/huntingknife/chefknife,
-/obj/structure/table/wood/poor,
-/obj/structure/roguemachine/withdraw,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/desert)
 "pkC" = (
 /turf/open/transparent/openspace,
 /area/rogue/outdoors/mountains)
@@ -39219,12 +38628,6 @@
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert/arenaview)
-"pug" = (
-/obj/structure/fluff/railing/border/east,
-/obj/structure/fluff/railing/border/north,
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
 "puw" = (
 /obj/machinery/light/rogue/firebowl/church,
 /turf/open/floor/rogue/churchmarble,
@@ -39535,17 +38938,6 @@
 	icon_state = "weird1"
 	},
 /area/rogue/indoors/town/garrison/desert/cell)
-"pBh" = (
-/obj/structure/table/wood/long_table,
-/obj/item/reagent_containers/glass/cup/silver,
-/obj/structure/roguemachine/atm{
-	pixel_y = -32;
-	location_tag = "Town Crier"
-	},
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "pBi" = (
 /obj/machinery/light/rogue/firebowl/standing,
 /turf/open/floor/rogue/citybrick/citybrick4,
@@ -40268,12 +39660,6 @@
 /obj/structure/bars,
 /turf/open/floor/rogue/cobble,
 /area/rogue/under/cavewet/bogcaves/desert)
-"pPi" = (
-/obj/structure/fluff/wallclock/r,
-/turf/open/floor/rogue/wood,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
 "pPn" = (
 /obj/structure/fluff/railing/wood{
 	dir = 1
@@ -41085,23 +40471,13 @@
 /turf/open/floor/rogue/church,
 /area/rogue/under/cave/licharena/bossroom)
 "qgL" = (
-<<<<<<< Updated upstream
 /obj/structure/stairs{
 	dir = 4
-=======
-/obj/structure/mineral_door/wood/window{
-	lockid = "crier";
-	name = "Town Crier"
->>>>>>> Stashed changes
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-<<<<<<< Updated upstream
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "qgM" = (
 /obj/machinery/light/rogue/candle/l,
 /turf/closed/wall/mineral/rogue/sandbrick,
@@ -41278,13 +40654,6 @@
 /obj/item/rogueweapon/hammer/iron,
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/dwarfin/desert)
-"qkG" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4;
-	layer = 2
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "qkI" = (
 /obj/structure/flora/roguegrass/bush/jungle/large,
 /turf/open/floor/rogue/desert_grass,
@@ -41604,14 +40973,6 @@
 /obj/effect/decal/cleanable/blood/gibs/up,
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desertdeep)
-"qqf" = (
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 8
-	},
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
 "qqJ" = (
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/tile/harem1,
@@ -41815,19 +41176,9 @@
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desertdeep)
 "qwx" = (
-<<<<<<< Updated upstream
 /obj/structure/rack/rogue/shelf,
 /turf/closed/wall/mineral/rogue/sandbrick,
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/item/reagent_containers/glass/cup/silver/small{
-	pixel_x = -8;
-	pixel_y = 8
-	},
-/obj/structure/table/wood/large_table/south_east,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "qwy" = (
 /turf/open/floor/carpet/red,
 /area/rogue/outdoors/town/manor/desert/roofs)
@@ -42042,14 +41393,6 @@
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/shop/desert)
-"qBf" = (
-/obj/structure/closet/crate/roguecloset/inn,
-/obj/item/magic/artifact,
-/obj/item/magic/artifact,
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
 "qBn" = (
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/wood,
@@ -42528,20 +41871,11 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/manor/desert)
 "qLm" = (
-<<<<<<< Updated upstream
 /obj/structure/roguemachine/scomm/l,
 /turf/open/floor/rogue/hexstone{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/structure/fluff/railing/corner/south_west,
-/obj/machinery/light/rogue/candle/weak,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "qLs" = (
 /turf/closed/wall/mineral/rogue/wooddark/horizontal,
 /area/rogue/under/cave)
@@ -42660,12 +41994,6 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/indoors/town/grove)
-"qNx" = (
-/obj/structure/fluff/railing/border/west,
-/obj/structure/fluff/clock,
-/obj/machinery/light/rogue/candle/r,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "qNB" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 5;
@@ -42716,27 +42044,6 @@
 	},
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desert)
-<<<<<<< Updated upstream
-=======
-"qOq" = (
-/obj/structure/closet/crate/roguecloset/inn,
-/obj/item/rogueore/cinnabar,
-/obj/item/rogueore/cinnabar,
-/obj/item/rogueore/cinnabar,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/item/paper/scroll,
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 8
-	},
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "qOs" = (
 /turf/open/floor/rogue/hexstone,
 /area/rogue/indoors/town/dwarfin/desert)
@@ -42912,20 +42219,9 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/under/town/basement/desert)
 "qSq" = (
-<<<<<<< Updated upstream
 /obj/effect/decal/remains/human,
 /turf/open/floor/rogue/dunes,
 /area/rogue/under/cavewet/bogcaves/desert)
-=======
-/obj/machinery/light/roguestreet/orange/walllamp{
-	dir = 4
-	},
-/obj/structure/roguemachine/scomm/l,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "qSz" = (
 /obj/structure/roguemachine/scomm/r,
 /turf/open/floor/rogue/tile/harem2{
@@ -43114,14 +42410,9 @@
 /turf/closed/mineral/random/rogue/sandstone/med,
 /area/rogue/under/cave)
 "qVY" = (
-<<<<<<< Updated upstream
 /obj/structure/handcart,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/desert)
-=======
-/turf/closed/wall/mineral/rogue/wooddark/vertical,
-/area/rogue/under/town/basement/desert/town)
->>>>>>> Stashed changes
 "qVZ" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/minotaur{
 	faction = list("undead");
@@ -43658,12 +42949,6 @@
 	},
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/under/town/basement/desert/town)
-"rhE" = (
-/obj/structure/fluff/wallclock{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "rhG" = (
 /obj/item/rogueweapon/mace/woodclub,
 /turf/open/floor/rogue/citybrick,
@@ -44951,17 +44236,11 @@
 	},
 /area/rogue/indoors/inq)
 "rKu" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/deserttile{
 	icon_state = "tiledrab2"
 	},
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/fluff/railing/corner/south_west,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
->>>>>>> Stashed changes
 "rLu" = (
 /obj/structure/closet/crate/chest/wicker{
 	pixel_x = -5;
@@ -45714,20 +44993,12 @@
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/indoors/town/church/basement)
 "rYx" = (
-<<<<<<< Updated upstream
 /obj/structure/closet/crate/roguecloset/crafted,
 /obj/item/clothing/under/roguetown/sirwal/brown,
 /obj/item/clothing/suit/roguetown/shirt/dress/thawb/beige,
 /obj/item/clothing/suit/roguetown/shirt/dress/thawb/beige,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/stairs/stone/d,
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "rYz" = (
 /obj/structure/roguemachine/scomm,
 /turf/open/floor/rogue/deserttile,
@@ -45870,18 +45141,9 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/manor/desert)
 "sbH" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
 /turf/open/floor/rogue/tile/masonic/inverted,
 /area/rogue/indoors/town/manor/desert)
-=======
-/obj/machinery/light/rogue/campfire/fireplace/desert{
-	pixel_x = 0;
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/twig,
-/area/rogue/indoors/town/desert/manor)
->>>>>>> Stashed changes
 "sbY" = (
 /obj/item/natural/rock,
 /turf/closed/mineral/random/rogue/sandstone,
@@ -45943,10 +45205,6 @@
 /obj/structure/fluff/railing/border,
 /turf/open/floor/rogue/dirt/road,
 /area/rogue/indoors/town/church/basement)
-"sdt" = (
-/obj/effect/landmark/start/seneschal,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert/manor)
 "sdv" = (
 /obj/item/natural/rock/desert,
 /obj/effect/decal/duneedge{
@@ -46474,20 +45732,6 @@
 	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/town/desert/arenaview)
-"snE" = (
-/obj/structure/table/wood/long_table/right,
-/obj/item/reagent_containers/glass/bottle/rogue/redwine{
-	pixel_x = -6;
-	pixel_y = 6
-	},
-/obj/item/reagent_containers/glass/bottle/rogue/whitewine{
-	pixel_x = 6;
-	pixel_y = 6
-	},
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
 "snP" = (
 /obj/structure/roguewindow/harem3{
 	opacity = 1
@@ -47030,16 +46274,6 @@
 /obj/machinery/light/rogue/candle,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert/warden)
-"szY" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 4;
-	layer = 2
-	},
-/obj/structure/table/wood/poor,
-/obj/item/natural/feather,
-/obj/item/paper/scroll,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "sAf" = (
 /obj/structure/bars/passage{
 	density = 0;
@@ -49003,16 +48237,6 @@
 	},
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/desert)
-"tmn" = (
-/obj/structure/mineral_door/wood{
-	locked = 1;
-	lockid = "crafterguild";
-	name = "Artificer's Room"
-	},
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
 "tmu" = (
 /obj/item/natural/stone,
 /obj/structure/fluff/railing/border,
@@ -49454,22 +48678,13 @@
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/bath/desert)
 "tup" = (
-<<<<<<< Updated upstream
 /obj/structure/bed/rogue/inn/wooldouble{
 	dir = 1
 	},
 /obj/item/bedsheet/rogue/double_pelt{
 	dir = 1
-=======
-/obj/structure/mineral_door/wood/donjon{
-	lockid = "crier";
-	name = "Town Crier";
-	locked = 1
 	},
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
->>>>>>> Stashed changes
-	},
+/turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
 "tuq" = (
 /obj/structure/chair/zybantine_sofa/right,
@@ -49512,14 +48727,6 @@
 /obj/structure/flora/roguetree/wise,
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/outdoors/desertdeep)
-"tvm" = (
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1;
-	layer = 3
-	},
-/obj/structure/fluff/railing/border,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "tvB" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/shoes/roguetown/shortboots,
@@ -50143,19 +49350,11 @@
 /turf/open/transparent/openspace,
 /area/rogue/under/cave)
 "tKa" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
 	},
 /turf/open/floor/rogue/wood/herringbone,
 /area/rogue/indoors/town/desert)
-=======
-/obj/effect/decal/cleanable/roguerune/arcyne/summoning/mid,
-/turf/open/floor/rogue/concrete{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "tKj" = (
 /obj/item/cushion/desert2,
 /turf/open/floor/rogue/darkpath,
@@ -50581,17 +49780,9 @@
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/manor/desert)
 "tRd" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
 /turf/open/floor/carpet/royalblack,
 /area/rogue/indoors/town/church)
-=======
-/obj/structure/chair/wood/rogue/fancy{
-	dir = 8
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "tRe" = (
 /obj/structure/fluff/railing/border{
 	dir = 9
@@ -51312,15 +50503,11 @@
 /turf/open/floor/rogue/citybrick,
 /area/rogue/under/cave/dungeon1)
 "ufn" = (
-<<<<<<< Updated upstream
 /obj/structure/fluff/railing/border{
 	dir = 4
 	},
 /obj/structure/closet/crate/roguecloset,
 /turf/open/floor/rogue/wood,
-=======
-/turf/open/floor/rogue/hexstone,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/desert)
 "ufo" = (
 /obj/machinery/light/rogue/torchholder/c,
@@ -51561,17 +50748,6 @@
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert/arenaview)
-"ujG" = (
-/obj/structure/bed/rogue/inn{
-	dir = 1
-	},
-/obj/item/bedsheet/rogue/fabric{
-	dir = 1
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
 "ujP" = (
 /obj/structure/mineral_door/wood/window{
 	lockid = "tavern"
@@ -51820,7 +50996,6 @@
 /turf/open/floor/rogue/darkpath,
 /area/rogue/indoors/inq/basement)
 "upG" = (
-<<<<<<< Updated upstream
 /obj/structure/bell_common{
 	dir = 4;
 	pixel_x = -9
@@ -51831,15 +51006,6 @@
 	},
 /turf/open/floor/rogue/darkpath,
 /area/rogue/outdoors/town/desert)
-=======
-/obj/structure/mineral_door/wood/window{
-	lockid = "manor";
-	name = "Feast Hall";
-	locked = 1
-	},
-/turf/open/floor/rogue/woodturned,
-/area/rogue/indoors/town/desert/manor)
->>>>>>> Stashed changes
 "upI" = (
 /obj/structure/table/wood,
 /obj/item/natural/feather,
@@ -53021,10 +52187,6 @@
 	},
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/outdoors/desertdeep/above)
-"uLD" = (
-/obj/structure/fluff/railing/border/north,
-/turf/open/floor/rogue/citybrick/citybrick1,
-/area/rogue/outdoors/town/desert)
 "uLL" = (
 /obj/machinery/light/rogue/torchholder/l,
 /obj/structure/flora/roguegrass/bush/jungle/large,
@@ -53335,10 +52497,6 @@
 	icon_state = "tiledrab2"
 	},
 /area/rogue/indoors/town/tavern/desert)
-"uRv" = (
-/obj/structure/bookcase/random,
-/turf/open/floor/carpet/stellar,
-/area/rogue/indoors/town/magician/desert)
 "uRC" = (
 /obj/item/cushion/zybantine,
 /turf/open/floor/carpet/royalblack,
@@ -54161,17 +53319,9 @@
 	},
 /area/rogue/outdoors/desert)
 "vgR" = (
-<<<<<<< Updated upstream
 /obj/structure/fermentation_keg/sandpot/water,
 /turf/open/floor/rogue/tile/harem,
 /area/rogue/indoors/town/dwarfin/desert)
-=======
-/obj/structure/closet/crate/roguecloset/inn/south,
-/turf/open/floor/rogue/tile/brownbrick{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "vhb" = (
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/rogue/dunes,
@@ -54339,7 +53489,6 @@
 /turf/open/floor/carpet/red,
 /area/rogue/indoors/town/shop/desert)
 "vlv" = (
-<<<<<<< Updated upstream
 /obj/machinery/light/rogue/candle/r,
 /obj/machinery/light/rogue/hearth,
 /obj/item/cooking/pan,
@@ -54347,11 +53496,6 @@
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
-=======
-/obj/structure/table/wood/poor,
-/obj/item/reagent_containers/glass/cup/wooden,
-/turf/open/floor/rogue/hexstone,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/desert)
 "vlx" = (
 /obj/structure/glowshroom,
@@ -55036,21 +54180,12 @@
 /turf/open/floor/rogue/dunes,
 /area/rogue/outdoors/desert)
 "vAQ" = (
-<<<<<<< Updated upstream
 /obj/structure/closet/crate/roguecloset/crafted,
 /obj/item/clothing/under/roguetown/tights/random,
 /obj/item/clothing/suit/roguetown/shirt/dress/gen/random,
 /obj/item/clothing/suit/roguetown/shirt/dress/thawb/beige,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/stairs/desert{
-	dir = 8
-	},
-/obj/structure/fluff/railing/border/north,
-/turf/open/floor/rogue/citybrick/citybrick1,
-/area/rogue/outdoors/town/desert)
->>>>>>> Stashed changes
 "vAR" = (
 /obj/item/roguebin/water,
 /turf/open/floor/rogue/deserttile{
@@ -55984,7 +55119,6 @@
 /turf/closed/mineral/rogue,
 /area/rogue/under/town/basement/desert)
 "vUz" = (
-<<<<<<< Updated upstream
 /obj/structure/table/wood{
 	dir = 8;
 	icon_state = "largetable"
@@ -55993,11 +55127,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/academy/desert)
-=======
-/obj/structure/fluff/railing/border/north,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
->>>>>>> Stashed changes
 "vUA" = (
 /obj/structure/table/wood/poor,
 /obj/item/reagent_containers/glass/cup/steel{
@@ -56874,11 +56003,7 @@
 	},
 /area/rogue/indoors/town/church)
 "wjP" = (
-<<<<<<< Updated upstream
 /obj/structure/bookcase/random,
-=======
-/obj/structure/fermentation_keg/sandpot/water,
->>>>>>> Stashed changes
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/dwarfin/desert)
 "wjR" = (
@@ -56886,17 +56011,10 @@
 /turf/open/floor/rogue/sandbrick,
 /area/rogue/outdoors/desert)
 "wjT" = (
-<<<<<<< Updated upstream
 /obj/structure/bed/rogue/shit,
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/rogue/dirt,
 /area/rogue/indoors/town/bath/desert)
-=======
-/obj/structure/table/wood/poor,
-/obj/machinery/light/rogue/candle/r,
-/turf/open/floor/rogue/hexstone,
-/area/rogue/indoors/town/desert)
->>>>>>> Stashed changes
 "wkj" = (
 /obj/structure/fermentation_keg,
 /turf/open/floor/rogue/naturalstone/sandstone,
@@ -57218,11 +56336,6 @@
 	icon_state = "stonewindow"
 	},
 /area/rogue/under/underdarker)
-"wrf" = (
-/obj/structure/fluff/railing/border,
-/obj/structure/fluff/railing/border,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
 "wri" = (
 /obj/machinery/light/rogue/torchholder/r,
 /turf/open/floor/rogue/woodturned,
@@ -57916,18 +57029,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/steward)
-"wIk" = (
-/obj/structure/fluff/railing/corner/south_west,
-/obj/structure/fluff/walldeco/church/line{
-	dir = 1;
-	layer = 3
-	},
-/obj/structure/fluff/railing/corner/south_east,
-/obj/structure/roguemachine/scomm{
-	pixel_y = -32
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "wIo" = (
 /turf/open/floor/rogue/tile/masonic/spiral,
 /area/rogue/indoors/town/church)
@@ -58132,13 +57233,6 @@
 /obj/item/cushion/zybantine,
 /turf/open/floor/rogue/lightpath,
 /area/rogue/outdoors/desert/above)
-"wLH" = (
-/obj/structure/standingbell{
-	name = "clinic service bell";
-	dir = 1
-	},
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/physician/desert)
 "wLK" = (
 /obj/structure/bed/rogue/inn/wool,
 /obj/item/bedsheet/rogue/wool,
@@ -58174,17 +57268,11 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/outdoors/desert)
 "wMI" = (
-<<<<<<< Updated upstream
 /obj/structure/curtain/drab,
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/fluff/railing/corner/north_east,
-/turf/open/transparent/openspace,
-/area/rogue/outdoors/town/roofs/desert)
->>>>>>> Stashed changes
 "wMQ" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/suit/roguetown/shirt/dress/thawb/beige,
@@ -58484,16 +57572,6 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert/warden)
-"wSr" = (
-/obj/structure/chair/wood/rogue/fancy{
-	dir = 8
-	},
-/obj/structure/fluff/walldeco/rpainting/forest{
-	pixel_y = 32
-	},
-/obj/machinery/light/rogue/candle/r,
-/turf/open/floor/carpet/royalblack,
-/area/rogue/indoors/town/desert)
 "wSz" = (
 /obj/structure/closet/crate/drawer,
 /obj/effect/decal/cleanable/dirt/cobweb,
@@ -58687,13 +57765,6 @@
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/desert/warden)
-"wWA" = (
-/obj/item/roguekey/crier,
-/obj/item/roguekey/crier,
-/obj/structure/closet/crate/drawer,
-/obj/machinery/light/rogue/candle/l,
-/turf/open/floor/rogue/wood,
-/area/rogue/indoors/town/desert)
 "wWG" = (
 /obj/machinery/gear_painter,
 /turf/open/floor/rogue/woodturned,
@@ -59408,15 +58479,6 @@
 /obj/machinery/light/rogue/firebowl,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/shop/desert)
-"xjl" = (
-/obj/structure/mineral_door/wood/red{
-	name = "Tapster's room";
-	lockid = "tavern"
-	},
-/turf/open/floor/rogue/wood,
-/area/rogue/under/town/basement/desert/town{
-	tavern_area = 1
-	})
 "xjD" = (
 /obj/structure/pillar/sand1,
 /turf/open/floor/rogue/sandbrick,
@@ -59540,7 +58602,6 @@
 /turf/open/floor/rogue/ruinedwood/spiral,
 /area/rogue/indoors/town/desert)
 "xkW" = (
-<<<<<<< Updated upstream
 /obj/structure/table/wood{
 	dir = 1;
 	icon_state = "tablewood1"
@@ -59550,18 +58611,6 @@
 /obj/machinery/light/rogue/candle/l,
 /turf/open/floor/rogue/wood,
 /area/rogue/indoors/town/desert)
-=======
-/obj/structure/closet/crate/chest/neu,
-/obj/item/ingot/copper,
-/obj/item/ingot/copper,
-/obj/item/ingot/copper,
-/obj/item/ingot/copper,
-/obj/item/ingot/copper,
-/turf/open/floor/rogue/hexstone{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/indoors/town/dwarfin/desert)
->>>>>>> Stashed changes
 "xkZ" = (
 /obj/machinery/light/rogue/candle{
 	pixel_y = -32
@@ -61566,18 +60615,11 @@
 /turf/closed/wall/mineral/rogue/decostone/mossy/long,
 /area/rogue/under/cave/skeletoncrypt)
 "ybi" = (
-<<<<<<< Updated upstream
 /obj/effect/decal/cleanable/dirt/cobweb{
 	dir = 1
 	},
 /obj/structure/rack/rogue/shelf,
 /turf/open/floor/rogue/twig,
-=======
-/obj/structure/chair/wood/rogue/fancy{
-	dir = 4
-	},
-/turf/open/floor/carpet/royalblack,
->>>>>>> Stashed changes
 /area/rogue/indoors/town/desert)
 "ybs" = (
 /obj/item/cushion/zybantine,
@@ -173638,10 +172680,6 @@ iVN
 iVN
 fhy
 ivi
-<<<<<<< Updated upstream
-=======
-bVO
->>>>>>> Stashed changes
 fhy
 iVN
 iVN
@@ -283473,11 +282511,7 @@ gEi
 aUF
 gEi
 bqR
-<<<<<<< Updated upstream
 bqR
-=======
-jtb
->>>>>>> Stashed changes
 gTm
 oVg
 hkD
@@ -284096,18 +283130,7 @@ kvr
 kvr
 kvr
 gTm
-<<<<<<< Updated upstream
 nUJ
-=======
-ujG
-gDy
-ujG
-gDy
-igG
-xjl
-bqR
-gEi
->>>>>>> Stashed changes
 gEi
 gLP
 gEi
@@ -284412,30 +283435,17 @@ xJw
 omT
 und
 und
-<<<<<<< Updated upstream
 kvr
 kvr
 kvr
 kvr
 kvr
 kvr
-=======
-gTm
-xXb
-xXb
-nEC
-igG
-igG
->>>>>>> Stashed changes
 gTm
 eLE
 bqR
 mJv
-<<<<<<< Updated upstream
 bqR
-=======
-iAq
->>>>>>> Stashed changes
 uzD
 gTm
 xeN
@@ -284737,21 +283747,12 @@ und
 und
 und
 und
-<<<<<<< Updated upstream
 kvr
 kvr
 kvr
 kvr
 kvr
 kvr
-=======
-gTm
-nEC
-xXb
-xXb
-igG
-igG
->>>>>>> Stashed changes
 gTm
 gTm
 gTm
@@ -285058,7 +284059,6 @@ und
 und
 kvr
 kvr
-<<<<<<< Updated upstream
 kvr
 kvr
 kvr
@@ -285066,15 +284066,6 @@ kvr
 kvr
 kvr
 kvr
-=======
-gTm
-erR
-gDy
-erR
-gDy
-pPi
-gTm
->>>>>>> Stashed changes
 kvr
 kvr
 kvr
@@ -288504,11 +287495,7 @@ iVN
 iVN
 mQm
 dKv
-<<<<<<< Updated upstream
 aup
-=======
-ofR
->>>>>>> Stashed changes
 uBd
 lfb
 aup
@@ -292229,15 +291216,9 @@ und
 rRb
 gKr
 gKr
-<<<<<<< Updated upstream
 bAa
 gio
 gKr
-=======
-qVY
-gio
-hRc
->>>>>>> Stashed changes
 bRv
 wUb
 ccC
@@ -292246,15 +291227,9 @@ ozo
 mBh
 wUb
 gio
-<<<<<<< Updated upstream
 gKr
 bRv
 bAa
-=======
-hRc
-bRv
-qVY
->>>>>>> Stashed changes
 gKr
 gKr
 rRb
@@ -378968,11 +377943,7 @@ hcO
 wbb
 wbb
 wbb
-<<<<<<< Updated upstream
 wbb
-=======
-cDa
->>>>>>> Stashed changes
 wbb
 wbb
 kQN
@@ -388676,11 +387647,7 @@ eok
 eok
 hlQ
 tiB
-<<<<<<< Updated upstream
 tiB
-=======
-wLH
->>>>>>> Stashed changes
 tTW
 fMK
 olq
@@ -388906,13 +387873,8 @@ vTa
 dKT
 nuj
 oFN
-<<<<<<< Updated upstream
 oFN
 erR
-=======
-sbH
-dKT
->>>>>>> Stashed changes
 oFN
 oFN
 kBi
@@ -389632,17 +388594,10 @@ lUV
 bep
 icQ
 atX
-<<<<<<< Updated upstream
 tnk
 pBn
 xCf
 qLP
-=======
-vgR
-bXz
-jPo
-tPW
->>>>>>> Stashed changes
 atX
 qll
 gwG
@@ -389950,19 +388905,11 @@ jnP
 lUV
 bep
 icQ
-<<<<<<< Updated upstream
 mxi
 qGE
 jPo
 jPo
 qGE
-=======
-tup
-jPo
-jPo
-kjg
-ljO
->>>>>>> Stashed changes
 atX
 qXA
 uss
@@ -390585,10 +389532,6 @@ icQ
 atX
 atX
 atX
-<<<<<<< Updated upstream
-=======
-dtO
->>>>>>> Stashed changes
 atX
 wMI
 atX
@@ -390808,11 +389751,7 @@ gKH
 jsA
 dKT
 jvv
-<<<<<<< Updated upstream
 oUy
-=======
-sdt
->>>>>>> Stashed changes
 oUy
 dKT
 nXl
@@ -390904,21 +389843,12 @@ bep
 icQ
 qTz
 atX
-<<<<<<< Updated upstream
 pMz
 qGE
 qGE
 qGE
 hZj
 hZj
-=======
-qLm
-ljO
-gVH
-knq
-dCT
-acV
->>>>>>> Stashed changes
 atX
 icQ
 pxz
@@ -391224,19 +390154,11 @@ atX
 bep
 icQ
 bep
-<<<<<<< Updated upstream
 bLE
 qGE
 wUz
 wUz
 wUz
-=======
-dip
-qGE
-wUz
-aLc
-kLd
->>>>>>> Stashed changes
 qTi
 rMF
 atX
@@ -391544,24 +390466,13 @@ atX
 bep
 icQ
 bep
-<<<<<<< Updated upstream
 atX
-=======
-qgL
->>>>>>> Stashed changes
 qGE
 rKu
 wUz
-<<<<<<< Updated upstream
 wUz
 hZj
 nRu
-=======
-aLc
-doI
-wUz
-pBh
->>>>>>> Stashed changes
 atX
 icQ
 icQ
@@ -391843,11 +390754,7 @@ pAU
 pAU
 sOZ
 tdr
-<<<<<<< Updated upstream
 bep
-=======
-fpQ
->>>>>>> Stashed changes
 bep
 kcN
 bep
@@ -391872,21 +390779,12 @@ bep
 icQ
 bep
 atX
-<<<<<<< Updated upstream
 qYk
 ama
 dpQ
 qGE
 qGE
 qGE
-=======
-lwE
-qGE
-gVH
-nbk
-oxU
-snE
->>>>>>> Stashed changes
 atX
 icQ
 icQ
@@ -392193,13 +391091,8 @@ bep
 icQ
 icQ
 atX
-<<<<<<< Updated upstream
 atX
 atX
-=======
-dip
-qgL
->>>>>>> Stashed changes
 atX
 atX
 atX
@@ -394296,13 +393189,8 @@ dKT
 dKT
 dKT
 dKT
-<<<<<<< Updated upstream
 jPj
 jPj
-=======
-upG
-upG
->>>>>>> Stashed changes
 dKT
 dKT
 dKT
@@ -394955,11 +393843,7 @@ nJm
 sWQ
 ajz
 eLd
-<<<<<<< Updated upstream
 mlf
-=======
-bfs
->>>>>>> Stashed changes
 mlf
 bep
 icQ
@@ -399349,11 +398233,7 @@ uKs
 uKs
 uKs
 uKs
-<<<<<<< Updated upstream
 bmU
-=======
-cRW
->>>>>>> Stashed changes
 bmU
 jzB
 ujd
@@ -400286,17 +399166,10 @@ icQ
 icQ
 bep
 uKs
-<<<<<<< Updated upstream
 qgL
 ond
 ond
 eNQ
-=======
-uKs
-fiU
-ond
-kEN
->>>>>>> Stashed changes
 rHG
 eBU
 kaj
@@ -400304,11 +399177,7 @@ kaj
 kaj
 kaj
 kaj
-<<<<<<< Updated upstream
 rHG
-=======
-gLP
->>>>>>> Stashed changes
 uKs
 icQ
 bep
@@ -400924,10 +399793,6 @@ vex
 eNQ
 eNQ
 eNQ
-<<<<<<< Updated upstream
-=======
-qSq
->>>>>>> Stashed changes
 eNQ
 eNQ
 eNQ
@@ -401244,14 +400109,6 @@ nRe
 ond
 ond
 eNQ
-<<<<<<< Updated upstream
-=======
-kEN
-rYx
-rHG
-rHG
-rHG
->>>>>>> Stashed changes
 uKs
 uKs
 uKs
@@ -401571,15 +400428,9 @@ pBn
 atX
 tsA
 lgF
-<<<<<<< Updated upstream
 nyA
 atX
 bep
-=======
-hEd
-rHG
-uKs
->>>>>>> Stashed changes
 icQ
 icQ
 icQ
@@ -402196,7 +401047,6 @@ eNQ
 lce
 uKs
 qQQ
-<<<<<<< Updated upstream
 wUz
 qGE
 dnC
@@ -402205,18 +401055,6 @@ nyA
 nyA
 atX
 hYA
-=======
-rHG
-rHG
-rHG
-kaj
-bUS
-kaj
-rHG
-uKs
-icQ
-icQ
->>>>>>> Stashed changes
 icQ
 sRo
 rrW
@@ -402231,11 +401069,7 @@ cGd
 ttU
 pUr
 bEN
-<<<<<<< Updated upstream
 jsO
-=======
-oOH
->>>>>>> Stashed changes
 jsO
 jsO
 mLb
@@ -402524,7 +401358,6 @@ jKI
 eNQ
 agU
 uKs
-<<<<<<< Updated upstream
 pMz
 wUz
 cRW
@@ -402534,17 +401367,6 @@ nyA
 nyA
 atX
 dCT
-=======
-xkW
-rHG
-rHG
-rHG
-kaj
-kaj
-kaj
-opt
-uKs
->>>>>>> Stashed changes
 sRo
 iZc
 roc
@@ -402554,11 +401376,7 @@ nhK
 nhK
 ttU
 jsO
-<<<<<<< Updated upstream
 xra
-=======
-mDF
->>>>>>> Stashed changes
 xra
 wYG
 jsO
@@ -402782,15 +401600,9 @@ vTa
 dKT
 yiK
 jQP
-<<<<<<< Updated upstream
 jQP
 jQP
 jQP
-=======
-got
-jQP
-got
->>>>>>> Stashed changes
 jQP
 wPb
 rwx
@@ -402859,7 +401671,6 @@ jKI
 fKw
 uKs
 qsn
-<<<<<<< Updated upstream
 qGE
 gQE
 dnC
@@ -402869,16 +401680,6 @@ atX
 atX
 atX
 atX
-=======
-qqf
-gQE
-rHG
-kaj
-kaj
-kaj
-opt
-uKs
->>>>>>> Stashed changes
 bep
 icQ
 mth
@@ -403181,7 +401982,6 @@ caS
 caS
 dCx
 uKs
-<<<<<<< Updated upstream
 atX
 atX
 atX
@@ -403192,17 +401992,6 @@ iAq
 tsQ
 gKo
 atX
-=======
-uKs
-uKs
-uKs
-rHG
-kaj
-tKa
-kaj
-rHG
-uKs
->>>>>>> Stashed changes
 bep
 icQ
 ttU
@@ -403509,7 +402298,6 @@ bep
 qTz
 atX
 dKd
-<<<<<<< Updated upstream
 nyA
 nyA
 atX
@@ -403517,15 +402305,6 @@ tsQ
 qVY
 atX
 bep
-=======
-kaj
-kaj
-kaj
-rHG
-uKs
-oyx
-fzD
->>>>>>> Stashed changes
 icQ
 ttU
 mlU
@@ -403822,11 +402601,7 @@ icQ
 icQ
 icQ
 icQ
-<<<<<<< Updated upstream
 hRJ
-=======
-fKk
->>>>>>> Stashed changes
 icQ
 icQ
 icQ
@@ -403836,21 +402611,12 @@ bep
 atX
 nyA
 tdu
-<<<<<<< Updated upstream
 ama
 atX
 ybi
 mRT
 atX
 bep
-=======
-qOq
-qBf
-rHG
-uKs
-bep
-uLD
->>>>>>> Stashed changes
 icQ
 ttU
 cpa
@@ -404163,12 +402929,7 @@ atX
 atX
 atX
 bep
-<<<<<<< Updated upstream
 icQ
-=======
-vAQ
-uNO
->>>>>>> Stashed changes
 fQR
 fhx
 ttU
@@ -494332,11 +493093,7 @@ lBy
 wPi
 pWP
 arQ
-<<<<<<< Updated upstream
 pWP
-=======
-dhM
->>>>>>> Stashed changes
 exC
 jJA
 avo
@@ -507679,17 +506436,10 @@ vTa
 vTa
 hZy
 llf
-<<<<<<< Updated upstream
 sbH
 sbH
 igC
 sbH
-=======
-fFx
-fFx
-fFx
-fFx
->>>>>>> Stashed changes
 hZy
 hZy
 hZy
@@ -507998,11 +506748,7 @@ vTa
 vTa
 hZy
 llf
-<<<<<<< Updated upstream
 sbH
-=======
-fFx
->>>>>>> Stashed changes
 wdz
 amo
 tNE
@@ -508409,19 +507155,9 @@ bsu
 lUV
 tyc
 atX
-<<<<<<< Updated upstream
 fSY
 nXa
 cai
-=======
-lsg
-nXa
-dPp
-nUb
-hye
-nXa
-lci
->>>>>>> Stashed changes
 atX
 vBS
 duV
@@ -508731,18 +507467,8 @@ obd
 lUV
 tyc
 hfD
-<<<<<<< Updated upstream
 nXa
 aJj
-=======
-oef
-nXa
-lJw
-hPQ
-hPQ
-nXa
-rhE
->>>>>>> Stashed changes
 atX
 atX
 qMZ
@@ -509367,19 +508093,11 @@ rxP
 atX
 atX
 qUR
-<<<<<<< Updated upstream
 atX
 psc
 atX
 atX
 atX
-=======
-szY
-psc
-qkG
-dPp
-pBR
->>>>>>> Stashed changes
 atX
 gnd
 gnd
@@ -509686,17 +508404,10 @@ lya
 xtH
 tyc
 atX
-<<<<<<< Updated upstream
 nXa
 nXa
 nXa
 atX
-=======
-eqO
-ufn
-ufn
-ufn
->>>>>>> Stashed changes
 eJF
 tup
 atX
@@ -510004,7 +508715,6 @@ qvB
 uPA
 xtH
 tyc
-<<<<<<< Updated upstream
 hfD
 nXa
 nXa
@@ -510012,15 +508722,6 @@ nXa
 gwE
 nXa
 nXa
-=======
-atX
-pkx
-ufn
-vlv
-gwE
-wIk
-ama
->>>>>>> Stashed changes
 atX
 tyc
 tyc
@@ -510326,21 +509027,12 @@ qvB
 lya
 xtH
 tyc
-<<<<<<< Updated upstream
 atX
 gnx
 hSH
 ufn
 gof
 nXa
-=======
-hfD
-ufn
-ufn
-ufn
-ufn
-tvm
->>>>>>> Stashed changes
 pBR
 atX
 tyc
@@ -510570,11 +509262,7 @@ hpV
 hZy
 dho
 asW
-<<<<<<< Updated upstream
 eSk
-=======
-euG
->>>>>>> Stashed changes
 fFx
 llf
 hZy
@@ -510652,14 +509340,6 @@ atX
 lpI
 tyc
 atX
-<<<<<<< Updated upstream
-=======
-gof
-ufn
-cUA
-wjT
-igZ
->>>>>>> Stashed changes
 nXa
 bFi
 nUb
@@ -510898,11 +509578,7 @@ eSk
 hZy
 sCF
 fFx
-<<<<<<< Updated upstream
 xLM
-=======
-mdo
->>>>>>> Stashed changes
 vkx
 hZy
 fYh
@@ -513398,11 +512074,7 @@ dBr
 hZy
 hHm
 amo
-<<<<<<< Updated upstream
 amo
-=======
-bTO
->>>>>>> Stashed changes
 amo
 hZy
 lrG
@@ -517187,8 +515859,8 @@ wci
 mmK
 jYr
 uKs
-dGG
-dGG
+wjP
+wjP
 wyj
 wyj
 wyj
@@ -517810,11 +516482,7 @@ uKs
 qpE
 jYr
 jYr
-<<<<<<< Updated upstream
 oqG
-=======
-tmn
->>>>>>> Stashed changes
 wyj
 wyj
 wyj
@@ -518443,11 +517111,7 @@ uKs
 aEO
 wyj
 osB
-<<<<<<< Updated upstream
 oqG
-=======
-tmn
->>>>>>> Stashed changes
 enq
 jYr
 jYr
@@ -518753,11 +517417,7 @@ tyc
 uKs
 ipD
 vSA
-<<<<<<< Updated upstream
 iPG
-=======
-hnQ
->>>>>>> Stashed changes
 iPG
 txC
 wtr
@@ -519067,15 +517727,9 @@ tyc
 tyc
 tyc
 uKs
-<<<<<<< Updated upstream
 lzW
 hnQ
 iPG
-=======
-kkZ
-lzW
-lue
->>>>>>> Stashed changes
 iML
 asH
 uXl
@@ -519386,13 +518040,8 @@ tyc
 tyc
 ece
 hhR
-<<<<<<< Updated upstream
 wYi
 iPG
-=======
-eNM
-igC
->>>>>>> Stashed changes
 iPG
 asH
 amt
@@ -520022,12 +518671,6 @@ wyj
 wyj
 wyj
 uKs
-<<<<<<< Updated upstream
-=======
-jYr
-diH
-gKo
->>>>>>> Stashed changes
 uKs
 uKs
 uKs
@@ -520332,7 +518975,7 @@ tyc
 tyc
 tyc
 uKs
-dGG
+wjP
 wyj
 wyj
 wyj
@@ -520602,13 +519245,8 @@ lxL
 jOg
 vkx
 icy
-<<<<<<< Updated upstream
 kjg
 enW
-=======
-jvb
-cQp
->>>>>>> Stashed changes
 enW
 enW
 afk
@@ -520919,13 +519557,8 @@ jQb
 jOg
 vkx
 qex
-<<<<<<< Updated upstream
 kjg
 enW
-=======
-jvb
-uRv
->>>>>>> Stashed changes
 qWC
 eDx
 yiR
@@ -625209,19 +623842,11 @@ kOu
 gxN
 tyc
 tyc
-<<<<<<< Updated upstream
 tyc
 tyc
 tyc
 tyc
 tyc
-=======
-gDo
-cai
-cai
-cai
-wMI
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -625529,7 +624154,6 @@ lUV
 kOu
 kOu
 tyc
-<<<<<<< Updated upstream
 tyc
 kOu
 kOu
@@ -625537,15 +624161,6 @@ kOu
 tyc
 tyc
 tyc
-=======
-wrf
-kOu
-kOu
-kOu
-pug
-cai
-wMI
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -625857,11 +624472,7 @@ vBS
 kOu
 kOu
 kOu
-<<<<<<< Updated upstream
 tyc
-=======
-vUz
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -626173,11 +624784,7 @@ vBS
 vBS
 vBS
 kOu
-<<<<<<< Updated upstream
 tyc
-=======
-vUz
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -626489,11 +625096,7 @@ vBS
 vBS
 vBS
 kOu
-<<<<<<< Updated upstream
 tyc
-=======
-vUz
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -626801,7 +625404,6 @@ lUV
 kOu
 tyc
 kOu
-<<<<<<< Updated upstream
 vBS
 vBS
 vBS
@@ -626810,16 +625412,6 @@ tyc
 tyc
 tyc
 tyc
-=======
-duV
-oeX
-duV
-atX
-atX
-aGo
-atX
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -627126,21 +625718,12 @@ tyc
 kOu
 vBS
 vBS
-<<<<<<< Updated upstream
 vBS
 kOu
 tyc
 tyc
 tyc
 tyc
-=======
-vvT
-atX
-wWA
-nXa
-nak
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -627448,19 +626031,11 @@ kOu
 vBS
 vBS
 vBS
-<<<<<<< Updated upstream
 kOu
 tyc
 tyc
 tyc
 tyc
-=======
-atX
-dEW
-nXa
-mdH
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -627763,7 +626338,6 @@ vBS
 vBS
 vBS
 kOu
-<<<<<<< Updated upstream
 tyc
 kOu
 vBS
@@ -627774,18 +626348,6 @@ tyc
 tyc
 tyc
 tyc
-=======
-rKu
-kcz
-atX
-atX
-mfc
-atX
-atX
-mfc
-atX
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -628090,7 +626652,6 @@ vBS
 kOu
 tyc
 kOu
-<<<<<<< Updated upstream
 kOu
 vBS
 vBS
@@ -628099,16 +626660,6 @@ kOu
 kOu
 kOu
 kOu
-=======
-atX
-goA
-nXa
-hpH
-kHd
-nXa
-wEL
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 tyc
@@ -628413,7 +626964,6 @@ vBS
 kOu
 tyc
 tyc
-<<<<<<< Updated upstream
 kOu
 vBS
 vBS
@@ -628422,16 +626972,6 @@ vBS
 vBS
 vBS
 kOu
-=======
-aGo
-ybi
-nXa
-ybi
-ybi
-nXa
-nXa
-aGo
->>>>>>> Stashed changes
 tyc
 tyc
 vBS
@@ -628736,7 +627276,6 @@ vBS
 kOu
 tyc
 tyc
-<<<<<<< Updated upstream
 kOu
 vBS
 vBS
@@ -628745,16 +627284,6 @@ vBS
 vBS
 vBS
 kOu
-=======
-atX
-mQQ
-nXa
-kCn
-mnr
-dPp
-gei
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 vBS
@@ -629059,7 +627588,6 @@ vBS
 kOu
 tyc
 tyc
-<<<<<<< Updated upstream
 kOu
 vBS
 vBS
@@ -629068,16 +627596,6 @@ vBS
 vBS
 vBS
 kOu
-=======
-aGo
-nsn
-nXa
-mVT
-qwx
-dPp
-nUb
-aGo
->>>>>>> Stashed changes
 tyc
 tyc
 vBS
@@ -629382,7 +627900,6 @@ vBS
 kOu
 tyc
 tyc
-<<<<<<< Updated upstream
 kOu
 vBS
 vBS
@@ -629391,16 +627908,6 @@ vBS
 vBS
 vBS
 kOu
-=======
-atX
-wSr
-nXa
-tRd
-tRd
-lJw
-qNx
-hvh
->>>>>>> Stashed changes
 tyc
 tyc
 vBS
@@ -629705,7 +628212,6 @@ vBS
 kOu
 tyc
 tyc
-<<<<<<< Updated upstream
 kOu
 kOu
 kOu
@@ -629714,16 +628220,6 @@ kOu
 kOu
 kOu
 kOu
-=======
-atX
-atX
-aGo
-atX
-atX
-aGo
-atX
-atX
->>>>>>> Stashed changes
 tyc
 tyc
 vBS
