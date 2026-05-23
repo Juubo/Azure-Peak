@@ -6291,6 +6291,12 @@
 /obj/item/natural/stone,
 /turf/open/floor/rogue/ruinedwood,
 /area/rogue/indoors/town/garrison/desert)
+"cuk" = (
+/obj/machinery/light/rogue/candle/weak,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "cun" = (
 /obj/structure/fluff/railing/border{
 	dir = 8
@@ -15419,7 +15425,8 @@
 "fWk" = (
 /obj/structure/mineral_door/wood/donjon{
 	lockid = "crier";
-	locked = 1
+	locked = 1;
+	name = "Town Crier"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -15604,6 +15611,12 @@
 /obj/item/clothing/mask/cigarette/pipe/westman,
 /turf/open/floor/carpet/purple,
 /area/rogue/indoors/town/bath/desert)
+"gcg" = (
+/obj/machinery/light/rogue/candle/weak/r,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "gch" = (
 /mob/living/simple_animal/hostile/retaliate/rogue/hyena{
 	name = "Faisal";
@@ -17604,6 +17617,7 @@
 /area/rogue/indoors/town/bath/desert)
 "gQE" = (
 /obj/structure/fluff/railing/border,
+/obj/machinery/light/rogue/candle/weak/l,
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -36393,7 +36407,8 @@
 /area/rogue/under/town/basement/desert)
 "owV" = (
 /obj/structure/mineral_door/wood/window{
-	lockid = "crier"
+	lockid = "crier";
+	name = "Town Crier"
 	},
 /turf/open/floor/rogue/concrete{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
@@ -47164,6 +47179,9 @@
 	pixel_x = -6;
 	pixel_y = 6
 	},
+/obj/machinery/light/rogue/candle/weak{
+	pixel_y = -32
+	},
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -51738,6 +51756,7 @@
 	pixel_y = 4
 	},
 /obj/structure/fluff/railing/corner/south_west,
+/obj/machinery/light/rogue/candle/weak,
 /turf/open/floor/rogue/tile/brownbrick{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -57844,6 +57863,12 @@
 "wPj" = (
 /turf/closed/mineral/random/rogue/sandstone,
 /area/rogue/under/cave)
+"wPo" = (
+/obj/machinery/light/rogue/candle/weak/l,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "wPr" = (
 /obj/structure/fermentation_keg/sandpot/water,
 /obj/machinery/light/rogue/torchholder/c,
@@ -389054,7 +389079,7 @@ bep
 icQ
 atX
 opt
-qGE
+wPo
 jPo
 tPW
 atX
@@ -389678,7 +389703,7 @@ bep
 icQ
 atX
 vlv
-qGE
+gcg
 jPo
 kjg
 atX
@@ -391238,7 +391263,7 @@ bep
 icQ
 bep
 atX
-qGE
+cuk
 qGE
 rIL
 iFH
