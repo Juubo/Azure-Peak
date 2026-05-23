@@ -32339,6 +32339,13 @@
 /obj/structure/closet/crate/chest/wicker,
 /turf/open/floor/rogue/twig,
 /area/rogue/indoors/town/desert)
+"mRU" = (
+/obj/structure/fluff/railing/border/west,
+/obj/item/roguebin/water/gross,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "mSq" = (
 /turf/open/floor/rogue/tile/bath,
 /area/rogue/indoors/town/desert/manor)
@@ -32663,6 +32670,12 @@
 /obj/machinery/light/rogue/torchholder/l,
 /turf/open/floor/rogue/citybrick/citybrick2,
 /area/rogue/outdoors/town/desert)
+"mYS" = (
+/obj/structure/fluff/alch,
+/turf/open/floor/rogue/ruinedwood/spiral{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/academy/desert)
 "mYZ" = (
 /obj/item/roguecoin/copper,
 /obj/item/roguecoin/gold,
@@ -34190,6 +34203,12 @@
 /obj/machinery/light/rogue/candle/blue/r,
 /turf/open/floor/rogue/blocks/stonered/tiny,
 /area/rogue/under/town/basement/desert/keep)
+"nBV" = (
+/obj/item/roguebin/water/gross,
+/turf/open/floor/rogue/hexstone{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/dwarfin/desert)
 "nCb" = (
 /obj/structure/fluff/walldeco/chains{
 	icon_state = "chains5"
@@ -35209,6 +35228,10 @@
 "nXr" = (
 /obj/machinery/light/rogue/candle/l,
 /obj/structure/rack/rogue,
+/obj/item/reagent_containers/glass/bottle/waterskin,
+/obj/item/reagent_containers/glass/bottle/waterskin,
+/obj/item/reagent_containers/glass/bottle/waterskin,
+/obj/item/reagent_containers/glass/bottle/waterskin,
 /turf/open/floor/rogue/tile/harem2{
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
@@ -39318,6 +39341,10 @@
 "pAl" = (
 /turf/closed/wall/mineral/rogue/decostone/end,
 /area/rogue/indoors/town/church)
+"pAt" = (
+/obj/item/roguebin/water/gross,
+/turf/open/floor/rogue/lightpath,
+/area/rogue/outdoors/town/roofs/desert)
 "pAz" = (
 /obj/structure/fluff/clock,
 /turf/open/floor/rogue/tile/harem1,
@@ -379952,7 +379979,7 @@ icQ
 icQ
 lIB
 icQ
-bep
+mVS
 atX
 lCD
 kLd
@@ -389651,7 +389678,7 @@ fWk
 jPo
 jPo
 jPo
-ejz
+mRU
 atX
 qXA
 uss
@@ -399604,7 +399631,7 @@ rHG
 rHG
 eNX
 hbQ
-rHG
+nBV
 rHG
 rHG
 kgN
@@ -493835,7 +493862,7 @@ lBy
 wPi
 pWP
 arQ
-pWP
+mYS
 exC
 jJA
 avo
@@ -623004,7 +623031,7 @@ hHq
 rDB
 hHq
 vBS
-vBS
+pAt
 atX
 sQK
 jFy
