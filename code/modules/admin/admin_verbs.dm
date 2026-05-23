@@ -959,5 +959,5 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 		return
 
 	to_chat(src, "Browser tools are now enabled.")
-	winset(src, null, "browser-options=devtools,find,byondstorage")
+	winset(src, null, "browser-options=devtools,find,refresh") //Caustic Edit - Trying to move to the iframe storage for logging
 
