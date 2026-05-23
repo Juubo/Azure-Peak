@@ -230,6 +230,8 @@
 "zm" = (
 /obj/effect/landmark/start/wretch,
 /obj/effect/landmark/start/wretchlate,
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "Aa" = (
@@ -303,6 +305,8 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld{
 	first_time_text = "wayfarer's dream"
@@ -363,6 +367,8 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld{
 	first_time_text = "wayfarer's dream"
