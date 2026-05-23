@@ -3619,6 +3619,12 @@
 	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
 	},
 /area/rogue/indoors/town/desert)
+"buP" = (
+/obj/machinery/light/rogue/torchholder{
+	dir = 4
+	},
+/turf/open/floor/rogue/darkpath,
+/area/rogue/outdoors/town/desert)
 "buR" = (
 /obj/structure/closet/crate/roguecloset,
 /obj/item/clothing/cloak/tabard/stabard/surcoat,
@@ -41069,6 +41075,12 @@
 /obj/item/natural/rock/desert,
 /turf/open/floor/rogue/citybrick/citybrick1,
 /area/rogue/under/town/basement/desert)
+"qjR" = (
+/obj/structure/roguemachine/scomm/r,
+/turf/open/floor/rogue/tile/brownbrick{
+	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
+	},
+/area/rogue/indoors/town/desert)
 "qkj" = (
 /obj/effect/decal/cobbleedge{
 	icon_state = "borderfall";
@@ -386184,7 +386196,7 @@ tHh
 tHh
 iiI
 qGE
-qGE
+qjR
 jhv
 nsu
 atX
@@ -386808,7 +386820,7 @@ bep
 bep
 bep
 bep
-bep
+buP
 bep
 bep
 bep
