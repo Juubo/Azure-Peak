@@ -298,7 +298,7 @@
 		/datum/sprite_accessory/ears/sergal,
 		/datum/sprite_accessory/ears/shark,
 		/datum/sprite_accessory/ears/big/acrador_long,
-		/datum/sprite_accessory/ears/big/acrador_short,
+		/datum/sprite_accessory/ears/big/acrador_short,	
 		/datum/sprite_accessory/ears/big/sandfox_large,
 		/datum/sprite_accessory/ears/lynx,
 		/datum/sprite_accessory/ears/zorzor,
