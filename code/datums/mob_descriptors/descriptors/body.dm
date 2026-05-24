@@ -92,7 +92,7 @@
 /datum/mob_descriptor/body/massive
 	name = "Massive"
 
-/datum/mob_descriptor/body/hourglass-figured
+/datum/mob_descriptor/body/hourglass_figured
 	name = "Hourglass-figured"
 
 /datum/mob_descriptor/body/barrelchested
