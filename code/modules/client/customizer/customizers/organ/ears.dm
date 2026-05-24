@@ -278,7 +278,7 @@
 
 // ---- Lizard
 /datum/customizer/organ/ears/lizard
-	name = "Hood"
+	name = "Lizard Ears"
 	customizer_choices = list(/datum/customizer_choice/organ/ears/lizard)
 	allows_disabling = TRUE
 	default_disabled = TRUE
@@ -302,7 +302,6 @@
 		/datum/sprite_accessory/ears/big/sandfox_large,
 		/datum/sprite_accessory/ears/lynx,
 		/datum/sprite_accessory/ears/zorzor,
-		/datum/sprite_accessory/ears/wispy,
 		/datum/sprite_accessory/ears/small,
 		//CC End
 		)
