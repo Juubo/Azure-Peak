@@ -374,6 +374,7 @@
 /datum/mob_descriptor/prominent/prominent_ballsack
 	name = "Prominent Ballsack"
 	verbage = "%HAVE%"
+	prefix = "a"
 
 /datum/mob_descriptor/prominent/prominent_shoulders
 	name = "Prominent Shoulders"

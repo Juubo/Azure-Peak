@@ -305,3 +305,6 @@
 
 /datum/mob_descriptor/stature/himbo
 	name = "Himbo"
+
+/datum/mob_descriptor/stature/chud
+	name = "Chud"

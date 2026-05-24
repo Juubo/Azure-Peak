@@ -210,6 +210,7 @@
 		/datum/mob_descriptor/stature/dolt,
 		/datum/mob_descriptor/stature/sumac,
 		/datum/mob_descriptor/stature/himbo,
+		/datum/mob_descriptor/stature/chud,
 	)
 
 /datum/descriptor_choice/voice
