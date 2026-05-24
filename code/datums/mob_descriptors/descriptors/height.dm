@@ -36,7 +36,7 @@
 
 /datum/mob_descriptor/height/enormous
 	name = "Enormous"
-	prefix = "a"
+	prefix = "an"
 
 /datum/mob_descriptor/height/baothan
 	name = "Baothan"
