@@ -282,6 +282,30 @@
 	customizer_choices = list(/datum/customizer_choice/organ/ears/lizard)
 	allows_disabling = TRUE
 	default_disabled = TRUE
+	sprite_accessories = list(
+		//CC Start
+		/datum/sprite_accessory/ears/axolotl,
+		/datum/sprite_accessory/ears/bat,
+		/datum/sprite_accessory/ears/cow,
+		/datum/sprite_accessory/ears/curled,
+		/datum/sprite_accessory/ears/deer,
+		/datum/sprite_accessory/ears/eevee,
+		/datum/sprite_accessory/ears/elf,
+		/datum/sprite_accessory/ears/elfw,
+		/datum/sprite_accessory/ears/elephant,
+		/datum/sprite_accessory/ears/fennec,
+		/datum/sprite_accessory/ears/fish,
+		/datum/sprite_accessory/ears/sergal,
+		/datum/sprite_accessory/ears/shark,
+		/datum/sprite_accessory/ears/big/acrador_long,
+		/datum/sprite_accessory/ears/big/acrador_short,
+		/datum/sprite_accessory/ears/big/sandfox_large,
+		/datum/sprite_accessory/ears/lynx,
+		/datum/sprite_accessory/ears/zorzor,
+		/datum/sprite_accessory/ears/wispy,
+		/datum/sprite_accessory/ears/small,
+		//CC End
+		)
 
 /datum/customizer_choice/organ/ears/lizard
 	name = "Zardman Hood"
