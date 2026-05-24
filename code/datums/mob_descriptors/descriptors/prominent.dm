@@ -371,7 +371,7 @@
 	name = "Slimy"
 	verbage = "%LOOKS%"
 
-/datum/mob_descriptor/prominent/prominent_balls
+/datum/mob_descriptor/prominent/prominent_ballsack
 	name = "Prominent Ballsack"
 	verbage = "%HAVE%"
 

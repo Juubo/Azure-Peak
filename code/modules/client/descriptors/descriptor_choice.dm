@@ -199,7 +199,7 @@
 		/datum/mob_descriptor/stature/snakeinthegrass,
 		/datum/mob_descriptor/stature/blob,
 		/datum/mob_descriptor/stature/thing,
-		/datum/mob_descriptor/stature/dummy
+		/datum/mob_descriptor/stature/dummy,
 		/datum/mob_descriptor/stature/coatrack,
 		/datum/mob_descriptor/stature/plushie,
 		/datum/mob_descriptor/stature/doll,
