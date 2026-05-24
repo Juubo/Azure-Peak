@@ -2488,7 +2488,10 @@
 	},
 /area/rogue/under/cave)
 "aYt" = (
-/obj/structure/fluff/traveltile/vampire,
+/obj/structure/fluff/traveltile/vampire{
+	aportalgoesto = "vampin";
+	aportalid = "vampexit"
+	},
 /turf/open/floor/rogue/naturalstone,
 /area/rogue/under/cavewet/bogcaves/desert)
 "aYz" = (
@@ -12250,6 +12253,13 @@
 /area/rogue/under/town/basement/desert/town{
 	tavern_area = 1
 	})
+"eDK" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin5";
+	aportalid = "wretchout5"
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desert/above)
 "eDU" = (
 /obj/structure/fluff/railing/border{
 	dir = 8;
@@ -27257,9 +27267,9 @@
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert/warden)
 "kNB" = (
-/obj/structure/fluff/traveltile/bandit{
-	aportalgoesto = "banditdesertin2";
-	aportalid = "banditdesertexit2"
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin3";
+	aportalid = "wretchout3"
 	},
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/outdoors/desertdeep/above)
@@ -32154,6 +32164,13 @@
 /obj/machinery/light/rogue/smelter,
 /turf/open/floor/rogue/concrete,
 /area/rogue/indoors/town/dwarfin/desert)
+"mOC" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin4";
+	aportalid = "wretchout4"
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desertdeep)
 "mOD" = (
 /obj/structure/fermentation_keg/sandpot,
 /obj/machinery/light/rogue/candle/l,
@@ -36439,6 +36456,13 @@
 "ouM" = (
 /turf/open/floor/rogue/desert_grass,
 /area/rogue/under/underdark)
+"ouR" = (
+/obj/structure/fluff/traveltile/bandit{
+	aportalgoesto = "banditin2";
+	aportalid = "banditexit2"
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desertdeep/above)
 "ouV" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -44552,15 +44576,8 @@
 /turf/open/floor/rogue/dirt/desert,
 /area/rogue/outdoors/desertdeep)
 "rDj" = (
-/obj/structure/fluff/railing/wood{
-	dir = 4;
-	layer = 2.8;
-	pixel_x = 8
-	},
-/turf/open/floor/rogue/twig{
-	icon = 'modular_deserttown/icons/alt/roguefloor.dmi'
-	},
-/area/rogue/outdoors/desert)
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/outdoors/desert/above)
 "rDk" = (
 /obj/structure/table/wood{
 	icon_state = "tablewood1"
@@ -54560,6 +54577,13 @@
 	},
 /turf/open/floor/rogue/wood/nosmooth,
 /area/rogue/indoors/town/desert)
+"vui" = (
+/obj/structure/fluff/traveltile/wretch{
+	aportalgoesto = "wretchin6";
+	aportalid = "wretchout6"
+	},
+/turf/open/floor/rogue/naturalstone/sandstone,
+/area/rogue/under/cave)
 "vum" = (
 /obj/structure/rack/rogue,
 /obj/item/rogueweapon/shield/iron/zybantine,
@@ -60749,8 +60773,8 @@
 /area/rogue/indoors/town/tavern/desert)
 "xOR" = (
 /obj/structure/fluff/traveltile/bandit{
-	aportalgoesto = "banditdesertin";
-	aportalid = "banditdesertexit"
+	aportalgoesto = "banditin";
+	aportalid = "banditexit"
 	},
 /turf/open/floor/rogue/naturalstone/sandstone,
 /area/rogue/outdoors/desertdeep/above)
@@ -208492,8 +208516,8 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -208803,10 +208827,10 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -209114,11 +209138,11 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -209425,13 +209449,13 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -209736,14 +209760,14 @@ lbf
 kvr
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -210047,15 +210071,15 @@ lbf
 lbf
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -210359,16 +210383,16 @@ lbf
 lbf
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -210671,16 +210695,16 @@ lbf
 lbf
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
+eBo
 eBo
 eBo
 eBo
@@ -210988,8 +211012,8 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
+eBo
+eBo
 kvr
 kvr
 fih
@@ -231397,12 +231421,12 @@ kvr
 uBv
 uBv
 uBv
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+uBv
+uBv
+uBv
+uBv
+uBv
+uBv
 kvr
 kvr
 kvr
@@ -231709,13 +231733,13 @@ kvr
 uBv
 uBv
 uBv
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+uBv
+uBv
+uBv
+uBv
+uBv
+uBv
+vui
 kvr
 kvr
 kvr
@@ -232023,11 +232047,11 @@ uBv
 uBv
 kvr
 kvr
-kvr
-kvr
-kvr
-kvr
-kvr
+uBv
+uBv
+uBv
+uBv
+vui
 kvr
 kvr
 kvr
@@ -232337,9 +232361,9 @@ kvr
 kvr
 kvr
 kvr
-kvr
-kvr
-kvr
+uBv
+uBv
+vui
 kvr
 kvr
 kvr
@@ -327666,14 +327690,14 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -327977,16 +328001,16 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -328289,17 +328313,17 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -328600,18 +328624,18 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+mOC
+vEf
+vEf
+vEf
+vEf
+isT
+isT
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -328912,18 +328936,18 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+mOC
+vEf
+vEf
+vEf
+vEf
+isT
+isT
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -329224,18 +329248,18 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+mOC
+vEf
+vEf
+vEf
+vEf
+isT
+isT
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -329537,17 +329561,17 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
-ydN
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -329849,16 +329873,16 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-xen
-ydN
-ydN
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
+vpW
 ydN
 ydN
 ydN
@@ -330163,11 +330187,11 @@ xen
 xen
 xen
 xen
-xen
-xen
-xen
-xen
-xen
+vpW
+vpW
+vpW
+vpW
+vpW
 xen
 ydN
 ydN
@@ -385433,7 +385457,7 @@ atX
 atX
 atX
 eZT
-rDj
+aAx
 eMy
 eMy
 dQA
@@ -536775,9 +536799,9 @@ pPs
 pPs
 pPs
 pPs
-kNB
-kNB
-kNB
+ouR
+ouR
+ouR
 pPs
 pPs
 pPs
@@ -574338,12 +574362,12 @@ dct
 dct
 dct
 dct
-dct
-dct
-dct
-dct
-dct
-dct
+eDK
+rDj
+rDj
+rDj
+rDj
+rDj
 dct
 dct
 dct
@@ -574650,13 +574674,13 @@ dct
 dct
 dct
 dct
-dct
-dct
-dct
-dct
-dct
-dct
-dct
+eDK
+rDj
+rDj
+rDj
+rDj
+rDj
+rDj
 dct
 dct
 kFh
@@ -574962,14 +574986,14 @@ dct
 dct
 dct
 dct
-dct
-dct
-dct
-dct
-dct
-dct
-dct
-dct
+eDK
+rDj
+rDj
+rDj
+rDj
+rDj
+rDj
+rDj
 kFh
 kFh
 kFh
@@ -575278,10 +575302,10 @@ dct
 dct
 dct
 dct
-dct
-dct
-dct
-dct
+rDj
+rDj
+rDj
+rDj
 kFh
 kFh
 kFh
@@ -575591,7 +575615,7 @@ dct
 dct
 dct
 dct
-dct
+rDj
 kFh
 kFh
 kFh
