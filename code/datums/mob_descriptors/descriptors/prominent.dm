@@ -367,7 +367,7 @@
 	name = "Weak-Willed"
 	verbage = "%LOOKS%"
 
-/datum/mob_descriptor/prominent/vulpine_features
+/datum/mob_descriptor/prominent/slimy
 	name = "Slimy"
 	verbage = "%LOOKS%"
 
