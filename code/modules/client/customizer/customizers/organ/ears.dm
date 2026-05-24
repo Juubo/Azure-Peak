@@ -278,11 +278,18 @@
 
 // ---- Lizard
 /datum/customizer/organ/ears/lizard
-	name = "Lizard Ears"
 	customizer_choices = list(/datum/customizer_choice/organ/ears/lizard)
 	allows_disabling = TRUE
 	default_disabled = TRUE
+
+/datum/customizer_choice/organ/ears/lizard
+	name = "Zardman Ears"
+	organ_type = /obj/item/organ/ears/anthro
+	generic_random_pick = TRUE
 	sprite_accessories = list(
+		/datum/sprite_accessory/ears/cobrahood,
+		/datum/sprite_accessory/ears/cobrahoodears,
+		/datum/sprite_accessory/ears/naja_hood,
 		//CC Start
 		/datum/sprite_accessory/ears/axolotl,
 		/datum/sprite_accessory/ears/bat,
@@ -304,16 +311,6 @@
 		/datum/sprite_accessory/ears/zorzor,
 		/datum/sprite_accessory/ears/small,
 		//CC End
-		)
-
-/datum/customizer_choice/organ/ears/lizard
-	name = "Zardman Hood"
-	organ_type = /obj/item/organ/ears/anthro
-	generic_random_pick = TRUE
-	sprite_accessories = list(
-		/datum/sprite_accessory/ears/cobrahood,
-		/datum/sprite_accessory/ears/cobrahoodears,
-		/datum/sprite_accessory/ears/naja_hood,
 		)
 
 // ---- Tiefling
