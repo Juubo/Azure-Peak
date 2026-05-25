@@ -352,6 +352,7 @@
 	droning_sound = 'sound/music/area/academy.ogg'
 	droning_sound_dusk = null
 	droning_sound_night = null
+	keep_area = TRUE
 
 /area/rogue/indoors/town/academy/desert
 	name = "Academy"
@@ -464,3 +465,6 @@
 	name = "The Lower Caverns"
 	first_time_text = "The Lower Caverns"
 	threat_region = THREAT_REGION_DESERT_TOWN_CAVES
+
+/area/rogue/underworld/desert
+	first_time_text = "wayfarer's dream"
