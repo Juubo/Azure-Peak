@@ -63,7 +63,9 @@
 
 /mob/living/simple_animal/hostile/retaliate/rogue/headless/Initialize()
 	//Caustic Edit - Attempt to replace all of these mobs with Lamia instead on spawn for now.
+	. = ..()
 	var/mob/living/simple_animal/hostile/retaliate/rogue/lamia/new_lamia = new(src.loc)
+	new_lamia.forceMove(src.loc)
 	del(src)
 
 	/* //Caustic Edit - Replace them with Lamia for now.

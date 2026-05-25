@@ -156,6 +156,7 @@ GLOBAL_LIST_EMPTY(chosen_names)
 	var/no_language_fonts = FALSE
 	var/no_language_icon = FALSE
 	var/no_redflash = FALSE
+	var/darkvision_accessibility = 0
 
 	var/lastclass
 
