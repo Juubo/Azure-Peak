@@ -346,7 +346,7 @@
 	flags_inv = HIDEHAIR|HIDEEARS
 	icon = 'modular_deserttown/icons/clothing/easternclothes.dmi'
 	mob_overlay_icon = 'modular_deserttown/icons/clothing/onmob/easternclothes.dmi'
-	salvage_result = /obj/item/natural/fibers
+	salvage_result = /obj/item/natural/cloth
 	icon_state = "turban"
 	item_state = "turban"
 
@@ -515,7 +515,7 @@
 
 /datum/crafting_recipe/roguetown/sewing/fancysirwal
 	name = "fancy sirwal"
-	result = list(/obj/item/clothing/under/roguetown/sirwal)
+	result = list(/obj/item/clothing/under/roguetown/sirwal/fancy)
 	reqs = list(/obj/item/natural/cloth = 1, /obj/item/natural/silk = 2)
 	craftdiff = 3
 
@@ -525,7 +525,7 @@
 	gender = PLURAL
 	icon = 'modular_deserttown/icons/clothing/pants.dmi'
 	mob_overlay_icon = 'modular_deserttown/icons/clothing/onmob/pants.dmi'
-	salvage_result = /obj/item/natural/fibers
+	salvage_result = /obj/item/natural/cloth
 	icon_state = "thong"
 	item_state = "thong"
 	body_parts_covered = GROIN
@@ -608,7 +608,7 @@
 	color = null
 	icon = 'modular_deserttown/icons/clothing/belts.dmi'
 	mob_overlay_icon = 'modular_deserttown/icons/clothing/onmob/belts.dmi'
-	salvage_result = /obj/item/natural/fibers
+	salvage_result = /obj/item/natural/cloth
 	salvage_amount = 1
 	icon_state = "sashgrey"
 	item_state = "sashgrey"
