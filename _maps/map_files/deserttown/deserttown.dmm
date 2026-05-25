@@ -48665,6 +48665,10 @@
 	},
 /turf/open/floor/rogue/deserttile,
 /area/rogue/indoors/town/garrison/desert)
+"tld" = (
+/obj/structure/bars,
+/turf/open/water/river/flow,
+/area/rogue/under/cave)
 "tli" = (
 /obj/structure/fluff/railing/border{
 	dir = 6
@@ -285883,7 +285887,7 @@ xwm
 und
 und
 und
-oxb
+tDA
 tDA
 tDA
 usi
@@ -286195,8 +286199,8 @@ xwm
 und
 und
 tDA
-oxb
-oTK
+tDA
+usi
 usi
 xwm
 xwm
@@ -286502,13 +286506,13 @@ kvr
 kvr
 kvr
 gZf
-gZf
+tld
 tDA
 tDA
 tDA
 usi
 tDA
-oTK
+usi
 und
 xwm
 xwm
@@ -286814,7 +286818,7 @@ kvr
 kvr
 gZf
 jZd
-gZf
+tld
 tDA
 tDA
 tDA
