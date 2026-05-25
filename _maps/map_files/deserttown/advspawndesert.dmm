@@ -205,10 +205,10 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "xp" = (
-/obj/structure/underworld/barrier,
-/obj/structure/underworld/barrier,
 /turf/open/floor/rogue/churchrough,
-/area/rogue/underworld/adventurespawn)
+/area/rogue/underworld{
+	first_time_text = "wayfarer's dream"
+	})
 "xV" = (
 /obj/structure/bearpelt{
 	alpha = 200;
@@ -226,6 +226,13 @@
 	name = "Unlucky path to Al-Ashur"
 	},
 /turf/open/floor/rogue/underworld/road,
+/area/rogue/underworld/adventurespawn)
+"zm" = (
+/obj/effect/landmark/start/wretch,
+/obj/effect/landmark/start/wretchlate,
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
+/turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "Aa" = (
 /obj/structure/flora/roguetree/underworld,
@@ -291,7 +298,6 @@
 	first_time_text = "wayfarer's dream"
 	})
 "Jn" = (
-/obj/structure/underworld/barrier,
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
@@ -299,6 +305,8 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld{
 	first_time_text = "wayfarer's dream"
@@ -349,7 +357,6 @@
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld/adventurespawn)
 "Pk" = (
-/obj/structure/underworld/barrier,
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
@@ -360,6 +367,8 @@
 /obj/effect/landmark/start/adventurerlate{
 	dir = 1
 	},
+/obj/effect/landmark/start/wildsoul,
+/obj/effect/landmark/start/wildsoullate,
 /turf/open/floor/rogue/churchrough,
 /area/rogue/underworld{
 	first_time_text = "wayfarer's dream"
@@ -786,10 +795,10 @@ Ta
 MR
 Xc
 Aa
-xp
-VB
-VB
-Al
+Ta
+Ta
+Ta
+MR
 Dm
 fM
 "}
@@ -815,10 +824,10 @@ Ta
 MR
 MR
 LF
+xp
 Rt
 Rt
-Rt
-Al
+MR
 Dm
 fM
 "}
@@ -847,7 +856,7 @@ MR
 Jn
 Hm
 Rt
-Al
+MR
 Dm
 fM
 "}
@@ -876,7 +885,7 @@ MR
 Pk
 iY
 Rt
-Al
+MR
 Dm
 fM
 "}
@@ -905,7 +914,7 @@ MR
 Pk
 dA
 dA
-Al
+MR
 Dm
 fM
 "}
@@ -931,10 +940,10 @@ MR
 VD
 MR
 MR
+zm
 Ta
 Ta
-Ta
-Al
+MR
 Dm
 fM
 "}
