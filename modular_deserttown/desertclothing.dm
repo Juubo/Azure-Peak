@@ -526,6 +526,7 @@
 	icon = 'modular_deserttown/icons/clothing/pants.dmi'
 	mob_overlay_icon = 'modular_deserttown/icons/clothing/onmob/pants.dmi'
 	salvage_result = /obj/item/natural/cloth
+	salvage_amount = 1
 	icon_state = "thong"
 	item_state = "thong"
 	body_parts_covered = GROIN
