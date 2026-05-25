@@ -23,7 +23,7 @@
 	droning_sound_night = 'sound/music/area/desert/Moonrise.ogg'
 	deathsight_message = "somewhere in the dunes, next to towering walls"
 	warden_area = TRUE
-	//threat_region = THREAT_REGION_DESERT_NEAR
+	threat_region = THREAT_REGION_INNER_DUNES
 	
 /area/rogue/outdoors/desert/river
 	name = "river"
@@ -32,6 +32,7 @@
 	ambientnight = AMB_RIVERNIGHT
 	spookysounds = SPOOKY_FROG
 	spookynight = SPOOKY_FOREST
+	threat_region = THREAT_REGION_FRESH_RIVER
 
 /area/rogue/outdoors/desertdeep
 	name = "Deep Dunes"
@@ -58,7 +59,7 @@
 		/mob/living/simple_animal/hostile/retaliate/rogue/wolf_undead = 10,)
 	converted_type = /area/rogue/indoors/shelter/desertdeep
 	deathsight_message = "an empty, parched desert"
-	//threat_region = THREAT_REGION_DESERT_DEEP
+	threat_region = THREAT_REGION_DEEP_DUNES
 
 /area/rogue/indoors/shelter/desertdeep
 	name = "Deep Desert (shelter)"
@@ -443,3 +444,23 @@
 	converted_type = /area/rogue/outdoors/exposed/church
 	deathsight_message = "a hallowed place, sworn to the One"
 	first_time_text = "THE HOUSE OF THE ONE"
+
+//Unqiue quest area for the indoor quest locations.
+/area/rogue/indoors/town/desert/quest
+	name = "desert town indoors"
+	icon_state = "town"
+	droning_sound = 'sound/music/area/desert/TheRoad.ogg'
+	droning_sound_dusk = 'sound/music/area/desert/NightPrayer.ogg'
+	droning_sound_night = 'sound/music/area/desert/Moonrise.ogg'
+	converted_type = /area/rogue/outdoors/exposed/town
+	town_area = TRUE
+	deathsight_message = "the city of Al-Ashur and all its bustling souls"
+	threat_region = THREAT_REGION_DESERT_TOWN
+	first_time_text = "Something feels off..." //Just a warning for players to know that this place is dangerous.
+	safe = FALSE //Using an unused var for Teleportation as a means to play a different area entry sound.
+
+//Underground caves for the town.
+/area/rogue/under/cavewet/bogcaves/desert
+	name = "The Lower Caverns"
+	first_time_text = "The Lower Caverns"
+	threat_region = THREAT_REGION_DESERT_TOWN_CAVES
