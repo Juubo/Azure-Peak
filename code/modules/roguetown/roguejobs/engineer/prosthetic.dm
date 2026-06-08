@@ -14,6 +14,7 @@
 		attach_limb(H)
 		user.visible_message(span_notice("[user] attaches [src] to [H]."))
 		return 1
+	sync_overclock_spell(H)
 
 /obj/item/contraption/bronzeprosthetic
 	name = "bronze prosthetic"
