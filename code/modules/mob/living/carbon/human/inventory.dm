@@ -353,7 +353,8 @@
 	if(!QDELETED(src) && istype(I, /obj/item/clothing))
 		var/obj/item/clothing/C = I
 		C.warn_armor_class(src, removed = TRUE)
-
+	update_reflection()
+	
 //	if(!QDELETED(src))
 //		if(I.eweight)
 //			encumbrance -= I.eweight

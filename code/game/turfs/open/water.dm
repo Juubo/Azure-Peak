@@ -4,12 +4,13 @@
 	icon_state = "bottom"
 	density = 0
 	mouse_opacity = 0
-	layer = BELOW_MOB_LAYER
+	layer = GAME_PLANE      
 	anchored = TRUE
 
 /obj/effect/overlay/water/top
 	icon_state = "top"
 	layer = BELOW_MOB_LAYER
+	plane = GAME_PLANE   
 
 
 /turf/open/water
@@ -43,12 +44,14 @@
 	var/swim_skill = FALSE
 	nomouseover = FALSE
 	var/swimdir = FALSE
+	shine = SHINE_SHINY
 
 /turf/open/water/Initialize()
 	.  = ..()
 	water_overlay = new(src)
 	water_top_overlay = new(src)
 	update_icon()
+
 
 /turf/open/water/update_icon()
 	if(water_overlay)
@@ -162,6 +165,12 @@
 		if(Yeah)
 			water_top_overlay.add_overlay(Yeah)
 
+// Override make_shiny ONLY to push the reflection overlays onto the above planes
+// so they composite above GAME_PLANE content and are actually visible.
+// The water surface overlays themselves are untouched.
+/turf/open/water/make_shiny(_shine = SHINE_REFLECTIVE, _reflection_plane = REFLECTIVE_PLANE)
+    ..(_shine, REFLECTIVE_PLANE_ABOVE)
+	
 /turf/open/water/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
 	for(var/obj/structure/S in src)
@@ -353,6 +362,7 @@
 	water_color = "#FFFFFF"
 	slowdown = 3
 	water_reagent = /datum/reagent/water/bathwater
+	shine = SHINE_REFLECTIVE
 
 /turf/open/water/bath/Initialize()
 	.  = ..()
@@ -368,6 +378,7 @@
 	slowdown = 3
 	wash_in = FALSE
 	water_reagent = /datum/reagent/water/gross/sewage
+	shine = SHINE_REFLECTIVE
 
 /turf/open/water/sewer/Initialize()
 	icon_state = "paving"
@@ -384,6 +395,7 @@
 	slowdown = 3
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/gross
+	shine = SHINE_MATTE
 
 /turf/open/water/bloody
 	name = "blood"
@@ -395,6 +407,7 @@
 	slowdown = 3
 	wash_in = FALSE
 	water_reagent = /datum/reagent/blood/shitty
+	shine = SHINE_MATTE
 
 /turf/open/water/swamp/Initialize()
 	icon_state = "dirt"
@@ -453,6 +466,7 @@
 	water_color = "#705a43"
 	slowdown = 5
 	swim_skill = TRUE
+	shine = SHINE_MATTE
 
 /turf/open/water/swamp/deep/Entered(atom/movable/AM, atom/oldLoc)
 	. = ..()
@@ -502,6 +516,7 @@
 	slowdown = 3
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water
+	shine = SHINE_SHINY
 
 /turf/open/water/cleanshallow/Initialize()
 	icon_state = "rock"
@@ -518,6 +533,7 @@
 	wash_in = TRUE
 	swim_skill = TRUE
 	swimdir = TRUE
+	shine = SHINE_SHINY
 
 /turf/open/water/river/flow
 	icon_state = "rockwd2"
@@ -599,6 +615,7 @@
 	swim_skill = TRUE
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/salty
+	shine = SHINE_REFLECTIVE
 
 /turf/open/water/ocean/deep
 	name = "salt water"
@@ -610,6 +627,7 @@
 	slowdown = 8
 	swim_skill = TRUE
 	wash_in = TRUE
+	shine = SHINE_REFLECTIVE
 
 /turf/open/water/pond
 	name = "pond"
@@ -622,3 +640,4 @@
 	swim_skill = TRUE
 	wash_in = TRUE
 	water_reagent = /datum/reagent/water/gross
+	shine = SHINE_REFLECTIVE

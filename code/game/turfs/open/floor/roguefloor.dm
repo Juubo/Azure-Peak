@@ -836,12 +836,13 @@
 
 /turf/open/floor/rogue/blocks/green
 	icon_state = "greenblocks"
-
+	
 /turf/open/floor/rogue/blocks/bluestone
 	icon_state = "bluestone2"
 
 /turf/open/floor/rogue/blocks/newstone
 	icon_state = "newstone2"
+	shine = SHINE_REFLECTIVE
 
 /turf/open/floor/rogue/blocks/newstone/alt
 	icon_state = "bluestone"
@@ -938,6 +939,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	smooth = SMOOTH_MORE
+	shine = SHINE_SHINY
 	canSmoothWith = list(/turf/closed/mineral/rogue,
 						/turf/open/floor/rogue/herringbone,
 						/turf/closed/mineral,
@@ -973,6 +975,7 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	landsound = 'sound/foley/jumpland/stoneland.wav'
 	smooth = SMOOTH_MORE
+	shine = SHINE_REFLECTIVE
 	canSmoothWith = list(/turf/closed/mineral/rogue,
 						/turf/open/floor/rogue/herringbone,
 						/turf/closed/mineral,
@@ -1338,12 +1341,16 @@
 
 /turf/open/floor/rogue/tile/masonic
 	icon_state = "masonic"
+	shine = SHINE_SHINY
 /turf/open/floor/rogue/tile/masonic/single
 	icon_state = "masonicsingle"
+	shine = SHINE_SHINY
 /turf/open/floor/rogue/tile/masonic/inverted
 	icon_state = "masonicsingleinvert"
+	shine = SHINE_SHINY
 /turf/open/floor/rogue/tile/masonic/spiral
 	icon_state = "masonicspiral"
+	shine = SHINE_SHINY
 
 /turf/open/floor/rogue/tile/bath
 	name = "bath tiles"
@@ -1362,6 +1369,7 @@
 
 /turf/open/floor/rogue/tile/checker
 	icon_state = "linoleum"
+	shine = SHINE_REFLECTIVE
 
 /turf/open/floor/rogue/tile/checkeralt
 	icon_state = "tile"
@@ -1560,6 +1568,7 @@
 	landsound = 'sound/foley/jumpland/grassland.wav'
 	smooth = SMOOTH_MORE
 	canSmoothWith = list(/turf/open/floor/rogue, /turf/open/floor/rogue/underworld)
+	shine = SHINE_SHINY
 
 /turf/open/floor/rogue/dark_ice/cardinal_smooth(adjacencies)
 	roguesmooth(adjacencies)
