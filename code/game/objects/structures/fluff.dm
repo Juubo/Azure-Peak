@@ -474,7 +474,7 @@
 	desc = ""
 	icon_state = "floorgrille"
 	density = FALSE
-	layer = TABLE_LAYER
+	//layer = TABLE_LAYER //this is causing issues and making it appear below the water
 	plane = GAME_PLANE
 	damage_deflection = 5
 	blade_dulling = DULLING_BASHCHOP

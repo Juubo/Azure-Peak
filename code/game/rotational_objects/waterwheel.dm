@@ -9,7 +9,7 @@
 
 	icon = 'icons/roguetown/misc/waterwheel.dmi'
 	icon_state = "1"
-
+	plane = WALL_PLANE
 	layer = 5
 	stress_generator = TRUE
 	rotation_structure = TRUE
