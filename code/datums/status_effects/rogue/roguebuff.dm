@@ -2618,7 +2618,7 @@
 /datum/status_effect/buff/artificerstr
 	id = "artificer_athletic"
 	alert_type = /atom/movable/screen/alert/status_effect/buff/artificerstr
-	effectedstats = list(STATKEY_STR = 2, STATKEY_WIL = 2)
+	effectedstats = list(STATKEY_STR = 1, STATKEY_WIL = 1)
 
 /atom/movable/screen/alert/status_effect/buff/artificerstr
 	name = "Artificer Athletic"

@@ -165,10 +165,14 @@
 				if(!reagents.has_reagent(/datum/reagent/water/gross, 5))
 					to_chat(user, span_warning("Need more water to quench in."))
 					return
-			if(!T.hingot.currecipe)
+			if(!istype(T.hingot, /obj/item/ingot))
 				to_chat(user, span_warning("Huh?"))
 				return
-			if(T.hingot.currecipe.progress < T.hingot.currecipe.max_progress)
+			var/obj/item/ingot/heldingot = T.hingot
+			if(!heldingot.currecipe)
+				to_chat(user, span_warning("Huh?"))
+				return
+			if(heldingot.currecipe.progress < heldingot.currecipe.max_progress)
 				to_chat(user, span_warning("It's not finished yet."))
 				return
 			if(!T.hott)
@@ -177,7 +181,7 @@
 			var/used_turf = user.loc
 			if(!isturf(used_turf))
 				used_turf = get_turf(src)
-			var/datum/anvil_recipe/R = T.hingot.currecipe
+			var/datum/anvil_recipe/R = heldingot.currecipe
 			var/obj/item/crafteditem = R.created_item
 			if(R.createditem_num > 1)
 				R.createditem_num--

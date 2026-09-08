@@ -59,6 +59,22 @@
 		STR.remove_from_storage(I, get_turf(user))
 		user.put_in_hands(I)
 
+/obj/item/storage/roguebag/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/rogueweapon/tongs))
+		var/obj/item/rogueweapon/tongs/T = I
+		if(T.hingot)
+			var/datum/component/storage/S = GetComponent(/datum/component/storage)
+			if(S && S.can_be_inserted(T.hingot, TRUE, user))
+				var/obj/item/held = T.hingot
+				S.handle_item_insertion(held, TRUE, user)
+				T.hingot = null
+				T.hott = null
+				T.update_icon()
+				return TRUE
+			to_chat(user, span_warning("[T.hingot] won't fit in [src]."))
+			return TRUE
+	return ..()
+
 /obj/item/storage/roguebag/update_icon()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
 	var/list/things = STR.contents()

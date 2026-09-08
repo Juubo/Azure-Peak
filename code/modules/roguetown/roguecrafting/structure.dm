@@ -253,6 +253,17 @@
 	skillcraft = /datum/skill/craft/carpentry
 	craftdiff = 3
 
+/datum/crafting_recipe/roguetown/structure/portholedoor
+	name = "Porthole door"
+	category = "Doors"
+	result = /obj/structure/mineral_door/wood/donjon
+	reqs = list(/obj/item/grown/log/tree/small = 2,
+				/obj/item/ingot/iron = 1,
+				/obj/item/roguegear = 1)
+	verbage_simple = "build"
+	verbage = "builds"
+	skillcraft = /datum/skill/craft/carpentry
+
 /datum/crafting_recipe/roguetown/structure/barrel
 	name = "wooden barrel"
 	category = "Containers"

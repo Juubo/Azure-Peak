@@ -369,13 +369,24 @@
 	craftdiff = 5
 
 //combat gear
+//easier but heretical
 /datum/anvil_recipe/engineering/artificerarmor
-	name = "Artificer armor (+2 Ancient Alloy Ingot, +2 Gears)"
+	name = "Artificer Armor (+2 Ancient Alloy Ingot, +2 Gears)"
 	category = "Engineering"
 	req_bar = /obj/item/ingot/purifiedaalloy
 	additional_items = list(/obj/item/ingot/purifiedaalloy, /obj/item/ingot/purifiedaalloy, /obj/item/roguegear, /obj/item/roguegear)
 	created_item = /obj/item/clothing/suit/roguetown/armor/plate/paalloy/artificer
 	craftdiff = 4
+	display_category = ITEM_CAT_ARMOR_CHESTPIECES
+
+//harder and more expensive but nonheretical
+/datum/anvil_recipe/engineering/artificerarmor
+	name = "Artificer Modern Armor (+1 Blacksteel, +1 gold, +1 steel, +2 Gears)"
+	category = "Engineering"
+	req_bar = /obj/item/ingot/blacksteel
+	additional_items = list(/obj/item/ingot/gold, /obj/item/ingot/steel, /obj/item/roguegear, /obj/item/roguegear)
+	created_item = /obj/item/clothing/suit/roguetown/armor/plate/blacksteel/artificer
+	craftdiff = 6
 	display_category = ITEM_CAT_ARMOR_CHESTPIECES
 
 /datum/anvil_recipe/engineering/volticgauntlet
