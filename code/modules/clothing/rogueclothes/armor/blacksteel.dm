@@ -27,7 +27,7 @@
 	item_state = "bhalfplate"
 
 /obj/item/clothing/suit/roguetown/armor/plate/blacksteel
-	name = "artificer's blacksteel half-plate"
+	name = "ancient blacksteel half-plate"
 	desc = "An antiquated blacksteel cuirass, forged in an age when Psydonia's smiths still wrestled with the temperament of this jealous alloy. Its weight settles heavy upon the shoulders, and its pauldrons slope like a knight bowing to fate."
 	body_parts_covered = COVERAGE_ALL_BUT_HANDLEGS
 	icon_state = "bkhalfarmor"
@@ -49,7 +49,7 @@
 	chunkcolor = "#303036"
 
 /obj/item/clothing/suit/roguetown/armor/plate/blacksteel/artificer
-	name = "artificed half-plate"
+	name = "modern artificed half-plate"
 	desc = "Old knowledge rebranded, Blacksteel replacing the mistakes of the past. Light and a merging of metal-and-magicka. It holds a slot for an infernal orb to power it."
 	smeltresult = /obj/item/ingot/blacksteel
 	icon_state = "artificerplate"
