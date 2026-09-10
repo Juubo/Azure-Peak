@@ -370,7 +370,7 @@
 
 //combat gear
 //easier but heretical
-/datum/anvil_recipe/engineering/artificerarmor
+/datum/anvil_recipe/engineering/artificerhereticalarmor
 	name = "Artificer Armor (+2 Ancient Alloy Ingot, +2 Gears)"
 	category = "Engineering"
 	req_bar = /obj/item/ingot/purifiedaalloy
@@ -380,8 +380,8 @@
 	display_category = ITEM_CAT_ARMOR_CHESTPIECES
 
 //harder and more expensive but nonheretical
-/datum/anvil_recipe/engineering/artificerarmor
-	name = "Artificer Modern Armor (+1 Blacksteel, +1 gold, +1 steel, +2 Gears)"
+/datum/anvil_recipe/engineering/artificermodernarmor
+	name = "Artificer Modern Armor (+1 Blacksteel, +1 Gold, +1 Steel, +2 Gears)"
 	category = "Engineering"
 	req_bar = /obj/item/ingot/blacksteel
 	additional_items = list(/obj/item/ingot/gold, /obj/item/ingot/steel, /obj/item/roguegear, /obj/item/roguegear)

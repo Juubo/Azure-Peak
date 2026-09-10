@@ -254,7 +254,7 @@
 	craftdiff = 3
 
 /datum/crafting_recipe/roguetown/structure/portholedoor
-	name = "Porthole door"
+	name = "porthole door"
 	category = "Doors"
 	result = /obj/structure/mineral_door/wood/donjon
 	reqs = list(/obj/item/grown/log/tree/small = 2,
