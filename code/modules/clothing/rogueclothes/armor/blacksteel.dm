@@ -52,6 +52,7 @@
 	name = "modern artificed half-plate"
 	desc = "Old knowledge rebranded, Blacksteel replacing the mistakes of the past. Light and a merging of metal-and-magicka. It holds a slot for an infernal orb to power it."
 	smeltresult = /obj/item/ingot/blacksteel
+	smelt_bar_num = 1
 	icon_state = "artificerplate"
 	item_state = "artificerplate"
 	armor_class = ARMOR_CLASS_LIGHT // Artificer made blacksteel.
