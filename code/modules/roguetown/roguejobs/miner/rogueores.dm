@@ -175,7 +175,7 @@
 		name = "[prefix] [initial(name)]"
 	if(initial(sellprice) > 0)
 		sellprice = max(1, round(initial(sellprice) * ITEM_QUALITY_MULT(item_quality)))
-/*
+
 /obj/item/ingot/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/rogueweapon/tongs))
 		var/obj/item/rogueweapon/tongs/T = I
@@ -189,7 +189,7 @@
 			T.update_icon()
 			return
 	..()
-*/
+
 /obj/item/ingot/Destroy()
 	. = ..()
 	if(currecipe)

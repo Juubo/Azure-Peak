@@ -502,7 +502,7 @@
 	slot_flags = ITEM_SLOT_HIP
 	tool_behaviour = TOOL_IMPROVISED_HEMOSTAT
 	associated_skill = /datum/skill/craft/blacksmithing	//Tongs don't do a lot of damage and have 3 defense. This associated skill should be alright.
-	var/obj/item/hingot = null
+	var/obj/item/ingot/hingot = null
 	var/hott = FALSE
 	smeltresult = /obj/item/ingot/iron
 	grid_width = 32
@@ -590,22 +590,6 @@
 				return list("shrink" = 0.7,"sx" = 5,"sy" = -4,"nx" = -5,"ny" = -4,"wx" = -5,"wy" = -3,"ex" = 7,"ey" = -4,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0,"nturn" = -45,"sturn" = 45,"wturn" = -45,"eturn" = 45,"nflip" = 8,"sflip" = 0,"wflip" = 8,"eflip" = 0)
 			if("onbelt")
 				return list("shrink" = 0.5,"sx" = -2,"sy" = -5,"nx" = 4,"ny" = -5,"wx" = 0,"wy" = -5,"ex" = 2,"ey" = -5,"nturn" = 0,"sturn" = 0,"wturn" = 0,"eturn" = 0,"nflip" = 0,"sflip" = 0,"wflip" = 0,"eflip" = 0,"northabove" = 0,"southabove" = 1,"eastabove" = 1,"westabove" = 0)
-
-/obj/item/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/rogueweapon/tongs) && !istype(src, /obj/item/rogueweapon/tongs))
-		var/obj/item/rogueweapon/tongs/T = I
-		if (isnull(src.smeltresult))
-			return
-		if(loc in user.contents)
-			to_chat(user, span_warning("I can't take out \the [src] from inside."))
-			return TRUE
-		if(!T.hingot)
-			forceMove(T)
-			T.hingot = src
-			T.hott = null
-			T.update_icon()
-			return TRUE
-	return ..()
 
 /obj/item/rogueweapon/tongs/stone
 	name = "stone tongs"
