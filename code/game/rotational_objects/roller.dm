@@ -136,11 +136,12 @@
 	SIGNAL_HANDLER
 	if(entering_atom.loc != loc) // If we are not on the same turf (order of operations memes) go to hell
 		return
-
 	if(!operating || !rotations_per_minute)
 		stop_conveying(entering_atom)
 		return
-
+	if(!rotation_network || rotation_network.overstressed)
+		stop_conveying(entering_atom)
+		return
 	start_conveying(entering_atom)
 
 /obj/structure/roller/proc/start_conveying(atom/movable/moving)
