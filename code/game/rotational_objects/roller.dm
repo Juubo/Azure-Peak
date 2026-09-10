@@ -102,20 +102,20 @@
 	return TRUE
 
 /obj/structure/roller/set_rotations_per_minute(rpm)
-    if(rotations_per_minute == rpm)
-        return FALSE
-    rotations_per_minute = min(rpm, 32)
-    operating = rotations_per_minute > 0
-    var/current_turf = get_turf(src)
-    if(!operating)
-        for(var/atom/movable/movable in current_turf)
-            stop_conveying(movable)
-    else
-        // If we're on, start conveying so moveloops on our tile can be refreshed if they stopped for some reason
-        for(var/atom/movable/movable in get_turf(src))
-            start_conveying(movable)
-    vand_update_appearance()
-    return TRUE
+	if(rotations_per_minute == rpm)
+		return FALSE
+	rotations_per_minute = min(rpm, 32)
+	operating = rotations_per_minute > 0
+	var/current_turf = get_turf(src)
+	if(!operating)
+		for(var/atom/movable/movable in current_turf)
+			stop_conveying(movable)
+	else
+		// If we're on, start conveying so moveloops on our tile can be refreshed if they stopped for some reason
+		for(var/atom/movable/movable in get_turf(src))
+			start_conveying(movable)
+	vand_update_appearance()
+	return TRUE
 /*
 /obj/structure/roller/proc/build_roller_chain()
 	var/turf/forward_turf = get_step(src, movedir)
